@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 00:06:53 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 00:37:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define CO	"co"
 # define LI	"li"
 # define CM	"cm"
+# define CD	"cd"
+# define CH	"ch"
 
 /*
 **INTERFACE
@@ -34,6 +36,8 @@
 struct s_cursor		get_pos_cursor(void);
 struct s_win		get_win_size(void);
 void				set_cursor_pos(int col, int row);
+void				set_cursor_col(int col);
+void				clear_curr_line_to_the_end(void);
 
 /*
 **INTERNAL

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:03:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 22:33:41 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 00:37:39 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,22 @@ struct s_cursor				get_pos_cursor(void)
 	p_buf = ft_skip_before(buf, ';');
 	cr.x = ft_atoi(p_buf);
 	return (cr);
+}
+
+void	set_cursor_pos(int col, int row)
+{
+	char	*str;
+
+	str = input_tgetstr(CM);
+	str = input_tgoto(str, col, row);
+	input_tputs(str, 0, ft_putchar);
+}
+
+void	set_cursor_col(int col)
+{
+	char	*str;
+
+	str = input_tgetstr(CH);
+	str = input_tgoto(str, 0, col);
+	input_tputs(str, 0, ft_putchar);
 }

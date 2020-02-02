@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:06:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 00:12:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 00:36:14 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ struct s_win	get_win_size(void)
 	return (wn);
 }
 
-void	set_cursor_pos(int col, int row)
+void	clear_curr_line_to_the_end(void)
 {
 	char	*str;
 
-	str = input_tgetstr(CM);
-	str = input_tgoto(str, col, row);
+	str = input_tgetstr(CD);
 	input_tputs(str, 0, ft_putchar);
 }
