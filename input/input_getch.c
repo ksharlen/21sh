@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 19:30:43 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 20:13:00 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		get_key_additional(char key)
 
 static int		get_key_arrow(char key)
 {
-	int key_arrow;
+	int	key_arrow;
 
 	key_arrow = 0;
 	if (key == 'A')
@@ -43,6 +43,10 @@ static int		get_key_arrow(char key)
 		key_arrow = KEY_RIGHT_ARROW;
 	else if (key == 'D')
 		key_arrow = KEY_LEFT_ARROW;
+	else if (key == 'H')
+		key_arrow = KEY_HOME;
+	else if (key == 'F')
+		key_arrow = KEY_END;
 	return (key_arrow);
 }
 
@@ -51,13 +55,22 @@ static int		get_func_key(struct s_key *key)
 	CHK_SYS_ERR_EXT(key->nread = read(STDIN_FILENO, &key->read_key[2], ONE_SYM),
 		E_READ, "input_getch");
 	if (key->read_key[2] >= '0' && key->read_key[2] <= '9')
-		key->key = get_key_additional(key->read_key);
-	else if (KEY_ARROW(key->read_key[2]))
-		key->key = get_key_arrow(key->read_key);
+	{
+		CHK_SYS_ERR_EXT(key->nread = read(STDIN_FILENO, &key->read_key[3], ONE_SYM),
+		E_READ, "input_getch");
+		if (key->read_key[3] == '~')
+			key->key = get_key_additional(key->read_key[2]);
+		else
+			key->key = 0;
+	}
+	else if (KEY_ARROW(key->read_key[2]) || KEY_HOME_END(key->read_key[2]))
+		key->key = get_key_arrow(key->read_key[2]);
+	else
+		key->key = 0;
 	return (key->key);
 }
 
-int	input_getch(void)
+int				input_getch(void)
 {
 	struct s_key	key;
 
@@ -68,11 +81,11 @@ int	input_getch(void)
 		CHK_SYS_ERR_EXT(key.nread = read(STDIN_FILENO, &key.read_key[1],
 			ONE_SYM), E_READ, "input_getch");
 		if (key.read_key[1] == '[')
-			key.key = get_func_key(&key);//!func_key
+			key.key = get_func_key(&key);
 		else
-			key.key = 0;//TODO
+			key.key = 0;
 	}
 	else
-		key.key = key.read_key;
+		key.key = key.read_key[0];
 	return (key.key);
 }
