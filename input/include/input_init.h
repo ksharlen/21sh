@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:23:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 21:01:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:09:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "libft.h"
 # include "input_struct.h"
 # include "input_macros.h"
+# include "input_termcap.h"
 
 void	entry_not_canon(struct termios *st_copy);
 void	entry_canon(struct termios *st_term);

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/02 22:57:12 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/02 23:37:21 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ SRCS				:=	main.c\
 							input_mode_term.c\
 							input_init.c\
 							input_cursor_pos.c\
-							input_termcap.c
+							input_termcap.c\
+							input_common.c\
+							input_error.c
 
 #OBJS
 OBJS				:=	$(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 22:53:20 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:36:40 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,20 @@
 # include <termcap.h>
 # include <termios.h>
 
+# include "input_error.h"
 # include "libft.h"
 # include "input_struct.h"
 # include "input_macros.h"
 
+# define CO	"co"
+# define LI	"li"
+
 struct s_cursor		get_pos_cursor(void);
 void				input_tgetent(void);
-
+char				*input_tgetstr(char *cb);
+char				*input_tgoto(char *cb, int one, int two);
+void				input_tputs(const char *str, int affcnt, int (*putc)(int));
+int					input_tgetnum(char *str);
+struct s_win		get_win_size(void);
 
 #endif

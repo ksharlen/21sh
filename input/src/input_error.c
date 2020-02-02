@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_init.c                                       :+:      :+:    :+:   */
+/*   input_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 23:33:11 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/02 23:28:38 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/02 23:32:00 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input_init.h"
+#include "input_error.h"
 
-void	input_init(struct s_input *inp)
+void	input_str_error(const char *str)
 {
-	if (inp)
-	{
-		gap_init(&inp->gap, INP_SIZE_BUF, INP_SIZE_GAP);
-		input_tgetent();
-	}
-	//greeting
-	//lines
-	//etc
+	ft_printf("%verror: %s\n", STDERR_FILENO, *str ? str : "");
+}
+
+void	input_error_ext(const char *str)
+{
+	input_str_error(str);
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:29:18 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 22:08:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:23:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ int		main(void)
 	struct s_input inp;
 
 	entry_not_canon(&inp.cfg_cpy);
+	input_init(&inp);
 	inp.cr = get_pos_cursor();
 	printf("x: %d	y: %d\n", inp.cr.x, inp.cr.y);
+	inp.win = get_win_size();
+	printf("col: %d	rows: %d\n", inp.win.cols, inp.win.rows);
 	entry_canon(&inp.cfg_cpy);
-
 #endif
 	return (0);
 }

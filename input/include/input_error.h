@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_init.c                                       :+:      :+:    :+:   */
+/*   input_error.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 23:33:11 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/02 23:28:48 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/02 23:31:30 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input_init.h"
+#ifndef INPUT_ERROR_H
+# define INPUT_ERROR_H
 
-void	input_init(struct s_input *inp)
-{
-	if (inp)
-	{
-		gap_init(&inp->gap, INP_SIZE_BUF, INP_SIZE_GAP);
-		input_tgetent();
-	}
-	//greeting
-	//lines
-	//etc
-}
+# include <sys/types.h>
+# include <unistd.h>
+
+# include "libft.h"
+
+void	input_error(const char *str);
+void	input_error_ext(const char *str);
+
+#endif
