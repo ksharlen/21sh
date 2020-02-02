@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 22:07:10 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 22:53:20 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@
 # include "input_macros.h"
 
 struct s_cursor		get_pos_cursor(void);
+void				input_tgetent(void);
+
 
 #endif

@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_init.c                                       :+:      :+:    :+:   */
+/*   input_common.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 22:04:01 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/02 21:06:48 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/02 22:35:30 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input_init.h"
+#include "input_termcap.h"
 
-void	input_init(struct s_input *inp)
+struct s_win	get_win_size(void)
 {
-	if (inp)
-	{
-		gap_init(&inp->gap, INP_SIZE_BUF, INP_SIZE_GAP);
-	}
-	//greeting
-	//lines
-	//etc
+	
 }

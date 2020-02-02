@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:28:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 21:47:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 22:55:25 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@
 **ESCAPE_CMD
 */
 # define GET_POS_CURSOR	"\e[6n", 4
+
+/*
+**TERMCAP
+*/
+# define T_BUFFER	NULL
 
 //!if CTR_KEY('q') если это истина
 

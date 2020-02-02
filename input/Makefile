@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/02 22:06:27 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/02 22:57:12 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ DIR_LIBFT			:=	$(DIR_LIB)libft/
 
 #DIR_SRCS
 DIR_SRC				:=	./src/
+DIR_SRC_TERMCAP		:=	$(DIR_SRC)termcap
+DIRS_SRC			:=	$(DIR_SRC) $(DIR_SRC_TERMCAP)
 
 #DRI_OBJS
 DIR_OBJ				:=	./bin/
@@ -31,7 +33,8 @@ SRCS				:=	main.c\
 							input_getch.c\
 							input_mode_term.c\
 							input_init.c\
-							input_cursor_pos.c
+							input_cursor_pos.c\
+							input_termcap.c
 
 #OBJS
 OBJS				:=	$(SRCS:.c=.o)
