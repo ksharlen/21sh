@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:03:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 00:37:39 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 00:45:19 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,14 @@ void	set_cursor_col(int col)
 
 	str = input_tgetstr(CH);
 	str = input_tgoto(str, 0, col);
+	input_tputs(str, 0, ft_putchar);
+}
+
+void	set_cursor_row(int row)
+{
+	char	*str;
+
+	str = input_tgetstr(CV);
+	str = input_tgoto(str, 0, row);
 	input_tputs(str, 0, ft_putchar);
 }

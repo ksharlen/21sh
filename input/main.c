@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:29:18 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 00:38:16 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 00:47:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ int		main(void)
 			write(STDOUT_FILENO, "OK ", 3);
 		else if (key == CTR_KEY('r'))
 		{
+			// set_cursor_pos(3, 3);
+			// set_cursor_col(3);
+			printf("col: %d	row: %d\n", inp.cr.x, inp.cr.y);
+			// clear_curr_line_to_the_end();
 			// set_cursor_pos(0, 0);
 			// char	*str = tgetstr("ch", NULL);
 			// str = tgoto(str, 0, 0);
