@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/02 19:45:10 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/02 22:06:27 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ DIR_INCLUDES		:=	$(DIR_INCLUDE_LIBFT) $(DIR_INCLUDE_NAME)
 #SRCS
 SRCS				:=	main.c\
 							input_getch.c\
-							input_mode_term.c
+							input_mode_term.c\
+							input_init.c\
+							input_cursor_pos.c
 
 #OBJS
 OBJS				:=	$(SRCS:.c=.o)

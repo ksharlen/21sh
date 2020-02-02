@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:37:45 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 21:55:44 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <sys/types.h>
 # include <limits.h>
 # include <stdlib.h>
+# include <termios.h>
+
+# include "libft.h"
+# include "gap_buf.h"
+# include "input_macros.h"
 
 enum	e_key
 {
@@ -38,6 +43,32 @@ struct s_key
 	char	read_key[5];
 	int		key;
 	ssize_t	nread;
+};
+
+struct s_cursor
+{
+	int32_t	x;
+	int32_t	y;
+};
+
+// struct s_line
+// {
+// 	size_t	rest_line;
+// 	size_t	size_line;
+// };
+
+struct s_win
+{
+	int	cols;
+	int	rows;
+};
+
+struct s_input
+{
+	t_gapbuf		gap;
+	struct termios	cfg_cpy;
+	struct s_cursor	cr;
+	struct s_win	win;
 };
 
 #endif

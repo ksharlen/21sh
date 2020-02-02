@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:28:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:18:36 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 21:47:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@
 # define KEY_ARROW(key) ((key) >= 'A' && (key) <= 'D')
 # define KEY_HOME_END(key) ((key) == 'H' || (key) == 'F')
 
+/*
+**BUF_INPUT
+*/
+# define INP_SIZE_GAP	20
+# define INP_SIZE_BUF	UINT_MAX - INP_SIZE_GAP
+
+/*
+**ESCAPE_CMD
+*/
+# define GET_POS_CURSOR	"\e[6n", 4
 
 //!if CTR_KEY('q') если это истина
 
