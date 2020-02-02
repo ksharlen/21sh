@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:07:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 20:37:45 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ enum	e_key
 	KEY_DEL,
 	KEY_PAGE_UP, //?option + arrow_up (on_func keyboard)
 	KEY_PAGE_DOWN,//?option + arrow_down (on func keyboard)
-	KEY_BCKSPACE = 127
+	KEY_BCKSPACE = 127,
+	KEY_NEW_LINE = 13
 };
 
 struct s_key

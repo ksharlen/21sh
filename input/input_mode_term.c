@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:33:14 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:12:25 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 20:38:24 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	entry_not_canon(struct termios *st_copy)
 		CHK_SYS_ERR_EXT(tcgetattr(STDIN_FILENO, &chg_mode),
 			E_TCGETATTR, "entry_canon");
 		*st_copy = chg_mode;
-		chg_mode.c_lflag &= ~(ICANON | ECHO | ISIG);
+		chg_mode.c_lflag &= ~(ICANON | ECHO | ISIG | IEXTEN);
+		chg_mode.c_iflag &= ~(IXON | ICRNL);
 		CHK_SYS_ERR_EXT(tcsetattr(STDIN_FILENO, TCSANOW, &chg_mode),
 						E_TCSETATTR, "entry_canon");
 	}

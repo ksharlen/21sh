@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:13:00 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 20:39:20 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static int		get_func_key(struct s_key *key)
 		E_READ, "input_getch");
 	if (key->read_key[2] >= '0' && key->read_key[2] <= '9')
 	{
-		CHK_SYS_ERR_EXT(key->nread = read(STDIN_FILENO, &key->read_key[3], ONE_SYM),
-		E_READ, "input_getch");
+		CHK_SYS_ERR_EXT(key->nread = read(STDIN_FILENO,
+			&key->read_key[3], ONE_SYM), E_READ, "input_getch");
 		if (key->read_key[3] == '~')
 			key->key = get_key_additional(key->read_key[2]);
 		else

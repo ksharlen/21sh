@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:29:18 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:11:53 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 20:36:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ int		main(void)
 	do
 	{
 		key = input_getch();
-		if (key >= 32 && key <= 126)
-			write(STDOUT_FILENO, &key, sizeof(int));
-		else if (key == KEY_RIGHT_ARROW)
-			write(STDOUT_FILENO, "OK ", 3);
+		printf("key = %d\n", key);
 	}
-	while (key != '\n');
+	while (key != KEY_NEW_LINE);
 
 	entry_canon(&copy);
 	return (0);

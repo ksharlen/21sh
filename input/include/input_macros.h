@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:28:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:03:06 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/02 20:18:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <limits.h>
 # include <sys/types.h>
 
-# define CTR_KEY(key) (key) ((key) & 0x1f)
+# define CTR_KEY(key) ((key) & 0x1f)
 
 /*
 **KEY_PART
