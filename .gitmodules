@@ -1,0 +1,3 @@
+[submodule "input/lib/libft"]
+	path = input/lib/libft
+	url = https://github.com/ksharlen/libft.git
