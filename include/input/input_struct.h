@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 22:04:34 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:11:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@
 # include <termios.h>
 
 # include "libft.h"
+# include "21sh_struct.h"
 # include "gap_buf.h"
 # include "input_macros.h"
+
+struct s_user_info;
 
 enum	e_key
 {
@@ -65,10 +68,12 @@ struct s_win
 
 struct s_input
 {
-	t_gapbuf		gap;
-	struct termios	cfg_cpy;
-	struct s_cursor	cr;
-	struct s_win	win;
+	t_gapbuf			gap;
+	struct termios		cfg_cpy;
+	struct s_cursor		cr;
+	struct s_win		win;
+	struct s_user_info	u_info;
+	int					key;
 };
 
 #endif

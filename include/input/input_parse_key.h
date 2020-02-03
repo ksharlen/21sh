@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 21:46:48 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 22:12:31 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@
 # include "input_struct.h"
 # include "input_macros.h"
 # include "input_termcap.h"
+# include "input_init.h"
 
 int		input_getch(void);
 void	input_process_key_press(struct s_input *inp);
+void	input_begin(struct s_input *inp);
 
 #endif

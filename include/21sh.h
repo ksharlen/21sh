@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 21:55:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 21:57:58 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 22:25:46 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <termios.h>
 # include <stdio.h>
 # include <sys/ioctl.h>
 # include <fcntl.h>
@@ -30,6 +31,6 @@
 # include "input_init.h"
 # include "input_greeting.h"
 # include "input_macros.h"
-
+# include "input_parse_key.h"
 
 #endif

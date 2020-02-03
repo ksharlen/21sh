@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_init.c                                       :+:      :+:    :+:   */
+/*   21sh_init_structs.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 22:13:10 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/03 23:05:01 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/03 23:07:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input_init.h"
+#include "21sh_init.h"
 
-void	input_init(struct s_input *inp)
+void	get_struct_for_input(struct s_input *inp,
+	t_init *init)
 {
-	if (inp)
-	{
-		gap_init(&inp->gap, INP_SIZE_BUF, INP_SIZE_GAP);
-		input_tgetent();
-		// inp->cr = get_pos_cursor();
-		// --inp->cr.x;
-		// --inp->cr.y;
-	}
-	//greeting
-	//lines
-	//etc
+	inp->u_info = init->u_inf;
 }

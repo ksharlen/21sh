@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:09:54 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 21:22:13 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:09:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 
 void			sh21_init(t_init *init);
 void			sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user);
+void			get_struct_for_input(struct s_input *inp, t_init *init);
 //void			sh21_init_struct(t_init *init, struct s_ftsh *ftsh);
 
 #endif

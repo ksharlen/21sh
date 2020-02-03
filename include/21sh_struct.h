@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 21:24:12 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:12:13 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # include "21sh_limits.h"
 # include "input_struct.h"
+
+struct s_user_info;
 
 struct			s_path
 {
