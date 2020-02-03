@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 21:55:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 03:00:09 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ enum	e_key
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
 };
+
+typedef struct	s_greet
+{
+	char		time[SIZE_TIME + 1];
+	char		user[SIZE_NAME + 1];
+	char		curr_d[SIZE_DIR + 1];
+}				t_greet;
 
 struct s_key
 {

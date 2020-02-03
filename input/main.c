@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:29:18 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 00:47:51 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 02:45:01 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		main(void)
 			// set_cursor_pos(3, 3);
 			// set_cursor_col(3);
 			printf("col: %d	row: %d\n", inp.cr.x, inp.cr.y);
-			// clear_curr_line_to_the_end();
+			clear_curr_line_to_the_end();
 			// set_cursor_pos(0, 0);
 			// char	*str = tgetstr("ch", NULL);
 			// str = tgoto(str, 0, 0);
@@ -51,6 +51,12 @@ int		main(void)
 			// clear_curr_line_to_the_end();
 			write(STDOUT_FILENO, "\x1b[J", 3);
 		}
+		else if (key == KEY_LEFT_ARROW)
+		{
+			set_cursor_pos(3, 3);
+		}
+		else if (key == CTR_KEY('l'))
+			clear_window();
 	}
 	while (key != KEY_NEW_LINE);
 

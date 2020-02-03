@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 00:47:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 02:34:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,26 @@
 # define CD	"cd"
 # define CH	"ch"
 # define CV	"cv"
+# define CL	"cl"
 
 /*
-**INTERFACE
+**CURSOR
 */
 struct s_cursor		get_pos_cursor(void);
-struct s_win		get_win_size(void);
 void				set_cursor_pos(int col, int row); //?отсчет от 0
 void				set_cursor_col(int col); //?отсчет колонки от 0
 void				set_cursor_row(int row); //?отсчет линии от 0
+
+/*
+**CLEAR
+*/
+void				clear_window(void);
 void				clear_curr_line_to_the_end(void);
+
+/*
+**ANOTHER
+*/
+struct s_win		get_win_size(void);
 
 /*
 **INTERNAL
