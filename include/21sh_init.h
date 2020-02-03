@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:09:54 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 17:05:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:33:42 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # include <stdlib.h>
 # include <pwd.h>
 
+# include "libft.h"
 # include "21sh_limits.h"
 # include "21sh_struct.h"
+# include "internal_utilities.h"
 
 # define CLEAN	ft_bzero
 
