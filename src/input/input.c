@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 00:17:04 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 01:50:19 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	input_preparation(struct s_input *inp)
 {
 	inp->win = get_win_size();
 	entry_not_canon(&inp->cfg_cpy);
-	input_greeting(&inp->u_info);
+	// input_greeting(&inp->u_info);
 	inp->cr = get_pos_cursor();
 	--inp->cr.x;
 	--inp->cr.y;
