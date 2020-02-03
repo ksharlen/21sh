@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 18:32:42 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:24:48 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,18 @@ extern char **environ;
 # define SH21_MAX_PATH	(sizeof(unsigned char) * 8 * 32) //!TMP
 # define SH21_MAX_NAME	(sizeof(unsigned char) * 8 * 32)
 # define SH21_MAX_ARG	1024
+
+/*
+**GREETING
+*/
+# define SIZE_TIME		8
+# define SIZE_NAME		SH21_MAX_NAME
+# define SIZE_DIR		SH21_MAX_PATH
+# define SKIP_DATE		11
+# define COLOR_DFLT		"\e[0m"
+# define COLOR_TIME		"\e[34;1m"
+# define COLOR_USER		"\e[31;1m"
+# define COLOR_DIR		"\e[36;1m"
+# define COLOR_YELLOW	"\e[33;1m"
 
 #endif

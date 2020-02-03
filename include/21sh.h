@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 21:55:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 22:25:46 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:35:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@
 # include "libft.h"
 # include "21sh_limits.h"
 # include "21sh_struct.h"
-# include "input_struct.h"
 # include "21sh_init.h"
 # include "internal_utilities.h"
 # include "input_init.h"
-# include "input_greeting.h"
 # include "input_macros.h"
 # include "input_parse_key.h"
 

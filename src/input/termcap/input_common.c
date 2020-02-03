@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:06:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 02:29:06 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 00:04:42 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,21 @@ void	clear_window(void)
 	char	*str;
 
 	str = input_tgetstr(CL);
-	tputs(str, 0, ft_putchar);
+	input_tputs(str, 0, ft_putchar);
+}
+
+void	clear_pos_cr_to_the_end(void)
+{
+	char	*str;
+
+	str = input_tgetstr(CD);
+	input_tputs(str, 0, ft_putchar);
+}
+
+void	visibility_cursor(int visible)
+{
+	char	*str;
+
+	str = input_tgetstr(visible == VISIBLE_CUR ? VE : VI);
+	input_tputs(str, 0, ft_putchar);
 }

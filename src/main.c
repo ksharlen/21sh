@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 22:26:10 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 23:45:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 
 int		main(void)
 {
-	t_init	init;
+	t_init			init;
 
 	sh21_init(&init);
+	// get_struct_for_input(&inp, &init);
 	input_begin(&init.inp);
 	// entry_not_canon(&cp);
 	// entry_canon(&cp);

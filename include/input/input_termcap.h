@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 02:34:51 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 00:05:07 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@
 
 # include "input_error.h"
 # include "libft.h"
-# include "input_struct.h"
+# include "21sh_struct.h"
 # include "input_macros.h"
+
+# define NOT_VISIBLE_CUR	0
+# define VISIBLE_CUR		1
 
 # define CO	"co"
 # define LI	"li"
@@ -31,6 +34,8 @@
 # define CH	"ch"
 # define CV	"cv"
 # define CL	"cl"
+# define VI	"vi"
+# define VE	"ve"
 
 /*
 **CURSOR
@@ -39,12 +44,14 @@ struct s_cursor		get_pos_cursor(void);
 void				set_cursor_pos(int col, int row); //?отсчет от 0
 void				set_cursor_col(int col); //?отсчет колонки от 0
 void				set_cursor_row(int row); //?отсчет линии от 0
+void				visibility_cursor(int visible);
 
 /*
 **CLEAR
 */
 void				clear_window(void);
 void				clear_curr_line_to_the_end(void);
+void				clear_pos_cr_to_the_end(void);
 
 /*
 **ANOTHER

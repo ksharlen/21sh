@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/03 23:06:56 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/04 00:09:39 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ DIR_LIBFT			:=	$(DIR_LIB)libft/
 DIR_SRC				:=	./src/
 DIR_SRC_INPUT		:=	$(DIR_SRC)input/
 DIR_SRC_TERMCAP		:=	$(DIR_SRC_INPUT)termcap/
+DIR_SRC_INPUT_SCREEN	:=	$(DIR_SRC_INPUT)screen/
 DIR_SRC_INIT		:=	$(DIR_SRC)init/
 DIR_UTILS			:=	$(DIR_SRC)internal_utilities/
 DIR_UTILS_ENV		:=	$(DIR_UTILS)21sh_env
@@ -26,7 +27,8 @@ DIRS_SRC			:=	$(DIR_SRC)\
 							$(DIR_SRC_TERMCAP)\
 							$(DIR_SRC_INIT)\
 							$(DIR_UTILS)\
-							$(DIR_UTILS_ENV)
+							$(DIR_UTILS_ENV)\
+							$(DIR_SRC_INPUT_SCREEN)
 
 #DIR_OBJS
 DIR_OBJ				:=	./bin/
@@ -51,7 +53,9 @@ SRCS				:=	main.c\
 							input_termcap.c\
 							input_common.c\
 							input_error.c\
+							input_greeting.c\
 							input_process_key_press.c\
+							input_refresh_screen.c\
 							21sh_cd_home_dir.c\
 							21sh_cd.c\
 							21sh_echo.c\
@@ -72,7 +76,6 @@ HEADERS				:=	libft.h\
 							input_init.h\
 							input_macros.h\
 							input_parse_key.h\
-							input_struct.h\
 							input_error.h\
 							input_termcap.h\
 							input_greeting.h\

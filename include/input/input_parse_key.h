@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 22:12:31 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 00:11:00 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 # include <stdlib.h>
 
 # include "libft.h"
-# include "input_greeting.h"
-# include "input_struct.h"
+# include "21sh_struct.h"
 # include "input_macros.h"
 # include "input_termcap.h"
 # include "input_init.h"
+# include "input_greeting.h"
 
 int		input_getch(void);
 void	input_process_key_press(struct s_input *inp);
 void	input_begin(struct s_input *inp);
+void	refresh_screen(struct s_input *inp);
 
 #endif
