@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 17:04:10 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:24:12 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 
 # include "21sh_limits.h"
+# include "input_struct.h"
 
 struct			s_path
 {
@@ -55,6 +56,7 @@ typedef struct	s_init
 	struct s_start_env	env;
 	struct s_user_info	u_inf;
 	struct s_shell		shell;
+	struct s_input		inp;
 }				t_init;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 17:06:59 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 22:04:34 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include "libft.h"
 # include "gap_buf.h"
 # include "input_macros.h"
-# include "input_greeting.h"
 
 enum	e_key
 {
@@ -38,13 +37,6 @@ enum	e_key
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
 };
-
-typedef struct	s_greet
-{
-	char		time[SIZE_TIME + 1];
-	char		user[SIZE_NAME + 1];
-	char		curr_d[SIZE_DIR + 1];
-}				t_greet;
 
 struct s_key
 {
