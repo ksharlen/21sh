@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_process_key_press.c                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 02:53:57 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/03 16:56:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input_parse_key.h"
+#include "21sh_init.h"
+#include "libft.h"
 
-void	input_process_key_press(struct s_input *inp)
+int		main(void)
 {
-	//!greating
+	ft_printf("hello owrld\n");
+	return (0);
 }

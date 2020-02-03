@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 03:16:13 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:04:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,40 @@
 
 struct			s_path
 {
-	char	home_d[FTSH_MAX_PATH];
-	char	curr_d[FTSH_MAX_PATH];
+	char	home_d[SH21_MAX_PATH];
+	char	curr_d[SH21_MAX_PATH];
 };
 
 struct			s_user_info
 {
-	char	user[FTSH_MAX_NAME];
-	char	home_d[FTSH_MAX_PATH];
+	char	user[SH21_MAX_NAME];
+	char	home_d[SH21_MAX_PATH];
 	pid_t	u_pid;
 };
 
 struct			s_start_env
 {
-	char	shlvl[FTSH_MAX_PATH];
-	char	term[FTSH_MAX_PATH];
-	char	shell[FTSH_MAX_PATH];
-	char	pwd[FTSH_MAX_PATH];
-	char	old_pwd[FTSH_MAX_PATH];
-	char	path[FTSH_MAX_PATH]; //!Не уверен пока что
-	char	home[FTSH_MAX_PATH];
-	char	user[FTSH_MAX_PATH];
+	char	shlvl[SH21_MAX_PATH];
+	char	term[SH21_MAX_PATH];
+	char	shell[SH21_MAX_PATH];
+	char	pwd[SH21_MAX_PATH];
+	char	old_pwd[SH21_MAX_PATH];
+	char	path[SH21_MAX_PATH]; //!Не уверен пока что
+	char	home[SH21_MAX_PATH];
+	char	user[SH21_MAX_PATH];
 };
 
 struct			s_shell
 {
 	int8_t		shlvl;
 };
+
+typedef struct	s_init
+{
+	struct s_path		path;
+	struct s_start_env	env;
+	struct s_user_info	u_inf;
+	struct s_shell		shell;
+}				t_init;
 
 #endif

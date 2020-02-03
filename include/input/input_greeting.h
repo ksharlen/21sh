@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:57 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 03:01:26 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:09:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,12 @@
 # include "libft.h"
 # include "input_struct.h"
 # include "input_macros.h"
+# include "input_greeting.h"
+# include "21sh_struct.h"
 
 # define SIZE_TIME	8
-# ifndef FTSH_MAX_NAME
-#  define SIZE_NAME	FTSH_MAX_NAME
-# else
-#  define SIZE_NAME NAME_MAX
-# endif
-# ifndef FTSH_MAX_PATH
-#  define SIZE_DIR FTSH_MAX_PATH
-# else
-#  define SIZE_DIR PATH_MAX
-# endif
+# define SIZE_NAME SH21_MAX_NAME
+# define SIZE_DIR SH21_MAX_PATH
 # define SKIP_DATE		11
 # define COLOR_DFLT		"\e[0m"
 # define COLOR_TIME		"\e[34;1m"

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/03 02:51:59 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/03 17:01:26 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,25 @@ DIR_LIBFT			:=	$(DIR_LIB)libft/
 
 #DIR_SRCS
 DIR_SRC				:=	./src/
-DIR_SRC_TERMCAP		:=	$(DIR_SRC)termcap
-DIRS_SRC			:=	$(DIR_SRC) $(DIR_SRC_TERMCAP)
+DIR_SRC_INPUT		:=	$(DIR_SRC)input/
+DIR_SRC_TERMCAP		:=	$(DIR_SRC_INPUT)termcap/
+DIR_SRC_INIT		:=	$(DIR_SRC)init/
 
-#DRI_OBJS
+DIRS_SRC			:=	$(DIR_SRC)\
+							$(DIR_SRC_INPUT)\
+							$(DIR_SRC_TERMCAP)
+
+#DIR_OBJS
 DIR_OBJ				:=	./bin/
 
 #DIR_INCLUDE
 DIR_INCLUDE_NAME	:=	./include/
 DIR_INCLUDE_LIBFT	:=	$(DIR_LIBFT)include/
-DIR_INCLUDES		:=	$(DIR_INCLUDE_LIBFT) $(DIR_INCLUDE_NAME)
+DIR_INCLUDE_INPUT	:=	$(DIR_INCLUDE_NAME)input
+
+DIR_INCLUDES		:=	$(DIR_INCLUDE_LIBFT)\
+							$(DIR_INCLUDE_NAME)\
+							$(DIR_INCLUDE_INPUT)
 
 #DIRS_END
 
@@ -47,7 +56,13 @@ HEADERS				:=	libft.h\
 							input_init.h\
 							input_macros.h\
 							input_parse_key.h\
-							input_struct.h
+							input_struct.h\
+							input_error.h\
+							input_termcap.h\
+							input_greeting.h\
+							21sh_init.h\
+							21sh_limits.h\
+							21sh_struct.h
 
 #LIBS
 LIBFT				:=	libft.a
@@ -98,7 +113,7 @@ fclean: clean
 re: fclean all
 
 echo:
-	echo $(PATH_INCLUDES)
+	echo $(DIR_INCLUDES)
 
 .PHONY: test
 .SILENT: all $(NAME) $(OBJS) $(DIR_OBJ) $(LIBFT) clean fclean re $(OBJS_TEST) $(TEST) test

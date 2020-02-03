@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 03:00:09 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:06:59 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "libft.h"
 # include "gap_buf.h"
 # include "input_macros.h"
+# include "input_greeting.h"
 
 enum	e_key
 {

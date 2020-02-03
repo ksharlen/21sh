@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   21sh_limits.h                                      :+:      :+:    :+:   */
+/*   input_process_key_press.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 16:44:09 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/03 17:10:08 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SH21_LIMITS_H
-# define SH21_LIMITS_H
+#include "input_parse_key.h"
 
-# include <sys/types.h>
-# include <limits.h>
-
-# define SH21_MAX_PATH	(sizeof(unsigned char) * 8 * 32) //!TMP
-# define SH21_MAX_NAME	(sizeof(unsigned char) * 8 * 32)
-# define SH21_MAX_ARG	1024
-
-#endif
+void	input_process_key_press(struct s_input *inp)
+{
+	P_UNUSED(inp);
+	//!greating
+}

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:10:16 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 03:12:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/03 16:28:59 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	init_user(struct s_user_info *curr_user)
 //?Подумать еще
 	if (curr_user)
 	{
-		CLEAN(USER, FTSH_MAX_NAME);
-		CLEAN(HOME, FTSH_MAX_PATH);
+		CLEAN(USER, SH21_MAX_NAME);
+		CLEAN(HOME, SH21_MAX_PATH);
 		PUID = getuid();
 		user_name = getenv("USER");
 		home_dir = getenv("HOME");
@@ -56,13 +56,13 @@ static void	init_env(void)
 
 static void	init_path(struct s_path *path, char *home_dir)
 {
-	CLEAN(path->home_d, FTSH_MAX_PATH);
-	CLEAN(path->curr_d, FTSH_MAX_PATH);
-	getcwd(path->curr_d, FTSH_MAX_PATH);
+	CLEAN(path->home_d, SH21_MAX_PATH);
+	CLEAN(path->curr_d, SH21_MAX_PATH);
+	getcwd(path->curr_d, SH21_MAX_PATH);
 	ft_strcpy(path->home_d, home_dir);
 }
 
-void	ftsh_init(t_init *init)
+void	sh21_init(t_init *init)
 {
 	if (init)
 	{
