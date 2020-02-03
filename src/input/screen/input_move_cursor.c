@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 01:15:22 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 01:38:07 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static void	parse_arrow(struct s_input *inp)
 	{
 		if (inp->gap.slide)
 		{
-			--inp->cr.x;
+			if (check_line_footnote_down(inp) == FALSE)
+				--inp->cr.x;
 			gap_slide_left(&inp->gap);
 		}
 	}
@@ -33,7 +34,8 @@ static void	parse_arrow(struct s_input *inp)
 	{
 		if (inp->gap.slide < inp->gap.len_string)
 		{
-			++inp->cr.x;
+			if (check_line_footnote_up(inp) == FALSE)
+				++inp->cr.x;
 			gap_slide_right(&inp->gap);
 		}
 	}
