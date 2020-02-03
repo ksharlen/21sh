@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 20:39:20 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 01:04:42 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int		get_func_key(struct s_key *key)
 			&key->read_key[3], ONE_SYM), E_READ, "input_getch");
 		if (key->read_key[3] == '~')
 			key->key = get_key_additional(key->read_key[2]);
-		else
+		else//!Тут будет shift + arrow
 			key->key = 0;
 	}
 	else if (KEY_ARROW(key->read_key[2]) || KEY_HOME_END(key->read_key[2]))

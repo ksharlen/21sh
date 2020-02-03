@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 00:03:18 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 01:05:53 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ enum	e_key
 	KEY_DEL,
 	KEY_PAGE_UP, //?option + arrow_up (on_func keyboard)
 	KEY_PAGE_DOWN,//?option + arrow_down (on func keyboard)
+	KEY_SHIFT_L_ARROW,
+	KEY_SHIFT_R_ARROW,
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
 };

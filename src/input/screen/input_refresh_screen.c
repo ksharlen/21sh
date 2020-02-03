@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 00:10:18 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/04 00:39:20 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,25 @@ static void	clear_screen(struct s_cursor *sv_pos)
 void	refresh_screen(struct s_input *inp)
 {
 	char	*out_str;
-	//Спрятать каретку
+
 	clear_screen(&inp->save_refresh_pos);
 	if (IS_PRINT_KEY(inp->key))
 	{
 		gap_putchar_in_buf(&inp->gap, inp->key);
 		++inp->cr.x;
 	}
-	else if (inp->key == KEY_DEL)
+	else if (inp->key == KEY_DEL || inp->key == CTR_KEY('d'))
 	{
 		gap_del_sym_on_slide(&inp->gap);
 	}
 	else if (inp->key == KEY_BCKSPACE)
 	{
+		if (inp->gap.slide)
+			--inp->cr.x;
 		gap_del_sym_before_slide(&inp->gap);
-		--inp->cr.x;
 	}
 	out_str = gap_get_buf(&inp->gap);
 	write(STDOUT_FILENO, out_str, inp->gap.len_string);
 	set_cursor_pos(inp->cr.x, inp->cr.y);
 	visibility_cursor(VISIBLE_CUR);
-	//возврат каретки
-	//очистка от начала каретки
-	//вставка символа в буфер
-	//вывод буфера на экран
-	//возврат каретки
 }
