@@ -17,10 +17,16 @@
 int		main(void)
 {
 	t_init			init;
+	char			*str;
 
 	sh21_init(&init);
 	// get_struct_for_input(&inp, &init);
-	input_begin(&init.inp);
+	while (1)
+	{
+		str = input_begin(&init.inp);
+		if (!ft_strcmp(str, "exit"))
+			break ;
+	}
 	// entry_not_canon(&cp);
 	// entry_canon(&cp);
 	// ft_printf("hello owrld\n");

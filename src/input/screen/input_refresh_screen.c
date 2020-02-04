@@ -36,7 +36,7 @@ void	refresh_screen(struct s_input *inp)
 	}
 	else if (inp->key == KEY_BCKSPACE)
 	{
-		if (inp->gap.slide)
+		if (check_line_footnote_up(inp) == FALSE && inp->gap.slide)
 			--inp->cr.x;
 		gap_del_sym_before_slide(&inp->gap);
 	}

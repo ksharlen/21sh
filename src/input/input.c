@@ -16,7 +16,7 @@ static void	input_preparation(struct s_input *inp)
 {
 	inp->win = get_win_size();
 	entry_not_canon(&inp->cfg_cpy);
-	// input_greeting(&inp->u_info);
+	input_greeting(&inp->u_info);
 	inp->cr = get_pos_cursor();
 	--inp->cr.x;
 	--inp->cr.y;
@@ -24,8 +24,10 @@ static void	input_preparation(struct s_input *inp)
 	inp->key = 0;
 }
 
-void	input_begin(struct s_input *inp)
+char	*input_begin(struct s_input *inp)
 {
+	char	*cmd;
+
 	input_preparation(inp);
 	while (!PRESS_CTR_D_AND_EMPTY_STR(inp->key, inp->gap.len_string) &&
 			inp->key != KEY_NEW_LINE)
@@ -34,5 +36,7 @@ void	input_begin(struct s_input *inp)
 		input_process_key_press(inp);
 	}
 	write(STDOUT_FILENO, "\n", 1);
+	cmd = gap_get_buf(&inp->gap);
 	entry_canon(&inp->cfg_cpy);
+	return (cmd);
 }

@@ -26,7 +26,7 @@
 
 int		input_getch(void);
 void	input_process_key_press(struct s_input *inp);
-void	input_begin(struct s_input *inp);
+char	*input_begin(struct s_input *inp);
 void	refresh_screen(struct s_input *inp);
 void	move_cursor(struct s_input *inp);
 int		check_line_footnote_up(struct s_input *inp);
