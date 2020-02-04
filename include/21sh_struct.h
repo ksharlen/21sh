@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 01:05:53 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 02:26:56 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ struct s_input
 	struct s_cursor		save_refresh_pos;
 	struct s_win		win;
 	struct s_user_info	u_info;
+	size_t				len_greet;
 	int					key;
 };
 

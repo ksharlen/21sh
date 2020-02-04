@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 22:01:13 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 02:39:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,13 @@ int			input_greeting(const struct s_user_info *u_info)
 	get_time(greet.time);
 	get_user(greet.user, u_info->user);
 	get_curr_dir(greet.curr_d); //*NOT_DONE
-	ret_num_sym = ft_printf("%s[%s]%s%s%s(%s) %s$>", COLOR_TIME, greet.time, COLOR_USER,
-				greet.user, COLOR_DIR, greet.curr_d, COLOR_DFLT);
+	ft_putstr(COLOR_TIME);
+	ret_num_sym += ft_printf("[%s]", greet.time);
+	ft_putstr(COLOR_USER);
+	ret_num_sym += ft_printf("%s", greet.user);
+	ft_putstr(COLOR_DIR);
+	ret_num_sym += ft_printf("(%s)", greet.curr_d);
+	ft_putstr(COLOR_DFLT);
+	ret_num_sym += ft_printf("$>");
 	return (ret_num_sym);
 }

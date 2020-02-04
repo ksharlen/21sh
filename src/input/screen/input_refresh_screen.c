@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 00:45:00 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 02:37:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	refresh_screen(struct s_input *inp)
 	char	buf[200] = {0};
 
 	set_cursor_pos(0, inp->win.rows - 1);
-	snprintf(buf, 200, "cols: %d	rows: %d	x: %d	y: %d", inp->win.cols,
-		inp->win.rows, inp->cr.x, inp->cr.y);
+	snprintf(buf, 200, "cols: %d	rows: %d	x: %d	y: %d	size_greet: %zd", inp->win.cols,
+		inp->win.rows, inp->cr.x, inp->cr.y, inp->len_greet);
 	write(STDOUT_FILENO, buf, 200);
 	set_cursor_pos(0, inp->win.rows - 2);
 	bzero(buf, 200);
