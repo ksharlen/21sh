@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 22:49:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 01:35:34 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*input_begin(struct s_input *inp)
 			ft_putchar_fd('\n', STDOUT_FILENO);
 			return (NULL);
 		}
+		else if (inp->key == CTR_KEY('c'))
+			break ;
 		input_process_key_press(inp);
 	}
 	write(STDOUT_FILENO, "\n", 1);
