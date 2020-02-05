@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 21:16:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 23:07:59 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 23:09:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void parse_shft_right_arrow(struct s_input *inp)
 {
-	P_UNUSED(inp);
+	
 }
 
 static size_t	get_skip_left_word(const char *str, size_t pos)
@@ -41,7 +41,7 @@ static size_t	get_skip_left_word(const char *str, size_t pos)
 //!TMP i think here is bug
 static void	parse_shft_left_arrow(struct s_input *inp)
 {
-	struct s_cursor	next;
+	struct s_cursor	prev_word;
 	char	*str;
 	size_t	shift;
 	size_t	pos;
@@ -52,10 +52,10 @@ static void	parse_shft_left_arrow(struct s_input *inp)
 		str = gap_get_buf(&inp->gap);
 		shift = get_skip_left_word(str, inp->gap.slide);
 		pos = inp->gap.slide - shift + inp->len_greet;
-		next.y = pos / (inp->win.cols);
-		next.x = pos % (inp->win.cols);
-		inp->cr.y = inp->save_refresh_pos.y + next.y;
-		inp->cr.x = next.x;
+		prev_word.y = pos / (inp->win.cols);
+		prev_word.x = pos % (inp->win.cols);
+		inp->cr.y = inp->save_refresh_pos.y + prev_word.y;
+		inp->cr.x = prev_word.x;
 		inp->gap.slide -= shift;
 	}
 }
