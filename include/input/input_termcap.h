@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 00:05:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:04:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define CL	"cl"
 # define VI	"vi"
 # define VE	"ve"
+# define CL	"cl"
 
 /*
 **CURSOR

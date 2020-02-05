@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 01:14:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:15:12 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,6 @@ void	input_process_key_press(struct s_input *inp)
 	{
 		move_cursor(inp);
 	}
+	else if (inp->key == CTR_KEY('l'))
+		clear_full_screen(inp);
 }

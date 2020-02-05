@@ -6,11 +6,13 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 18:02:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:22:59 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
+
+//!bug with get_pos_cursor when press 'enter'
 
 static void	input_preparation(struct s_input *inp)
 {
