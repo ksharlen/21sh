@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 20:50:27 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 21:22:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int				check_line_footnote_down(struct s_input *inp);
 void			clear_full_screen(struct s_input *inp);
 struct s_cursor	input_get_end_string(struct s_input *inp);
 void			input_parse_page_keys(struct s_input *inp);
+void			input_parse_keys_shift_words(struct s_input *inp);
 
 #endif
