@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 02:27:16 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:57:38 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static void	input_preparation(struct s_input *inp)
 {
+	//TODO: i think get size_win and pos_cursor need add in press key
+	input_tgetent();
 	gap_clean_buf(&inp->gap);
-	inp->win = get_win_size();
 	entry_not_canon(&inp->cfg_cpy);
+	inp->win = get_win_size();
 	inp->len_greet = input_greeting(&inp->u_info);
 	inp->cr = get_pos_cursor();
 	--inp->cr.x;
