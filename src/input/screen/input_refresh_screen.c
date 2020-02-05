@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 17:54:51 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 01:24:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	refresh_screen(struct s_input *inp)
 	}
 	out_str = gap_get_buf(&inp->gap);
 	write(STDOUT_FILENO, out_str, inp->gap.len_string);
+	ft_strdel(&out_str);
 // //!TMP
 	// char	buf[200] = {0};
 
