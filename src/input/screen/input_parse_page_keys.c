@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 20:49:41 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 21:00:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 21:11:53 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,23 @@
 
 static void	parse_page_up(struct s_input *inp)
 {
-	P_UNUSED(inp);
+	struct s_cursor	beg;
+
+	beg = inp->save_refresh_pos;
+	if (inp->cr.y >= beg.y)
+	{
+		if (inp->cr.y == beg.y ||
+			((inp->cr.y - beg.y) == 1 && inp->cr.x <= beg.x))
+		{
+			inp->cr = beg;
+			inp->gap.slide = 0;
+		}
+		else
+		{
+			--inp->cr.y;
+			inp->gap.slide -= inp->win.cols;
+		}
+	}
 }
 
 static void	parse_page_down(struct s_input *inp)
@@ -24,7 +40,8 @@ static void	parse_page_down(struct s_input *inp)
 	end = input_get_end_string(inp);
 	if (inp->cr.y <= end.y)
 	{
-		if (inp->cr.y == end.y || (inp->cr.x > end.x && (end.y - inp->cr.y) == 1))
+		if (inp->cr.y == end.y ||
+			(inp->cr.x > end.x && (end.y - inp->cr.y) == 1))
 		{
 			inp->cr = end;
 			inp->gap.slide = inp->gap.len_string;
