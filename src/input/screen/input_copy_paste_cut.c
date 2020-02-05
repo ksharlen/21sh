@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 00:41:35 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 01:02:25 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 01:16:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ void	input_cut_from_buf(struct s_input *inp)
 void	input_paste_to_buf(struct s_input *inp)
 {
 	ssize_t	len_buf_paste;
+	ssize_t	pos;
 
 	if (inp->buf)
 	{
-		gap_paste_str(&inp->gap, inp->buf);
 		len_buf_paste = ft_strlen(inp->buf);
-		get_coor_word(inp, len_buf_paste);
+		pos = inp->gap.slide + len_buf_paste + inp->len_greet;
+		get_coor_word(inp, pos);
 		inp->key = 0;
+		gap_paste_str(&inp->gap, inp->buf);
 		refresh_screen(inp);
 	}
 }

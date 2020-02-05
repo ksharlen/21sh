@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 00:59:08 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 01:11:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void			ctr_keys(struct s_input *inp);
 void			input_paste_to_buf(struct s_input *inp);
 void			input_cut_from_buf(struct s_input *inp);
 void			input_copy_from_buf(struct s_input *inp);
-void			get_coor_word(struct s_input *inp, ssize_t shift);
+void			get_coor_word(struct s_input *inp, ssize_t pos);
 
 #endif
