@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:10:16 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 23:45:27 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 00:35:04 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	sh21_init(t_init *init)
 		init_path(&init->path, init->u_inf.home_d);
 		input_init(&init->inp);
 		init->inp.u_info = init->u_inf;
+		init->inp.buf = NULL;
 		// printf("here\n");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 19:32:35 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 00:38:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@ void	input_process_key_press(struct s_input *inp)
 	if (IS_PRINT_KEY(inp->key) ||
 		IS_DEL_KEY(inp->key) ||
 		inp->key == CTR_KEY('d'))
-	{
 		refresh_screen(inp);
-	}
 	else if (is_move_key(inp->key) == TRUE)
-	{
 		move_cursor(inp);
-	}
 	else if (inp->key == CTR_KEY('l'))
 		clear_full_screen(inp);
+	else if (inp->key < 32)
+		ctr_keys(inp);
 }

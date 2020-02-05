@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 21:16:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 00:05:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 00:58:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,6 @@ static size_t	get_shift_skip_word(const char *str, size_t pos, int where)
 	return (shift);
 }
 
-static void		get_coor_word(struct s_input *inp, ssize_t shift)
-{
-	struct s_cursor	coord_word;
-	ssize_t			pos;
-
-	pos = inp->gap.slide + shift + inp->len_greet;
-	coord_word.y = pos / inp->win.cols;
-	coord_word.x = pos % inp->win.cols;
-	inp->cr.y = inp->save_refresh_pos.y + coord_word.y;
-	inp->cr.x = coord_word.x;
-	inp->gap.slide += shift;
-}
 
 static void		parse_shft_right_arrow(struct s_input *inp)
 {
@@ -69,6 +57,19 @@ static void		parse_shft_left_arrow(struct s_input *inp)
 	shift = get_shift_skip_word(str, inp->gap.slide - 1, SKIP_L_WORD);
 	get_coor_word(inp, shift * (-1));
 	ft_strdel(&str);
+}
+
+void			get_coor_word(struct s_input *inp, ssize_t shift)
+{
+	struct s_cursor	coord_word;
+	ssize_t			pos;
+
+	pos = inp->gap.slide + shift + inp->len_greet;
+	coord_word.y = pos / inp->win.cols;
+	coord_word.x = pos % inp->win.cols;
+	inp->cr.y = inp->save_refresh_pos.y + coord_word.y;
+	inp->cr.x = coord_word.x;
+	inp->gap.slide += shift;
 }
 
 void			input_parse_keys_shift_words(struct s_input *inp)

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/05 21:17:19 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/06 00:43:34 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,8 @@ SRCS				:=	main.c\
 							input_key_tools.c\
 							input_parse_page_keys.c\
 							input_parse_keys_shift_words.c\
+							input_copy_paste_cut.c\
+							input_ctr_keys.c\
 							21sh_cd_home_dir.c\
 							21sh_cd.c\
 							21sh_echo.c\
