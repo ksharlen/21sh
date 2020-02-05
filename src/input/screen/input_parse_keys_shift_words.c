@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 21:16:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 23:28:12 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 23:38:05 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static size_t	get_skip_right_word(const char *str, size_t pos)
 	shift = 0;
 	if (str)
 	{
-		p_str = &str[pos + 1];
+		p_str = &str[pos];
 		while (*p_str)
 		{
-			if (*(p_str - 1) == ' ' && (*(p_str) > 32 && *(p_str) <= 126))
+			if (((*p_str) > 32 && (*p_str) < 126) && *(p_str - 1) == ' ')
 				break ;
 			++shift;
 			++p_str;
@@ -45,7 +45,7 @@ P_UNUSED(next_word);
 	if (inp->gap.slide != inp->gap.len_string)
 	{
 		str = gap_get_buf(&inp->gap);
-		shift = get_skip_right_word(str, inp->gap.slide);
+		shift = get_skip_right_word(str, inp->gap.slide + 1);
 		pos = inp->gap.slide + shift + inp->len_greet;
 		next_word.y = pos / inp->win.cols;
 		next_word.x = pos % inp->win.cols;
@@ -56,6 +56,7 @@ P_UNUSED(next_word);
 	}
 }
 
+//!i want to refact this func but i don't know how.
 static size_t	get_skip_left_word(const char *str, size_t pos)
 {
 	size_t		shift;
@@ -64,7 +65,7 @@ static size_t	get_skip_left_word(const char *str, size_t pos)
 	shift = 0;
 	if (str)
 	{
-		p_str = &str[pos - 1];
+		p_str = &str[pos];
 		while (p_str != str)
 		{
 			if (((*p_str) > 32 && (*p_str) < 126) && *(p_str - 1) == ' ')
@@ -89,7 +90,7 @@ static void	parse_shft_left_arrow(struct s_input *inp)
 	if (inp->gap.slide)
 	{
 		str = gap_get_buf(&inp->gap);
-		shift = get_skip_left_word(str, inp->gap.slide);
+		shift = get_skip_left_word(str, inp->gap.slide - 1);
 		pos = inp->gap.slide - shift + inp->len_greet;
 		prev_word.y = pos / (inp->win.cols);
 		prev_word.x = pos % (inp->win.cols);
