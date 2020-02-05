@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 19:38:50 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 20:35:24 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ static void	parse_home_end(struct s_input *inp)
 		}
 		else if (inp->key == KEY_END)
 		{
-			inp->cr.y = inp->save_refresh_pos.y +
-				(inp->len_greet + inp->gap.len_string) / inp->win.cols;
-			inp->cr.x = (inp->len_greet + inp->gap.len_string) % inp->win.cols;
+			inp->cr = input_get_end_string(inp);
 			inp->gap.slide = inp->gap.len_string;
 		}
 	}

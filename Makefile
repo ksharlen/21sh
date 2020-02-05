@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/04 01:35:16 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/05 20:32:34 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRCS				:=	main.c\
 							input_refresh_screen.c\
 							input_move_cursor.c\
 							input_common_screen.c\
+							input_key_tools.c\
 							21sh_cd_home_dir.c\
 							21sh_cd.c\
 							21sh_echo.c\

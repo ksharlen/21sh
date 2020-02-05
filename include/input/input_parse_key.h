@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 18:05:42 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 20:36:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@
 # include "input_init.h"
 # include "input_greeting.h"
 
-int		input_getch(void);
-void	input_process_key_press(struct s_input *inp);
-char	*input_begin(struct s_input *inp);
-void	refresh_screen(struct s_input *inp);
-void	move_cursor(struct s_input *inp);
-int		check_line_footnote_up(struct s_input *inp);
-int		check_line_footnote_down(struct s_input *inp);
-void	clear_full_screen(struct s_input *inp);
+int				input_getch(void);
+void			input_process_key_press(struct s_input *inp);
+char			*input_begin(struct s_input *inp);
+void			refresh_screen(struct s_input *inp);
+void			move_cursor(struct s_input *inp);
+int				check_line_footnote_up(struct s_input *inp);
+int				check_line_footnote_down(struct s_input *inp);
+void			clear_full_screen(struct s_input *inp);
+struct s_cursor	input_get_end_string(struct s_input *inp);
 
 #endif
