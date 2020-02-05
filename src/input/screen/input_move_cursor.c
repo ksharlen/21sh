@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 20:39:20 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 20:54:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ static void	parse_page_keys(struct s_input *inp)
 
 static void	parse_shift_key(struct s_input *inp)
 {
-	struct s_cursor	end;
-
 	if (inp->key == KEY_SHIFT_L_ARROW)
 	{
 		
@@ -93,20 +91,9 @@ static void	parse_shift_key(struct s_input *inp)
 	{
 		
 	}
-	else if (inp->key == KEY_SHIFT_U_ARROW)
+	else if (inp->key == KEY_SHIFT_U_ARROW || inp->key == KEY_SHIFT_D_ARROW)
 	{
-		
-	}
-	else if (inp->key == KEY_SHIFT_D_ARROW)
-	{
-		end = input_get_end_string(inp);
-		if (inp->cr.y < end.y)
-		{
-			if (inp->cr.x <= end.x)
-				++inp->cr.y;
-			else
-				inp->cr = end;
-		}
+		input_parse_page_keys(inp);
 	}
 }
 
