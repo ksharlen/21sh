@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 18:00:43 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 19:21:34 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ enum	e_key
 	KEY_PAGE_DOWN,//?option + arrow_down (on func keyboard)
 	KEY_SHIFT_L_ARROW,
 	KEY_SHIFT_R_ARROW,
+	KEY_SHIFT_U_ARROW,
+	KEY_SHIFT_D_ARROW,
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
 };
