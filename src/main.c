@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 23:45:41 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 19:46:05 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(void)
 	while (1)
 	{
 		str = input_begin(&init.inp);
-		if (!ft_strcmp(str, "exit"))
+		if (!str || !ft_strcmp(str, "exit"))
 			break ;
 	}
 	// entry_not_canon(&cp);

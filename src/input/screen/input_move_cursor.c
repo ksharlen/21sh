@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 19:31:31 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 19:38:50 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,30 @@ static void	parse_page_keys(struct s_input *inp)
 
 static void	parse_shift_key(struct s_input *inp)
 {
+	size_t	qt_row_before_cr;
+	size_t	num_sym_in_rows;
+	size_t	reminder_str;
+
+	P_UNUSED(reminder_str);
 	if (inp->key == KEY_SHIFT_L_ARROW)
 	{
-		printf("L\n");
-		// exit(EXIT_FAILURE);
+		
 	}
 	else if (inp->key == KEY_SHIFT_R_ARROW)
-		printf("R\n");
+	{
+		
+	}
 	else if (inp->key == KEY_SHIFT_U_ARROW)
-		printf("U\n");
+	{
+		
+	}
 	else if (inp->key == KEY_SHIFT_D_ARROW)
-		printf("D\n");
+	{
+		qt_row_before_cr = inp->cr.y - inp->save_refresh_pos.y;
+		num_sym_in_rows = qt_row_before_cr * inp->win.cols - inp->len_greet;
+		if (inp->gap.len_string > num_sym_in_rows)
+			++inp->cr.y;
+	}
 }
 
 void	move_cursor(struct s_input *inp)

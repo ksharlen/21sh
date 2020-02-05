@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 18:22:59 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/05 20:29:11 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ char	*input_begin(struct s_input *inp)
 	char	*cmd;
 
 	input_preparation(inp);
-	while (!PRESS_CTR_D_AND_EMPTY_STR(inp->key, inp->gap.len_string) &&
-			inp->key != KEY_NEW_LINE)
+	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch();
+		if (PRESS_CTR_D_AND_EMPTY_STR(inp->key, inp->gap.len_string))
+		{
+			ft_putchar_fd('\n', STDOUT_FILENO);
+			return (NULL);
+		}
 		input_process_key_press(inp);
 	}
 	write(STDOUT_FILENO, "\n", 1);
