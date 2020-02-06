@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:57 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 17:33:39 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 19:16:15 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "input_macros.h"
 
 # define CLEAN	ft_bzero
-# define QUOTE_GREET_STR	"quote>"
+# define QUOTE_GREET_STR	"quote> "
 
 int			input_greeting(const struct s_user_info *u_info);
 int			input_quote_greet(const struct s_user_info *u_info);
