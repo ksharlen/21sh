@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:11:57 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 20:27:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void			get_coor_word(struct s_input *inp, ssize_t pos);
 void			input_additional_modes(struct s_input *inp);
 void			input_quote_mode(struct s_input *inp);
 void			input_put_new_line(struct s_input *inp);
+void			clean_struct_input(struct s_input *inp);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:12:54 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 20:35:26 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,10 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	{
 		inp->key = input_getch();
 		if (inp->key == CTR_KEY('c'))
+		{
+			clean_struct_input(inp);
 			return ;
+		}
 		input_process_key_press(inp);
 	}
 	input_put_new_line(inp);
@@ -122,7 +125,7 @@ void	input_quote_mode(struct s_input *inp)
 	int		quote_close;
 //!need defense
 	ft_qu_init(&qu);
-	inp->str_for_parse = gap_get_buf(&inp->gap);
+	// inp->str_for_parse = gap_get_buf(&inp->gap);
 	put_in_stack_quote_from_str(inp->str_for_parse, &qu);
 	quote_close = search_double_quotes(&qu);
 	if (quote_close != TRUE)
