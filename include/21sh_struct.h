@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 00:33:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 18:45:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ struct s_input
 {
 	t_gapbuf			gap;
 	char				*buf;
+	char				*str_for_parse;
 	struct termios		cfg_cpy;
 	struct s_cursor		cr;
 	struct s_cursor		save_refresh_pos;
