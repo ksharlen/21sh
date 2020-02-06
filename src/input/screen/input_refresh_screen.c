@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 18:08:40 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 20:14:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ void	refresh_screen(struct s_input *inp)
 	write(STDOUT_FILENO, out_str, inp->gap.len_string);
 	ft_strdel(&out_str);
 // //!TMP
-	char	buf[200] = {0};
-
-	set_cursor_pos(0, inp->win.rows - 1);
-	snprintf(buf, 200, "cols: %d	rows: %d	x: %d	y: %d	size_greet: %zd", inp->win.cols,
-		inp->win.rows, inp->cr.x, inp->cr.y, inp->len_greet);
-	write(STDOUT_FILENO, buf, 200);
-	set_cursor_pos(0, inp->win.rows - 2);
-	bzero(buf, 200);
-	snprintf(buf, 200, "GAP_LEN: %zd	GAP_SIZE: %zd	GAP_START: %zd	GAP_END: %zd	GAP_SLIDE: %zd",
-		inp->gap.len_string, inp->gap.size_gap_buf, inp->gap.gap_start, inp->gap.gap_end, inp->gap.slide);
-	write(STDOUT_FILENO, buf, 200);
+	// char	buf[200] = {0};
+//
+	// set_cursor_pos(0, inp->win.rows - 1);
+	// snprintf(buf, 200, "cols: %d	rows: %d	x: %d	y: %d	size_greet: %zd", inp->win.cols,
+	// 	inp->win.rows, inp->cr.x, inp->cr.y, inp->len_greet);
+	// write(STDOUT_FILENO, buf, 200);
+	// set_cursor_pos(0, inp->win.rows - 2);
+	// bzero(buf, 200);
+	// snprintf(buf, 200, "GAP_LEN: %zd	GAP_SIZE: %zd	GAP_START: %zd	GAP_END: %zd	GAP_SLIDE: %zd",
+	// 	inp->gap.len_string, inp->gap.size_gap_buf, inp->gap.gap_start, inp->gap.gap_end, inp->gap.slide);
+	// write(STDOUT_FILENO, buf, 200);
 // //!TMP
 	set_cursor_pos(inp->cr.x, inp->cr.y);
 	visibility_cursor(VISIBLE_CUR);
