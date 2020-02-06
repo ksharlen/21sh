@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 16:27:17 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:27:37 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	input_quote_mode(struct s_input *inp)
 {
 	t_queue	qu;
 	char	*str;
-	char	*tmp;
 
 	ft_qu_init(&qu);
 	str = gap_get_buf(&inp->gap);
