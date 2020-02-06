@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 21:58:34 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 00:54:01 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int	is_move_key(int key)
 		|| key == KEY_RIGHT_ARROW || key == KEY_PAGE_DOWN || key == KEY_PAGE_UP
 		|| key == KEY_HOME || key == KEY_END
 		|| key == KEY_SHIFT_L_ARROW || key == KEY_SHIFT_R_ARROW
-		|| key == KEY_SHIFT_U_ARROW || key == KEY_SHIFT_D_ARROW)
+		|| key == KEY_SHIFT_U_ARROW || key == KEY_SHIFT_D_ARROW
+		|| key == CTR_KEY('e') || key == CTR_KEY('a'))
 		return (TRUE);
 	else
 		return (FALSE);

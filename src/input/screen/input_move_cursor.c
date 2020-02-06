@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 00:42:17 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 00:55:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static void	parse_home_end(struct s_input *inp)
 {
 	if (inp->gap.len_string)
 	{
-		if (inp->key == KEY_HOME)
+		if (inp->key == KEY_HOME || inp->key == CTR_KEY('a'))
 		{
 			inp->cr.x = inp->save_refresh_pos.x;
 			inp->cr.y = inp->save_refresh_pos.y;
 			inp->gap.slide = 0;
 		}
-		else if (inp->key == KEY_END)
+		else if (inp->key == KEY_END || inp->key == CTR_KEY('e'))
 		{
 			inp->cr = input_get_end_string(inp);
 			inp->gap.slide = inp->gap.len_string;
@@ -88,7 +88,8 @@ void	move_cursor(struct s_input *inp)
 	if (inp->key == KEY_LEFT_ARROW || inp->key == KEY_RIGHT_ARROW ||
 		inp->key == KEY_UP_ARROW || inp->key == KEY_DOWN_ARROW)
 		parse_arrow(inp);
-	else if (inp->key == KEY_HOME || inp->key == KEY_END)
+	else if (inp->key == KEY_HOME || inp->key == KEY_END ||
+	inp->key == CTR_KEY('e') || inp->key == CTR_KEY('a'))
 	{
 		parse_home_end(inp);
 	}
