@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 21:16:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 00:39:15 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,14 @@ static char	line_form(struct s_input *inp, char search_qt, char *src_str)
 	ft_qu_init(&qu);
 	ft_qu_push(&qu, &search_qt, sizeof(char));
 	str = gap_get_buf(&inp->gap);
-	put_in_stack_quote_from_str(str, &qu);
-	inp->str_for_parse = ft_strreplace(src_str, str);
-	close_qt = search_double_quotes(&qu);
+	if (str)
+	{
+		put_in_stack_quote_from_str(str, &qu);
+		inp->str_for_parse = ft_strreplace(src_str, str);
+		close_qt = search_double_quotes(&qu);
+	}
+	else
+		close_qt = search_qt;
 	return (close_qt);
 }
 
@@ -58,6 +63,7 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch();
+		check_change_winsize(inp);
 		if (inp->key == CTR_KEY('c'))
 		{
 			clean_struct_input(inp);
