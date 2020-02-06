@@ -6,14 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 01:35:34 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:08:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
-
-//!bug with get_pos_cursor when press 'enter'
-//!Не забыть про баг когда ввод на последней строке находится
 
 static void	input_preparation(struct s_input *inp)
 {
@@ -49,7 +46,7 @@ char	*input_begin(struct s_input *inp)
 		input_process_key_press(inp);
 	}
 	write(STDOUT_FILENO, "\n", 1);
-	cmd = gap_get_buf(&inp->gap);
+	cmd = input_additional_modes(inp);
 	entry_canon(&inp->cfg_cpy);
 	return (cmd);
 }

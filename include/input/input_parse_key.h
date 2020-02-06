@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 01:11:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:21:21 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 
 # include "libft.h"
+# include "ft_queue.h"
 # include "21sh_struct.h"
 # include "input_macros.h"
 # include "input_termcap.h"
@@ -40,5 +41,7 @@ void			input_paste_to_buf(struct s_input *inp);
 void			input_cut_from_buf(struct s_input *inp);
 void			input_copy_from_buf(struct s_input *inp);
 void			get_coor_word(struct s_input *inp, ssize_t pos);
+char			*input_additional_modes(struct s_input *inp);
+void			input_quote_mode(struct s_input *inp);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/06 00:43:34 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/06 16:14:01 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ DIR_SRC				:=	./src/
 DIR_SRC_INPUT		:=	$(DIR_SRC)input/
 DIR_SRC_TERMCAP		:=	$(DIR_SRC_INPUT)termcap/
 DIR_SRC_INPUT_SCREEN	:=	$(DIR_SRC_INPUT)screen/
+DIR_SRC_INPUT_ADD_MODES	:=	$(DIR_SRC_INPUT)/additional_modes/
 DIR_SRC_INIT		:=	$(DIR_SRC)init/
 DIR_UTILS			:=	$(DIR_SRC)internal_utilities/
 DIR_UTILS_ENV		:=	$(DIR_UTILS)21sh_env
@@ -25,6 +26,7 @@ DIR_UTILS_ENV		:=	$(DIR_UTILS)21sh_env
 DIRS_SRC			:=	$(DIR_SRC)\
 							$(DIR_SRC_INPUT)\
 							$(DIR_SRC_TERMCAP)\
+							$(DIR_SRC_INPUT_ADD_MODES)\
 							$(DIR_SRC_INIT)\
 							$(DIR_UTILS)\
 							$(DIR_UTILS_ENV)\
@@ -63,6 +65,8 @@ SRCS				:=	main.c\
 							input_parse_keys_shift_words.c\
 							input_copy_paste_cut.c\
 							input_ctr_keys.c\
+							input_additional_modes.c\
+							input_quote.c\
 							21sh_cd_home_dir.c\
 							21sh_cd.c\
 							21sh_echo.c\
