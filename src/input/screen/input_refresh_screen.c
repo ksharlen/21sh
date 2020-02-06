@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 01:24:17 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:41:12 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,28 @@ static void	clear_screen(struct s_cursor *sv_pos)
 	clear_pos_cr_to_the_end();
 }
 
+static void	insert_new_line(struct s_input *inp)
+{
+	size_t	qt_col;
+
+	qt_col = (inp->gap.len_string + inp->len_greet) / inp->win.cols;
+	if ((inp->save_refresh_pos.y + qt_col) == (size_t)(inp->win.rows) &&
+		(inp->gap.len_string + inp->len_greet >= (qt_col * inp->win.cols)))
+	{
+		--inp->save_refresh_pos.y;
+		--inp->cr.y;
+		write(STDOUT_FILENO, "\n", 1);
+	}
+}
+
 void	refresh_screen(struct s_input *inp)
 {
 	char	*out_str;
 
-	clear_screen(&inp->save_refresh_pos);
 	if (IS_PRINT_KEY(inp->key))
 	{
 		gap_putchar_in_buf(&inp->gap, inp->key);
+		insert_new_line(inp);
 		if (check_line_footnote_down(inp) == FALSE)
 			++inp->cr.x;
 	}
@@ -40,6 +54,7 @@ void	refresh_screen(struct s_input *inp)
 			--inp->cr.x;
 		gap_del_sym_before_slide(&inp->gap);
 	}
+	clear_screen(&inp->save_refresh_pos);
 	out_str = gap_get_buf(&inp->gap);
 	write(STDOUT_FILENO, out_str, inp->gap.len_string);
 	ft_strdel(&out_str);
