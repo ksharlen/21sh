@@ -6,11 +6,34 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 01:28:50 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 18:20:53 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:58:15 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
+
+void	check_change_winsize(struct s_input *inp)
+{
+	struct s_win	wn;
+
+	input_tgetent();
+	wn = get_win_size();
+	if (ft_memcmp(&wn, &inp->win, sizeof(struct s_win)))
+	{
+		inp->win = wn;
+		input_update_stat_win(inp);
+	}
+		// inp->win = wn;
+}
+
+void	input_update_stat_win(struct s_input *inp)
+{
+	inp->cr = get_pos_cursor();
+	// inp->cr.x += inp->len_greet - 1;
+	--inp->cr.x;
+	--inp->cr.y;
+	// inp->save_refresh_pos = inp->cr;
+}
 
 int		check_line_footnote_down(struct s_input *inp)
 {
