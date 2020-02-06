@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 22:42:11 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 22:51:29 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	input_begin(struct s_input *inp)
 	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch();
-		// check_change_winsize(inp);
+		check_change_winsize(inp);
 		if (PRESS_CTR_D_AND_EMPTY_STR(inp->key, inp->gap.len_string))
 		{
 			ft_putchar_fd('\n', STDOUT_FILENO);
