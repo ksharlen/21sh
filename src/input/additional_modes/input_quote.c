@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 17:18:36 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:22:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	put_in_stack_quote_from_str(const char *str, t_queue *qu)
 static char	quote_cmp(char *quote, t_queue *qu)
 {
 	char	*second_pop;
+	char	quote_ret;
 
 	while (1)
 	{
@@ -35,17 +36,19 @@ static char	quote_cmp(char *quote, t_queue *qu)
 		{
 			if (*second_pop == *quote)
 			{
-				ft_strdel(&second_pop);
-				return (TRUE);
+				quote_ret = TRUE;
+				break ;
 			}
 		}
 		else
 		{
-			ft_strdel(&second_pop);
-			return (*quote);
+			quote_ret = *quote;
+			break ;
 		}
 		ft_strdel(&second_pop);
 	}
+	ft_strdel(&second_pop);
+	return (quote_ret);
 }
 
 static int	search_double_quotes(t_queue *qu)
