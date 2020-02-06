@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 00:41:35 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 01:16:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:34:14 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	input_cut_from_buf(struct s_input *inp)
 {
 	if (inp->gap.len_string)
 	{
+		if (inp->buf)
+			ft_strdel(&inp->buf);
 		inp->buf = gap_cut_str(&inp->gap);
 		inp->cr.x = inp->save_refresh_pos.x;
 		inp->cr.y = inp->save_refresh_pos.y;

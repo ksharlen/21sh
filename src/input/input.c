@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:37:43 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:33:37 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void		clean_struct_input(struct s_input *inp)
 	}
 }
 
-//!think need refact
 char	*input_begin(struct s_input *inp)
 {
 	input_preparation(inp);

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 21:20:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:30:46 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ void	input_init(struct s_input *inp)
 	if (inp)
 	{
 		gap_init(&inp->gap, INP_SIZE_BUF, INP_SIZE_GAP);
-		// inp->cr = get_pos_cursor();
-		// --inp->cr.x;
-		// --inp->cr.y;
+		inp->buf = NULL;
+		inp->str_for_parse = NULL;
 	}
-	//greeting
-	//lines
-	//etc
 }
