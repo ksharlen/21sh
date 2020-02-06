@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:40:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 20:47:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,61 +23,6 @@ static void	put_in_stack_quote_from_str(const char *str, t_queue *qu)
 		++str;
 	}
 }
-
-static char	quote_cmp(char *quote, t_queue *qu)
-{
-	char	*second_pop;
-	char	quote_ret;
-
-	while (1)
-	{
-		second_pop = ft_qu_pop(qu);
-		if (second_pop)
-		{
-			if (*second_pop == *quote)
-			{
-				quote_ret = TRUE;
-				break ;
-			}
-		}
-		else
-		{
-			quote_ret = *quote;
-			break ;
-		}
-		ft_strdel(&second_pop);
-	}
-	ft_strdel(&second_pop);
-	return (quote_ret);
-}
-
-static int	search_double_quotes(t_queue *qu)
-{
-	char	*first_pop;
-	char	quote;
-
-	quote = TRUE;
-	if ((ft_qu_is_empty(qu) == FALSE))
-	{
-		while (1)
-		{
-			first_pop = ft_qu_pop(qu);
-			if (!first_pop)
-			{
-				quote = TRUE;
-				break ;
-			}
-			if ((quote = quote_cmp(first_pop, qu)) != TRUE)
-			{
-				ft_strdel(&first_pop);
-				return (quote);
-			}
-			ft_strdel(&first_pop);
-		}
-	}
-	return (quote);
-}
-
 
 static void	quote_init(struct s_input *inp)
 {
@@ -124,9 +69,8 @@ void	input_quote_mode(struct s_input *inp)
 {
 	t_queue	qu;
 	int		quote_close;
-//!need defense
+
 	ft_qu_init(&qu);
-	// inp->str_for_parse = gap_get_buf(&inp->gap);
 	put_in_stack_quote_from_str(inp->str_for_parse, &qu);
 	quote_close = search_double_quotes(&qu);
 	if (quote_close != TRUE)

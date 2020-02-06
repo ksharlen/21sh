@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/06 17:31:44 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/06 20:48:46 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS				:=	main.c\
 							input_additional_modes.c\
 							input_quote.c\
 							input_quote_greet.c\
+							input_search_key_char.c\
 							21sh_cd_home_dir.c\
 							21sh_cd.c\
 							21sh_echo.c\
