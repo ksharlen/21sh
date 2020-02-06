@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 18:49:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 18:56:38 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,10 @@ static int	search_double_quotes(t_queue *qu)
 static void	quote_init(struct s_input *inp)
 {
 	gap_clean_buf(&inp->gap);
-	inp->greet = input_quote_greet;
-	inp->len_greet = ft_strlen(QUOTE_GREET_STR);
 	inp->save_refresh_pos = get_pos_cursor();
 	--inp->save_refresh_pos.y;
 	inp->save_refresh_pos.x = inp->len_greet;
 	inp->cr = inp->save_refresh_pos;
-	// inp->save_refresh_pos.x = inp->len_greet;
-	// set_cursor_pos(inp->save_refresh_pos.x, inp->save_refresh_pos.y);
 	inp->key = 0;
 }
 
@@ -107,7 +103,7 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	{
 		inp->key = input_getch();
 		if (inp->key == CTR_KEY('c'))
-			break ;
+			return ;
 		input_process_key_press(inp);
 	}
 	input_put_new_line(inp);
@@ -131,5 +127,9 @@ void	input_quote_mode(struct s_input *inp)
 	put_in_stack_quote_from_str(str, &qu);
 	quote_close = search_double_quotes(&qu);
 	if (quote_close != TRUE)
+	{
+		inp->greet = input_quote_greet;
+		inp->len_greet = ft_strlen(QUOTE_GREET_STR);
 		quote_mode(inp, quote_close, str);
+	}
 }
