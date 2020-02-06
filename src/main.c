@@ -6,13 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:53:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:21:25 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "21sh.h"
-// #include "21sh_init.h"
-// #include "libft.h"
 
 int		main(void)
 {
@@ -20,7 +18,6 @@ int		main(void)
 	char			*str;
 
 	sh21_init(&init);
-	// get_struct_for_input(&inp, &init);
 	while (1)
 	{
 		str = input_begin(&init.inp);//if (str)
@@ -29,9 +26,7 @@ int		main(void)
 		ft_printf("str: %s\n", str ? str : "empty_str");
 		ft_strdel(&str);
 	}
-	ft_strdel(&init.inp.gap.buf);
-	// entry_not_canon(&cp);
-	// entry_canon(&cp);
-	// ft_printf("hello owrld\n");
+	input_finish(&init.inp);
+	// ft_strdel(&init.inp.gap.buf);
 	return (0);
 }

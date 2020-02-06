@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:23:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 23:17:57 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:21:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 void	entry_not_canon(struct termios *st_copy);
 void	entry_canon(struct termios *st_term);
 void	input_init(struct s_input *inp);
+void	input_finish(struct s_input *inp);
 
 #endif
