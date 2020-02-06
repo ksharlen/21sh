@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 17:52:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 18:10:43 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	input_preparation(struct s_input *inp)
 	inp->key = 0;
 }
 
-static void	put_new_line(struct s_input *inp)
+void		input_put_new_line(struct s_input *inp)
 {
 	int	last_rows_from_str;
 
@@ -55,7 +55,7 @@ char	*input_begin(struct s_input *inp)
 			break ;
 		input_process_key_press(inp);
 	}
-	put_new_line(inp);
+	input_put_new_line(inp);
 	// write(STDOUT_FILENO, "\n", 1);
 	cmd = input_additional_modes(inp);
 	entry_canon(&inp->cfg_cpy);
