@@ -6,18 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 21:23:20 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 00:42:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
-
-/*
-**ARROW: L R U D
-**PAGE: U D
-**HOME: END
-**WORDS: R L
-*/
 
 static void	parse_arrow(struct s_input *inp)
 {
@@ -39,7 +32,6 @@ static void	parse_arrow(struct s_input *inp)
 			gap_slide_right(&inp->gap);
 		}
 	}
-	// set_cursor_pos(inp->cr.x, inp->cr.y);
 }
 
 static void	parse_home_end(struct s_input *inp)
@@ -74,9 +66,7 @@ static void	parse_page_keys(struct s_input *inp)
 		if (reminder_str > inp->cr.x)
 		{
 			if ((qt_row_before_cr + 1) * inp->win.cols >= inp->gap.len_string)
-			{
 				++inp->cr.y;
-			}
 		}
 	}
 }
