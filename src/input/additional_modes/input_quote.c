@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 17:22:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:47:56 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,35 @@ static int	search_double_quotes(t_queue *qu)
 	return (quote);
 }
 
+
+static void	quote_init(struct s_input *inp)
+{
+	gap_clean_buf(&inp->gap);
+	inp->greet = input_quote_greet;
+	inp->len_greet = ft_strlen(QUOTE_GREET_STR);
+	inp->save_refresh_pos = get_pos_cursor();
+	inp->save_refresh_pos.x = inp->len_greet;
+	inp->cr = inp->save_refresh_pos;
+	// inp->save_refresh_pos.x = inp->len_greet;
+	// set_cursor_pos(inp->save_refresh_pos.x, inp->save_refresh_pos.y);
+	inp->key = 0;
+}
+
+static void	quote_mode(struct s_input *inp, char search_qt)
+{
+	P_UNUSED(inp);
+	P_UNUSED(search_qt);
+
+	inp->greet(&inp->u_info);
+	while (inp->key != KEY_NEW_LINE)
+	{
+		inp->key = input_getch();
+		if (inp->key == CTR_KEY('c'))
+			break ;
+		input_process_key_press(inp);
+	}
+}
+
 void	input_quote_mode(struct s_input *inp)
 {
 	t_queue	qu;
@@ -87,8 +116,10 @@ void	input_quote_mode(struct s_input *inp)
 	ft_qu_init(&qu);
 	str = gap_get_buf(&inp->gap);
 	put_in_stack_quote_from_str(str, &qu);
-	if ((quote_close = search_double_quotes(&qu)) == TRUE)
-		ft_printf("TRUE\n");
-	else
-		ft_printf("quote: %c\n", quote_close);
+	quote_close = search_double_quotes(&qu);
+	if (quote_close != TRUE)
+	{
+		quote_init(inp);
+		quote_mode(inp, quote_close);
+	}
 }
