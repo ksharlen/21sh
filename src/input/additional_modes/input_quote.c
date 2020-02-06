@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 16:52:53 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:18:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,36 @@ static void	put_in_stack_quote_from_str(const char *str, t_queue *qu)
 	}
 }
 
+static char	quote_cmp(char *quote, t_queue *qu)
+{
+	char	*second_pop;
+
+	while (1)
+	{
+		second_pop = ft_qu_pop(qu);
+		if (second_pop)
+		{
+			if (*second_pop == *quote)
+			{
+				ft_strdel(&second_pop);
+				return (TRUE);
+			}
+		}
+		else
+		{
+			ft_strdel(&second_pop);
+			return (*quote);
+		}
+		ft_strdel(&second_pop);
+	}
+}
+
 static int	search_double_quotes(t_queue *qu)
 {
 	char	*first_pop;
-	char	*second_pop;
-	int		quote_close;
+	char	quote;
 
-	quote_close = TRUE;
+	quote = TRUE;
 	if ((ft_qu_is_empty(qu) == FALSE))
 	{
 		while (1)
@@ -38,30 +61,18 @@ static int	search_double_quotes(t_queue *qu)
 			first_pop = ft_qu_pop(qu);
 			if (!first_pop)
 			{
-				quote_close = TRUE;
+				quote = TRUE;
 				break ;
-				//!del
 			}
-			while (1)
+			if ((quote = quote_cmp(first_pop, qu)) != TRUE)
 			{
-				second_pop = ft_qu_pop(qu);
-				if (second_pop)
-				{
-					if (*second_pop == *first_pop)
-					{
-						quote_close = TRUE;
-						//!del
-						break ;
-					}
-				}
-				else
-				{
-					return (FALSE);
-				}
+				ft_strdel(&first_pop);
+				return (quote);
 			}
+			ft_strdel(&first_pop);
 		}
 	}
-	return (quote_close);
+	return (quote);
 }
 
 void	input_quote_mode(struct s_input *inp)
@@ -75,6 +86,6 @@ void	input_quote_mode(struct s_input *inp)
 	put_in_stack_quote_from_str(str, &qu);
 	if ((quote_close = search_double_quotes(&qu)) == TRUE)
 		ft_printf("TRUE\n");
-	else if (quote_close == FALSE)
-		ft_printf("FALSE\n");
+	else
+		ft_printf("quote: %c\n", quote_close);
 }
