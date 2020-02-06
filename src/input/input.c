@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 00:48:06 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 00:50:46 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 #define IS_CTR_D	0
 #define IS_CTR_C	1
 #define NOT_EXT_KEY	2
-
-static void	input_preparation(struct s_input *inp)
-{
-	input_tgetent();
-	ft_strdel(&inp->str_for_parse);
-	gap_clean_buf(&inp->gap);
-	inp->greet = input_greeting;
-	entry_not_canon(&inp->cfg_cpy);
-	inp->len_greet = inp->greet(&inp->u_info);
-	inp->win = get_win_size();
-	inp->cr = get_pos_cursor();
-	--inp->cr.x;
-	--inp->cr.y;
-	inp->save_refresh_pos = inp->cr;
-	inp->key = 0;
-}
 
 void		input_put_new_line(struct s_input *inp)
 {
@@ -70,6 +54,22 @@ static int	check_ext_key(struct s_input *inp)
 		return (IS_CTR_C);
 	}
 	return (NOT_EXT_KEY);
+}
+
+static void	input_preparation(struct s_input *inp)
+{
+	input_tgetent();
+	ft_strdel(&inp->str_for_parse);
+	gap_clean_buf(&inp->gap);
+	inp->greet = input_greeting;
+	entry_not_canon(&inp->cfg_cpy);
+	inp->len_greet = inp->greet(&inp->u_info);
+	inp->win = get_win_size();
+	inp->cr = get_pos_cursor();
+	--inp->cr.x;
+	--inp->cr.y;
+	inp->save_refresh_pos = inp->cr;
+	inp->key = 0;
 }
 
 void	input_begin(struct s_input *inp)
