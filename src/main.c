@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:30:54 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 20:53:07 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(void)
 		str = input_begin(&init.inp);//if (str)
 		if ((!str && init.inp.key == CTR_KEY('d')) || (str && !ft_strcmp(str, "exit")))
 			break ;
-		// ft_printf("str: %s\n", str);
+		ft_printf("str: %s\n", str ? str : "empty_str");
 		ft_strdel(&str);
 	}
 	ft_strdel(&init.inp.gap.buf);

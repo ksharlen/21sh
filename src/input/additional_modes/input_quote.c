@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:47:36 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:16:24 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,26 @@ static void	quote_init(struct s_input *inp)
 	inp->key = 0;
 }
 
+static char	line_form(struct s_input *inp, char search_qt, char *src_str)
+{
+	char		*str;
+	char		close_qt;
+	t_queue		qu;
+
+	ft_qu_init(&qu);
+	ft_qu_push(&qu, &search_qt, sizeof(char));
+	str = gap_get_buf(&inp->gap);
+	put_in_stack_quote_from_str(str, &qu);
+	inp->str_for_parse = ft_strreplace(src_str, str);
+	close_qt = search_double_quotes(&qu);
+	return (close_qt);
+}
+
 static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 {
-	t_queue qu;
-	char	*str;
 	char	close_qt;
 
 	quote_init(inp);
-	ft_qu_init(&qu);
-	ft_qu_push(&qu, &search_qt, sizeof(char));
 	inp->greet(&inp->u_info);
 	while (inp->key != KEY_NEW_LINE)
 	{
@@ -56,16 +67,12 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 		input_process_key_press(inp);
 	}
 	input_put_new_line(inp);
-	str = gap_get_buf(&inp->gap);
-	put_in_stack_quote_from_str(str, &qu);
-	src_str = ft_strreplace(src_str, str);
-	inp->str_for_parse = src_str;
-	close_qt = search_double_quotes(&qu);
+	close_qt = line_form(inp, search_qt, src_str);
 	if (close_qt != TRUE)
-		quote_mode(inp, close_qt, src_str);
+		quote_mode(inp, close_qt, inp->str_for_parse);
 }
 
-void	input_quote_mode(struct s_input *inp)
+void		input_quote_mode(struct s_input *inp)
 {
 	t_queue	qu;
 	int		quote_close;
