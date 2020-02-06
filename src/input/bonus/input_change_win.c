@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 23:36:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 00:29:00 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,32 @@ static ssize_t	get_reminder_row(struct s_input *inp, struct s_win *wn)
 	return (curr_qt_rows - chg_qt_rows);
 }
 
+static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
+{
+	struct s_cursor	crr;
+	ssize_t	reminder;
+
+	reminder = get_reminder_row(inp, wn);
+	if (reminder > 0)
+		inp->save_refresh_pos.y += FT_ABS(reminder);
+	else
+	{
+		input_tputs(input_tgetstr(CL), 0, ft_putchar);
+		set_cursor_pos(0, 0);
+		inp->greet(&inp->u_info);
+		crr.y = (inp->gap.slide + inp->len_greet) / wn->cols;
+		crr.x = (inp->gap.slide + inp->len_greet) % wn->cols;
+		inp->cr = crr;
+	}
+}
+
 static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 {
 	ssize_t	reminder;
 
+	inp->cr = get_pos_cursor();
+	--inp->cr.x;
+	--inp->cr.y;
 	if (inp->save_refresh_pos.y)
 	{
 		reminder = get_reminder_row(inp, wn);
@@ -39,10 +61,9 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 				inp->save_refresh_pos.y -= FT_ABS(reminder);
 		}
 	}
+	else
+		first_row_set_coor(inp, wn);
 	inp->win = *wn;
-	inp->cr = get_pos_cursor();
-	--inp->cr.x;
-	--inp->cr.y;
 }
 
 void	check_change_winsize(struct s_input *inp)
