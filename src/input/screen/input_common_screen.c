@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 01:28:50 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:50:52 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 01:19:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ void	clear_full_screen(struct s_input *inp)
 		inp->save_refresh_pos = get_pos_cursor();
 		--inp->save_refresh_pos.x;
 		--inp->save_refresh_pos.y;
-		str = gap_get_buf(&inp->gap);
-		write(STDOUT_FILENO, str, inp->gap.len_string);
-		ft_strdel(&str);
+		gap_print_buf(&inp->gap);
 		inp->cr = cursor_after_clear;
 		set_cursor_pos(inp->cr.x, inp->cr.y);
 		visibility_cursor(VISIBLE_CUR);

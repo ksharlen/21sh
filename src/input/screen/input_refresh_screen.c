@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:54:10 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 01:24:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static void	insert_new_line(struct s_input *inp)
 
 void	refresh_screen(struct s_input *inp)
 {
-	char	*out_str;
-
 	if (IS_PRINT_KEY(inp->key))
 	{
 		gap_putchar_in_buf(&inp->gap, inp->key);
@@ -53,9 +51,7 @@ void	refresh_screen(struct s_input *inp)
 		gap_del_sym_before_slide(&inp->gap);
 	}
 	clear_screen(&inp->save_refresh_pos);
-	out_str = gap_get_buf(&inp->gap);
-	write(STDOUT_FILENO, out_str, inp->gap.len_string);
-	ft_strdel(&out_str);
+	gap_print_buf(&inp->gap);
 // //!TMP
 	// char	buf[200] = {0};
 //
