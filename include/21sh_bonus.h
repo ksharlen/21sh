@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:25:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 23:29:43 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 02:41:27 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@
 **INPUT
 */
 void	check_change_winsize(struct s_input *inp);
+void	input_ctr_t(struct s_input *inp);
 
 #endif

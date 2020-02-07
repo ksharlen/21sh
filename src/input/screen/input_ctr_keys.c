@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 00:39:14 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 01:02:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 02:42:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void	ctr_keys(struct s_input *inp)
 		input_copy_from_buf(inp);
 	else if (inp->key == CTR_KEY('q'))
 		input_del_line(inp);
+	else if (inp->key == CTR_KEY('t'))
+		input_ctr_t(inp);
 }
