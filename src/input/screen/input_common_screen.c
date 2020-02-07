@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 01:28:50 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 23:28:36 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:50:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	clear_full_screen(struct s_input *inp)
 		str = input_tgetstr(CL);
 		tputs(str, 0, ft_putchar);
 		inp->len_greet = inp->greet(&inp->u_info);
-		inp->save_refresh_pos = get_pos_cursor();//!Может быть ошибк
+		inp->save_refresh_pos = get_pos_cursor();
 		--inp->save_refresh_pos.x;
 		--inp->save_refresh_pos.y;
 		str = gap_get_buf(&inp->gap);

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:14:58 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:54:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static void	insert_new_line(struct s_input *inp)
 {
 	size_t	qt_col;
 
-//!можно оптимизировать
 	qt_col = (inp->gap.len_string + inp->len_greet) / inp->win.cols;
 	if ((inp->save_refresh_pos.y + qt_col) == (size_t)(inp->win.rows) &&
 		(inp->gap.len_string + inp->len_greet >= (qt_col * inp->win.cols)))
@@ -46,9 +45,7 @@ void	refresh_screen(struct s_input *inp)
 			++inp->cr.x;
 	}
 	else if (inp->key == KEY_DEL || inp->key == CTR_KEY('d'))
-	{
 		gap_del_sym_on_slide(&inp->gap);
-	}
 	else if (inp->key == KEY_BCKSPACE)
 	{
 		if (check_line_footnote_up(inp) == FALSE && inp->gap.slide)

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 21:16:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:20:57 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:51:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static size_t	get_shift_skip_word(const char *str, size_t pos, int where)
 	}
 	return (shift);
 }
-
 
 static void		parse_shft_right_arrow(struct s_input *inp)
 {
