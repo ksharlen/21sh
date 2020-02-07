@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 23:29:25 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:06:46 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void			input_quote_mode(struct s_input *inp);
 void			input_put_new_line(struct s_input *inp);
 void			clean_struct_input(struct s_input *inp);
 int				search_double_quotes(t_queue *qu);
+int				input_get_key_ctr_arrow(void);
+int				input_get_key_shift_arrow(void);
 
 #endif

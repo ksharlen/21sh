@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 19:23:23 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:11:46 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,18 @@ static int		get_key_arrow(char key)
 	return (key_arrow);
 }
 
-static int		get_key_shift_arrow(void)
+static int		get_key_combo_arrow(void)
 {
-	char	*sym;
+	char	sym;
 	int		key_shift_arrow;
 
-	sym = (char[3]){0};
+	sym = 0;
 	key_shift_arrow = 0;
-	CHK_SYS_ERR_EXT(read(STDIN_FILENO, &sym[0], ONE_SYM), E_READ, P_N);
-	if (sym[0] == '2')
-	{
-		CHK_SYS_ERR_EXT(read(STDIN_FILENO, sym + 1, 2), E_READ, P_N);
-		if (!sym[2])
-		{
-			if (sym[1] == 'A')
-				key_shift_arrow = KEY_SHIFT_U_ARROW;
-			else if (sym[1] == 'B')
-				key_shift_arrow = KEY_SHIFT_D_ARROW;
-			else if (sym[1] == 'C')
-				key_shift_arrow = KEY_SHIFT_R_ARROW;
-			else if (sym[1] == 'D')
-				key_shift_arrow = KEY_SHIFT_L_ARROW;
-		}
-	}
+	CHK_SYS_ERR_EXT(read(STDIN_FILENO, &sym, ONE_SYM), E_READ, P_N);
+	if (sym == '2')
+		key_shift_arrow = input_get_key_shift_arrow();
+	else if (sym == '5')
+		key_shift_arrow = input_get_key_ctr_arrow();
 	return (key_shift_arrow);
 }
 
@@ -87,7 +76,7 @@ static int		get_func_key(struct s_key *key)
 		if (key->read_key[3] == '~')
 			key->key = get_key_additional(key->read_key[2]);
 		else if (key->read_key[2] == '1' && key->read_key[3] == ';')
-			key->key = get_key_shift_arrow();
+			key->key = get_key_combo_arrow();
 	}
 	else if (KEY_ARROW(key->read_key[2]) || KEY_HOME_END(key->read_key[2]))
 		key->key = get_key_arrow(key->read_key[2]);

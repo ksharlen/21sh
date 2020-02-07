@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/07 14:09:50 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/08 00:05:34 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ SRCS				:=	main.c\
 							input_search_key_char.c\
 							input_change_win.c\
 							input_ctr_t.c\
+							input_set_of_instr_for_getch.c\
 							21sh_cd_home_dir.c\
 							21sh_cd.c\
 							21sh_echo.c\

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 18:45:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:03:47 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ enum	e_key
 	KEY_SHIFT_R_ARROW,
 	KEY_SHIFT_U_ARROW,
 	KEY_SHIFT_D_ARROW,
+	KEY_CTR_L_ARROW,
+	KEY_CTR_R_ARROW,
+	KEY_CTR_U_ARROW,
+	KEY_CTR_D_ARROW,
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
 };
