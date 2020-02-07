@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 00:29:00 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 14:55:02 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,18 @@ static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
 	}
 }
 
+static void	set_cursor_inside_new_win(struct s_input *inp)
+{
+	
+}
+
 static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 {
 	ssize_t	reminder;
 
-	inp->cr = get_pos_cursor();
-	--inp->cr.x;
-	--inp->cr.y;
+	// inp->cr = get_pos_cursor();
+	// --inp->cr.x;
+	// --inp->cr.y;
 	if (inp->save_refresh_pos.y)
 	{
 		reminder = get_reminder_row(inp, wn);
@@ -64,6 +69,7 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 	else
 		first_row_set_coor(inp, wn);
 	inp->win = *wn;
+	set_cursor_inside_new_win(inp);
 }
 
 void	check_change_winsize(struct s_input *inp)
