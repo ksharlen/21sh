@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 14:17:40 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 14:21:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 
 	inp->cr = get_pos_cursor();
 	--inp->cr.x;
-	--inp->cr.y;
-	if (inp->cr.x >= wn->cols)
+	if (inp->cr.x >= wn->cols - 1)
 	{
 		++inp->cr.y;
 		inp->cr.x = 0;
 	}
+	--inp->cr.y;
 	if (inp->save_refresh_pos.y)
 	{
 		reminder = get_reminder_row(inp, wn);
