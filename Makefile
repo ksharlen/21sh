@@ -6,9 +6,11 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/07 02:41:41 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/07 14:09:50 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME	:=	test
 
 DIR_LIB				:=	lib/
 DIR_LIBFT			:=	$(DIR_LIB)libft/
@@ -116,8 +118,6 @@ PATH_LIBFT			:=	$(DIR_LIBFT)$(LIBFT)
 CREATE_FOLDER		:=	mkdir -p
 MAKE_LIBFT			:=	make -C $(DIR_LIBFT)
 REMOVE				:=	rm -rf
-
-NAME	:=	test
 
 vpath %.c $(DIRS_SRC)
 vpath %.o $(DIR_OBJ)
