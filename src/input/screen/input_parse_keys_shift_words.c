@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 21:16:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 01:12:02 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:20:57 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,10 @@ void			get_coor_word(struct s_input *inp, ssize_t pos)
 
 void			input_parse_keys_shift_words(struct s_input *inp)
 {
-	if (inp->key == KEY_SHIFT_L_ARROW && inp->gap.slide)
+	if ((inp->key == KEY_SHIFT_L_ARROW || inp->key == KEY_CTR_L_ARROW) &&
+			inp->gap.slide)
 		parse_shft_left_arrow(inp);
-	else if (inp->key == KEY_SHIFT_R_ARROW &&
+	else if ((inp->key == KEY_SHIFT_R_ARROW || inp->key == KEY_CTR_R_ARROW) &&
 				inp->gap.slide != inp->gap.len_string)
 		parse_shft_right_arrow(inp);
 }

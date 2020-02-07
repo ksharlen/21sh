@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 00:55:17 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:32:43 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,28 +52,10 @@ static void	parse_home_end(struct s_input *inp)
 	}
 }
 
-static void	parse_page_keys(struct s_input *inp)
-{
-	size_t	qt_row_before_cr;
-	int		num_sym_in_rows;
-	int		reminder_str;
-
-	if (inp->key == KEY_PAGE_DOWN)
-	{
-		qt_row_before_cr = inp->cr.y - inp->save_refresh_pos.y;
-		num_sym_in_rows = qt_row_before_cr * inp->win.cols - (inp->len_greet);
-		reminder_str = inp->gap.len_string - num_sym_in_rows;
-		if (reminder_str > inp->cr.x)
-		{
-			if ((qt_row_before_cr + 1) * inp->win.cols >= inp->gap.len_string)
-				++inp->cr.y;
-		}
-	}
-}
-
 static void	parse_shift_key(struct s_input *inp)
 {
-	if (inp->key == KEY_SHIFT_L_ARROW || inp->key == KEY_SHIFT_R_ARROW)
+	if (inp->key == KEY_SHIFT_L_ARROW || inp->key == KEY_SHIFT_R_ARROW
+		|| inp->key == KEY_CTR_R_ARROW || inp->key == KEY_CTR_L_ARROW)
 	{
 		input_parse_keys_shift_words(inp);
 	}
@@ -90,17 +72,12 @@ void	move_cursor(struct s_input *inp)
 		parse_arrow(inp);
 	else if (inp->key == KEY_HOME || inp->key == KEY_END ||
 	inp->key == CTR_KEY('e') || inp->key == CTR_KEY('a'))
-	{
 		parse_home_end(inp);
-	}
 	else if (inp->key == KEY_SHIFT_L_ARROW || inp->key == KEY_SHIFT_R_ARROW ||
-			inp->key == KEY_SHIFT_U_ARROW || inp->key == KEY_SHIFT_D_ARROW)
-	{
+			inp->key == KEY_SHIFT_U_ARROW || inp->key == KEY_SHIFT_D_ARROW ||
+			inp->key == KEY_CTR_L_ARROW || inp->key == KEY_CTR_R_ARROW)
 		parse_shift_key(inp);
-	}
 	else if (inp->key == KEY_PAGE_DOWN || inp->key == KEY_PAGE_UP)
-	{
-		parse_page_keys(inp);
-	}
+		input_parse_page_keys(inp);
 	set_cursor_pos(inp->cr.x, inp->cr.y);
 }
