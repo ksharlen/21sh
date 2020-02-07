@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 00:39:15 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 23:53:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 		check_change_winsize(inp);
 		if (inp->key == CTR_KEY('c'))
 		{
-			clean_struct_input(inp);
 			input_put_new_line(inp);
+			clean_struct_input(inp);
 			return ;
 		}
 		input_process_key_press(inp);
