@@ -50,6 +50,7 @@ static int	check_ext_key(struct s_input *inp)
 	}
 	else if (inp->key == CTR_KEY('c'))
 	{
+		input_put_new_line(inp);
 		clean_struct_input(inp);
 		return (IS_CTR_C);
 	}
