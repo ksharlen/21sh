@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 14:55:02 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/07 23:48:09 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
 static void	set_cursor_inside_new_win(struct s_input *inp)
 {
 	get_coor_word(inp, inp->len_greet + inp->gap.slide);
+	set_cursor_pos(inp->cr.x, inp->cr.y);
 }
 
 static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
