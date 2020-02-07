@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:16:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 00:46:24 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	input_process_key_press(struct s_input *inp)
 		inp->key == CTR_KEY('d'))
 		refresh_screen(inp);
 	else if (is_move_key(inp->key) == TRUE)
-		move_cursor(inp);
+		input_move_cursor(inp);
 	else if (inp->key == CTR_KEY('l'))
 		clear_full_screen(inp);
 	else if (inp->key < 32)
-		ctr_keys(inp);
+		input_ctr_keys(inp);
 }
