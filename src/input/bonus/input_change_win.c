@@ -45,7 +45,6 @@ static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
 
 static void	set_cursor_inside_new_win(struct s_input *inp)
 {
-	// inp->cr = inp->save_refresh_pos;
 	get_coor_word(inp, inp->len_greet + inp->gap.slide);
 }
 
@@ -53,9 +52,6 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 {
 	ssize_t	reminder;
 
-	// inp->cr = get_pos_cursor();
-	// --inp->cr.x;
-	// --inp->cr.y;
 	if (inp->save_refresh_pos.y)
 	{
 		reminder = get_reminder_row(inp, wn);
