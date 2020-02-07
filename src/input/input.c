@@ -42,19 +42,22 @@ void		clean_struct_input(struct s_input *inp)
 
 static int	check_ext_key(struct s_input *inp)
 {
+	int		ext_key;
+
+	ext_key = NOT_EXT_KEY;
 	if (PRESS_CTR_D_AND_EMPTY_STR(inp->key, inp->gap.len_string))
 	{
 		ft_putchar_fd('\n', STDOUT_FILENO);
 		entry_canon(&inp->cfg_cpy);
-		return (IS_CTR_D);
+		ext_key = IS_CTR_D;
 	}
 	else if (inp->key == CTR_KEY('c'))
 	{
 		input_put_new_line(inp);
 		clean_struct_input(inp);
-		return (IS_CTR_C);
+		ext_key = IS_CTR_C;
 	}
-	return (NOT_EXT_KEY);
+	return (ext_key);
 }
 
 static void	input_preparation(struct s_input *inp)
@@ -83,10 +86,8 @@ void	input_begin(struct s_input *inp)
 		inp->key = input_getch();
 		check_change_winsize(inp);
 		ext_key = check_ext_key(inp);
-		if (ext_key == IS_CTR_D)
+		if (ext_key == IS_CTR_D || ext_key == IS_CTR_C)
 			return ;
-		else if (ext_key == IS_CTR_C)
-			break ;
 		input_process_key_press(inp);
 	}
 	input_put_new_line(inp);
