@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:50:19 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 23:06:48 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 {
 	char	close_qt;
 
-	quote_init(inp);
 	inp->greet.mode = search_qt;
 	input_greeting(&inp->greet);
+	quote_init(inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch();
