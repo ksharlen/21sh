@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:30:53 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 23:45:19 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,6 @@ struct			s_user_info
 	char	user[SH21_MAX_NAME];
 	char	home_d[SH21_MAX_PATH];
 	pid_t	u_pid;
-};
-
-struct s_key
-{
-	char	read_key[5];
-	int		key;
-	ssize_t	nread;
 };
 
 struct s_cursor

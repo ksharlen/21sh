@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 18:06:48 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 00:03:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,14 @@ void			input_begin(struct s_input *inp);
 /*
 **KEY_PRESS_WORK
 */
+ssize_t			input_read(const int fd, void *buf, const size_t nbyte);
 int				input_getch(void);
 void			input_process_key_press(struct s_input *inp);
 void			input_ctr_keys(struct s_input *inp);
 int				input_get_key_shift_arrow(void);
 int				input_get_key_ctr_arrow(void);
+int				input_get_key_additional(char key);
+int				input_get_key_arrow(char key);
 void			input_parse_page_keys(struct s_input *inp);
 void			input_parse_keys_shift_words(struct s_input *inp);
 void			input_paste_to_buf(struct s_input *inp);
