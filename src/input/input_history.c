@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 17:21:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 21:12:58 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 21:15:33 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	input_history(struct s_input *inp)
 			gap_put_str(&inp->gap, str_hist);
 			inp->gap.slide = inp->gap.len_string;
 		}
+		else
+			gap_clean_buf(&inp->gap);
 	}
 	get_coor_word(inp, inp->len_greet + inp->gap.len_string);
 	refresh_screen(inp);

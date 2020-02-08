@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 21:30:46 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 21:18:23 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	input_finish(struct s_input *inp)
 	inp->greet = NULL;
 	inp->len_greet = 0;
 	inp->key = 0;
+	history_del(inp->hist);
 }
 
 void	input_init(struct s_input *inp)
