@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   history_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsandshr <dsandshr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:51:34 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/02 23:49:33 by dsandshr         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:57:11 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "history.h"
 
-char	*get_bottom_cmd(t_history *hist)
+char	*history_get_bottom_cmd(t_history *hist)
 {
 	if (hist->h_list->next)
 	{
@@ -22,7 +22,7 @@ char	*get_bottom_cmd(t_history *hist)
 	return (NULL);
 }
 
-char	*get_top_cmd(t_history *hist)
+char	*history_get_top_cmd(t_history *hist)
 {
 	if (hist->h_list->prev)
 	{

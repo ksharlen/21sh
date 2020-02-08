@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 00:41:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:46:27 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 17:54:42 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	parse_arrow(struct s_input *inp)
 			gap_slide_right(&inp->gap);
 		}
 	}
+	else
+		input_history(inp);
 }
 
 static void	parse_home_end(struct s_input *inp)

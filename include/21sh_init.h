@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:09:54 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 23:30:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 17:30:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "21sh_struct.h"
 # include "internal_utilities.h"
 # include "input_init.h"
+# include "history.h"
 
 # define CLEAN	ft_bzero
 

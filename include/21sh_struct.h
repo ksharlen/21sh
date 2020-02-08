@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:03:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 17:30:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,26 @@ enum	e_key
 };
 
 /*
+**HISTORY
+*/
+typedef struct				s_history_list
+{
+	char					*comand;
+	struct s_history_list	*next;
+	struct s_history_list	*prev;
+	size_t					location;
+}							t_history_list;
+
+typedef struct				s_history
+{
+	t_history_list			*h_list;
+	t_history_list			*beg;
+	t_history_list			*end;
+	size_t					size;
+	int						fd;
+}							t_history;
+
+/*
 **INPUT_STRUCT
 */
 typedef struct	s_greet
@@ -57,7 +77,6 @@ typedef struct	s_greet
 	char		user[SIZE_NAME + 1];
 	char		curr_d[SIZE_DIR + 1];
 }				t_greet;
-
 
 struct			s_user_info
 {
@@ -95,6 +114,7 @@ struct s_input
 	struct s_cursor		save_refresh_pos;
 	struct s_win		win;
 	struct s_user_info	u_info;
+	t_history			*hist;
 	int					(*greet)();
 	size_t				len_greet;
 	int					key;

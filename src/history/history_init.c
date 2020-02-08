@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   history_hist_init.c                                :+:      :+:    :+:   */
+/*   history_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:01:56 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/08 17:06:21 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:51:32 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ static t_history	*fill_21sh_story(t_history *hist, char *line)
 	hist->h_list->comand = ft_strdup(line);
 	ft_strdel(&line);
 	hist->size += 1;
+	//?
 	while (get_next_line(hist->fd, &line, FLAG_OFF) == 1)
 	{
+		//?
+		// history_add_new_elem(hist, NULL);
 		tmp = line;
-		hist = add_new_elem(hist, tmp);
+		hist = history_add_new_elem(hist, tmp);
 		free(line);
 		hist->size += 1;
 	}
-	//ft_strdel(&line);
 	get_next_line(hist->fd, &line, FLAG_ON);
-	//ft_strdel(&line);
 	return (hist);
 }
 
@@ -36,6 +37,7 @@ static t_history	*alloc_args(t_history *h, t_history_list *hl)
 {
 	h->beg = hl;
 	h->end = hl;
+	// history_add_new_elem(h, NULL);
 	hl->comand = NULL;
 	hl->prev = NULL;
 	hl->next = NULL;

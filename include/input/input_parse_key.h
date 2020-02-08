@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:46:19 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 18:06:48 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "input_init.h"
 # include "input_greeting.h"
 # include "21sh_bonus.h"
+# include "history.h"
 
 /*
 **START_WORK_INPUT
@@ -64,6 +65,7 @@ void			input_put_new_line(struct s_input *inp);
 /*
 **ANOTHER
 */
+void			input_history(struct s_input *inp);
 int				search_double_quotes(t_queue *qu);
 void			input_additional_modes(struct s_input *inp);
 void			input_quote_mode(struct s_input *inp);
