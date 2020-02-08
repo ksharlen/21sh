@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 17:30:52 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:30:53 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@
 /*
 **ENUMS
 */
+enum	e_greet_mode
+{
+	MODE_DFLT,
+	MODE_QUOTE,
+	MODE_DQUOTE,
+	MODE_BQUOTE,
+};
+
 enum	e_key
 {
 	KEY_LEFT_ARROW = 1000,
@@ -76,6 +84,8 @@ typedef struct	s_greet
 	char		time[SIZE_TIME + 1];
 	char		user[SIZE_NAME + 1];
 	char		curr_d[SIZE_DIR + 1];
+	char		mode;
+	int			len;
 }				t_greet;
 
 struct			s_user_info
@@ -115,8 +125,7 @@ struct s_input
 	struct s_win		win;
 	struct s_user_info	u_info;
 	t_history			*hist;
-	int					(*greet)();
-	size_t				len_greet;
+	t_greet				greet;
 	int					key;
 };
 

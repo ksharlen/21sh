@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:01:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:50:19 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	quote_init(struct s_input *inp)
 	gap_clean_buf(&inp->gap);
 	inp->save_refresh_pos = get_pos_cursor();
 	--inp->save_refresh_pos.y;
-	inp->save_refresh_pos.x = inp->len_greet;
+	inp->save_refresh_pos.x = inp->greet.len;
 	inp->cr = inp->save_refresh_pos;
 	inp->key = 0;
 }
@@ -59,7 +59,8 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	char	close_qt;
 
 	quote_init(inp);
-	inp->greet(&inp->u_info);
+	inp->greet.mode = search_qt;
+	input_greeting(&inp->greet);
 	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch();
@@ -88,8 +89,7 @@ void		input_quote_mode(struct s_input *inp)
 	quote_close = search_double_quotes(&qu);
 	if (quote_close != TRUE)
 	{
-		inp->greet = input_quote_greet;
-		inp->len_greet = ft_strlen(QUOTE_GREET_STR);
+		inp->greet.mode = quote_close;
 		quote_mode(inp, quote_close, inp->str_for_parse);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/08 17:40:53 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/08 23:00:35 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ DIR_SRC				:=	./src/
 DIR_SRC_INPUT		:=	$(DIR_SRC)input/
 DIR_SRC_TERMCAP		:=	$(DIR_SRC_INPUT)termcap/
 DIR_SRC_INPUT_SCREEN	:=	$(DIR_SRC_INPUT)screen/
-DIR_SRC_INPUT_ADD_MODES	:=	$(DIR_SRC_INPUT)/additional_modes/
+DIR_SRC_INPUT_ADD_MODES	:=	$(DIR_SRC_INPUT)additional_modes/
+DIR_SRC_INPUT_GREET	:=	$(DIR_SRC_INPUT)greeting/
 DIR_SRC_BONUS_INPUT	:=	$(DIR_SRC_INPUT)/bonus/
 DIR_SRC_INIT		:=	$(DIR_SRC)init/
 DIR_SRC_HISTORY		:=	$(DIR_SRC)/history/
@@ -36,7 +37,8 @@ DIRS_SRC			:=	$(DIR_SRC)\
 							$(DIR_UTILS_ENV)\
 							$(DIR_SRC_INPUT_SCREEN)\
 							$(DIR_SRC_BONUS_INPUT)\
-							$(DIR_SRC_HISTORY)
+							$(DIR_SRC_HISTORY)\
+							$(DIR_SRC_INPUT_GREET)
 
 #DIR_OBJS
 DIR_OBJ				:=	./bin/
@@ -62,6 +64,7 @@ SRCS				:=	main.c\
 							input_common.c\
 							input_error.c\
 							input_greeting.c\
+							input_greet_init.c\
 							input_process_key_press.c\
 							input_refresh_screen.c\
 							input_move_cursor.c\
@@ -73,7 +76,6 @@ SRCS				:=	main.c\
 							input_ctr_keys.c\
 							input_additional_modes.c\
 							input_quote.c\
-							input_quote_greet.c\
 							input_search_key_char.c\
 							input_change_win.c\
 							input_ctr_t.c\

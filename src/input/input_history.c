@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 17:21:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 21:15:33 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:55:39 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ void	input_history(struct s_input *inp)
 		str_hist = history_get_top_cmd(inp->hist);
 		if (str_hist)
 		{
-// if (!ft_strcmp(str_hist, "pwd"))
-// {
-// 	printf("YES!!!\n");
-// 	exit(EXIT_FAILURE);
-// }
 			inp->cr = inp->save_refresh_pos;
 			clear_pos_cr_to_the_end();
 			gap_clean_buf(&inp->gap);
@@ -47,6 +42,6 @@ void	input_history(struct s_input *inp)
 		else
 			gap_clean_buf(&inp->gap);
 	}
-	get_coor_word(inp, inp->len_greet + inp->gap.len_string);
+	get_coor_word(inp, inp->greet.len + inp->gap.len_string);
 	refresh_screen(inp);
 }

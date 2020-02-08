@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_greeting.c                                   :+:      :+:    :+:   */
+/*   input_greet_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 02:55:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:48:27 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/08 22:13:02 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,10 @@ static void	init_greet(t_greet *greet)
 	ft_bzero(greet->curr_d, SIZE_DIR + 1);
 }
 
-int			input_greeting(const struct s_user_info *u_info)
+void	input_greeting_init(t_greet *greet, const struct s_user_info *u_info)
 {
-	t_greet	greet;
-	int		ret_num_sym;
-
-	ret_num_sym = 0;
-	init_greet(&greet);
-	get_time(greet.time);
-	get_user(greet.user, u_info->user);
-	get_curr_dir(greet.curr_d); //*NOT_DONE
-	ft_putstr(COLOR_TIME);
-	ret_num_sym += ft_printf("[%s]", greet.time);
-	ft_putstr(COLOR_USER);
-	ret_num_sym += ft_printf("%s", greet.user);
-	ft_putstr(COLOR_DIR);
-	ret_num_sym += ft_printf("(%s)", greet.curr_d);
-	ft_putstr(COLOR_DFLT);
-	ret_num_sym += ft_printf("$>");
-	return (ret_num_sym);
+	init_greet(greet);
+	get_time(greet->time);
+	get_user(greet->user, u_info->user);
+	get_curr_dir(greet->curr_d);
 }

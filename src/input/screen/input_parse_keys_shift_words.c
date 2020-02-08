@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 21:16:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:51:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:54:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		parse_shft_right_arrow(struct s_input *inp)
 
 	str = gap_get_buf(&inp->gap);
 	shift = get_shift_skip_word(str, inp->gap.slide + 1, SKIP_R_WORD);
-	pos = inp->gap.slide + shift + inp->len_greet;
+	pos = inp->gap.slide + shift + inp->greet.len;
 	get_coor_word(inp, pos);
 	inp->gap.slide += shift;
 	ft_strdel(&str);
@@ -58,7 +58,7 @@ static void		parse_shft_left_arrow(struct s_input *inp)
 
 	str = gap_get_buf(&inp->gap);
 	shift = get_shift_skip_word(str, inp->gap.slide - 1, SKIP_L_WORD) * (-1);
-	pos = inp->gap.slide + shift + inp->len_greet;
+	pos = inp->gap.slide + shift + inp->greet.len;
 	get_coor_word(inp, pos);
 	inp->gap.slide += shift;
 	ft_strdel(&str);

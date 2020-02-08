@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 01:24:03 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:54:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	insert_new_line(struct s_input *inp)
 {
 	size_t	qt_col;
 
-	qt_col = (inp->gap.len_string + inp->len_greet) / inp->win.cols;
+	qt_col = (inp->gap.len_string + inp->greet.len) / inp->win.cols;
 	if ((inp->save_refresh_pos.y + qt_col) == (size_t)(inp->win.rows) &&
-		(inp->gap.len_string + inp->len_greet >= (qt_col * inp->win.cols)))
+		(inp->gap.len_string + inp->greet.len >= (qt_col * inp->win.cols)))
 	{
 		--inp->save_refresh_pos.y;
 		--inp->cr.y;

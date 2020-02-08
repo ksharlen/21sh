@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 01:28:50 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 01:19:41 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:53:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	clear_full_screen(struct s_input *inp)
 		visibility_cursor(NOT_VISIBLE_CUR);
 		str = input_tgetstr(CL);
 		tputs(str, 0, ft_putchar);
-		inp->len_greet = inp->greet(&inp->u_info);
+		input_greeting(&inp->greet);
 		inp->save_refresh_pos = get_pos_cursor();
 		--inp->save_refresh_pos.x;
 		--inp->save_refresh_pos.y;

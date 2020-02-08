@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 00:41:35 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 21:34:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:53:26 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	input_paste_to_buf(struct s_input *inp)
 	if (inp->buf)
 	{
 		len_buf_paste = ft_strlen(inp->buf);
-		pos = inp->gap.slide + len_buf_paste + inp->len_greet;
+		pos = inp->gap.slide + len_buf_paste + inp->greet.len;
 		get_coor_word(inp, pos);
 		inp->key = 0;
 		gap_paste_str(&inp->gap, inp->buf);

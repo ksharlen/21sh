@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 23:48:09 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:52:09 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static ssize_t	get_reminder_row(struct s_input *inp, struct s_win *wn)
 	ssize_t	curr_qt_rows;
 	ssize_t	chg_qt_rows;
 
-	curr_qt_rows = ((inp->len_greet + inp->gap.len_string) / inp->win.cols) +
-		((inp->len_greet + inp->gap.len_string) % inp->win.cols ? 1 : 0);
-	chg_qt_rows = (inp->len_greet + inp->gap.len_string) / wn->cols +
-		((inp->len_greet + inp->gap.len_string) % wn->cols ? 1 : 0);
+	curr_qt_rows = ((inp->greet.len + inp->gap.len_string) / inp->win.cols) +
+		((inp->greet.len + inp->gap.len_string) % inp->win.cols ? 1 : 0);
+	chg_qt_rows = (inp->greet.len + inp->gap.len_string) / wn->cols +
+		((inp->greet.len + inp->gap.len_string) % wn->cols ? 1 : 0);
 	return (curr_qt_rows - chg_qt_rows);
 }
 
@@ -36,16 +36,16 @@ static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
 	{
 		input_tputs(input_tgetstr(CL), 0, ft_putchar);
 		set_cursor_pos(0, 0);
-		inp->greet(&inp->u_info);
-		crr.y = (inp->gap.slide + inp->len_greet) / wn->cols;
-		crr.x = (inp->gap.slide + inp->len_greet) % wn->cols;
+		input_greeting(&inp->greet);
+		crr.y = (inp->gap.slide + inp->greet.len) / wn->cols;
+		crr.x = (inp->gap.slide + inp->greet.len) % wn->cols;
 		inp->cr = crr;
 	}
 }
 
 static void	set_cursor_inside_new_win(struct s_input *inp)
 {
-	get_coor_word(inp, inp->len_greet + inp->gap.slide);
+	get_coor_word(inp, inp->greet.len + inp->gap.slide);
 	set_cursor_pos(inp->cr.x, inp->cr.y);
 }
 

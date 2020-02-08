@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 18:20:18 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 22:46:11 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void		input_put_new_line(struct s_input *inp)
 {
 	int	last_rows_from_str;
 
-	if (inp->gap.len_string + inp->len_greet > (size_t)inp->win.cols)
+	if (inp->gap.len_string + inp->greet.len > (size_t)inp->win.cols)
 	{
-		last_rows_from_str = (inp->gap.len_string + inp->len_greet) / inp->win.cols;
+		last_rows_from_str = (inp->gap.len_string + inp->greet.len) / inp->win.cols;
 		inp->cr.y = inp->save_refresh_pos.y + last_rows_from_str;
 		set_cursor_pos(0, inp->cr.y);
 	}
@@ -35,8 +35,6 @@ void		clean_struct_input(struct s_input *inp)
 	{
 		gap_clean_buf(&inp->gap);
 		ft_strdel(&inp->str_for_parse);
-		inp->greet = NULL;
-		inp->len_greet = 0;
 	}
 }
 
@@ -62,12 +60,12 @@ static int	check_ext_key(struct s_input *inp)
 
 static void	input_preparation(struct s_input *inp)
 {
+	inp->greet.mode = MODE_DFLT;
+	input_greeting(&inp->greet);
 	input_tgetent();
 	ft_strdel(&inp->str_for_parse);
 	gap_clean_buf(&inp->gap);
-	inp->greet = input_greeting;
 	entry_not_canon(&inp->cfg_cpy);
-	inp->len_greet = inp->greet(&inp->u_info);
 	inp->win = get_win_size();
 	inp->cr = get_pos_cursor();
 	--inp->cr.x;
