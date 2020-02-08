@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_history.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsandshr <dsandshr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 17:21:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 18:18:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 19:37:42 by dsandshr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	input_history(struct s_input *inp)
 		str_hist = history_get_top_cmd(inp->hist);
 		if (str_hist)
 		{
+// if (!ft_strcmp(str_hist, "pwd"))
+// {
+// 	printf("YES!!!\n");
+// 	exit(EXIT_FAILURE);
+// }
 			inp->cr = inp->save_refresh_pos;
 			clear_pos_cr_to_the_end();
 			gap_clean_buf(&inp->gap);
