@@ -6,12 +6,12 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 21:55:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 23:35:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/08 16:10:42 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SH21_H
-# define SH21_h
+# define SH21_H
 
 # include <sys/types.h>
 # include <limits.h>
