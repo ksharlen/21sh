@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   history_find_history.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 16:55:23 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/02 23:18:39 by dsandshr          #+#    #+#             */
+/*   Updated: 2020/02/08 17:04:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh.h"
+#include "history.h"
 
-int		main(void)
+char	*find_history(t_history *hist, char *str)
 {
-	t_init			init;
+	P_UNUSED(str);
 
-	sh21_init(&init);
-	while (1)
-	{
-		input_begin(&init.inp);
-		if ((!init.inp.str_for_parse && init.inp.key == CTR_KEY('d')) ||
-			(init.inp.str_for_parse && !ft_strcmp(init.inp.str_for_parse, "exit")))
-			break ;
-	}
-	input_finish(&init.inp);
-	return (0);
+	t_history_list *beg;
+	t_history_list *end;
+
+	beg = hist->beg;
+	end = hist->end;
+	return (NULL);
 }
