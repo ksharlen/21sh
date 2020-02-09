@@ -6,7 +6,7 @@
 /*   By: dsandshr <dsandshr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:55:57 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/08 21:00:18 by dsandshr         ###   ########.fr       */
+/*   Updated: 2020/02/09 12:45:56 by dsandshr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ t_history	*history_fill_history(t_history *hist, char *str)
 				// exit(); //! Вывести ошибку в будущем
 		}
 	}
+	hist->h_list = hist->end;
 	return (hist);
 }
