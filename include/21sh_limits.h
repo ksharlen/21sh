@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 23:46:46 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 19:04:38 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ extern char **environ;
 # define COLOR_DIR		"\e[36;1m"
 # define COLOR_YELLOW	"\e[33;1m"
 
-typedef unsigned char	t_key;
+typedef int32_t t_key;
 
 #endif

@@ -6,15 +6,15 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 00:00:40 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 00:08:08 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 19:12:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
 
-int		input_get_key_additional(char key)
+t_key	input_get_key_additional(t_byte key)
 {
-	int	add_key;
+	t_key	add_key;
 
 	add_key = 0;
 	if (key == '1' || key == '7')
@@ -30,9 +30,9 @@ int		input_get_key_additional(char key)
 	return (add_key);
 }
 
-int		input_get_key_arrow(char key)
+t_key	input_get_key_arrow(t_byte key)
 {
-	int	key_arrow;
+	t_key	key_arrow;
 
 	key_arrow = 0;
 	if (key == 'A')
@@ -50,10 +50,10 @@ int		input_get_key_arrow(char key)
 	return (key_arrow);
 }
 
-int		input_get_key_shift_arrow(void)
+t_key	input_get_key_shift_arrow(void)
 {
 	unsigned char	*sym;
-	int				key_shift_arrow;
+	t_key			key_shift_arrow;
 
 	key_shift_arrow = 0;
 	sym = (unsigned char[2]){0};
@@ -72,10 +72,10 @@ int		input_get_key_shift_arrow(void)
 	return (key_shift_arrow);
 }
 
-int		input_get_key_ctr_arrow(void)
+t_key	input_get_key_ctr_arrow(void)
 {
 	unsigned char	*sym;
-	int				key;
+	t_key			key;
 
 	key = 0;
 	sym = (unsigned char[2]){0};

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 23:45:19 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 19:06:04 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ struct s_input
 	struct s_user_info	u_info;
 	t_history			*hist;
 	t_greet				greet;
-	int					key;
+	t_key				key;
 };
 
 /*
