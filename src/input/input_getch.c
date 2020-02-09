@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 00:10:30 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 18:18:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		get_key_combo_arrow(void)
 
 	sym = 0;
 	key_shift_arrow = 0;
-	CHK_SYS_ERR_EXT(read(STDIN_FILENO, &sym, ONE_SYM), E_READ, P_N);
+	input_read(STDIN_FILENO, &sym, sizeof(t_byte));
 	if (sym == '2')
 		key_shift_arrow = input_get_key_shift_arrow();
 	else if (sym == '5')
@@ -29,36 +29,38 @@ static int		get_key_combo_arrow(void)
 
 static int		get_func_key(void)
 {
-	ssize_t	nread;
-	t_key	key[2];
+	t_byte	sym[2];
+	t_key	key;
 
-	nread = input_read(STDIN_FILENO, &key[0], ONE_SYM);
-	if (key[0] >= '0' && key[0] <= '9')
+	key = 0;
+	input_read(STDIN_FILENO, &sym[0], sizeof(t_byte));
+	if (sym[0] >= '0' && sym[0] <= '9')
 	{
-		input_read(STDIN_FILENO, &key[1], ONE_SYM);
-		if (key[1] == '~')
-			key[0] = input_get_key_additional(key->read_key[0]);
-		else if (key[0] == '1' && key[1] == ';')
-			key[0] = get_key_combo_arrow();
+		input_read(STDIN_FILENO, &sym[1], sizeof(t_byte));
+		if (sym[1] == '~')
+			key = input_get_key_additional(sym[0]);
+		else if (sym[0] == '1' && sym[1] == ';')
+			key = get_key_combo_arrow();
 	}
-	else if (KEY_ARROW(key->read_key[2]) || KEY_HOME_END(key->read_key[2]))
-		key->key = input_get_key_arrow(key->read_key[2]);
+	else if (KEY_ARROW(sym[1]) || KEY_HOME_END(sym[1]))
+		key = input_get_key_arrow(sym[1]);
 	else
-		key->key = 0;
-	return (key->key);
+		key = 0;
+	return (key);
 }
 
-static	t_key	get_key_hooK(void)
+static	t_key	waiting_event(void)
 {
 	ssize_t	nbyte;
-	t_key	key;
+	t_byte	sym;
 
 	nbyte = 0;
 	while (!nbyte)
 	{
-		nbyte = input_read(STDIN_FILENO, key, ONE_SYM);
+		nbyte = input_read(STDIN_FILENO, &sym, sizeof(t_byte));
 		//TODO
 	}
+	return (nbyte);
 }
 
 ssize_t		input_read(const int fd, void *buf, const size_t nbyte)
@@ -72,17 +74,17 @@ ssize_t		input_read(const int fd, void *buf, const size_t nbyte)
 
 int				input_getch(void)
 {
-	t_key	key;
+	t_byte	sym;
 	ssize_t	nread;
 
-	key = get_key_hook();
-	if (key == ESC)
+	sym = waiting_event();
+	if (sym == ESC)
 	{
-		nread = input_read(STDIN_FILENO, &key, ONE_SYM);
-		if (key == '[')
-			key = get_func_key();
+		nread = input_read(STDIN_FILENO, &sym, sizeof(t_byte));
+		if (sym == '[')
+			sym = get_func_key();
 		else
-			key = 0;
+			sym = 0;
 	}
-	return (key);
+	return (sym);
 }
