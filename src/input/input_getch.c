@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 18:18:16 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 18:19:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static	t_key	waiting_event(void)
 		nbyte = input_read(STDIN_FILENO, &sym, sizeof(t_byte));
 		//TODO
 	}
-	return (nbyte);
+	return (sym);
 }
 
 ssize_t		input_read(const int fd, void *buf, const size_t nbyte)
