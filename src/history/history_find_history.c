@@ -14,10 +14,13 @@
 
 char	*find_history(t_history *hist, char *str)
 {
-	P_UNUSED(str);
-
 	t_history_list *beg;
 	t_history_list *end;
+
+	P_UNUSED(str);
+	P_UNUSED(end);
+	P_UNUSED(beg);
+	P_UNUSED(hist);
 
 	beg = hist->beg;
 	end = hist->end;

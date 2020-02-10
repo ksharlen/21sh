@@ -63,8 +63,8 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	quote_init(inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
-		inp->key = input_getch();
-		check_change_winsize(inp);
+		inp->key = input_getch(inp);
+		// check_change_winsize(inp);
 		if (inp->key == CTR_KEY('c'))
 		{
 			input_put_new_line(inp);

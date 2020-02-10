@@ -81,6 +81,7 @@ SRCS				:=	main.c\
 							input_ctr_t.c\
 							input_set_of_instr_for_getch.c\
 							input_history.c\
+							input_bonus_instr.c\
 							history_del.c\
 							history_fill_flist.c\
 							history_find_history.c\

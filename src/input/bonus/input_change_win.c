@@ -66,6 +66,7 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 	}
 	else
 		first_row_set_coor(inp, wn);
+	input_update_rows(inp, wn);
 	inp->win = *wn;
 	set_cursor_inside_new_win(inp);
 }

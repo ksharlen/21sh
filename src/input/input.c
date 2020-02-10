@@ -81,8 +81,8 @@ void	input_begin(struct s_input *inp)
 	input_preparation(inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
-		inp->key = input_getch();
-		check_change_winsize(inp);
+		inp->key = input_getch(inp);
+		// check_change_winsize(inp);
 		ext_key = check_ext_key(inp);
 		if (ext_key == IS_CTR_D || ext_key == IS_CTR_C)
 			return ;

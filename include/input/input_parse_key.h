@@ -36,7 +36,7 @@ void			input_begin(struct s_input *inp);
 **KEY_PRESS_WORK
 */
 ssize_t			input_read(const int fd, void *buf, const size_t nbyte);
-t_key			input_getch(void);
+t_key			input_getch(struct s_input *inp);
 void			input_process_key_press(struct s_input *inp);
 void			input_ctr_keys(struct s_input *inp);
 t_key			input_get_key_shift_arrow(void);
@@ -64,6 +64,7 @@ void			clear_full_screen(struct s_input *inp);
 void			refresh_screen(struct s_input *inp);
 void			get_coor_word(struct s_input *inp, ssize_t pos);
 void			input_put_new_line(struct s_input *inp);
+void			input_update_rows(struct s_input *inp, struct s_win *wn);
 
 /*
 **ANOTHER
