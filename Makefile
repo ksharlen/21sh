@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/16 22:48:55 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/16 23:49:44 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -136,12 +136,13 @@ PATH_LIBFT					:=	$(addprefix $(DIR_LIBFT), $(LIBFT))
 #!ACTION
 REMOVE						:=	rm -rf
 MAKE_LIBFT					:=	make -C $(DIR_LIBFT)
+MAKE_CLEAN_LIBFT			:=	make -C $(DIR_LIBFT) clean
+MAKE_FCLEAN_LIBFT			:=	make -C $(DIR_LIBFT) fclean
 CC							:=	gcc
 
-vpath	%.c	$(DIRS_SRC)
-vpath	%.o	$(DIR_OBJ)
-vpath	%.h	$(DIRS_INCLUDE)
-vpath	%.a $(DIR_LIBFT)
+vpath	%.c	$(DIRS_SRC) ./lib/libft/
+vpath	%.o	$(DIR_OBJ) ./lib/libft/bin
+vpath	%.h	$(DIRS_INCLUDE) ./lib/libft/include
 
 all: $(LIBFT) $(NAME)
 
@@ -160,11 +161,15 @@ $(DIR_OBJ):
 clean:
 	$(REMOVE) $(OBJS_WITH_PATH)
 	$(REMOVE) $(DIR_OBJ)
+	$(MAKE_CLEAN_LIBFT)
 
 fclean: clean
 	$(REMOVE) $(NAME)
+	$(MAKE_FCLEAN_LIBFT)
 
 re: fclean all
 
 echo:
 	echo $(DIRS_INCLUDE)
+
+.SILENT: all $(NAME) $(OBJS) $(LIBFT) $(DIR_OBJ) clean fclean re
