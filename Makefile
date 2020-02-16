@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/17 00:02:53 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/17 00:12:49 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,13 +63,15 @@ SRC_HIST					:=	history_init.c\
 									history_move.c\
 									history_del.c
 
+SRC_PARSER					:=	
 #SRC_PARSER
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
 									$(SRC_INPUT)\
 									$(SRC_IU)\
-									$(SRC_HIST)
+									$(SRC_HIST)\
+									$(SRC_PARSER)
 
 OBJS						:=	$(SRCS:.c=.o)
 
@@ -88,13 +90,14 @@ DIRS_INPUT					:=	$(DIR_INPUT)\
 DIR_IU						:=	$(DIR_SRC)internal_utilities/
 #env_dirs
 DIR_HIST					:=	$(DIR_SRC)history/
-#DIR_PARSER
+DIR_PARSER					:=	$(DIR_SRC)parser/
 
 DIRS_SRC					:=	$(DIR_SRC)\
 									$(DIR_INIT)\
 									$(DIRS_INPUT)\
 									$(DIR_IU)\
-									$(DIR_HIST)
+									$(DIR_HIST)\
+									$(DIR_PARSER)
 
 #!HEADERS
 MAIN_HEADERS				:=	sh.h\
@@ -112,14 +115,19 @@ INPUT_HEADERS				:=	input_error.h\
 									input_parse_key.h\
 									input_termcap.h
 
+PARSER_HEADERS				:=	parser.h
+
 HEADERS						:=	$(MAIN_HEADERS)\
-									$(INPUT_HEADERS)
+									$(INPUT_HEADERS)\
+									$(PARSER_HEADERS)
 
 DIR_INCLUDE					:=	./include/
 DIR_INCLUDE_INPUT			:=	$(DIR_INCLUDE)input/
+DIR_INCLUDE_PARSER			:=	$(DIR_INCLUDE)parser/
 
 DIRS_INCLUDE				:=	$(DIR_INCLUDE)\
-									$(DIR_INCLUDE_INPUT)
+									$(DIR_INCLUDE_INPUT)\
+									$(DIR_INCLUDE_PARSER)
 
 #!LIBFT
 LIBFT						:=	libft.a
