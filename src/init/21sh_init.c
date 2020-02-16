@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:10:16 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 16:01:42 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:51:00 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	init_user(struct s_user_info *curr_user)
 	struct passwd	*pw_user;
 	char			*user_name;
 	char			*home_dir;
-//?Подумать еще
+
 	if (curr_user)
 	{
 		CLEAN(USER, SH21_MAX_NAME);

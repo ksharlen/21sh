@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 16:03:41 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:50:44 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ static void	set_shlvl(char *shlvl)
 	{
 		num_shlvl = ft_atoi(p_shlvl);
 		++num_shlvl;
-		CHK_NULL_PTR(ret_itoa = ft_itoa(num_shlvl), E_MALLOC, P_N);
+		ret_itoa = ft_itoa(num_shlvl);
+		ft_chk_null_ptr(ret_itoa, E_MALLOC);
 		sh21_setenv("SHLVL", ret_itoa, FLAG_ON);
 		ft_strcpy(ret_itoa, shlvl);
 		ft_strdel(&ret_itoa);
@@ -76,7 +77,7 @@ void	sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user
 {
 	char	*buf;
 
-	FT_CLEAN_UP(buf, SH21_MAX_PATH);
+	buf = (char[SH21_MAX_PATH]){0};
 	clean_garbage(env);
 	sh21_setenv("TERM", "xterm-256color", FLAG_OFF);
 	ft_strcpy(env->term, sh21_getenv("TERM"));
