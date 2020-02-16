@@ -5,167 +5,166 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/16 19:54:55 by ksharlen         ###   ########.fr        #
+#    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
+#    Updated: 2020/02/16 22:48:55 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:=	test
+NAME						:=	test
 
-DIR_LIB				:=	lib/
-DIR_LIBFT			:=	$(DIR_LIB)libft/
+#!SRCS
+SRC_MAIN					:=	main.c
 
-#DIR_SRCS
-DIR_SRC				:=	./src/
-DIR_SRC_INPUT		:=	$(DIR_SRC)input/
-DIR_SRC_TERMCAP		:=	$(DIR_SRC_INPUT)termcap/
-DIR_SRC_INPUT_SCREEN	:=	$(DIR_SRC_INPUT)screen/
-DIR_SRC_INPUT_ADD_MODES	:=	$(DIR_SRC_INPUT)additional_modes/
-DIR_SRC_INPUT_GREET	:=	$(DIR_SRC_INPUT)greeting/
-DIR_SRC_BONUS_INPUT	:=	$(DIR_SRC_INPUT)/bonus/
-DIR_SRC_INIT		:=	$(DIR_SRC)init/
-DIR_SRC_HISTORY		:=	$(DIR_SRC)/history/
-DIR_UTILS			:=	$(DIR_SRC)internal_utilities/
-DIR_UTILS_ENV		:=	$(DIR_UTILS)iu_env/
+SRC_INIT					:=	init.c\
+									init_env.c\
+									init_structs.c
 
-DIRS_SRC			:=	$(DIR_SRC)\
-							$(DIR_SRC_INPUT)\
-							$(DIR_SRC_TERMCAP)\
-							$(DIR_SRC_INPUT_ADD_MODES)\
-							$(DIR_SRC_INIT)\
-							$(DIR_UTILS)\
-							$(DIR_UTILS_ENV)\
-							$(DIR_SRC_INPUT_SCREEN)\
-							$(DIR_SRC_BONUS_INPUT)\
-							$(DIR_SRC_HISTORY)\
-							$(DIR_SRC_INPUT_GREET)
+SRC_INPUT					:=	input.c\
+									input_getch.c\
+									input_mode_term.c\
+									input_init.c\
+									input_cursor_pos.c\
+									input_termcap.c\
+									input_common.c\
+									input_error.c\
+									input_greeting.c\
+									input_greet_init.c\
+									input_process_key_press.c\
+									input_refresh_screen.c\
+									input_move_cursor.c\
+									input_common_screen.c\
+									input_key_tools.c\
+									input_parse_page_keys.c\
+									input_parse_keys_shift_words.c\
+									input_copy_paste_cut.c\
+									input_ctr_keys.c\
+									input_additional_modes.c\
+									input_quote.c\
+									input_search_key_char.c\
+									input_change_win.c\
+									input_ctr_t.c\
+									input_set_of_instr_for_getch.c\
+									input_history.c\
+									input_bonus_instr.c\
+									input_wrapper_func.c
 
-#DIR_OBJS
-DIR_OBJ				:=	./bin/
+SRC_IU						:=	iu_cd_home_dir.c\
+									iu_cd.c\
+									iu_echo.c\
+									iu_getenv.c\
+									iu_pwd.c\
+									iu_setenv.c\
+									iu_unsetenv.c\
+									iu_init_var_env.c
 
-#DIR_INCLUDE
-DIR_INCLUDE_NAME	:=	./include/
-DIR_INCLUDE_LIBFT	:=	$(DIR_LIBFT)include/
-DIR_INCLUDE_INPUT	:=	$(DIR_INCLUDE_NAME)input
+SRC_HIST					:=	history_init.c\
+									history_fill_flist.c\
+									history_find_history.c\
+									history_move.c\
+									history_del.c
 
-DIR_INCLUDES		:=	$(DIR_INCLUDE_LIBFT)\
-							$(DIR_INCLUDE_NAME)\
-							$(DIR_INCLUDE_INPUT)
+#SRC_PARSER
 
-#DIRS_END
+SRCS						:=	$(SRC_MAIN)\
+									$(SRC_INIT)\
+									$(SRC_INPUT)\
+									$(SRC_IU)\
+									$(SRC_HIST)
 
-#SRCS
-SRCS				:=	main.c\
-							input_getch.c\
-							input_mode_term.c\
-							input_init.c\
-							input_cursor_pos.c\
-							input_termcap.c\
-							input_common.c\
-							input_error.c\
-							input_greeting.c\
-							input_greet_init.c\
-							input_process_key_press.c\
-							input_refresh_screen.c\
-							input_move_cursor.c\
-							input_common_screen.c\
-							input_key_tools.c\
-							input_parse_page_keys.c\
-							input_parse_keys_shift_words.c\
-							input_copy_paste_cut.c\
-							input_ctr_keys.c\
-							input_additional_modes.c\
-							input_quote.c\
-							input_search_key_char.c\
-							input_change_win.c\
-							input_ctr_t.c\
-							input_set_of_instr_for_getch.c\
-							input_history.c\
-							input_bonus_instr.c\
-							input_wrapper_func.c\
-							history_del.c\
-							history_fill_flist.c\
-							history_find_history.c\
-							history_init.c\
-							history_move.c\
-							iu_cd_home_dir.c\
-							iu_cd.c\
-							iu_echo.c\
-							iu_getenv.c\
-							iu_pwd.c\
-							iu_setenv.c\
-							iu_unsetenv.c\
-							iu_init_var_env.c\
-							init_env.c\
-							init.c\
-							init_structs.c\
-							input.c
+OBJS						:=	$(SRCS:.c=.o)
 
-#OBJS
-OBJS				:=	$(SRCS:.c=.o)
+DIR_SRC						:=	./src/
+DIR_INIT					:=	$(DIR_SRC)init/
+DIR_INPUT					:=	$(DIR_SRC)input/
 
-#HEADERS
-HEADERS				:=	libft.h\
-							input_init.h\
-							input_macros.h\
-							input_parse_key.h\
-							input_error.h\
-							input_termcap.h\
-							input_greeting.h\
-							sh_init.h\
-							sh_limits.h\
-							sh_struct.h\
-							sh_bonus.h\
-							history.h
+DIRS_INPUT					:=	$(DIR_INPUT)\
+									$(DIR_INPUT)additional_modes/\
+									$(DIR_INPUT)bonus/\
+									$(DIR_INPUT)greeting/\
+									$(DIR_INPUT)screen/\
+									$(DIR_INPUT)termcap/\
 
-#LIBS
-LIBFT				:=	libft.a
+#input_dirs
+DIR_IU						:=	$(DIR_SRC)internal_utilities/
+#env_dirs
+DIR_HIST					:=	$(DIR_SRC)history/
+#DIR_PARSER
 
-#COMPILE
-СС					:=	gcc
-CFLAGS				:=	-Wextra -Werror -Wall
-CREATE_OBJ			:=	-c
-PATH_OBJ			:=	$(addprefix $(DIR_OBJ), $(OBJS))
-PATH_INCLUDES		:=	$(addprefix -I ,$(DIR_INCLUDES))
-PATH_LIBFT			:=	$(DIR_LIBFT)$(LIBFT)
+DIRS_SRC					:=	$(DIR_SRC)\
+									$(DIR_INIT)\
+									$(DIRS_INPUT)\
+									$(DIR_IU)\
+									$(DIR_HIST)
 
-#OPERATIONS
-CREATE_FOLDER		:=	mkdir -p
-MAKE_LIBFT			:=	make -C $(DIR_LIBFT)
-REMOVE				:=	rm -rf
+#!HEADERS
+MAIN_HEADERS				:=	sh.h\
+									history.h\
+									internal_utilities.h\
+									sh_bonus.h\
+									sh_init.h\
+									sh_limits.h\
+									sh_struct.h
 
-vpath %.c $(DIRS_SRC)
-vpath %.o $(DIR_OBJ)
-vpath %.h $(DIR_INCLUDES)
-vpath %.a $(DIR_LIBFT)
+INPUT_HEADERS				:=	input_error.h\
+									input_greeting.h\
+									input_init.h\
+									input_macros.h\
+									input_parse_key.h\
+									input_termcap.h
+
+HEADERS						:=	$(MAIN_HEADERS)\
+									$(INPUT_HEADERS)
+
+DIR_INCLUDE					:=	./include/
+DIR_INCLUDE_INPUT			:=	$(DIR_INCLUDE)input/
+
+DIRS_INCLUDE				:=	$(DIR_INCLUDE)\
+									$(DIR_INCLUDE_INPUT)
+
+#!LIBFT
+LIBFT						:=	libft.a
+DIR_LIBFT					:=	./lib/libft/
+DIR_LIBFT_INCLUDE			:=	$(DIR_LIBFT)include/
+
+#!OTHER
+CFLAGS						:=	-Wall -Wextra -Werror
+DIR_OBJ						:=	./obj/
+OBJS_WITH_PATH				:=	$(addprefix $(DIR_OBJ), $(OBJS))
+PATH_HEADERS				:=	$(addprefix -I , $(DIRS_INCLUDE) $(DIR_LIBFT_INCLUDE))
+PATH_LIBFT					:=	$(addprefix $(DIR_LIBFT), $(LIBFT))
+
+#!ACTION
+REMOVE						:=	rm -rf
+MAKE_LIBFT					:=	make -C $(DIR_LIBFT)
+CC							:=	gcc
+
+vpath	%.c	$(DIRS_SRC)
+vpath	%.o	$(DIR_OBJ)
+vpath	%.h	$(DIRS_INCLUDE)
+vpath	%.a $(DIR_LIBFT)
 
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(PATH_OBJ) $(PATH_LIBFT) -o $@ -ltermcap
+	$(CC) $(CFLAGS) $(OBJS_WITH_PATH) $(PATH_LIBFT) -o $@ -ltermcap
 
 $(OBJS):%.o:%.c $(HEADERS) | $(DIR_OBJ)
-	$(CC) $(CFLAGS) $(CREATE_OBJ) $< -o $(DIR_OBJ)$@ $(PATH_INCLUDES)
-
-$(DIR_OBJ):
-	$(CREATE_FOLDER) $@
+	$(CC) $(CFLAGS) -c $< -o $(DIR_OBJ)$@ $(PATH_HEADERS)
 
 $(LIBFT):
 	$(MAKE_LIBFT)
 
+$(DIR_OBJ):
+	mkdir -p $@
+
 clean:
-	$(REMOVE) $(OBJS)
+	$(REMOVE) $(OBJS_WITH_PATH)
 	$(REMOVE) $(DIR_OBJ)
-	$(MAKE_LIBFT) clean
 
 fclean: clean
 	$(REMOVE) $(NAME)
-	$(MAKE_LIBFT) fclean
 
 re: fclean all
 
 echo:
-	echo $(DIR_INCLUDES)
-
-.PHONY: test
-.SILENT: all $(NAME) $(OBJS) $(DIR_OBJ) $(LIBFT) clean fclean re $(OBJS_TEST) $(TEST) test
+	echo $(DIRS_INCLUDE)
