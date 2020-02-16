@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:54:58 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:35:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	refresh_screen(struct s_input *inp)
 		if (check_line_footnote_down(inp) == FALSE)
 			++inp->cr.x;
 	}
-	else if (inp->key == KEY_DEL || inp->key == CTR_KEY('d'))
+	else if (inp->key == KEY_DEL || inp->key == ('d' & 0x1f))
 		gap_del_sym_on_slide(&inp->gap);
 	else if (inp->key == KEY_BCKSPACE)
 	{
