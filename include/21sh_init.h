@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:09:54 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 17:30:16 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:52:13 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define CLEAN	ft_bzero
 
-void			sh21_init(t_init *init);
+void			sh21_init(t_init *initi, char **enb);
 void			sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user);
 void			get_struct_for_input(struct s_input *inp, t_init *init);
 //void			sh21_init_struct(t_init *init, struct s_ftsh *ftsh);

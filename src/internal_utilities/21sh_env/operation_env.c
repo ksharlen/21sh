@@ -16,7 +16,7 @@ static void		delete_name(char *const *need_delete)
 {
 	if (need_delete)
 		while (*need_delete)
-			ftsh_unsetenv(*need_delete++);
+			sh21_unsetenv(*need_delete++);
 }
 
 char *const		*u_flag(char *const argv[])
@@ -35,7 +35,7 @@ char *const		*u_flag(char *const argv[])
 			split = NULL;
 		}
 		else
-			ftsh_unsetenv(*argv);
+			sh21_unsetenv(*argv);
 		++argv;
 	}
 	return (argv);
@@ -50,7 +50,7 @@ static void		change_value(char *const *need_add)
 		while (*need_add)
 		{
 			nval = split_name_val(*need_add);
-			ftsh_setenv(nval.name, nval.value, FLAG_ON);
+			sh21_setenv(nval.name, nval.value, FLAG_ON);
 			ft_strdel(&nval.name);
 			ft_strdel(&nval.value);
 			++need_add;

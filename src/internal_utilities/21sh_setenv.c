@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_setenv.c                                 :+:      :+:    :+:   */
+/*   sh21_setenv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -18,10 +18,10 @@ size_t			find_var_env(const char *name)
 	size_t		len_name;
 
 	i = 0;
-	if (environ && *environ)
-		while (environ[i] && environ[i][0])
+	if (g_sh_environ && *g_sh_environ)
+		while (g_sh_environ[i] && g_sh_environ[i][0])
 		{
-			if ((!ft_memcmp(environ[i], name, len_name = ft_strnlen(name, '='))) && environ[i][len_name] == '=')
+			if ((!ft_memcmp(g_sh_environ[i], name, len_name = ft_strnlen(name, '='))) && g_sh_environ[i][len_name] == '=')
 				return (i);
 			++i;
 		}
@@ -30,18 +30,16 @@ size_t			find_var_env(const char *name)
 
 static int		new_val_name(int index, const char *value, size_t len_name)
 {
-	char	*tmp;
 	char	*buf;
 
 	buf = (char[MAX_SIZE_PATH]){0};
-	ft_strncpy(buf, environ[index], len_name);
+	ft_strncpy(buf, g_sh_environ[index], len_name);
 	buf[len_name] = '=';
 	if (index != -1)
 	{
-		tmp = (char *)environ[index];
-		environ[index] = ft_strjoin(buf, value);
-		ft_strdel(&tmp);
-		if (environ[index])
+		ft_strdel(&g_sh_environ[index]);
+		g_sh_environ[index] = ft_strjoin(buf, value);
+		if (g_sh_environ[index])
 			return (SUCCESS);
 	}
 	return (FAILURE);
@@ -59,7 +57,7 @@ static int		push_new_environ(char **new_environ,
 	ft_strcat(buf, "=");
 	while (i < size_new_env - 1)
 	{
-		new_environ[i] = ft_strdup(environ[i]);
+		new_environ[i] = ft_strdup(g_sh_environ[i]);
 		if (!new_environ[i])
 			return (FAILURE);
 		++i;
@@ -76,17 +74,19 @@ static int		create_new_name_val(const char *name, const char *value)
 	size_t			len_env;
 	char			**new_environ;
 
-	len_env = ft_lineslen(environ) + 1;
+	len_env = ft_lineslen(g_sh_environ) + 1;
 	new_environ = (char **)ft_memalloc(sizeof(char *) * (len_env + 1));
 	if (!new_environ)
 		return (FAILURE);
 	push_new_environ(new_environ, len_env, name, value);
-	environ = new_environ;
+	ft_strdel_split(g_sh_environ);
+	free(g_sh_environ);
+	g_sh_environ = new_environ;
 	new_environ = NULL;
 	return (SUCCESS);
 }
 
-int				ftsh_setenv(const char *name,
+int				sh21_setenv(const char *name,
 	const char *value, const int replace)
 {
 	int				index;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_echo.c                                   :+:      :+:    :+:   */
+/*   sh21_echo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,7 +24,7 @@ static void	work_echo(char *const argv[])
 	ft_printf("%s", *argv ? *argv : "");
 }
 
-int			ftsh_echo(int argc, char **argv, char **env)
+int			sh21_echo(int argc, char **argv, char **env)
 {
 	unsigned char	flag;
 

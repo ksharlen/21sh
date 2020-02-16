@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_env.c                                         :+:      :+:    :+:   */
+/*   sh21_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 15:16:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2019/11/10 22:13:08 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/09 22:47:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int		get_opt(int argc, char **opts, t_env *env)
 	return (err);
 }
 
-int				minishell_env(int argc, char **argv, char **env)
+int				sh21_env(int argc, char **argv, char **env)
 {
 	t_env			m_env;
 	size_t			l_opt;

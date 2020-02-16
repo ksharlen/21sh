@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_unsetenv.c                               :+:      :+:    :+:   */
+/*   sh21_unsetenv.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,16 +22,16 @@ static int	push_new_env_without_name(char **new_env,
 	i = 0;
 	j = 0;
 	len_name = ft_strnlen(name, '=');
-	while (i < (len_env - 1) && (environ[j]))
+	while (i < (len_env - 1) && (g_sh_environ[j]))
 	{
-		if (!ft_memcmp(environ[j], name, len_name) &&
-			environ[j][len_name] == '=')
+		if (!ft_memcmp(g_sh_environ[j], name, len_name) &&
+			g_sh_environ[j][len_name] == '=')
 		{
 			j++;
 		}
 		else
 		{
-			new_env[i] = ft_strdup(environ[j]);
+			new_env[i] = ft_strdup(g_sh_environ[j]);
 			if (!new_env[i])
 				return (FAILURE);
 			++i;
@@ -48,17 +48,19 @@ static int	delete_var_env(const char *name)
 	char			**new_env;
 	enum e_err		err;
 
-	len_env = ft_lineslen(environ);
+	len_env = ft_lineslen(g_sh_environ);
 	new_env = (char **)ft_memalloc(sizeof(char *) * (len_env));
 	if (!new_env)
 		err = FAILURE;
 	err = push_new_env_without_name(new_env, len_env, name);
+	ft_strdel_split(g_sh_environ);
+	free(g_sh_environ);
 	if (err != FAILURE)
-		environ = new_env;
+		g_sh_environ = new_env;
 	return (err);
 }
 
-int			ftsh_unsetenv(const char *name)
+int			sh21_unsetenv(const char *name)
 {
 	int				index;
 	enum e_err		err;

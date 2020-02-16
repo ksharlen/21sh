@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_pwd.c                                    :+:      :+:    :+:   */
+/*   sh21_pwd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,14 @@
 
 #include "internal_utilities.h"
 
-int		ftsh_pwd(int argc, char *argv[], char *env[])
+int		sh21_pwd(int argc, char *argv[], char *env[])
 {
 	char *pwd;
 
 	P_UNUSED(argv);
 	P_UNUSED(env);
 	if (argc > 1)
-		PWD_ERR(S_TOO_MANY);
+		ft_printf("pwd: %s\n", S_TOO_MANY);
 	else
 	{
 		pwd = (char[MAX_SIZE_PATH + 1]){0};

@@ -6,17 +6,20 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 21:25:52 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:52:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "21sh.h"
 
-int		main(void)
+int		main(int argc, char **argv, char **env)
 {
 	t_init			init;
 
-	sh21_init(&init);
+	P_UNUSED(argc);
+	P_UNUSED(argv);
+
+	sh21_init(&init, env);
 	while (1)
 	{
 		input_begin(&init.inp);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_getenv.c                                 :+:      :+:    :+:   */
+/*   sh21_getenv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "internal_utilities.h"
 
-char		*ftsh_getenv(const char *name)
+char		*sh21_getenv(const char *name)
 {
 	char	**p_env;
 	char	*p_ret;
@@ -23,7 +23,7 @@ char		*ftsh_getenv(const char *name)
 	if (name && *name)
 	{
 		len_name = ft_strnlen(name, '=');
-		p_env = (char **)environ;
+		p_env = (char **)g_sh_environ;
 		while (*p_env)
 		{
 			if (!ft_memcmp(name, *p_env, len_name) &&

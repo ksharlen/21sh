@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/03 18:34:15 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:54:59 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ static void	set_shlvl(char *shlvl)
 		num_shlvl = ft_atoi(p_shlvl);
 		++num_shlvl;
 		CHK_NULL_PTR(ret_itoa = ft_itoa(num_shlvl), E_MALLOC, P_N);
-		ftsh_setenv("SHLVL", ret_itoa, FLAG_ON);
+		sh21_setenv("SHLVL", ret_itoa, FLAG_ON);
 		ft_strcpy(ret_itoa, shlvl);
 		ft_strdel(&ret_itoa);
 	}
 	else
 	{
-		ftsh_setenv("SHLVL", "1", FLAG_ON);
+		sh21_setenv("SHLVL", "1", FLAG_ON);
 		ft_strcpy(shlvl, "1");
 	}
 }
@@ -80,17 +80,17 @@ void	sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user
 	clean_garbage(env);
 	// ftsh_setenv("term", )
 	ft_strcpy(USER, user->user);
-	ftsh_setenv("USER", user->user, FLAG_ON);
-	ftsh_setenv("SHELL", P_N, FLAG_ON);
+	sh21_setenv("USER", user->user, FLAG_ON);
+	sh21_setenv("SHELL", P_N, FLAG_ON);
 	set_shlvl(env->shlvl);
 	ft_strcpy(SHELL, P_N);
 	getcwd(buf, SH21_MAX_PATH);
-	ftsh_setenv("PWD", buf, FLAG_ON);
+	sh21_setenv("PWD", buf, FLAG_ON);
 	ft_strcpy(PWD, buf);
 	ft_strcpy(OLD_PWD, buf);
-	ftsh_setenv("OLD_PWD", buf, FLAG_ON);
+	sh21_setenv("OLD_PWD", buf, FLAG_ON);
 	get_path_env(PATH, buf);
-	ftsh_setenv("PATH", PATH, FLAG_OFF);
+	sh21_setenv("PATH", PATH, FLAG_OFF);
 	ft_strcpy(HOME, user->home_d);
-	ftsh_setenv("HOME", HOME, FLAG_ON);
+	sh21_setenv("HOME", HOME, FLAG_ON);
 }

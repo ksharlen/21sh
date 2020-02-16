@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 19:04:38 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:50:39 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <sys/types.h>
 # include <limits.h>
-
-extern char **environ;
 
 # define P_N	"21sh"
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_cd.c                                     :+:      :+:    :+:   */
+/*   sh21_cd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -101,7 +101,7 @@ static int	work_cd(const char *path)
 				err = goto_path(buf_path);
 			}
 			else if (!ft_strcmp(path, "-"))
-				err = goto_path(ftsh_getenv("OLDPWD"));
+				err = goto_path(sh21_getenv("OLDPWD"));
 			else
 				err = goto_path(path);
 		}
@@ -109,7 +109,7 @@ static int	work_cd(const char *path)
 	return (err);
 }
 
-int			ftsh_cd(int argc, char **argv, char **env)
+int			sh21_cd(int argc, char **argv, char **env)
 {
 	enum e_err		err;
 	char			*cwd;
@@ -128,8 +128,8 @@ int			ftsh_cd(int argc, char **argv, char **env)
 		{
 			cwd = (char[MAX_SIZE_PATH + 1]){0};
 			getcwd(cwd, MAX_SIZE_PATH);
-			ftsh_setenv("OLDPWD", ftsh_getenv("PWD"), FLAG_ON);
-			ftsh_setenv("PWD", cwd, FLAG_ON);
+			sh21_setenv("OLDPWD", sh21_getenv("PWD"), FLAG_ON);
+			sh21_setenv("PWD", cwd, FLAG_ON);
 		}
 	}
 	return (0);

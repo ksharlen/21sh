@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftsh_cd_home_dir.c                            :+:      :+:    :+:   */
+/*   sh21_cd_home_dir.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -41,4 +41,9 @@ void			work_home_dir(const char *old_path, char *new_path)
 		push_curr_home_path("", new_path);
 	else if (ft_isalpha(*old_path))
 		push_any_users(old_path, new_path);
+}
+
+void			cd_error(const char *error, const char *filename)
+{
+	ft_printf("cd: %s %s\n", error, filename);
 }

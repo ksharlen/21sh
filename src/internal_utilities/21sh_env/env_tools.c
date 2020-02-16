@@ -33,7 +33,7 @@ int		exec_env(const t_env *env)
 		else
 		{
 			new_cmd = convert_structs(env);
-			ftsh_command_execution(new_cmd);
+			sh21_command_execution(new_cmd);
 			free(new_cmd);
 			new_cmd = NULL;
 		}
