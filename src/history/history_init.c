@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   history_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsandshr <dsandshr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:01:56 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/08 21:09:22 by dsandshr         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:20:50 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "history.h"
-char		*ft_strrchrback(const char *s, int c)
+
+char				*ft_strrchrback(const char *s, int c)
 {
 	const char *p_str;
 
@@ -67,12 +68,13 @@ t_history			*history_init(void)
 	t_history		*history;
 	t_history_list	*h_list;
 
-	if (!(history = (t_history *)malloc(sizeof(t_history))))
-		exit(0); //! Вывести ошибку в будущем
-	if (!(h_list = (t_history_list *)malloc(sizeof(t_history_list))))
-		exit(0); //! Вывести ошибку в будущем
+	history = (t_history *)ft_memalloc(sizeof(t_history));
+	ft_chk_null_ptr(history, E_MALLOC);
+	h_list = (t_history_list *)ft_memalloc(sizeof(t_history_list));
+	ft_chk_null_ptr(h_list, E_MALLOC);
 	history->fd = open(PTH_21SH_HIST, O_CREAT | O_RDWR | O_APPEND,
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+	ft_chk_sys_error(history->fd, E_OPEN);
 	history = alloc_args(history, h_list);
 	if (!(get_next_line(history->fd, &line, FLAG_OFF)))
 	{

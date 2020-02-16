@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 23:18:39 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/08 17:04:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:16:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ char	*find_history(t_history *hist, char *str)
 	t_history_list *beg;
 	t_history_list *end;
 
-	P_UNUSED(str);
-	P_UNUSED(end);
-	P_UNUSED(beg);
-	P_UNUSED(hist);
-
+	(void)(str);
+	(void)(end);
+	(void)(beg);
+	(void)(hist);
 	beg = hist->beg;
 	end = hist->end;
 	return (NULL);

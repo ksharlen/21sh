@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   history_fill_flist.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsandshr <dsandshr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:55:57 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/09 12:45:56 by dsandshr         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:18:23 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_history	*history_add_new_elem(t_history *hist, char *str)
 {
 	t_history_list *tmp;
 
-	if (!(tmp = (t_history_list *)malloc(sizeof(t_history_list))))
-		exit(0); //! Вывести ошибку в будущем
+	tmp = (t_history_list *)ft_memalloc(sizeof(t_history_list));
+	ft_chk_null_ptr(tmp, E_MALLOC);
 	hist->h_list = hist->end;
 	hist->h_list->next = tmp;
 	tmp->prev = hist->h_list;
@@ -50,7 +50,6 @@ t_history	*history_fill_history(t_history *hist, char *str)
 				ft_printf("%vhistory_fill_history: file_write_error\n",
 					STDERR_FILENO);
 			}
-				// exit(); //! Вывести ошибку в будущем
 		}
 	}
 	hist->h_list = hist->end;

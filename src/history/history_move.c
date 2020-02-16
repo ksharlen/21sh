@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   history_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsandshr <dsandshr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:51:34 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/08 19:51:48 by dsandshr         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:16:32 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*history_get_bottom_cmd(t_history *hist)
 		return (hist->h_list->comand);
 	}
 	else if (hist->h_list == hist->end)
-		return(NULL);
+		return (NULL);
 	return (hist->h_list->comand);
 }
 
@@ -33,5 +33,5 @@ char	*history_get_top_cmd(t_history *hist)
 	}
 	else if (hist->h_list == hist->beg)
 		return (hist->beg->comand);
-	return(hist->h_list->comand);
+	return (hist->h_list->comand);
 }

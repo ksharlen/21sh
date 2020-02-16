@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:06:48 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:50:04 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:14:50 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ struct s_win	get_win_size(void)
 	return (wn);
 }
 
-void	clear_window(void)
+void			clear_window(void)
 {
 	char	*str;
 
@@ -29,7 +29,7 @@ void	clear_window(void)
 	input_tputs(str, 0, ft_putchar);
 }
 
-void	clear_pos_cr_to_the_end(void)
+void			clear_pos_cr_to_the_end(void)
 {
 	char	*str;
 
@@ -37,7 +37,7 @@ void	clear_pos_cr_to_the_end(void)
 	input_tputs(str, 0, ft_putchar);
 }
 
-void	visibility_cursor(int visible)
+void			visibility_cursor(int visible)
 {
 	char	*str;
 

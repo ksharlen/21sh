@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:03:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:18:29 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:14:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ struct s_cursor				get_pos_cursor(void)
 	return (cr);
 }
 
-void	set_cursor_pos(int col, int row)
+void						set_cursor_pos(int col, int row)
 {
 	char	*str;
 
