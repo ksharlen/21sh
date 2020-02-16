@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/16 18:23:52 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/16 18:35:36 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DIR_SRC_BONUS_INPUT	:=	$(DIR_SRC_INPUT)/bonus/
 DIR_SRC_INIT		:=	$(DIR_SRC)init/
 DIR_SRC_HISTORY		:=	$(DIR_SRC)/history/
 DIR_UTILS			:=	$(DIR_SRC)internal_utilities/
-DIR_UTILS_ENV		:=	$(DIR_UTILS)21sh_env/
+DIR_UTILS_ENV		:=	$(DIR_UTILS)iu_env/
 
 DIRS_SRC			:=	$(DIR_SRC)\
 							$(DIR_SRC_INPUT)\
@@ -88,15 +88,15 @@ SRCS				:=	main.c\
 							history_find_history.c\
 							history_init.c\
 							history_move.c\
-							21sh_cd_home_dir.c\
-							21sh_cd.c\
-							21sh_echo.c\
-							21sh_getenv.c\
-							21sh_pwd.c\
-							21sh_setenv.c\
-							21sh_unsetenv.c\
+							iu_cd_home_dir.c\
+							iu_cd.c\
+							iu_echo.c\
+							iu_getenv.c\
+							iu_pwd.c\
+							iu_setenv.c\
+							iu_unsetenv.c\
+							iu_init_var_env.c\
 							init_env.c\
-							21sh_init_var_env.c\
 							init.c\
 							init_structs.c\
 							input.c
