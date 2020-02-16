@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/16 17:12:15 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/16 18:23:52 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,10 +95,10 @@ SRCS				:=	main.c\
 							21sh_pwd.c\
 							21sh_setenv.c\
 							21sh_unsetenv.c\
-							21sh_init_env.c\
+							init_env.c\
 							21sh_init_var_env.c\
-							21sh_init.c\
-							21sh_init_structs.c\
+							init.c\
+							init_structs.c\
 							input.c
 
 #OBJS

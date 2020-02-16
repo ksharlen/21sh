@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   21sh_init.c                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:10:16 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:51:00 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:27:34 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "21sh_init.h"
-
-#define USER	curr_user->user
-#define HOME	curr_user->home_d
-#define PUID	curr_user->u_pid
 
 static void	init_user(struct s_user_info *curr_user)
 {
@@ -24,21 +20,21 @@ static void	init_user(struct s_user_info *curr_user)
 
 	if (curr_user)
 	{
-		CLEAN(USER, SH21_MAX_NAME);
-		CLEAN(HOME, SH21_MAX_PATH);
-		PUID = getuid();
+		CLEAN(curr_user->user, SH21_MAX_NAME);
+		CLEAN(curr_user->home_d, SH21_MAX_PATH);
+		curr_user->u_pid = getuid();
 		user_name = getenv("USER");
 		home_dir = getenv("HOME");
 		if (!user_name || !home_dir)
 		{
-			pw_user = getpwuid(PUID);
-			ft_strcpy(USER, pw_user->pw_name);
-			ft_strcpy(HOME, pw_user->pw_dir);
+			pw_user = getpwuid(curr_user->u_pid);
+			ft_strcpy(curr_user->user, pw_user->pw_name);
+			ft_strcpy(curr_user->home_d, pw_user->pw_dir);
 		}
 		else
 		{
-			ft_strcpy(USER, user_name);
-			ft_strcpy(HOME, home_dir);
+			ft_strcpy(curr_user->user, user_name);
+			ft_strcpy(curr_user->home_d, home_dir);
 		}
 	}
 }
@@ -51,7 +47,7 @@ static void	init_path(struct s_path *path, char *home_dir)
 	ft_strcpy(path->home_d, home_dir);
 }
 
-void	sh21_init(t_init *init, char **env)
+void		sh21_init(t_init *init, char **env)
 {
 	if (init)
 	{

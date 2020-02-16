@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   21sh_init_env.c                                    :+:      :+:    :+:   */
+/*   init_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:50:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:33:05 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "21sh_init.h"
 
-#define TERM	env->term
-#define SHELL	env->shell
-#define SHLVL	env->shlvl
-#define OLD_PWD	env->old_pwd
-#define PWD		env->pwd
-#define PATH	env->path
-#define HOME	env->home
-#define USER	env->user
-
 static void	clean_garbage(struct s_start_env *env)
 {
-	CLEAN(SHLVL, SH21_MAX_PATH);
-	CLEAN(TERM, SH21_MAX_PATH);
-	CLEAN(SHELL, SH21_MAX_PATH);
-	CLEAN(OLD_PWD, SH21_MAX_PATH);
-	CLEAN(PWD, SH21_MAX_PATH);
-	CLEAN(PATH, SH21_MAX_PATH);
-	CLEAN(HOME, SH21_MAX_PATH);
-	CLEAN(USER, SH21_MAX_PATH);
+	ft_bzero(env->shlvl, SH21_MAX_PATH);
+	ft_bzero(env->term, SH21_MAX_PATH);
+	ft_bzero(env->shell, SH21_MAX_PATH);
+	ft_bzero(env->old_pwd, SH21_MAX_PATH);
+	ft_bzero(env->pwd, SH21_MAX_PATH);
+	ft_bzero(env->path, SH21_MAX_PATH);
+	ft_bzero(env->home, SH21_MAX_PATH);
+	ft_bzero(env->user, SH21_MAX_PATH);
 }
 
 static void	get_path_env(char *path_env, const char *curr_dir)
@@ -73,7 +64,8 @@ static void	set_shlvl(char *shlvl)
 	}
 }
 
-void	sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user)
+void		sh21_init_start_env(struct s_start_env *env,
+	const struct s_user_info *user)
 {
 	char	*buf;
 
@@ -81,18 +73,18 @@ void	sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user
 	clean_garbage(env);
 	sh21_setenv("TERM", "xterm-256color", FLAG_OFF);
 	ft_strcpy(env->term, sh21_getenv("TERM"));
-	ft_strcpy(USER, user->user);
+	ft_strcpy(env->user, user->user);
 	sh21_setenv("USER", user->user, FLAG_ON);
 	sh21_setenv("SHELL", P_N, FLAG_ON);
 	set_shlvl(env->shlvl);
-	ft_strcpy(SHELL, P_N);
+	ft_strcpy(env->shell, P_N);
 	getcwd(buf, SH21_MAX_PATH);
 	sh21_setenv("PWD", buf, FLAG_ON);
-	ft_strcpy(PWD, buf);
-	ft_strcpy(OLD_PWD, buf);
+	ft_strcpy(env->pwd, buf);
+	ft_strcpy(env->old_pwd, buf);
 	sh21_setenv("OLD_PWD", buf, FLAG_ON);
-	get_path_env(PATH, buf);
-	sh21_setenv("PATH", PATH, FLAG_OFF);
-	ft_strcpy(HOME, user->home_d);
-	sh21_setenv("HOME", HOME, FLAG_ON);
+	get_path_env(env->path, buf);
+	sh21_setenv("PATH", env->path, FLAG_OFF);
+	ft_strcpy(env->home, user->home_d);
+	sh21_setenv("HOME", env->home, FLAG_ON);
 }
