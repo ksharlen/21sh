@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:39:46 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 21:34:15 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		input_additional_greet(t_greet *greet, const char *print_greet)
 {
 	int		len_greet;
 
-	P_UNUSED(greet);
+	(void)(greet);
 	len_greet = ft_printf("%s", print_greet);
 	return (len_greet);
 }

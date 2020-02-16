@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:39:27 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 21:05:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ static void	get_curr_dir(char *curr_dir)
 
 	if (curr_dir)
 	{
-		FT_CLEAN_UP(pwd, SIZE_DIR);
+		pwd = (char[SIZE_DIR]){0};
 		getcwd(pwd, SIZE_DIR);
 		p_dir = ft_strrchr(pwd, '/');
 		++p_dir;
 		if (*p_dir)
-			COPY(curr_dir, p_dir);
+			ft_strcpy(curr_dir, p_dir);
 		else
-			COPY(curr_dir, "/");
+			ft_strcpy(curr_dir, "/");
 	}
 }
 
 static void	get_user(char *curr_user, const char *user)
 {
 	if (curr_user)
-		COPY(curr_user, user);
+		ft_strcpy(curr_user, user);
 }
 
 static void	get_time(char *curr_time)
@@ -44,8 +44,10 @@ static void	get_time(char *curr_time)
 	if (curr_time)
 	{
 		str_time = NULL;
-		CHK_SYS_ERR_EXT(int_time = time(NULL), E_TIME, P_N);
-		CHK_NULL_PTR(str_time = ctime(&int_time), E_CTIME, P_N);
+		int_time = time(NULL);
+		ft_chk_sys_error(int_time, E_TIME);
+		str_time = ctime(&int_time);
+		ft_chk_null_ptr(str_time, E_CTIME);
 		ft_strncpy(curr_time, str_time + SKIP_DATE, SIZE_TIME);
 	}
 }

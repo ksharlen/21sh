@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:37:02 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:37:03 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 21:08:10 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void		push_curr_home_path(const char *old_path, char *new_path)
 	uid_t			uid;
 	char			*uhome_dir;
 
-	P_UNUSED(old_path);
-	P_UNUSED(new_path);
+	(void)(old_path);
+	(void)(new_path);
 	uid = getuid();
 	uhome_dir = getpwuid(uid)->pw_dir;
 	ft_strcpy(new_path, uhome_dir);
