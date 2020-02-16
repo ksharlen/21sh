@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 19:12:50 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:09:29 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,6 @@ static	t_key	waiting_event(struct s_input *inp)
 		//TODO
 	}
 	return (sym);
-}
-
-ssize_t			input_read(const int fd, void *buf, const size_t nbyte)
-{
-	ssize_t	ret_read;
-
-	ret_read = read(fd, buf, nbyte);
-	ft_chk_sys_error(ret_read, E_READ);
-	return (ret_read);
 }
 
 t_key			input_getch(struct s_input *inp)

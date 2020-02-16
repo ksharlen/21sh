@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/16 15:54:18 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/16 17:12:15 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ SRCS				:=	main.c\
 							input_set_of_instr_for_getch.c\
 							input_history.c\
 							input_bonus_instr.c\
+							input_wrapper_func.c\
 							history_del.c\
 							history_fill_flist.c\
 							history_find_history.c\

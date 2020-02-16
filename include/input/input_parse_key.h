@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 19:10:30 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:12:04 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void			input_begin(struct s_input *inp);
 **KEY_PRESS_WORK
 */
 ssize_t			input_read(const int fd, void *buf, const size_t nbyte);
+ssize_t			input_write(int filedes, const void *buf, size_t nbyte);
 t_key			input_getch(struct s_input *inp);
 void			input_process_key_press(struct s_input *inp);
 void			input_ctr_keys(struct s_input *inp);

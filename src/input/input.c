@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:46:11 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:03:21 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static int	check_ext_key(struct s_input *inp)
 	int		ext_key;
 
 	ext_key = NOT_EXT_KEY;
-	if (PRESS_CTR_D_AND_EMPTY_STR(inp->key, inp->gap.len_string))
+	if (inp->key == ('d' & 0x1f) && !inp->gap.len_string)
 	{
 		ft_putchar_fd('\n', STDOUT_FILENO);
 		entry_canon(&inp->cfg_cpy);
 		ext_key = IS_CTR_D;
 	}
-	else if (inp->key == CTR_KEY('c'))
+	else if (inp->key == ('c' & 0x1f))
 	{
 		input_put_new_line(inp);
 		clean_struct_input(inp);
@@ -82,7 +82,6 @@ void	input_begin(struct s_input *inp)
 	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch(inp);
-		// check_change_winsize(inp);
 		ext_key = check_ext_key(inp);
 		if (ext_key == IS_CTR_D || ext_key == IS_CTR_C)
 			return ;

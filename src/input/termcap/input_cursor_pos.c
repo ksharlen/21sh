@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:03:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:50:19 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:07:26 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void					parse_str_cursor(char *buf)
 	i = 0;
 	while (i < 32)
 	{
-		CHK_SYS_ERR_EXT(read(STDIN_FILENO, &buf[i], 1), E_READ, "get_pos_cursor");
+		input_read(STDIN_FILENO, &buf[i], 1);
 		if (buf[i] == 'R')
 		{
 			buf[i] = 0;

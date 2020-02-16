@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 00:46:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:06:24 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	is_move_key(int key)
 		|| key == KEY_SHIFT_L_ARROW || key == KEY_SHIFT_R_ARROW
 		|| key == KEY_CTR_L_ARROW || key == KEY_CTR_R_ARROW
 		|| key == KEY_SHIFT_U_ARROW || key == KEY_SHIFT_D_ARROW
-		|| key == CTR_KEY('e') || key == CTR_KEY('a'))
+		|| key == ('e' & 0x1f) || key == ('a' & 0x1f))
 		return (TRUE);
 	else
 		return (FALSE);
@@ -28,13 +28,13 @@ static int	is_move_key(int key)
 
 void	input_process_key_press(struct s_input *inp)
 {
-	if (IS_PRINT_KEY(inp->key) ||
-		IS_DEL_KEY(inp->key) ||
-		inp->key == CTR_KEY('d'))
+	if ((inp->key >= 32 && inp->key <= 126) ||
+		(inp->key == KEY_DEL || inp->key == KEY_BCKSPACE) ||
+		inp->key == ('d' & 0x1f))
 		refresh_screen(inp);
 	else if (is_move_key(inp->key) == TRUE)
 		input_move_cursor(inp);
-	else if (inp->key == CTR_KEY('l'))
+	else if (inp->key == ('l' & 0x1f))
 		clear_full_screen(inp);
 	else if (inp->key < 32)
 		input_ctr_keys(inp);

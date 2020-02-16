@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:28:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/04 00:45:32 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:02:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define ESC		'\x1b'
 # define KEY_ARROW(key) ((key) >= 'A' && (key) <= 'D')
 # define KEY_HOME_END(key) ((key) == 'H' || (key) == 'F')
-# define PRESS_CTR_D_AND_EMPTY_STR(key, len) ((key) == CTR_KEY('d') && !(len))
+// # define PRESS_CTR_D_AND_EMPTY_STR(key, len) ((key) == CTR_KEY('d') && !(len))
 # define IS_PRINT_KEY(key) ((key) >= 32 && key <= 126)
 # define IS_DEL_KEY(key) ((key) == KEY_DEL || (key) == KEY_BCKSPACE)
 
