@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 23:12:35 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:39:27 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ static void	init_greet(t_greet *greet)
 	ft_bzero(greet->curr_d, SIZE_DIR + 1);
 }
 
-void	input_greeting_init(t_greet *greet, const struct s_user_info *u_info)
+void		input_greeting_init(t_greet *greet,
+	const struct s_user_info *u_info)
 {
 	init_greet(greet);
 	get_time(greet->time);
