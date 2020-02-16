@@ -28,7 +28,7 @@ int			sh21_echo(int argc, char **argv, char **env)
 {
 	unsigned char	flag;
 
-	P_UNUSED(env);
+	(void)(env);
 	flag = FLAG_OFF;
 	if (argc == 1)
 		ft_putendl("");

@@ -16,8 +16,8 @@ int		sh21_pwd(int argc, char *argv[], char *env[])
 {
 	char *pwd;
 
-	P_UNUSED(argv);
-	P_UNUSED(env);
+	(void)(argv);
+	(void)(env);
 	if (argc > 1)
 		ft_printf("pwd: %s\n", S_TOO_MANY);
 	else

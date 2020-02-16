@@ -114,7 +114,7 @@ int			sh21_cd(int argc, char **argv, char **env)
 	enum e_err		err;
 	char			*cwd;
 
-	P_UNUSED(env);
+	(void)(env);
 	err = FAILURE;
 	if (argv[0] && argc > 0)
 	{
