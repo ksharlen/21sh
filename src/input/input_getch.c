@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:39:38 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:09:29 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:10:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static	t_key	waiting_event(struct s_input *inp)
 	{
 		nbyte = input_read(STDIN_FILENO, &sym, sizeof(t_byte));
 		check_change_winsize(inp);
-		//TODO
 	}
 	return (sym);
 }
@@ -75,7 +74,7 @@ t_key			input_getch(struct s_input *inp)
 	{
 		input_read(STDIN_FILENO, &sym, sizeof(t_byte));
 		if (sym == '[')
-			return(get_func_key());
+			return (get_func_key());
 		else
 			sym = 0;
 	}

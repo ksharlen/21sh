@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 23:48:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:35:06 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:12:31 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static void	insert_new_line(struct s_input *inp)
 	{
 		--inp->save_refresh_pos.y;
 		--inp->cr.y;
-		write(STDOUT_FILENO, "\n", 1);
+		input_write(STDOUT_FILENO, "\n", 1);
 	}
 }
 
-void	refresh_screen(struct s_input *inp)
+void		refresh_screen(struct s_input *inp)
 {
-	if (IS_PRINT_KEY(inp->key))
+	if (inp->key >= 32 && inp->key <= 126)
 	{
 		gap_putchar_in_buf(&inp->gap, inp->key);
 		insert_new_line(inp);
@@ -52,19 +52,6 @@ void	refresh_screen(struct s_input *inp)
 	}
 	clear_screen(&inp->save_refresh_pos);
 	gap_print_buf(&inp->gap);
-// //!TMP
-	// char	buf[200] = {0};
-//
-	// set_cursor_pos(0, inp->win.rows - 1);
-	// snprintf(buf, 200, "cols: %d	rows: %d	x: %d	y: %d	size_greet: %zd", inp->win.cols,
-	// 	inp->win.rows, inp->cr.x, inp->cr.y, inp->len_greet);
-	// write(STDOUT_FILENO, buf, 200);
-	// set_cursor_pos(0, inp->win.rows - 2);
-	// bzero(buf, 200);
-	// snprintf(buf, 200, "GAP_LEN: %zd	GAP_SIZE: %zd	GAP_START: %zd	GAP_END: %zd	GAP_SLIDE: %zd",
-	// 	inp->gap.len_string, inp->gap.size_gap_buf, inp->gap.gap_start, inp->gap.gap_end, inp->gap.slide);
-	// write(STDOUT_FILENO, buf, 200);
-// //!TMP
 	set_cursor_pos(inp->cr.x, inp->cr.y);
 	visibility_cursor(VISIBLE_CUR);
 }

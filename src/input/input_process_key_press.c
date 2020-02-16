@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:50:45 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:06:24 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:08:56 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	is_move_key(int key)
 		return (FALSE);
 }
 
-void	input_process_key_press(struct s_input *inp)
+void		input_process_key_press(struct s_input *inp)
 {
 	if ((inp->key >= 32 && inp->key <= 126) ||
 		(inp->key == KEY_DEL || inp->key == KEY_BCKSPACE) ||

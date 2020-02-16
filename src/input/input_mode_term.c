@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:33:14 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 16:58:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:08:43 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	entry_not_canon(struct termios *st_copy)
 {
 	struct termios	chg_mode;
-	int		ret_tcgetattr;
-	int		ret_tcsetattr;
+	int				ret_tcgetattr;
+	int				ret_tcsetattr;
 
 	if (st_copy)
 	{

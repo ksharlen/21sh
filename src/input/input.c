@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:03:21 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:09:25 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void		input_put_new_line(struct s_input *inp)
 
 	if (inp->gap.len_string + inp->greet.len > (size_t)inp->win.cols)
 	{
-		last_rows_from_str = (inp->gap.len_string + inp->greet.len) / inp->win.cols;
+		last_rows_from_str =
+			(inp->gap.len_string + inp->greet.len) / inp->win.cols;
 		inp->cr.y = inp->save_refresh_pos.y + last_rows_from_str;
 		set_cursor_pos(0, inp->cr.y);
 	}
@@ -74,7 +75,7 @@ static void	input_preparation(struct s_input *inp)
 	inp->key = 0;
 }
 
-void	input_begin(struct s_input *inp)
+void		input_begin(struct s_input *inp)
 {
 	int	ext_key;
 
