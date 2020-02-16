@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:28:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:52:31 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:09:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <limits.h>
 # include <sys/types.h>
-
 
 # define INP_MAX_PATH	PATH_MAX
 # define INP_MAX_NAME	NAME_MAX
@@ -30,12 +29,12 @@
 **BUF_INPUT
 */
 # define INP_SIZE_GAP	20
-# define INP_SIZE_BUF	(1024 * 8 - 1) - INP_SIZE_GAP
+# define INP_SIZE_BUF	8171
 
 /*
 **ESCAPE_CMD
 */
-# define GET_POS_CURSOR	"\e[6n", 4
+# define GET_POS_CURSOR	"\e[6n"
 
 /*
 **TERMCAP

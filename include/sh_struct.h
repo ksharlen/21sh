@@ -6,12 +6,12 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:57:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:07:49 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SH21_STRUCT_H
-# define SH21_STRUCT_H
+#ifndef SH_STRUCT_H
+# define SH_STRUCT_H
 
 # include <sys/types.h>
 # include <stdlib.h>
@@ -25,7 +25,7 @@
 /*
 **ENUMS
 */
-enum	e_greet_mode
+enum		e_greet_mode
 {
 	MODE_DFLT,
 	MODE_QUOTE,
@@ -33,7 +33,7 @@ enum	e_greet_mode
 	MODE_BQUOTE,
 };
 
-enum	e_key
+enum		e_key
 {
 	KEY_LEFT_ARROW = 1000,
 	KEY_RIGHT_ARROW,
@@ -59,22 +59,22 @@ enum	e_key
 /*
 **HISTORY
 */
-typedef struct				s_history_list
+typedef struct	s_history_list
 {
 	char					*comand;
 	struct s_history_list	*next;
 	struct s_history_list	*prev;
 	size_t					location;
-}							t_history_list;
+}				t_history_list;
 
-typedef struct				s_history
+typedef struct	s_history
 {
 	t_history_list			*h_list;
 	t_history_list			*beg;
 	t_history_list			*end;
 	size_t					size;
 	int						fd;
-}							t_history;
+}				t_history;
 
 /*
 **INPUT_STRUCT
@@ -95,19 +95,19 @@ struct			s_user_info
 	pid_t	u_pid;
 };
 
-struct s_cursor
+struct			s_cursor
 {
 	int32_t	x;
 	int32_t	y;
 };
 
-struct s_win
+struct			s_win
 {
 	int	cols;
 	int	rows;
 };
 
-struct s_input
+struct			s_input
 {
 	t_gapbuf			gap;
 	char				*buf;
@@ -138,7 +138,7 @@ struct			s_start_env
 	char	shell[SH21_MAX_PATH];
 	char	pwd[SH21_MAX_PATH];
 	char	old_pwd[SH21_MAX_PATH];
-	char	path[SH21_MAX_PATH]; //!Не уверен пока что
+	char	path[SH21_MAX_PATH];
 	char	home[SH21_MAX_PATH];
 	char	user[SH21_MAX_PATH];
 };

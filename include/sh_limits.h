@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   21sh_limits.h                                      :+:      :+:    :+:   */
+/*   sh_limits.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:53:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:06:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SH21_LIMITS_H
-# define SH21_LIMITS_H
+#ifndef SH_LIMITS_H
+# define SH_LIMITS_H
 
 # include <sys/types.h>
 # include <limits.h>
 
 # define P_N	"21sh"
 
-# define SH21_MAX_PATH	(sizeof(unsigned char) * 8 * 32)
-# define SH21_MAX_NAME	(sizeof(unsigned char) * 8 * 32)
+# define SH21_MAX_PATH	256
+# define SH21_MAX_NAME	256
 # define SH21_MAX_ARG	1024
 
 /*
@@ -35,6 +35,6 @@
 # define COLOR_DIR		"\e[36;1m"
 # define COLOR_YELLOW	"\e[33;1m"
 
-typedef int32_t t_key;
+typedef int32_t			t_key;
 
 #endif

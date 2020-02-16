@@ -6,12 +6,12 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:25:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:55:20 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:04:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SH21_BONUS_H
-# define SH21_BONUS_H
+#ifndef SH_BONUS_H
+# define SH_BONUS_H
 
 # include <stdlib.h>
 # include <sys/types.h>

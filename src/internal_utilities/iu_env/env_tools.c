@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 14:52:57 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 20:02:03 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:12:26 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		exec_env(const t_env *env)
 			if (search != NOT_FOUND)
 				execute_cmd(env->cmd_argv, path_ex);
 			else
-				ft_printf("%venv: %s: %s\n", STDERR_FILENO, ENV_NO_SUCH, env->cmd);
+				ft_printf("%venv: %s: %s\n", STDERR_FILENO, NO_SUCH, env->cmd);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:55:39 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:10:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@
 **CURSOR
 */
 struct s_cursor		get_pos_cursor(void);
-void				set_cursor_pos(int col, int row); //?отсчет от 0
-void				set_cursor_col(int col); //?отсчет колонки от 0
-void				set_cursor_row(int row); //?отсчет линии от 0
+void				set_cursor_pos(int col, int row);
+void				set_cursor_col(int col);
+void				set_cursor_row(int row);
 void				visibility_cursor(int visible);
 
 /*

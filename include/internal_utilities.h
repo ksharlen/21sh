@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 15:20:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 20:02:35 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:12:24 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 /*
 **ENV
 */
-# define ENV_NO_SUCH "no such file or directory"
+# define NO_SUCH "no such file or directory"
 # define ENV_OPT "P:i:u:S:"
 # define USG	"usage: env [-iv] [-P utilpath] [-S string] [-u name]"
 # define USG_1	"[name=value ...] [utility [argument ...]]"
