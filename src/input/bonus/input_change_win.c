@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:44:30 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:02:49 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static ssize_t	get_reminder_row(struct s_input *inp, struct s_win *wn)
 	return (curr_qt_rows - chg_qt_rows);
 }
 
-static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
+static void		first_row_set_coor(struct s_input *inp, struct s_win *wn)
 {
 	struct s_cursor	crr;
-	ssize_t	reminder;
+	ssize_t			reminder;
 
 	reminder = get_reminder_row(inp, wn);
 	if (reminder > 0)
@@ -43,13 +43,13 @@ static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
 	}
 }
 
-static void	set_cursor_inside_new_win(struct s_input *inp)
+static void		set_cursor_inside_new_win(struct s_input *inp)
 {
 	get_coor_word(inp, inp->greet.len + inp->gap.slide);
 	set_cursor_pos(inp->cr.x, inp->cr.y);
 }
 
-static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
+static void		input_update_stat_win(struct s_input *inp, struct s_win *wn)
 {
 	ssize_t	reminder;
 
@@ -59,9 +59,11 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 		if (reminder)
 		{
 			if (reminder > 0)
-				inp->save_refresh_pos.y += (reminder > 0 ? reminder : -reminder);
+				inp->save_refresh_pos.y +=
+					(reminder > 0 ? reminder : -reminder);
 			else
-				inp->save_refresh_pos.y -= (reminder > 0 ? reminder : -reminder);
+				inp->save_refresh_pos.y -=
+					(reminder > 0 ? reminder : -reminder);
 		}
 	}
 	else
@@ -71,7 +73,7 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 	set_cursor_inside_new_win(inp);
 }
 
-void	check_change_winsize(struct s_input *inp)
+void			check_change_winsize(struct s_input *inp)
 {
 	struct s_win	wn;
 

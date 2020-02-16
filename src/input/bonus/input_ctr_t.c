@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 02:21:11 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/07 02:58:46 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:54:30 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	input_ctr_t(struct s_input *inp)
 {
 	if (inp->gap.len_string > 1)
 	{
-		if (!ft_memcmp(&inp->cr, &inp->save_refresh_pos, sizeof(struct s_cursor)))
+		if (!ft_memcmp(&inp->cr, &inp->save_refresh_pos,
+			sizeof(struct s_cursor)))
 			inp->cr.x += 2;
 		else if (inp->gap.slide != inp->gap.len_string)
 		{

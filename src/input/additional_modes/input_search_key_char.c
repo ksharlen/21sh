@@ -6,13 +6,13 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 20:47:11 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:47:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:54:08 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
 
-static char	quote_cmp(char *quote, t_queue *qu)
+static char		quote_cmp(char *quote, t_queue *qu)
 {
 	char	*second_pop;
 	char	quote_ret;
@@ -39,7 +39,7 @@ static char	quote_cmp(char *quote, t_queue *qu)
 	return (quote_ret);
 }
 
-int		search_double_quotes(t_queue *qu)
+int				search_double_quotes(t_queue *qu)
 {
 	char	*first_pop;
 	char	quote;
