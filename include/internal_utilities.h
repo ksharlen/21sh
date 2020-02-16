@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 15:20:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 22:44:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:57:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@
 /*
 **CD
 */
-# define CD_TOO_MANY S_TOO_MANY
-# define CD_ERR cd_error
-# define EMPTY_STR ""
-# define IU_PATH argv[1]
-# define N_TOO_LONG "File name too long"
-# define NOT_DIR	"Not a directory:"
-# define PERM		"Permission denied:"
+# define CD_TOO_MANY		S_TOO_MANY
+# define CD_ERR				cd_error
+# define EMPTY_STR 			""
+# define IU_PATH 			argv[1]
+# define N_TOO_LONG 		"File name too long"
+# define NOT_DIR			"Not a directory:"
+# define PERM				"Permission denied:"
 
 # define MAX_UNAME		(sizeof(unsigned char) * 8 * 32)
 # define MAX_SIZE_PATH	(sizeof(unsigned char) * 8 * 32)

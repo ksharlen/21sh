@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/05 18:04:58 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 16:05:12 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "libft.h"
 # include "21sh_struct.h"
 # include "input_macros.h"
+# include "internal_utilities.h"
 
 # define NOT_VISIBLE_CUR	0
 # define VISIBLE_CUR		1

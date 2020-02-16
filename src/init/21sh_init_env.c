@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 15:54:59 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 16:03:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	sh21_init_start_env(struct s_start_env *env, const struct s_user_info *user
 
 	FT_CLEAN_UP(buf, SH21_MAX_PATH);
 	clean_garbage(env);
-	// ftsh_setenv("term", )
+	sh21_setenv("TERM", "xterm-256color", FLAG_OFF);
+	ft_strcpy(env->term, sh21_getenv("TERM"));
 	ft_strcpy(USER, user->user);
 	sh21_setenv("USER", user->user, FLAG_ON);
 	sh21_setenv("SHELL", P_N, FLAG_ON);

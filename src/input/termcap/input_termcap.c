@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:35:41 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/02 23:37:47 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 16:04:33 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	input_tgetent(void)
 {
 	int	ok;
 
-	ok = tgetent(T_BUFFER, getenv("TERM"));
+	ok = tgetent(T_BUFFER, sh21_getenv("TERM"));
 	if (ok != 1)
 		input_error_ext("termcap for current terminal not found");
 }
