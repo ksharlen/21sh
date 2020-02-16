@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 15:52:03 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:41:43 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ int		main(int argc, char **argv, char **env)
 {
 	t_init			init;
 
-	P_UNUSED(argc);
-	P_UNUSED(argv);
-
+	(void)(argc);
+	(void)(argv);
 	sh21_init(&init, env);
 	while (1)
 	{
 		input_begin(&init.inp);
-		if ((!init.inp.str_for_parse && init.inp.key == CTR_KEY('d')) ||
-			(init.inp.str_for_parse && !ft_strcmp(init.inp.str_for_parse, "exit")))
+		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
+			(init.inp.str_for_parse &&
+				!ft_strcmp(init.inp.str_for_parse, "exit")))
 			break ;
 	}
 	input_finish(&init.inp);

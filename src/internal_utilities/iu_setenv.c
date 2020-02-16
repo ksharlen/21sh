@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:37:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:37:34 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:42:34 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ size_t			find_var_env(const char *name)
 	if (g_sh_environ && *g_sh_environ)
 		while (g_sh_environ[i] && g_sh_environ[i][0])
 		{
-			if ((!ft_memcmp(g_sh_environ[i], name, len_name = ft_strnlen(name, '='))) && g_sh_environ[i][len_name] == '=')
+			if ((!ft_memcmp(g_sh_environ[i], name,
+				len_name = ft_strnlen(name, '='))) &&
+					g_sh_environ[i][len_name] == '=')
 				return (i);
 			++i;
 		}
