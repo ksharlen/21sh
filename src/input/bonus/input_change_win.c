@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:02:49 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:56:19 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh_bonus.h"
+#include "sh_bonus.h"
 
 static ssize_t	get_reminder_row(struct s_input *inp, struct s_win *wn)
 {

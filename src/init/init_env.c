@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:33:05 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:56:44 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh_init.h"
+#include "sh_init.h"
 
 static void	clean_garbage(struct s_start_env *env)
 {

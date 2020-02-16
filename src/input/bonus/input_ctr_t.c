@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 02:21:11 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:54:30 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:56:26 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh_bonus.h"
+#include "sh_bonus.h"
 
 void	input_ctr_t(struct s_input *inp)
 {

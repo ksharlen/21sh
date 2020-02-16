@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   21sh.h                                             :+:      :+:    :+:   */
+/*   sh.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 21:55:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 16:10:42 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:55:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 # include <fcntl.h>
 
 # include "libft.h"
-# include "21sh_limits.h"
-# include "21sh_struct.h"
-# include "21sh_init.h"
+# include "sh_limits.h"
+# include "sh_struct.h"
+# include "sh_init.h"
 # include "internal_utilities.h"
 # include "input_init.h"
 # include "input_macros.h"

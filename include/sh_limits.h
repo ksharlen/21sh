@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 15:50:39 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:53:37 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # define P_N	"21sh"
 
-# define SH21_MAX_PATH	(sizeof(unsigned char) * 8 * 32) //!TMP
+# define SH21_MAX_PATH	(sizeof(unsigned char) * 8 * 32)
 # define SH21_MAX_NAME	(sizeof(unsigned char) * 8 * 32)
 # define SH21_MAX_ARG	1024
 

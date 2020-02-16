@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:57 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:28:49 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:55:53 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <time.h>
 
 # include "libft.h"
-# include "21sh_struct.h"
+# include "sh_struct.h"
 # include "input_macros.h"
 
 # define QUOTE	"quote> "

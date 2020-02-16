@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:41:43 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:56:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh.h"
+#include "sh.h"
 
 int		main(int argc, char **argv, char **env)
 {

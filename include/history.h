@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 17:27:05 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/16 18:17:29 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:55:33 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 # include "time.h"
-# include "21sh_struct.h"
+# include "sh_struct.h"
 
 # define PTH_21SH_HIST ".21sh_history"
 

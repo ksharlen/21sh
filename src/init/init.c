@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:10:16 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:27:34 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:56:37 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh_init.h"
+#include "sh_init.h"
 
 static void	init_user(struct s_user_info *curr_user)
 {
@@ -20,8 +20,8 @@ static void	init_user(struct s_user_info *curr_user)
 
 	if (curr_user)
 	{
-		CLEAN(curr_user->user, SH21_MAX_NAME);
-		CLEAN(curr_user->home_d, SH21_MAX_PATH);
+		ft_bzero(curr_user->user, SH21_MAX_NAME);
+		ft_bzero(curr_user->home_d, SH21_MAX_PATH);
 		curr_user->u_pid = getuid();
 		user_name = getenv("USER");
 		home_dir = getenv("HOME");
@@ -41,8 +41,8 @@ static void	init_user(struct s_user_info *curr_user)
 
 static void	init_path(struct s_path *path, char *home_dir)
 {
-	CLEAN(path->home_d, SH21_MAX_PATH);
-	CLEAN(path->curr_d, SH21_MAX_PATH);
+	ft_bzero(path->home_d, SH21_MAX_PATH);
+	ft_bzero(path->curr_d, SH21_MAX_PATH);
 	getcwd(path->curr_d, SH21_MAX_PATH);
 	ft_strcpy(path->home_d, home_dir);
 }

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:38:23 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:12:04 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:55:45 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 # include "libft.h"
 # include "ft_queue.h"
-# include "21sh_struct.h"
+# include "sh_struct.h"
 # include "input_macros.h"
 # include "input_termcap.h"
 # include "input_init.h"
 # include "input_greeting.h"
-# include "21sh_bonus.h"
+# include "sh_bonus.h"
 # include "history.h"
 
 /*

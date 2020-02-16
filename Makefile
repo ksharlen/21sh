@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/02 18:29:23 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/16 18:35:36 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/16 19:54:55 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,10 +112,10 @@ HEADERS				:=	libft.h\
 							input_error.h\
 							input_termcap.h\
 							input_greeting.h\
-							21sh_init.h\
-							21sh_limits.h\
-							21sh_struct.h\
-							21sh_bonus.h\
+							sh_init.h\
+							sh_limits.h\
+							sh_struct.h\
+							sh_bonus.h\
 							history.h
 
 #LIBS

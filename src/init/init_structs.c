@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:24:10 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:24:11 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:56:47 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh_init.h"
+#include "sh_init.h"
 
 void	get_struct_for_input(struct s_input *inp, t_init *init)
 {

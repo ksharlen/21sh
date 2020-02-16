@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 21:07:07 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:12:40 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:55:39 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # include "input_error.h"
 # include "libft.h"
-# include "21sh_struct.h"
+# include "sh_struct.h"
 # include "input_macros.h"
 # include "internal_utilities.h"
 # include "input_parse_key.h"

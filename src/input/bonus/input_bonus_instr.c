@@ -6,11 +6,11 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 17:52:56 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:53:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:57:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input_parse_key.h"
+#include "sh_bonus.h"
 
 void	input_update_rows(struct s_input *inp, struct s_win *wn)
 {
