@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 15:20:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 15:57:16 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:02:35 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,9 @@
 **ENV
 */
 # define ENV_NO_SUCH "no such file or directory"
-# define ENV_PRINT(err, filename) ft_printf("env: %s: %s\n", filename, err)
 # define ENV_OPT "P:i:u:S:"
 # define USG	"usage: env [-iv] [-P utilpath] [-S string] [-u name]"
 # define USG_1	"[name=value ...] [utility [argument ...]]"
-# define ENV_ERR(err, filename) ft_printf("env: %s: %s\n", filename, err)
-# define ERR_EXT(err, filename) ENV_ERR; exit(EXIT_FAILURE)
 # define F_P 1
 # define F_I 2
 # define F_U 4
@@ -54,13 +51,12 @@
 # define CD_TOO_MANY		S_TOO_MANY
 # define CD_ERR				cd_error
 # define EMPTY_STR 			""
-# define IU_PATH 			argv[1]
 # define N_TOO_LONG 		"File name too long"
 # define NOT_DIR			"Not a directory:"
 # define PERM				"Permission denied:"
 
-# define MAX_UNAME		(sizeof(unsigned char) * 8 * 32)
-# define MAX_SIZE_PATH	(sizeof(unsigned char) * 8 * 32)
+# define MAX_UNAME		256
+# define MAX_SIZE_PATH	256
 
 extern char		**g_sh_environ;
 

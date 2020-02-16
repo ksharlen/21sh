@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:55:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:57:56 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ enum	e_key
 	KEY_HOME,
 	KEY_END,
 	KEY_DEL,
-	KEY_PAGE_UP, //?option + arrow_up (on_func keyboard)
-	KEY_PAGE_DOWN,//?option + arrow_down (on func keyboard)
+	KEY_PAGE_UP,
+	KEY_PAGE_DOWN,
 	KEY_SHIFT_L_ARROW,
 	KEY_SHIFT_R_ARROW,
 	KEY_SHIFT_U_ARROW,

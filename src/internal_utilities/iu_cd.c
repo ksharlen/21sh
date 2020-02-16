@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:37:06 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:37:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 20:00:11 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int			sh21_cd(int argc, char **argv, char **env)
 		else if (argc > 2)
 			CD_ERR(CD_TOO_MANY, EMPTY_STR);
 		else
-			err = work_cd(IU_PATH);
+			err = work_cd(argv[1]);
 		if (err == SUCCESS)
 		{
 			cwd = (char[MAX_SIZE_PATH + 1]){0};
