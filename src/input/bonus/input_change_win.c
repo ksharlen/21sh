@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 23:24:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:52:09 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:44:30 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	first_row_set_coor(struct s_input *inp, struct s_win *wn)
 
 	reminder = get_reminder_row(inp, wn);
 	if (reminder > 0)
-		inp->save_refresh_pos.y += FT_ABS(reminder);
+		inp->save_refresh_pos.y += (reminder > 0 ? reminder : -reminder);
 	else
 	{
 		input_tputs(input_tgetstr(CL), 0, ft_putchar);
@@ -59,9 +59,9 @@ static void	input_update_stat_win(struct s_input *inp, struct s_win *wn)
 		if (reminder)
 		{
 			if (reminder > 0)
-				inp->save_refresh_pos.y += FT_ABS(reminder);
+				inp->save_refresh_pos.y += (reminder > 0 ? reminder : -reminder);
 			else
-				inp->save_refresh_pos.y -= FT_ABS(reminder);
+				inp->save_refresh_pos.y -= (reminder > 0 ? reminder : -reminder);
 		}
 	}
 	else
