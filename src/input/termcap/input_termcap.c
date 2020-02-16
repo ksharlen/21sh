@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:35:41 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 16:04:33 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:31:58 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ char	*input_tgetstr(char *cb)
 	str = NULL;
 	if (cb)
 	{
-		CHK_NULL_PTR(str = tgetstr(cb, T_BUFFER), E_TGETENT, "input_tgetstr");
+		str = tgetstr(cb, T_BUFFER);
+		ft_chk_null_ptr(str, E_TGETSTR);
 	}
 	else
 		input_error_ext("input_tgetstr: empty cb");
@@ -42,7 +43,8 @@ char	*input_tgoto(char *cb, int one, int two)
 	str = NULL;
 	if (cb)
 	{
-		CHK_NULL_PTR(str = tgoto(cb, one, two), E_TGOTO, "input_tgoto");
+		str = tgoto(cb, one, two);
+		ft_chk_null_ptr(str, E_TGOTO);
 	}
 	else
 		input_error_ext("input_tgoto: empty cb");
@@ -51,9 +53,12 @@ char	*input_tgoto(char *cb, int one, int two)
 
 void	input_tputs(const char *str, int affcnt, int (*putc)(int))
 {
+	int	ret_tputs;
+
 	if (str)
 	{
-		CHK_SYS_ERR_EXT(tputs(str, affcnt, putc), E_TPUTS, "input_tputs");
+		ret_tputs = tputs(str, affcnt, putc);
+		ft_chk_sys_error(ret_tputs, E_TPUTS);
 	}
 	else
 		input_error_ext("input_tputs: empty str");

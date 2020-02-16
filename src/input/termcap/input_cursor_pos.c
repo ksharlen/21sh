@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:03:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 17:07:26 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:18:29 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ struct s_cursor				get_pos_cursor(void)
 	char			buf[32];
 	char			*p_buf;
 
-	CHK_SYS_ERR_EXT(write(STDOUT_FILENO, GET_POS_CURSOR),
-		E_WRITE, "get_pos_cursor");
+	input_write(STDOUT_FILENO, GET_POS_CURSOR);
 	parse_str_cursor(buf);
 	p_buf = buf;
 	cr.y = ft_atoi(buf + 2);
