@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 00:00:40 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 19:12:52 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 16:59:31 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_key	input_get_key_shift_arrow(void)
 
 	key_shift_arrow = 0;
 	sym = (unsigned char[2]){0};
-	CHK_SYS_ERR_EXT(read(STDIN_FILENO, sym, 2), E_READ, P_N);
+	input_read(STDIN_FILENO, sym, 2);
 	if (!sym[1])
 	{
 		if (sym[0] == 'A')
@@ -79,7 +79,7 @@ t_key	input_get_key_ctr_arrow(void)
 
 	key = 0;
 	sym = (unsigned char[2]){0};
-	CHK_SYS_ERR_EXT(read(STDIN_FILENO, sym, 2), E_READ, P_N);
+	input_read(STDIN_FILENO, sym, 2);
 	if (!sym[1])
 	{
 		if (sym[0] == 'A')
