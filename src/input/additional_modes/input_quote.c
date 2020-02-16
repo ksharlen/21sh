@@ -6,19 +6,17 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:11:15 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 23:06:48 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:46:25 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input_parse_key.h"
 
-#define IS_QT(sym) ((sym) == '\'' || (sym) == '\"' || (sym) == '`')
-
 static void	put_in_stack_quote_from_str(const char *str, t_queue *qu)
 {
 	while (*str)
 	{
-		if (IS_QT(*str))
+		if (*str == '\'' || *str == '\"' || *str == '`')
 			ft_qu_push(qu, (void *)str, sizeof(char));
 		++str;
 	}
@@ -64,8 +62,7 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	while (inp->key != KEY_NEW_LINE)
 	{
 		inp->key = input_getch(inp);
-		// check_change_winsize(inp);
-		if (inp->key == CTR_KEY('c'))
+		if (inp->key == ('c' & 0x1f))
 		{
 			input_put_new_line(inp);
 			clean_struct_input(inp);
