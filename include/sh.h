@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 21:55:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 20:06:32 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/17 14:06:07 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@
 # include "input_init.h"
 # include "input_macros.h"
 # include "input_parse_key.h"
+# include "parser.h"
 
 #endif
