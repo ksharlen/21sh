@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/17 00:12:49 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/17 13:55:54 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,7 @@ SRC_HIST					:=	history_init.c\
 									history_move.c\
 									history_del.c
 
-SRC_PARSER					:=	
-#SRC_PARSER
+SRC_PARSER					:=	parser.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
@@ -86,7 +85,6 @@ DIRS_INPUT					:=	$(DIR_INPUT)\
 									$(DIR_INPUT)screen/\
 									$(DIR_INPUT)termcap/\
 
-#input_dirs
 DIR_IU						:=	$(DIR_SRC)internal_utilities/
 #env_dirs
 DIR_HIST					:=	$(DIR_SRC)history/
@@ -148,9 +146,9 @@ MAKE_CLEAN_LIBFT			:=	make -C $(DIR_LIBFT) clean
 MAKE_FCLEAN_LIBFT			:=	make -C $(DIR_LIBFT) fclean
 CC							:=	gcc
 
-vpath	%.c	$(DIRS_SRC) ./lib/libft/
-vpath	%.o	$(DIR_OBJ) ./lib/libft/bin
-vpath	%.h	$(DIRS_INCLUDE) ./lib/libft/include
+vpath	%.c	$(DIRS_SRC)
+vpath	%.o	$(DIR_OBJ)
+vpath	%.h	$(DIRS_INCLUDE)
 
 all: $(LIBFT) $(NAME)
 
