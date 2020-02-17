@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/17 00:14:14 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/17 14:03:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 # include <unistd.h>
 
 # include "libft.h"
+# include "sh_limits.h"
+# include "sh_struct.h"
 
 #endif
