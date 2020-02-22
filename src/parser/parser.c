@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:55:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 22:36:48 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 23:25:29 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static void		parse_str(char *str_for_parse, t_info_parser *prs)
 		size_t	size = parser_count_args(str_for_parse, splitter);
 		printf("size: %zd\n", size);
 printf("str: %s\n", str);
+printf("splitter: %c\n", *splitter);
 exit(EXIT_FAILURE);
 //*		if ((check_str(str, splitter)) == TRUE)
 //*			parser_add_list(prs);// создаём новый экземпляр листа и возвращаем на него указатель

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 20:15:29 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 22:37:48 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 23:30:51 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,36 @@ static const char	*skip_word(const char *str, char *splitter)
 	return (str);
 }
 
-size_t	parser_count_args(const char *str, char *splitter)
+size_t				parser_count_args(const char *str, char *splitter)
 {
 	size_t	qty_args;
 
 	qty_args = 0;
 	if (str)
 	{
+		str = ft_skiptabs(str);
 		while (str != splitter)
 		{
-			str = ft_skiptabs(str);
 			if (*str && *str == -1)
 				str = ft_skipfirst(str, -1);
+			else if (*str == '\'' || *str == '\"' || *str == '`')
+			{
+				++qty_args;
+				str = parser_skip_quotes((char *)str, splitter);
+				str = skip_word(str, splitter);
+			}
 			else
 			{
 				++qty_args;
 				str = skip_word(str, splitter);
 			}
+			str = ft_skiptabs(str);
 		}
 	}
 	return (qty_args);
 }
 
-char	*parser_skip_quotes(char *str, char *splitter)
+char				*parser_skip_quotes(char *str, char *splitter)
 {
 	char	quote;
 
