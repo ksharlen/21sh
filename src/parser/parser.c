@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:55:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 21:56:38 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 22:35:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ static void		parse_str(char *str_for_parse, t_info_parser *prs)
 	{
 //!	Посмотреть исключительные случаи разделителя
 		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
-		str = parse_skip_quotes(str, splitter);
+		// str = parse_skip_quotes(str, splitter);
+		size_t	size = parse_count_args(str_for_parse, splitter);
+		printf("size: %zd\n", size);
 printf("str: %s\n", str);
 exit(EXIT_FAILURE);
 //*		if ((check_str(str, splitter)) == TRUE)
