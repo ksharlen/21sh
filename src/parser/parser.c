@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:55:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 15:59:15 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 20:34:35 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@
 // 	P_UNUSED(str);
 // 	P_UNUSED(splitter);
 
-// //	qty_sym = 0;
-// //	str = ft_skiptabs(str);
-// //	while (*str && str != splitter)
-// //	{
-// //		++qty_sym;
-// //		++str;
-// //	}
-// //	return (qty_sym ? TRUE : FALSE);
-// return (0);
+// 	qty_sym = 0;
+// 	str = ft_skiptabs(str);
+// 	while (*str && str != splitter)
+// 	{
+// 		++qty_sym;
+// 		++str;
+// 	}
+// 	return (qty_sym ? TRUE : FALSE);
 // }
 
 // static char	*fill_struct(char *str_start, t_info_parser *prs, char *splitter)
@@ -41,12 +40,14 @@
 // 	P_UNUSED(splitter);
 // 	P_UNUSED(qty_args);
 // 	P_UNUSED(str);
-// //	str = str_start;
-// //	while (*str && *str_start != splitter)
+// //*	str = str_start;
+// //*	while (*str && *str_start != splitter)
 // //	{
-// //		str = skip_tabs(str);
+// 		// str = ft_skiptabs(str);
 // //		str = find_stream(str, splitter, prs->end);			// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
-// //		str = skip_quotes(str, splitter);
+// 		// str = skip_quotes(str, splitter);
+// // printf("str: %s\n", str);
+// // EXIT();
 // //		str = skip_args(str, splitter);
 // //	}
 // //	qty_args = count_args(str_start, splitter);
@@ -70,17 +71,18 @@ static void		parse_str(char *str_for_parse, t_info_parser *prs)
 	{
 //!	Посмотреть исключительные случаи разделителя
 //		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
-//		if ((check_str(str, splitter)) == TRUE)
-//			parser_add_list(prs);// создаём новый экземпляр листа и возвращаем на него указатель
-//		else {
-//			str = (*splitter) ? ++splitter : splitter;
-//			continue;
+//*		if ((check_str(str, splitter)) == TRUE)
+//*			parser_add_list(prs);// создаём новый экземпляр листа и возвращаем на него указатель
+//*		else
+//		{
+//*			str = (*splitter) ? ++splitter : splitter;
+//*			continue;
 //		}
 //		if ((find_set_vars(str, splitter)) == TRUE)
 //			;//TODO: парсим переменные
-//		else
-//		{
-//			fill_struct(str, prs, splitter);
+//*		else
+//*		{
+			// fill_struct(str, prs, splitter);
 //			str = skip_splitter(splitter, &prs->end->f_delimiter);//Тут флаг разделителя и пропуск splitter
 //		}
 	}

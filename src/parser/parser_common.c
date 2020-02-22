@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   parser_common.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 20:20:03 by ksharlen         ###   ########.fr       */
+/*   Created: 2020/02/22 20:15:29 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/22 20:19:41 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "parser.h"
 
-# include <sys/types.h>
-# include <unistd.h>
+char	*parse_skip_quotes(char *str, char *splitter)
+{
+	char	quote;
 
-# include "libft.h"
-# include "sh_limits.h"
-# include "sh_struct.h"
-
-void	parser(char *str_for_parse, t_info_parser *prs);
-void	parser_add_list(t_info_parser *prs);
-char	*parse_skip_quotes(char *str, char *splitter);
-
-#endif
+	if (str && str != splitter)
+	{
+		quote = *str;
+		if (quote == '\'' || quote == '\"' || quote == '`')
+		{
+			++str;
+			while (str && *str != quote)
+				++str;
+			++str;
+		}
+	}
+	return (str);
+}
