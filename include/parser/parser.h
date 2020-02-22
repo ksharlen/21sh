@@ -20,6 +20,6 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 
-void	parser(const char *str_for_parse, t_info_parser *prs);
+void	parser(char *str_for_parse, t_info_parser *prs);
 
 #endif

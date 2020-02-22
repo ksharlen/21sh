@@ -17,6 +17,7 @@ t_term_var	g_term_lst;
 int		main(int argc, char **argv, char **env)
 {
 	t_init			init;
+	//t_vars		vars;
 
 	(void)(argc);
 	(void)(argv);
@@ -30,6 +31,7 @@ int		main(int argc, char **argv, char **env)
 			break ;
 		else if (init.inp.str_for_parse)
 		{
+			//paste_vars(&init.inp.str_for_parse, &vars);		// $$ и $? не парсятся
 			parser(init.inp.str_for_parse, &init.prs);
 			//exec(...);
 		}
