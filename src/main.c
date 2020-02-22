@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/19 18:23:31 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 15:57:08 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		main(int argc, char **argv, char **env)
 			(init.inp.str_for_parse &&
 				!ft_strcmp(init.inp.str_for_parse, "exit")))
 			break ;
-		else if (!init.inp.str_for_parse)
+		else if (init.inp.str_for_parse)
 		{
-			//parser(init.inp.str_for_parse, ...);
+			parser(init.inp.str_for_parse, &init.prs);
 			//exec(...);
 		}
 	}

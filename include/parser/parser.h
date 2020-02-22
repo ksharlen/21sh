@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/17 14:06:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 15:57:23 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 
-void	parser(const char *str_for_parse, void *param);
+void	parser(const char *str_for_parse, t_info_parser *prs);
 
 #endif

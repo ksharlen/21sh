@@ -6,11 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2020/02/19 18:24:55 by ksharlen         ###   ########.fr       */
-=======
-/*   Updated: 2020/02/20 12:22:29 by ksharlen         ###   ########.fr       */
->>>>>>> 6864b130776f862eeca0c3e5576ec6cc1ddce6f9
+/*   Updated: 2020/02/22 15:54:26 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +72,7 @@ typedef struct			s_term_var
 typedef struct			s_red_stream
 {
 	struct s_red_stream	*next;
-	struct s_red_stream	*left;
+	struct s_red_stream	*prev;
 	int					stream_a;						// какой поток будет перенаправлен или закрыт, при соответствующем флаге
 	int					stream_in;						// в какой поток будет перенаправлен
 	char				stream_name[BUFSIZ];			// в какой файл будет направлен поток
@@ -88,19 +84,25 @@ typedef struct			s_red_stream
 
 typedef struct			s_pars_list
 {
-	struct s_pars_list	*right;
-	struct s_pars_list	*left;
+	struct s_pars_list	*next;
+	struct s_pars_list	*prev;
 	char				*name_func;						// имя запускаемой программы
 	char				name_run_func[BUFSIZ];			// имя запускаемой программы с путём запуска
 	char				**pars_args;					// разбитые аргументы строки
 	int					status;							// статус завершения вызванной программы (заполню)
 	pid_t				pid;
 	t_red_stream		*stream_list;					// структура для перенаправления потоков
-	int 				f_delimiter;					// флаг разделителей команд
+	unsigned int 		f_delimiter;					// флаг разделителей команд
 	unsigned short		nbr_ampersant;
 	char				**str_status;					// строки в которых нужно вставить статус
 	char 				**str_lastpid;
 }						t_pars_list;
+
+typedef struct			s_info_parser
+{
+	t_pars_list	*beg;
+	t_pars_list	*end;
+}						t_info_parser;
 
 /*
 **HISTORY
@@ -201,6 +203,7 @@ typedef struct	s_init
 	struct s_user_info	u_inf;
 	struct s_shell		shell;
 	struct s_input		inp;
+	t_info_parser		prs;
 }				t_init;
 
 #endif
