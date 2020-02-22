@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 20:07:49 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:24:55 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,48 @@ enum		e_key
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
 };
+
+/*
+**GLOBAL
+*/
+typedef struct			s_term_var
+{
+	char 				*tty_name;							// храниет адрес терминала //Раньше было path_name
+	int 				exec_status;						// хранит статус последней запущеной команды
+	pid_t				pid_last;							// хранит pid последней запущеной команды
+}						t_term_var;
+
+/*
+**PARSER
+*/
+typedef struct			s_red_stream
+{
+	struct s_red_stream	*next;
+	struct s_red_stream	*left;
+	int					stream_a;						// какой поток будет перенаправлен или закрыт, при соответствующем флаге
+	int					stream_in;						// в какой поток будет перенаправлен
+	char				stream_name[BUFSIZ];			// в какой файл будет направлен поток
+	int					fd_file;						// дескриптор открытого файла (по умолчанию -1, будет заполнено в exec)
+	int					flag_file;						// флаг файла: ">" = "1", ">>" = "2", "<" = "-1" (по умолчанию 0)
+	int					flag_close;						// флаг о закрытии дескриптора (по умолчанию 0)
+	int 				save_std;						// запоминает дублированный дескриптор стандартного вывода (по умолчанию -1)
+}						t_red_stream;
+
+typedef struct			s_pars_list
+{
+	struct s_pars_list	*right;
+	struct s_pars_list	*left;
+	char				*name_func;						// имя запускаемой программы
+	char				name_run_func[BUFSIZ];			// имя запускаемой программы с путём запуска
+	char				**pars_args;					// разбитые аргументы строки
+	int					status;							// статус завершения вызванной программы (заполню)
+	pid_t				pid;
+	t_red_stream		*stream_list;					// структура для перенаправления потоков
+	int 				f_delimiter;					// флаг разделителей команд
+	unsigned short		nbr_ampersant;
+	char				**str_status;					// строки в которых нужно вставить статус
+	char 				**str_lastpid;
+}						t_pars_list;
 
 /*
 **HISTORY

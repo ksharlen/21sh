@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 20:06:17 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:26:37 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@
 # define COLOR_USER		"\e[31;1m"
 # define COLOR_DIR		"\e[36;1m"
 # define COLOR_YELLOW	"\e[33;1m"
+
+# define F_SEMICOLON	1		// флаг ";"
+# define F_AND			2		// флаг "&&"
+# define F_OR			4		// флаг "||"
+# define F_AMPERSANT	8		// флаг "&"
+# define F_PIPE			16		// флаг "|"
+# define V_STATUS		32		// фдаг $?
+# define V_LASTPID		64		// флаг $$
+# define V_WRITE_VAR	128		// флаг того, что нужно заполнять переменные
 
 typedef int32_t			t_key;
 
