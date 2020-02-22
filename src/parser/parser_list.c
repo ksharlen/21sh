@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:49:04 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 20:04:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 20:06:12 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static t_pars_list	*new_elem(void)
 	ft_bzero(new->name_run_func, BUFSIZ);
 	new->pars_args = NULL;
 	new->str_status = NULL;
-	new->str_lastpid;
+	new->str_lastpid = NULL;
+	return (new);
 }
 
 void	parser_add_list(t_info_parser *prs)
