@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 20:20:03 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 21:51:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 void	parser(char *str_for_parse, t_info_parser *prs);
 void	parser_add_list(t_info_parser *prs);
 char	*parse_skip_quotes(char *str, char *splitter);
+char	*find_delimiter(char *str);
 
 #endif
