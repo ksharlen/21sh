@@ -20,6 +20,13 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 
-void	parser(char *str_for_parse, t_info_parser *prs);
+void			parser(char *str_for_parse, t_info_parser *prs);
+char			*pars_find_stream(char *str, char *splitter, t_pars_list *list);
+t_red_stream	*pars_add_lst_stream(t_red_stream **stream_list);
+
+/*
+**	добавить в либу
+*/
+int		ft_checkspase(char sym);
 
 #endif

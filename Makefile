@@ -63,7 +63,9 @@ SRC_HIST					:=	history_init.c\
 									history_move.c\
 									history_del.c
 
-SRC_PARSER					:=	parser.c
+SRC_PARSER					:=	parser.c\
+								ft_checkspase.c\
+								pars_find_stream.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
