@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/19 18:26:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 15:58:22 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@
 # define V_STATUS		32		// фдаг $?
 # define V_LASTPID		64		// флаг $$
 # define V_WRITE_VAR	128		// флаг того, что нужно заполнять переменные
+
+/*
+**TMP
+*/
+# define P_UNUSED(val) (void)(val)
 
 typedef int32_t			t_key;
 
