@@ -17,6 +17,6 @@ void	parser(const char *str_for_parse, t_info_parser *prs)
 	(void)(str_for_parse);
 	P_UNUSED(prs);
 
-	
+		
 	return ;
 }
