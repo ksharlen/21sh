@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:55:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 20:35:32 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 21:32:35 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@
 // //*	str = str_start;
 // //*	while (*str && *str_start != splitter)
 // //	{
-// 		// str = ft_skiptabs(str);
-// //		str = find_stream(str, splitter, prs->end);			// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
-// 		// str = skip_quotes(str, splitter);
+//*		str = ft_skiptabs(str);
+//		str = find_stream(str, splitter, prs->end);			// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
+//* 	str = skip_quotes(str, splitter);
 // // printf("str: %s\n", str);
 // // EXIT();
 // //		str = skip_args(str, splitter);
 // //	}
-// //	qty_args = count_args(str_start, splitter);
-// //	prs->end->pars_args = fill_args(str_start, splitter, qty_args); // qty_args + 1 для NULL
+//	qty_args = count_args(str_start, splitter);
+//	prs->end->pars_args = fill_args(str_start, splitter, qty_args); // qty_args + 1 для NULL
 // //	//
 // 	return (NULL);
 // }
@@ -141,7 +141,7 @@ static void		parse_str(char *str_for_parse, t_info_parser *prs)
 //	while (*str)
 //	{
 //!	Посмотреть исключительные случаи разделителя
-//		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
+//*		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
 //*		if ((check_str(str, splitter)) == TRUE)
 //*			parser_add_list(prs);// создаём новый экземпляр листа и возвращаем на него указатель
 //*		else
@@ -155,9 +155,11 @@ static void		parse_str(char *str_for_parse, t_info_parser *prs)
 //*		{
 			// fill_struct(str, prs, splitter);
 //			str = skip_splitter(splitter, &prs->end->f_delimiter);//Тут флаг разделителя и пропуск splitter
+//!			need validation
 //		}
 //	}
 }
+//ft_printf("%v%s: %s%s\n", STDERR_FILENO, P_N, DELIM_ERR, ...);
 
 void	parser(char *str_for_parse, t_info_parser *prs)
 {
