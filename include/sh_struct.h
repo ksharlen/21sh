@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/19 18:24:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 19:58:33 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ typedef struct			s_red_stream
 
 typedef struct			s_pars_list
 {
+	t_red_stream		*stream_list;					// структура для перенаправления потоков
 	struct s_pars_list	*next;
 	struct s_pars_list	*prev;
+	pid_t				pid;
+	int					status;							// статус завершения вызванной программы (заполню)
+	unsigned int 		f_delimiter;					// флаг разделителей команд
+	unsigned short		nbr_ampersant;
 	char				*name_func;						// имя запускаемой программы
 	char				name_run_func[BUFSIZ];			// имя запускаемой программы с путём запуска
 	char				**pars_args;					// разбитые аргументы строки
-	int					status;							// статус завершения вызванной программы (заполню)
-	pid_t				pid;
-	t_red_stream		*stream_list;					// структура для перенаправления потоков
-	unsigned int 		f_delimiter;					// флаг разделителей команд
-	unsigned short		nbr_ampersant;
 	char				**str_status;					// строки в которых нужно вставить статус
 	char 				**str_lastpid;
 }						t_pars_list;
