@@ -6,13 +6,27 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 20:15:29 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 23:30:51 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/23 16:02:20 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-static const char	*skip_word(const char *str, char *splitter)
+size_t				parser_get_len_arg(char *str, char *splitter)
+{
+	size_t	len_arg;
+
+	len_arg = 0;
+	while (str != splitter && !ft_isspace(*str) &&
+		*str != '\'' && *str != '\"' && *str != '`')
+	{
+		++len_arg;
+		++str;
+	}
+	return (len_arg);
+}
+
+const char			*parser_skip_word(const char *str, char *splitter)
 {
 	if (str)
 	{
@@ -38,12 +52,12 @@ size_t				parser_count_args(const char *str, char *splitter)
 			{
 				++qty_args;
 				str = parser_skip_quotes((char *)str, splitter);
-				str = skip_word(str, splitter);
+				// str = parser_skip_word(str, splitter);
 			}
 			else
 			{
 				++qty_args;
-				str = skip_word(str, splitter);
+				str = parser_skip_word(str, splitter);
 			}
 			str = ft_skiptabs(str);
 		}

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/22 21:57:23 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/23 15:24:46 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,9 @@ SRC_HIST					:=	history_init.c\
 SRC_PARSER					:=	parser.c\
 									parser_list.c\
 									parser_find_delimiter.c\
-									parser_common.c
+									parser_common.c\
+									parser_args.c\
+									parser_quotes.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\

@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 22:37:10 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/23 15:25:39 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 
-void	parser(char *str_for_parse, t_info_parser *prs);
-void	parser_add_list(t_info_parser *prs);
-char	*parser_skip_quotes(char *str, char *splitter);
-char	*find_delimiter(char *str);
-size_t	parser_count_args(const char *str, char *splitter);
+void		parser(char *str_for_parse, t_info_parser *prs);
+void		parser_add_list(t_info_parser *prs);
+char		*parser_skip_quotes(char *str, char *splitter);
+char		*find_delimiter(char *str);
+size_t		parser_count_args(const char *str, char *splitter);
+size_t		parser_get_len_arg(char *str, char *splitter);
+const char	*parser_skip_word(const char *str, char *splitter);
+char		**parser_fill_args(char *start_str, char *splitter, size_t qty_args);
+char		*parser_quote_arg(char **str, char *splitter);
 
 #endif
