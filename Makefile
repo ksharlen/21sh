@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
+#    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/23 15:24:46 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/23 17:38:12 by tjonella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,8 @@ SRC_PARSER					:=	parser.c\
 									parser_find_delimiter.c\
 									parser_common.c\
 									parser_args.c\
-									parser_quotes.c
+									parser_quotes.c\
+									parser_skip_delimiter.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
