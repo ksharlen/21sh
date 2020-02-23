@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_skip_delimiter.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 17:36:01 by tjonella          #+#    #+#             */
-/*   Updated: 2020/02/23 17:38:14 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/02/23 17:44:45 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ char	*skip_splitter(char *splitter, int *flags_splt)
 		{
 			if (!parse_not_srvc_symb(splitter + 2)) // Если больше 2 символов - ошибка парсинга
 				return (NULL);
-			else if (ft_isspace(splitter + 2)) // Пропускаем пробелы, ищем ошибку - сервисные символы, а не новые команды
+			else if (ft_isspace(*(splitter + 2))) // Пропускаем пробелы, ищем ошибку - сервисные символы, а не новые команды
 			{
-				check_err = ft_skip_tabs(splitter + 2);
+				check_err = ft_skiptabs(splitter + 2);
 				if (!parse_not_srvc_symb(check_err))
 					return (NULL);
 			}

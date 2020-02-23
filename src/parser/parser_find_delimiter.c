@@ -6,13 +6,13 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:49:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 21:53:48 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/23 17:42:27 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-static int	parse_not_srvc_symb(char *c)
+int		parse_not_srvc_symb(char *c)
 {
 	if (*c == '&' && *(c + 1) == '&')
 		return (0);
