@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 15:58:22 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/22 20:52:54 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@
 # define V_STATUS		32		// фдаг $?
 # define V_LASTPID		64		// флаг $$
 # define V_WRITE_VAR	128		// флаг того, что нужно заполнять переменные
+
+/*
+**STR_ERRORS
+*/
+# define DELIM_ERR	"parse error near"
 
 /*
 **TMP

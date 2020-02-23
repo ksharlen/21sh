@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
+#    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/17 13:55:54 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/02/23 17:38:12 by tjonella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,17 @@ SRC_HIST					:=	history_init.c\
 									history_del.c
 
 SRC_PARSER					:=	parser.c\
+<<<<<<< HEAD
 								ft_checkspase.c\
 								pars_find_stream.c
+=======
+									parser_list.c\
+									parser_find_delimiter.c\
+									parser_common.c\
+									parser_args.c\
+									parser_quotes.c\
+									parser_skip_delimiter.c
+>>>>>>> b6b862b0c2809ff0dc3b50d5d55448920a70ad86
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
