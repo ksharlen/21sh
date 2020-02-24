@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 15:57:08 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/24 22:47:02 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int argc, char **argv, char **env)
 		else if (init.inp.str_for_parse)
 		{
 			//paste_vars(&init.inp.str_for_parse, &vars);		// $$ и $? не парсятся
-			parser(init.inp.str_for_parse, &init.prs);
+			// parser(init.inp.str_for_parse, &init.prs);
 			//exec(...);
 		}
 	}

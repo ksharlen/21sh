@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/23 17:43:00 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/25 00:36:34 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ char			*skip_splitter(char *splitter, int *flags_splt);
 int				parse_not_srvc_symb(char *c);
 char			*pars_find_stream(char *str, char *splitter, t_pars_list *list);
 t_red_stream	*pars_add_lst_stream(t_red_stream **stream_list);
+int				find_flag_stream(char *pos_stream, t_red_stream *stream_list);
+char	        *put_error_parse(char *str, int fd);
+int		        check_valid_char_name(char sym);
 
 #endif

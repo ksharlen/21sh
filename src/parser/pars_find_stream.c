@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   pars_find_stream.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 22:35:05 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/02/23 22:35:07 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/02/25 00:34:55 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
 // проверяет на валидность имени файла (должны отсутствовать системные символы) // 4.3
-static int	check_valid_char_name(char sym)
+int		check_valid_char_name(char sym)
 {
 	if (sym == '&' || sym == '|' || sym == ';' || sym == '\0' || sym == '<' || sym == '>')
 		return (1);
 	return (0);
 }
 // выводит ошибку символа в перенаправлении
-static char	*put_error_parse(char *str, int fd)
+char	*put_error_parse(char *str, int fd)
 {
 	ft_putstr_fd("42sh: parse error near \'", fd);
 	if (str[0] != '\0')
@@ -260,7 +260,7 @@ static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream
 
 	pos_stream = find_pos_stream(str, splitter);
 	/// определяет флаги
-	// static void	find_flag_stream(char *pos_stream, char *splitter);
+	// static void	find_flag_stream(char *pos_stream, t_red_stream *stream_list);
 	start = write_prev_to_stream(str, pos_stream, stream_list);
 	end = write_next_stream(pos_stream, splitter, stream_list);
 	write_minus_sym(start, end);

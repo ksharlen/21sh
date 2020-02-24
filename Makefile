@@ -6,7 +6,7 @@
 #    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/23 17:38:12 by tjonella         ###   ########.fr        #
+#    Updated: 2020/02/25 00:33:48 by tjonella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ SRC_PARSER					:=	parser.c\
 									parser_quotes.c\
 									parser_skip_delimiter.c\
 									pars_find_stream.c\
-									pars_add_lst_stream.c
+									pars_add_lst_stream.c\
+									parser_find_flags_stream.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
