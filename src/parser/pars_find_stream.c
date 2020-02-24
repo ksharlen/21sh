@@ -12,7 +12,7 @@
 
 #include "parser.h"
 
-// проверяет на валидность имени файла (должны отсутствовать системные символы)
+// проверяет на валидность имени файла (должны отсутствовать системные символы) // 4.3
 static int	check_valid_char_name(char sym)
 {
 	if (sym == '&' || sym == '|' || sym == ';')
@@ -27,7 +27,9 @@ static char	*put_error_parse(char *str, int fd)
 	ft_putstr_fd("\'\n", fd);
 	return (NULL);
 }
-// записывает '-1' в заданном диапазоне
+// записывает '-1' в заданном диапазоне // 2.5
+
+
 static void	write_minus_sym(char *start, char *end)
 {
 	while (start <= end)
@@ -123,7 +125,7 @@ static char	*write_amper_args_after_stream(char *pos_stream, char *splitter, t_r
 }
 /*** если был встречен & ***/
 
-// определяет положение указателя для начала парсинга аргументов после перенаправления
+// определяет положение указателя для начала парсинга аргументов после перенаправления // 4.2
 static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 {
 	while (pos_stream != splitter && *pos_stream == '<' && *pos_stream == '>')
@@ -137,7 +139,7 @@ static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 	}
 	return (pos_stream);
 }
-// парсит после перенаправления
+// парсит после перенаправления // 4.1
 static char	*write_next_stream(char *pos_stream, char *splitter, t_red_stream *stream_list)
 {
 	pos_stream = find_pos_args_next_stream(pos_stream, splitter);
@@ -155,6 +157,7 @@ static char	*write_next_stream(char *pos_stream, char *splitter, t_red_stream *s
 **	до перенаправления
 */
 /***один лист***/
+// 3.3
 static void	write_nbr_fd_prev_stream(char *str, char *pos_stream, t_red_stream *stream_list)
 {
 	char	buf[BUFSIZ];
@@ -173,7 +176,7 @@ static void	write_nbr_fd_prev_stream(char *str, char *pos_stream, t_red_stream *
 	else
 		stream_list->stream_in = ft_atoi(buf);
 }
-// если старт строки совпадает с перенаправлением
+// если старт строки совпадает с перенаправлением // 3.2
 static char	*write_point_one_in_str(char *str, t_red_stream *stream_list)
 {
 	if (stream_list->flag_file > 0)
@@ -182,7 +185,7 @@ static char	*write_point_one_in_str(char *str, t_red_stream *stream_list)
 		stream_list->stream_in = STDIN_FILENO;
 	return (str);
 }
-// парсит для одного листа то, что до перенаправления
+// парсит для одного листа то, что до перенаправления // 3.1
 static char	*write_prev(char *str, char *pos_stream, t_red_stream *stream_list)
 {
 	char *save_point;
@@ -200,7 +203,7 @@ static char	*write_prev(char *str, char *pos_stream, t_red_stream *stream_list)
 }
 /***один лист***/
 /***два листа***/
-// парсид для двух листов то, что до перенаправления
+// парсид для двух листов то, что до перенаправления // 2.4
 static char	*write_two_prev(char *pos_stream, t_red_stream *stream_list)
 {
 	if (stream_list->flag_file > 0)
@@ -218,7 +221,7 @@ static char	*write_two_prev(char *pos_stream, t_red_stream *stream_list)
 	return (pos_stream);
 }
 /***два листа***/
-// парсит то, что до перенаправления
+// парсит то, что до перенаправления // 2.3
 static char	*write_prev_to_stream(char *str, char *pos_stream, t_red_stream *stream_list)
 {
 	if (stream_list->next)
@@ -231,7 +234,7 @@ static char	*write_prev_to_stream(char *str, char *pos_stream, t_red_stream *str
 /*
 **	до перенаправления
 */
-// находит первый знак перенаправления
+// находит первый знак перенаправления // 2.2
 static char	*find_pos_stream(char *str, char *splitter)
 {
 	while (str != splitter && !ft_isspace(*str))
@@ -242,7 +245,7 @@ static char	*find_pos_stream(char *str, char *splitter)
 	}
 	return (str);
 }
-// основной парсинг перенаправления
+// основной парсинг перенаправления // 2.1
 static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_list)
 {
 	char *pos_stream;
@@ -251,12 +254,13 @@ static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream
 
 	pos_stream = find_pos_stream(str, splitter);
 	/// определяет флаги
+	// static void	find_flag_stream(char *pos_stream, char *splitter);
 	start = write_prev_to_stream(str, pos_stream, stream_list);
 	end = write_next_stream(pos_stream, splitter, stream_list);
 	write_minus_sym(start, end);
 	return (end);
 }
-// проеряет есть ли перенаправления
+// проеряет есть ли перенаправления // 1.3
 static int	check_stream(char *str, char *splitter)
 {
 
@@ -273,13 +277,13 @@ static int	check_stream(char *str, char *splitter)
 	}
 	return (0);
 }
-// создаёт новые листы
+// создаёт новые листы // 1.2
 static void	add_lst_stream(t_red_stream **stream_list, int nbrlst)
 {
 	while (nbrlst--)
 		pars_add_lst_stream(stream_list);
 }
-
+// 1.1
 char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 {
 	int	nbrlst;
