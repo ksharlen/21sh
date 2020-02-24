@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stream.h"
+#include "parser.h"
 
 static t_red_stream		*create_newlist(void)
 {
 	t_red_stream	*newlist;
 
-	newlist = (t_red_stream *)malloc(sizeof(t_red_stream));
-	ft_check_null_ptr(newlist, E_MALLOC);
+	if (!(newlist = (t_red_stream *)malloc(sizeof(t_red_stream))))
+		exit(333); ////////////////////////////////// завершение
 	newlist->stream_a = -1;
 	newlist->stream_in = -1;
 	newlist->stream_name[0] = '\0';

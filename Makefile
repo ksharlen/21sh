@@ -64,17 +64,14 @@ SRC_HIST					:=	history_init.c\
 									history_del.c
 
 SRC_PARSER					:=	parser.c\
-<<<<<<< HEAD
-								ft_checkspase.c\
-								pars_find_stream.c
-=======
 									parser_list.c\
 									parser_find_delimiter.c\
 									parser_common.c\
 									parser_args.c\
 									parser_quotes.c\
-									parser_skip_delimiter.c
->>>>>>> b6b862b0c2809ff0dc3b50d5d55448920a70ad86
+									parser_skip_delimiter.c\
+									pars_find_stream.c\
+									pars_add_lst_stream.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\

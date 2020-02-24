@@ -64,7 +64,7 @@ static char	*write_name_file_args(char *pos_stream, char *splitter, t_red_stream
 	}
 	buf[i] = '\0';
 	if (!buf[0])
-		return (put_error_parse("\\n"));
+		return (put_error_parse("\\n", 2));
 	write_name_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
@@ -102,7 +102,7 @@ static char	*write_nbr_args(char *pos_stream, char *splitter, t_red_stream *stre
 	}
 	buf[i] = '\0';
 	if (!buf[0])
-		return (put_error_parse("\\n"));
+		return (put_error_parse("\\n", 2));
 	write_res_buf_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
@@ -122,7 +122,7 @@ static char	*write_amper_args_after_stream(char *pos_stream, char *splitter, t_r
 	return (pos_stream);
 }
 /*** если был встречен & ***/
-0
+
 // определяет положение указателя для начала парсинга аргументов после перенаправления
 static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 {
@@ -131,9 +131,9 @@ static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 	if (ft_isspace(*pos_stream))
 	{
 		while (pos_stream != splitter && ft_isspace(*pos_stream))
-			++pos-check_stream;
+			++pos_stream;
 		if (check_valid_char_name(*pos_stream))
-			return (put_error_parse(*pos_stream, 2));
+			return (put_error_parse(pos_stream, 2));
 	}
 	return (pos_stream);
 }
@@ -144,7 +144,7 @@ static char	*write_next_stream(char *pos_stream, char *splitter, t_red_stream *s
 	if (*pos_stream == '&')
 		pos_stream = write_amper_args_after_stream(pos_stream, splitter, stream_list);
 	else if (pos_stream)
-		// функция для записи имени файла
+		pos_stream = write_name_file_args(pos_stream, splitter, stream_list);
 	return (pos_stream);
 }
 /*
@@ -201,7 +201,7 @@ static char	*write_prev(char *str, char *pos_stream, t_red_stream *stream_list)
 /***один лист***/
 /***два листа***/
 // парсид для двух листов то, что до перенаправления
-static char	*write_two_prev(char *str, char *pos_stream, t_red_stream *stream_list)
+static char	*write_two_prev(char *pos_stream, t_red_stream *stream_list)
 {
 	if (stream_list->flag_file > 0)
 	{
@@ -210,7 +210,7 @@ static char	*write_two_prev(char *str, char *pos_stream, t_red_stream *stream_li
 	}
 	else
 	{
-		tream_list->stream_in = STDOUT_FILENO;
+		stream_list->stream_in = STDOUT_FILENO;
 		stream_list->next->stream_in = STDERR_FILENO;
 	}
 	while (*pos_stream != '&')
@@ -222,7 +222,7 @@ static char	*write_two_prev(char *str, char *pos_stream, t_red_stream *stream_li
 static char	*write_prev_to_stream(char *str, char *pos_stream, t_red_stream *stream_list)
 {
 	if (stream_list->next)
-		str = write_two_prev(str, pos_stream, stream_list);
+		str = write_two_prev(pos_stream, stream_list);
 	else
 		str = write_prev(str, pos_stream, stream_list);
 	return (str);
@@ -240,6 +240,7 @@ static char	*find_pos_stream(char *str, char *splitter)
 			return (str);
 		++str;
 	}
+	return (str);
 }
 // основной парсинг перенаправления
 static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_list)
@@ -250,10 +251,10 @@ static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream
 
 	pos_stream = find_pos_stream(str, splitter);
 	/// определяет флаги
-	statrt = write_prev_to_stream(str, pos_stream, stream_list);
+	start = write_prev_to_stream(str, pos_stream, stream_list);
 	end = write_next_stream(pos_stream, splitter, stream_list);
-	write_minus_sym(statrt, end);
-	return (end));
+	write_minus_sym(start, end);
+	return (end);
 }
 // проеряет есть ли перенаправления
 static int	check_stream(char *str, char *splitter)
