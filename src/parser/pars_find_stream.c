@@ -11,6 +11,32 @@
 /* ************************************************************************** */
 
 #include "parser.h"
+
+// проверяет на валидность имени файла (должны отсутствовать системные символы)
+static int	check_valid_char_name(char sym)
+{
+	if (sym == '&' || sym == '|' || sym == ';')
+		return (1);
+	return (0);
+}
+// выводит ошибку символа в перенаправлении
+static char	*put_error_parse(char *str, int fd)
+{
+	ft_putstr_fd("42sh: parse error near \'", fd);
+	ft_putstr_fd(str, fd);
+	ft_putstr_fd("\'\n", fd);
+	return (NULL);
+}
+// записывает '-1' в заданном диапазоне
+static void	write_minus_sym(char *start, char *end)
+{
+	while (start <= end)
+	{
+		if (*start)
+			*start = -1;
+		++start;
+	}
+}
 /*
 ** после перенаправления
 */
@@ -38,7 +64,7 @@ static char	*write_name_file_args(char *pos_stream, char *splitter, t_red_stream
 	}
 	buf[i] = '\0';
 	if (!buf[0])
-		return (NULL); //////////////////// вывод об ошибке когда нет аргументов
+		return (put_error_parse("\\n"));
 	write_name_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
@@ -76,7 +102,7 @@ static char	*write_nbr_args(char *pos_stream, char *splitter, t_red_stream *stre
 	}
 	buf[i] = '\0';
 	if (!buf[0])
-		return (NULL); //////////////////// вывод об ошибке когда нет аргументов
+		return (put_error_parse("\\n"));
 	write_res_buf_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
@@ -96,6 +122,7 @@ static char	*write_amper_args_after_stream(char *pos_stream, char *splitter, t_r
 	return (pos_stream);
 }
 /*** если был встречен & ***/
+0
 // определяет положение указателя для начала парсинга аргументов после перенаправления
 static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 {
@@ -105,7 +132,8 @@ static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 	{
 		while (pos_stream != splitter && ft_isspace(*pos_stream))
 			++pos-check_stream;
-		///////////////// функция проверяющая являются ли символы системными - валидность символов
+		if (check_valid_char_name(*pos_stream))
+			return (put_error_parse(*pos_stream, 2));
 	}
 	return (pos_stream);
 }
@@ -214,7 +242,7 @@ static char	*find_pos_stream(char *str, char *splitter)
 	}
 }
 // основной парсинг перенаправления
-static void	pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_list)
+static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_list)
 {
 	char *pos_stream;
 	char *start;
@@ -224,6 +252,8 @@ static void	pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_
 	/// определяет флаги
 	statrt = write_prev_to_stream(str, pos_stream, stream_list);
 	end = write_next_stream(pos_stream, splitter, stream_list);
+	write_minus_sym(statrt, end);
+	return (end));
 }
 // проеряет есть ли перенаправления
 static int	check_stream(char *str, char *splitter)
@@ -257,13 +287,11 @@ char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 	{
 		add_lst_stream(&list->stream_list, nbrlst);
 		if (nbrlst == 2)
-			pars_stream_in_list(str, splitter, list->stream_list->end->prev);
+			str = pars_stream_in_list(str, splitter, list->stream_list->end->prev);
 		else
-			pars_stream_in_list(str, splitter, list->stream_list->end);
+			str = pars_stream_in_list(str, splitter, list->stream_list->end);
 	}
 	return (str);
 }
 
-// написан парсинг для того, что до перенаправления
-// нужно дописать то, что после перенаправления и функция которая ставит флаги, и вывод ошибки если после перенаправления ничего нет
-// дописать валидность в find_pos_args_next_stream()
+// нужно дописать функцию которая ставит флаги
