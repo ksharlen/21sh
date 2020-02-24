@@ -15,7 +15,7 @@
 // проверяет на валидность имени файла (должны отсутствовать системные символы) // 4.3
 static int	check_valid_char_name(char sym)
 {
-	if (sym == '&' || sym == '|' || sym == ';')
+	if (sym == '&' || sym == '|' || sym == ';' || sym == '\0' || sym == '<' || sym == '>')
 		return (1);
 	return (0);
 }
@@ -23,7 +23,10 @@ static int	check_valid_char_name(char sym)
 static char	*put_error_parse(char *str, int fd)
 {
 	ft_putstr_fd("42sh: parse error near \'", fd);
-	ft_putstr_fd(str, fd);
+	if (str[0] != '\0')
+		ft_putstr_fd(str, fd);
+	else
+		ft_putstr_fd("\\0", fd);
 	ft_putstr_fd("\'\n", fd);
 	return (NULL);
 }
@@ -66,7 +69,7 @@ static char	*write_name_file_args(char *pos_stream, char *splitter, t_red_stream
 	}
 	buf[i] = '\0';
 	if (!buf[0])
-		return (put_error_parse("\\n", 2));
+		return (put_error_parse("\\0", 2));
 	write_name_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
@@ -104,7 +107,7 @@ static char	*write_nbr_args(char *pos_stream, char *splitter, t_red_stream *stre
 	}
 	buf[i] = '\0';
 	if (!buf[0])
-		return (put_error_parse("\\n", 2));
+		return (put_error_parse("\\0", 2));
 	write_res_buf_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
@@ -135,7 +138,10 @@ static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 		while (pos_stream != splitter && ft_isspace(*pos_stream))
 			++pos_stream;
 		if (check_valid_char_name(*pos_stream))
+		{
+			*(pos_stream + 1) = '\0';
 			return (put_error_parse(pos_stream, 2));
+		}
 	}
 	return (pos_stream);
 }
