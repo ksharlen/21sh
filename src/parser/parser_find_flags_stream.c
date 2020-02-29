@@ -53,7 +53,7 @@ int				find_flag_stream(char *pos_stream, t_red_stream *stream_list)
 		else
 			return (1);
 	}
-	else if (*pos_stream != *(pos_stream + 1) && !check_valid_char_name(*pos_stream))
+	else if (*pos_stream != *(pos_stream + 1) && !check_valid_char_name(*(pos_stream + 1)))
 	{
 		if (!flag_stream_valid_check(pos_stream, 1))
 			return (1);

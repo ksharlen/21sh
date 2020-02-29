@@ -50,7 +50,10 @@ t_red_stream			*pars_add_lst_stream(t_red_stream **stream_list)
 
 	newlist = create_newlist();
 	if (!(*stream_list))
+	{
+		(*stream_list)->end = newlist;
 		return ((*stream_list) = newlist);
+	}
 	add_newlist(stream_list, &newlist);
 	return(*stream_list);
 }
