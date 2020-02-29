@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/23 13:57:33 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/29 21:01:09 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,32 @@ enum		e_key
 	KEY_CTR_D_ARROW,
 	KEY_BCKSPACE = 127,
 	KEY_NEW_LINE = 13
+};
+
+/*
+**INIT_STRUCT
+*/
+struct			s_path
+{
+	char	home_d[SH21_MAX_PATH];
+	char	curr_d[SH21_MAX_PATH];
+};
+
+typedef struct	s_start_env
+{
+	char	shlvl[SH21_MAX_PATH];
+	char	term[SH21_MAX_PATH];
+	char	shell[SH21_MAX_PATH];
+	char	pwd[SH21_MAX_PATH];
+	char	old_pwd[SH21_MAX_PATH];
+	char	path[SH21_MAX_PATH];
+	char	home[SH21_MAX_PATH];
+	char	user[SH21_MAX_PATH];
+}				t_start_env;
+
+struct			s_shell
+{
+	int8_t		shlvl;
 };
 
 /*
@@ -171,32 +197,6 @@ struct			s_input
 	t_key				key;
 };
 
-/*
-**INIT_STRUCT
-*/
-struct			s_path
-{
-	char	home_d[SH21_MAX_PATH];
-	char	curr_d[SH21_MAX_PATH];
-};
-
-struct			s_start_env
-{
-	char	shlvl[SH21_MAX_PATH];
-	char	term[SH21_MAX_PATH];
-	char	shell[SH21_MAX_PATH];
-	char	pwd[SH21_MAX_PATH];
-	char	old_pwd[SH21_MAX_PATH];
-	char	path[SH21_MAX_PATH];
-	char	home[SH21_MAX_PATH];
-	char	user[SH21_MAX_PATH];
-};
-
-struct			s_shell
-{
-	int8_t		shlvl;
-};
-
 typedef struct	s_init
 {
 	struct s_path		path;
@@ -206,5 +206,7 @@ typedef struct	s_init
 	struct s_input		inp;
 	t_info_parser		prs;
 }				t_init;
+
+extern t_term_var	g_term_lst;
 
 #endif

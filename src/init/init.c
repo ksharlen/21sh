@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:10:16 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 20:03:04 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/29 21:03:13 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void		sh21_init(t_init *init, char **env)
 		input_init(&init->inp);
 		init->prs.beg = NULL;
 		init->prs.end = NULL;
+		g_term_lst.tty_name = ttyname(STDOUT_FILENO);
 	}
 }
