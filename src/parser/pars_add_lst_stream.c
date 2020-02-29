@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_add_lst_stream.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:50:26 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/02/22 19:50:27 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/02/29 19:08:18 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ t_red_stream			*pars_add_lst_stream(t_red_stream **stream_list)
 	newlist = create_newlist();
 	if (!(*stream_list))
 	{
-		(*stream_list)->end = newlist;
-		return ((*stream_list) = newlist);
+		(*stream_list) = newlist;
+		(*stream_list)->end = newlist;	//сега не здесь
+		return (*stream_list);
 	}
 	add_newlist(stream_list, &newlist);
 	return(*stream_list);
