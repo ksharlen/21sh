@@ -73,6 +73,7 @@ typedef struct			s_red_stream
 {
 	struct s_red_stream	*next;
 	struct s_red_stream	*prev;
+	struct s_red_stream	*end;
 	int					stream_a;						// какой поток будет перенаправлен или закрыт, при соответствующем флаге
 	int					stream_in;						// в какой поток будет перенаправлен
 	char				stream_name[BUFSIZ];			// в какой файл будет направлен поток
