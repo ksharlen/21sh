@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 22:35:05 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/02/25 00:34:55 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/02/29 15:56:37 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,13 +254,13 @@ static char	*find_pos_stream(char *str, char *splitter)
 // основной парсинг перенаправления // 2.1
 static char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_list)
 {
-	char *pos_stream;
-	char *start;
-	char *end;
+	char	*pos_stream;
+	char	*start;
+	char	*end;
 
 	pos_stream = find_pos_stream(str, splitter);
-	/// определяет флаги
-	// static void	find_flag_stream(char *pos_stream, t_red_stream *stream_list);
+	if (find_flag_stream(pos_stream, stream_list))
+		return (NULL);
 	start = write_prev_to_stream(str, pos_stream, stream_list);
 	end = write_next_stream(pos_stream, splitter, stream_list);
 	write_minus_sym(start, end);

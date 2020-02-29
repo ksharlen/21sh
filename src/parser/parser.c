@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:55:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/23 15:48:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/02/29 16:01:56 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ static char	*fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	P_UNUSED(qty_args);
 	P_UNUSED(str);
 	str = str_start;
-// //*	while (*str && *str_start != splitter)
-// //	{
+	while (*str && *str_start != splitter)
+	{
 		str = ft_skiptabs(str);
-//		str = find_stream(str, splitter, prs->end);			// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
-//* 	str = skip_quotes(str, splitter);
+		str = pars_find_stream(str, splitter, prs->end);	// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
+		str = skip_quotes(str, splitter);
 // // printf("str: %s\n", str);
 // // EXIT();
-// //		str = skip_args(str, splitter);
-// //	}
+		str = skip_args(str, splitter);
+	}
 	qty_args = parser_count_args(str_start, splitter); //!счетчик работает для пустой строки, он считает разделитель
 	prs->end->pars_args = parser_fill_args(str_start, splitter, qty_args); // qty_args + 1 для NULL
 //	//
