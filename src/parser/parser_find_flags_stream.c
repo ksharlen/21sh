@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:00:42 by tjonella          #+#    #+#             */
-/*   Updated: 2020/02/25 00:34:57 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/01 16:17:19 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int				find_flag_stream(char *pos_stream, t_red_stream *stream_list)
 		if (fill_flags_stream(*pos_stream, 2, stream_list))
 			return (1);
 	}
-	else if (*pos_stream != *(pos_stream + 1) && !check_valid_char_name(*(pos_stream + 1)))
+	else if (*pos_stream != *(pos_stream + 1) && (!check_valid_char_name(*(pos_stream + 1)) || *(pos_stream + 1) == '&'))
 	{
 		if (!flag_stream_valid_check(pos_stream, 1))
 			return (1);
