@@ -20,7 +20,7 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 
-void			parser(char *str_for_parse, t_info_parser *prs);
+int	    		parser(char *str_for_parse, t_info_parser *prs);
 void			parser_add_list(t_info_parser *prs);
 char			*parser_skip_quotes(char *str, char *splitter);
 char			*find_delimiter(char *str);
@@ -29,13 +29,14 @@ size_t			parser_get_len_arg(char *str, char *splitter);
 const char		*parser_skip_word(const char *str, char *splitter);
 char			**parser_fill_args(char *start_str, char *splitter, size_t qty_args);
 char			*parser_quote_arg(char **str, char *splitter);
-char		    *fill_split_flag(char *splitter, int size, int *flags_splt);
-char			*skip_splitter(char *splitter, int *flags_splt);
+char		    *fill_split_flag(char *splitter, int size, unsigned int *flags_splt);
+char			*skip_splitter(char *splitter, unsigned int *flags_splt);
 int				parse_not_srvc_symb(char *c);
 char			*pars_find_stream(char *str, char *splitter, t_pars_list *list);
 t_red_stream	*pars_add_lst_stream(t_red_stream **stream_list);
 int				find_flag_stream(char *pos_stream, t_red_stream *stream_list);
 char	        *put_error_parse(char *str, int fd);
 int		        check_valid_char_name(char sym);
+void            parser_fill_point_args(t_pars_list *list);
 
 #endif

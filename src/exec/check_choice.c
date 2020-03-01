@@ -74,19 +74,16 @@ static void	next_list(int status, t_pars_list **list)
 		status_dontok(list);
 }
 // проверка И / ИЛИ / & и выбор следующего запускаемого листа
-void		check_choice(t_exec_lst execlist, t_pars_list **list)
+void		check_choice(t_exec_lst execlist, t_pars_list *list)
 {
 	int status;
 
-	status = -1;
-	while (*list)
+	while (list)
 	{
-//		if ((*list)->f_delimiter & V_WRITE_VAR)		// в случае если нужно создать или перезаписать переменные
-//
-		if ((*list)->f_delimiter & F_AMPERSANT)		// отдельно запускается фоновый режим выполнения команд
-			status = run_ampersant(execlist, list);
+		if (list->f_delimiter & F_AMPERSANT)		// отдельно запускается фоновый режим выполнения команд
+			status = run_ampersant(execlist, &list);
 		else
-			status = check_run(execlist, list);		// запуск функции определения режима запускаемых команд (это могут быть трубы, или обычный режим, или внутренние команды)}
-		next_list(status, list);					// функция выбора следующего запускаемого листа
+			status = check_run(execlist, &list);		// запуск функции определения режима запускаемых команд (это могут быть трубы, или обычный режим, или внутренние команды)}
+		next_list(status, &list);					// функция выбора следующего запускаемого листа
 	}
 }

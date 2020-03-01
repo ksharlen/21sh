@@ -31,5 +31,6 @@
 # include "input_macros.h"
 # include "input_parse_key.h"
 # include "parser.h"
+# include "exec.h"
 
 #endif

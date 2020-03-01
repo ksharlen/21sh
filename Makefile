@@ -72,7 +72,8 @@ SRC_PARSER					:=	parser.c\
 									parser_skip_delimiter.c\
 									pars_find_stream.c\
 									pars_add_lst_stream.c\
-									parser_find_flags_stream.c
+									parser_find_flags_stream.c\
+									parser_fill_point_args.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\
@@ -96,7 +97,8 @@ SRC_EXEC					:=	check_choice.c\
 									cmd_check_var.c\
 									cmd_false.c\
 									cmd_true.c\
-									run_cmd.c
+									run_cmd.c\
+									free_befor_exec.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\

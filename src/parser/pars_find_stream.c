@@ -122,7 +122,7 @@ static char	*write_amper_args_after_stream(char *pos_stream, char *splitter, t_r
 			stream_list->next->flag_close = 1;
 		++pos_stream;
 	}
-	else
+	else // добавить проверку
 		pos_stream = write_nbr_args(pos_stream, splitter, stream_list);
 	return (pos_stream);
 }

@@ -12,7 +12,7 @@
 
 #include "parser.h"
 
-char	*fill_split_flag(char *splitter, int size, int *flags_splt)
+char	*fill_split_flag(char *splitter, int size, unsigned int *flags_splt)
 {
 	if (size == 1)
 	{
@@ -33,7 +33,7 @@ char	*fill_split_flag(char *splitter, int size, int *flags_splt)
 	return (splitter + size);
 }
 
-char	*skip_splitter(char *splitter, int *flags_splt)
+char	*skip_splitter(char *splitter, unsigned int *flags_splt)
 {
 	char	*check_err;
 

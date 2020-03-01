@@ -22,7 +22,7 @@ static void	cod_child(t_exec_lst execlist, t_pars_list **list)
 // запуск fork
 static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 {
-	pid_t pid;
+	pid_t pid = 0;	(void)(pid);
 
 	if ((pid = fork()) < 0)
 		error_system(EXEC_ERROR_NUM);	/// дописать нормальное завершение
