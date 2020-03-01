@@ -20,7 +20,7 @@ static void	put_list_test(t_red_stream *stream_list)
 	{
 		printf("stream_a = %d\nstream_in = %d\n", stream_list->stream_a, stream_list->stream_in);
 		printf("stream_name = %s\n", stream_list->stream_name);
-		printf("flag_file = %d\nflag_close = %d", stream_list->flag_file, stream_list->flag_close);
+		printf("flag_file = %d\nflag_close = %d\n\n", stream_list->flag_file, stream_list->flag_close);
 		stream_list = stream_list->next;
 	}
 }
@@ -36,9 +36,14 @@ static void		test_stream(void)
 
 	printf("%s\n", str0);
 	pars_find_stream(str0, splitter, list);
-	put_list_test(list->stream_list);
 
-	char str1[90] = "&>&-"
+	char str1[90] = "&>-";
+	splitter = &str1[ft_strlen(str1)];
+	printf("%s\n", str1);
+	pars_find_stream(str1, splitter, list);
+
+	printf("\n");
+	put_list_test(list->stream_list);
 	printf("\n\n\n");
 }
 

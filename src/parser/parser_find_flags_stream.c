@@ -66,5 +66,7 @@ int				find_flag_stream(char *pos_stream, t_red_stream *stream_list)
 	}
 	else
 		return (1);
+	if (stream_list->next)
+		stream_list->next->flag_file = stream_list->flag_file;
 	return (0);
 }
