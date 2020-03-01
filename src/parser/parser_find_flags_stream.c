@@ -12,6 +12,17 @@
 
 #include "parser.h"
 
+static int		fill_flags_stream(char pos_stream, int size, t_red_stream *stream_list)
+{
+	if (pos_stream == '>')
+		stream_list->flag_file = size;
+	else if (pos_stream == '<')
+		stream_list->flag_file = -size;
+	else
+		return (1);
+	return (0);
+}
+
 static int		flag_stream_valid_check(char *pos_stream, int size)
 {
 	char	*ptr;
@@ -46,22 +57,14 @@ int				find_flag_stream(char *pos_stream, t_red_stream *stream_list)
 	{
 		if (!flag_stream_valid_check(pos_stream, 2))
 			return (1);
-		if (*pos_stream == '>')
-			stream_list->flag_file = 2;
-		else if (*pos_stream == '<')
-			stream_list->flag_file = -2;
-		else
+		if (fill_flags_stream(*pos_stream, 2, stream_list))
 			return (1);
 	}
 	else if (*pos_stream != *(pos_stream + 1) && !check_valid_char_name(*(pos_stream + 1)))
 	{
 		if (!flag_stream_valid_check(pos_stream, 1))
 			return (1);
-		if (*pos_stream == '>')
-			stream_list->flag_file = 1;
-		else if (*pos_stream == '<')
-			stream_list->flag_file = -1;
-		else
+		if (fill_flags_stream(*pos_stream, 1, stream_list))
 			return (1);
 	}
 	else

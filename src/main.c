@@ -42,6 +42,11 @@ static void		test_stream(void)
 	printf("%s\n", str1);
 	pars_find_stream(str1, splitter, list);
 
+	char str2[90] = "1>&-";
+	splitter = &str2[ft_strlen(str2)];
+	printf("%s\n", str2);
+	pars_find_stream(str2, splitter, list);
+
 	printf("\n");
 	put_list_test(list->stream_list);
 	printf("\n\n\n");
