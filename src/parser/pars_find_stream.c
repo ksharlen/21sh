@@ -131,7 +131,7 @@ static char	*write_amper_args_after_stream(char *pos_stream, char *splitter, t_r
 // определяет положение указателя для начала парсинга аргументов после перенаправления // 4.2
 static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 {
-	while (pos_stream != splitter && *pos_stream == '<' && *pos_stream == '>')
+	while (pos_stream != splitter && (*pos_stream == '<' || *pos_stream == '>'))
 		++pos_stream;
 	if (ft_isspace(*pos_stream))
 	{
