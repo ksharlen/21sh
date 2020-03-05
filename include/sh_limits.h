@@ -44,6 +44,8 @@
 # define V_LASTPID		64		// флаг $$
 # define V_WRITE_VAR	128		// флаг того, что нужно заполнять переменные
 
+# define EXEC_ERROR_NUM 432
+
 /*
 **STR_ERRORS
 */

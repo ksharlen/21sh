@@ -1,10 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exec.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/05 15:48:39 by mdelphia          #+#    #+#             */
+/*   Updated: 2020/03/05 15:48:42 by mdelphia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SH42_H
 # define SH42_H
 
-// # include <stdlib.h> // есть в либе
-// # include <unistd.h> // есть в либе
-// # include <string.h> // есть в либе
-// # include <sys/ttycom.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -18,8 +26,6 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 # include "internal_utilities.h"
-
-# define EXEC_ERROR_NUM 432
 
 /*
 ** exec function
