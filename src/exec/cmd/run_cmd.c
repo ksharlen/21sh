@@ -15,9 +15,9 @@
 static int	find_and_run_cmd(t_pars_list *list)
 {
 	if (!ft_strcmp("true", list->name_func))
-		list->status = cmd_true(list);
+		list->status = cmd_true();
 	else if (!ft_strcmp("false", list->name_func))
-		list->status = cmd_false(list);
+		list->status = cmd_false();
 	else if (!ft_strcmp("cd", list->name_func))
 		list->status = sh21_cd(0, list->pars_args, NULL);	//////// замена
 	else if (!ft_strcmp("echo", list->name_func))

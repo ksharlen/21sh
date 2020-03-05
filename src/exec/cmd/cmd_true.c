@@ -12,7 +12,7 @@
 
 #include "exec.h"
 
-int		cmd_true(t_pars_list *list)
+int		cmd_true(void)
 {
 	return (0);
 }

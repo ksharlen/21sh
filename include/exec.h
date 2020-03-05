@@ -55,8 +55,8 @@ void 					free_befor_exec(t_info_parser *prs);
 */
 int						check_cmd(char *name_func);
 int						run_cmd(t_pars_list *list);
-int						cmd_true(t_pars_list *list);
-int						cmd_false(t_pars_list *list);
+int						cmd_true(void);
+int						cmd_false(void);
 void 					cmd_check_var(t_pars_list *list);
 
 #endif
