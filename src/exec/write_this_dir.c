@@ -11,13 +11,23 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// проверяет запускаемую команду в текущей директории
-int			write_this_dir(t_pars_list *list)
+// проверка существования файла
+static int	exec_check_valid_file(t_pars_list *list)
 {
-	ft_strcpy(list->name_run_func, "./");
-	ft_strcat(list->name_run_func, list->name_func);
 	if (!access(list->name_run_func, 0))
 		if (!access(list->name_run_func, 1))
 			return (1);
+	return (0);
+}
+// проверяет запускаемую команду в текущей директории
+int			write_this_dir(t_pars_list *list)
+{
+	ft_strcpy(list->name_run_func, list->name_func);
+	if (exec_check_valid_file(list))
+		return (1);
+	ft_strcpy(list->name_run_func, "./");
+	ft_strcat(list->name_run_func, list->name_func);
+	if (exec_check_valid_file(list))
+		return (1);
 	return (0);
 }

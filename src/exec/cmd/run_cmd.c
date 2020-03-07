@@ -28,6 +28,8 @@ static int	find_and_run_cmd(t_pars_list *list)
 		list->status = sh21_setenv(NULL, NULL, 0);	//////// замена
 	else if (!ft_strcmp("unsetenv", list->name_func))//TODO: this too
 		list->status = sh21_unsetenv(NULL);	//////// замена
+	else if (!ft_strcmp("exit", list->name_func))
+		exit(EXIT_SUCCESS);
 	// else if (!ft_strcmp("env", list->name_func))//TODO: need add
 		// list->status = minishell_env(0, NULL, NULL);	//////// замена
 	return (g_term_lst.exec_status = list->status);

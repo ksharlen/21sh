@@ -27,7 +27,8 @@ static int	check_name_cmd(char *name_func)
 		!(ft_strcmp("pwd", name_func)) ||
 		!(ft_strcmp("setenv", name_func)) ||
 		!(ft_strcmp("unsetenv", name_func)) ||
-		!(ft_strcmp("env", name_func)))
+		!(ft_strcmp("env", name_func)) ||
+		!(ft_strcmp("exit", name_func)))
 		return (1);
 	return (0);
 }

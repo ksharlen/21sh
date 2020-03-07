@@ -90,7 +90,7 @@ int		main(int argc, char **argv, char **env)
 	{
 		input_begin(&init.inp);
 									/*** test ***/	// необходимо реализовать заполнение интерфейса для exec
-									// init.inp.str_for_parse = ft_strdup("ls kdirjsurif || ls -l && pwd");
+									// init.inp.str_for_parse = ft_strdup("/bin/ls");
 									ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
 									/*** test ***/
 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
@@ -109,21 +109,33 @@ int		main(int argc, char **argv, char **env)
 	return (0);
 }
 
-// (-) "$> ls;;" - ломает шел
+// (+) добавить '\n' в echo
+// (+) "$> ls;;" - ломает шел
+// (+) "$> ls ; exit " - не завершается шелл
 
+//* (-) Ctrl+C или Ctrl+D при работающих командах, например "ls -lR /", - не работают
+//* (-) "$> cat " - не работет обработка сигналов
+//* (-) - Run the command "$> cat" then press ctrl+C. The shell must kill cat's proccess and give back the prompt.
+// (-) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл
+// (-) cd не работает (довести до работоспособности все внутренние команды)
+// (-) " ~ " - не подставляет домашнюю директорию
+// (-) при вставке новой строки появляется БАГ
+// (-) не работают перенаправления потоков
+// (-) "$> cat -e << EOF >> /tmp/test.txt"
+// (-) quote с кавычками должен делать перенос строк, где требуется
+// (-) exit - не возвращает число завершения
 
 /*** for tests ***/
 
 // int		main(int argc, char **argv, char **env)
 // {
 // 	t_init			init;
-// 	//t_vars		vars;
 
 // 	(void)(argc);
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("ls;;");
+// 	init.inp.str_for_parse = ft_strdup("echo > namefile");
 // 	ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
 // 	if (!parser(init.inp.str_for_parse, &init.prs))
 // 		check_choice(execlist, init.prs.beg);
