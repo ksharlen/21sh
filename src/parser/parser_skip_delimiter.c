@@ -45,12 +45,12 @@ char	*skip_splitter(char *splitter, unsigned int *flags_splt)
 		else if (*(splitter + 1) == *splitter) // Если двойной оператор
 		{
 			if (!parse_not_srvc_symb(splitter + 2)) // Если больше 2 символов - ошибка парсинга
-				return (NULL);
+				return (put_error_parse(splitter, 2));
 			else if (ft_isspace(*(splitter + 2))) // Пропускаем пробелы, ищем ошибку - сервисные символы, а не новые команды
 			{
 				check_err = ft_skiptabs(splitter + 2);
 				if (!parse_not_srvc_symb(check_err))
-					return (NULL);
+					return (put_error_parse(check_err, 2));
 			}
 			splitter = fill_split_flag(splitter, 2, flags_splt);
 		}

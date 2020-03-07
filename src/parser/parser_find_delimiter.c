@@ -18,7 +18,7 @@ int		parse_not_srvc_symb(char *c)
 		return (0);
 	else if (*c == '|')
 		return (0);
-	else if (*c == '\0')
+	else if (*c == '\0' || *c == ';')
 		return (0);
 	else
 		return (1);

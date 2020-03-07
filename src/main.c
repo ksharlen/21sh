@@ -90,7 +90,7 @@ int		main(int argc, char **argv, char **env)
 	{
 		input_begin(&init.inp);
 									/*** test ***/	// необходимо реализовать заполнение интерфейса для exec
-									// init.inp.str_for_parse = ft_strdup("ls");
+									// init.inp.str_for_parse = ft_strdup("ls kdirjsurif || ls -l && pwd");
 									ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
 									/*** test ***/
 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
@@ -109,4 +109,25 @@ int		main(int argc, char **argv, char **env)
 	return (0);
 }
 
-// (-) в echo добавить "\n" 
+// (-) "$> ls;;" - ломает шел
+
+
+/*** for tests ***/
+
+// int		main(int argc, char **argv, char **env)
+// {
+// 	t_init			init;
+// 	//t_vars		vars;
+
+// 	(void)(argc);
+// 	(void)(argv);
+// 	(void)(env);
+// 	sh21_init(&init, env);
+// 	init.inp.str_for_parse = ft_strdup("ls;;");
+// 	ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
+// 	if (!parser(init.inp.str_for_parse, &init.prs))
+// 		check_choice(execlist, init.prs.beg);
+// 	free_befor_exec(&init.prs);
+// 	input_finish(&init.inp);
+// 	return (0);
+// }

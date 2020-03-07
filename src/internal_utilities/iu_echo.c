@@ -47,5 +47,6 @@ int			sh21_echo(int argc, char **argv, char **env)
 		else if (argc == 2 && flag == FLAG_OFF)
 			ft_printf("\n");
 	}
+	ft_putchar('\n'); /////////////////////////////// think about this
 	return (0);
 }

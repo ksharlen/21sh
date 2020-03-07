@@ -40,7 +40,7 @@ static int	fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	char	*check_pos;
 
 	str = str_start;
-	while (*str && str_start != splitter)
+	while (*str && str != splitter)
 	{
 		str = ft_skiptabs(str);
 		check_pos = str;
@@ -61,7 +61,7 @@ static int		parse_str(char *str_for_parse, t_info_parser *prs)
 	char 		*str;
 
 	str = str_for_parse;
-	while (*str)
+	while (str && *str)
 	{
 //!	Посмотреть исключительные случаи разделителя
 		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
@@ -79,7 +79,7 @@ static int		parse_str(char *str_for_parse, t_info_parser *prs)
 	str = skip_splitter(splitter, &prs->end->f_delimiter);//Тут флаг разделителя и пропуск splitter
 //!			need validation
 	}
-	return (0);
+	return ((str) ? 0 : 1);
 }
 
 

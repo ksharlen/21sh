@@ -11,6 +11,27 @@
 /* ************************************************************************** */
 
 #include "exec.h"
+// прокрутка или при ошибке завершения команды
+static void	list_no_go_and(t_pars_list **list)
+{
+	if ((*list)->f_delimiter & F_PIPE)
+		while (*list)
+		{
+			(*list) = (*list)->next;
+			if ((*list) && !((*list)->f_delimiter & F_PIPE))
+			{
+				(*list) = (*list)->next;
+				break ;
+			}
+		}
+	else
+		while (*list)
+		{
+			(*list) = (*list)->next;
+			if ((*list) && !((*list)->f_delimiter & F_AND))
+				break ;
+		}
+}
 // функция для промотки труб
 static void	list_not_go_pipe(t_pars_list **list)
 {
@@ -20,7 +41,7 @@ static void	list_not_go_pipe(t_pars_list **list)
 			(*list) = (*list)->next;
 			if ((*list) && !((*list)->f_delimiter & F_PIPE))
 			{
-				(*list) = (*list)->next;
+				// (*list) = (*list)->next;
 				break ;
 			}
 		}
@@ -43,11 +64,18 @@ static void	status_ok(t_pars_list **list)
 	while (*list)
 	{
 		buf_list = (*list);
-		(*list) = (*list)->next;
 		if ((buf_list->f_delimiter & F_SEMICOLON) || (buf_list->f_delimiter & F_AND))
+		{
+			(*list) = (*list)->next;
 			break ;
+		}
 		else if (buf_list->f_delimiter & F_OR)
+		{
+			(*list) = (*list)->next;
 			list_not_go_pipe(list);
+		}
+		else
+			(*list) = (*list)->next;
 	}	
 }
 // функция для промотки листов при команде завершившейся с ошибкой
@@ -59,10 +87,10 @@ static void	status_dontok(t_pars_list **list)
 	{
 		buf_list = (*list);
 		(*list) = (*list)->next;
-		if ((buf_list->f_delimiter & F_SEMICOLON) && (buf_list->f_delimiter & F_OR))
+		if ((buf_list->f_delimiter & F_SEMICOLON) || (buf_list->f_delimiter & F_OR))
 			break ;
-		if ((buf_list->f_delimiter & F_AND) && ((*list)->f_delimiter & F_PIPE))
-			list_not_go_pipe(list);
+		if (buf_list->f_delimiter & F_AND)
+			list_no_go_and(list);
 	}
 }
 // функция для определения следующего запускаемого листа
