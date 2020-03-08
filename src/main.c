@@ -124,6 +124,7 @@ int		main(int argc, char **argv, char **env)
 // (-) "$> cat -e << EOF >> /tmp/test.txt"
 // (-) quote с кавычками должен делать перенос строк, где требуется
 // (-) exit - не возвращает число завершения
+// (-) не заполнен интерфейс execlist.exec_envlist.path
 
 /*** for tests ***/
 
@@ -135,7 +136,7 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("echo > namefile");
+// 	init.inp.str_for_parse = ft_strdup("echo test > namefile");
 // 	ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
 // 	if (!parser(init.inp.str_for_parse, &init.prs))
 // 		check_choice(execlist, init.prs.beg);
