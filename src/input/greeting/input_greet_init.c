@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 21:05:03 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 23:48:30 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,44 @@ static void	get_curr_dir(char *curr_dir)
 {
 	char	*pwd;
 	char	*p_dir;
+	// char	*home_dir;
 
 	if (curr_dir)
 	{
 		pwd = (char[SIZE_DIR]){0};
 		getcwd(pwd, SIZE_DIR);
-		p_dir = ft_strrchr(pwd, '/');
-		++p_dir;
-		if (*p_dir)
-			ft_strcpy(curr_dir, p_dir);
+		if (!strcmp(pwd, sh21_getenv("HOME")))
+		{
+			ft_strcpy(curr_dir, "~");
+		}
 		else
-			ft_strcpy(curr_dir, "/");
+		{
+			p_dir = ft_strrchr(pwd, '/');
+			++p_dir;
+			if (*p_dir)
+				ft_strcpy(curr_dir, p_dir);
+			else
+				ft_strcpy(curr_dir, "/");
+		}
 	}
 }
+
+// static char		*get_curr_dir(char *curr_dir, const char *home_dir)
+// {
+// 	char	*p_str;
+
+// 	ft_bzero(curr_dir, SH21_MAX_PATH);
+// 	if (!ft_strcmp(home_dir, curr_dir))
+// 		return ("~/");
+// 	else if (*(curr_dir) && *(curr_dir + 1))
+// 	{
+// 		p_str = ft_strrchr(curr_dir, '/');
+// 		p_str++;
+// 	}
+// 	else
+// 		p_str = curr_dir;
+// 	return (p_str);
+// }
 
 static void	get_user(char *curr_user, const char *user)
 {
