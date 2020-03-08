@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/29 21:01:09 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:33:59 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,9 +220,9 @@ typedef struct				s_init
 	struct s_shell			shell;
 	struct s_input			inp;
 	t_info_parser			prs;
+	t_exec_lst				execlist;
 }							t_init;
 
 extern t_term_var			g_term_lst;
-t_exec_lst					execlist;
 
 #endif

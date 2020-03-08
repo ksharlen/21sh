@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 19:03:04 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:32:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		main(int argc, char **argv, char **env)
 		{
 			//paste_vars(&init.inp.str_for_parse, &vars);		// $$ и $? не парсятся
 			if (!parser(init.inp.str_for_parse, &init.prs))
-				check_choice(execlist, init.prs.beg);
+				check_choice(init.execlist, init.prs.beg);
 		}
 		free_befor_exec(&init.prs);
 	}
