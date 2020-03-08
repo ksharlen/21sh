@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 19:56:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 19:24:56 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	get_path_env(char *path_env, const char *curr_dir)
 			ft_strcpy(path_env, "/bin:/sbin:");
 			ft_strcat(path_env, curr_dir);
 		}
-		else
-			ft_strcpy(path_env, path);
 	}
+	else
+		ft_strcpy(path_env, path);
 }
 
 static void	set_shlvl(char *shlvl)
@@ -54,7 +54,7 @@ static void	set_shlvl(char *shlvl)
 		ret_itoa = ft_itoa(num_shlvl);
 		ft_chk_null_ptr(ret_itoa, E_MALLOC);
 		sh21_setenv("SHLVL", ret_itoa, FLAG_ON);
-		ft_strcpy(ret_itoa, shlvl);
+		ft_strcpy(shlvl, ret_itoa);
 		ft_strdel(&ret_itoa);
 	}
 	else
