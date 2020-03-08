@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:37:06 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 20:00:11 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 23:24:08 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ int			sh21_cd(int argc, char **argv, char **env)
 	enum e_err		err;
 	char			*cwd;
 
+// printf("here\n");
+// exit(EXIT_FAILURE);
 	(void)(env);
 	err = FAILURE;
 	if (argv[0] && argc > 0)
