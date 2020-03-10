@@ -12,31 +12,49 @@
 
 #include "internal_utilities.h"
 
-void	exit_with_code(t_pars_list *list)
+static	int	found_count_args(t_pars_list *list)
 {
 	int		count_args;
 	char	**ptr;
 
+	ptr = list->pars_args + 1;
+	count_args = 1;
+	while (*ptr && ++ptr)
+		count_args++;
+	return (count_args);
+}
+
+static void	exit_put_args(t_pars_list *list, char **tmp_str)
+{
+	free(*tmp_str);
+	exit((unsigned char)ft_atoi(*(list->pars_args + 1)));
+}
+
+static void	exit_put_error(t_pars_list *list, char **tmp_str)
+{
+	free(*tmp_str);
+	ft_putstr_fd("exit: ", 2);
+	ft_putstr_fd(*(list->pars_args + 1), 2);
+	ft_putstr_fd(": numeric argument required\n", 2);
+	exit(255);
+}
+
+void		exit_with_code(t_pars_list *list)
+{
+	char	*tmp_str;
+
 	if (list->pars_args && list->pars_args + 1)
 	{
-		ptr = list->pars_args + 1;
-		count_args = 1;
-		while (*ptr && ++ptr)
-			count_args++;
-		if (count_args > 2)
+		if (found_count_args(list) > 2)
 		{
 			ft_putstr_fd("exit: too many arguments\n", 2);
 			return ;
 		}
-		if (ft_strcmp(*(list->pars_args + 1), ft_itoa(ft_atoi(*(list->pars_args + 1)))))
-		{
-			ft_putstr_fd("exit: ", 2);
-			ft_putstr_fd(*(list->pars_args + 1), 2);
-			ft_putstr_fd(": numeric argument required\n", 2);
-			exit(255);
-		}
+		if (ft_strcmp(*(list->pars_args + 1),
+				(tmp_str = ft_itoa(ft_atoi(*(list->pars_args + 1))))))
+			exit_put_error(list, &tmp_str);
 		else
-			exit((unsigned char)ft_atoi(*(list->pars_args + 1)));
+			exit_put_args(list, &tmp_str);
 	}
 	exit(0);
 }
