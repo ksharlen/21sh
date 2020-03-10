@@ -72,12 +72,10 @@ static void	write_name_run(t_exec_lst execlist, t_pars_list *list)
 // запуск нового приложения
 void		run_exec(t_exec_lst execlist, int fd, t_pars_list *list)
 {
-	extern char	**environ;
-
 	if (fd > -1)							// если необходимо изменить поток чтения
 		dup_fd_and_close(fd, STDIN_FILENO);
 	write_name_run(execlist, list);
 	cmd_check_var(list);
-	if (execve(list->name_run_func, list->pars_args, environ))
+	if (execve(list->name_run_func, list->pars_args, g_sh_environ))
 		error_run_exec(list);
 }
