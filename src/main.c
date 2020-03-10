@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 19:32:52 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 23:23:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,17 @@ t_term_var	g_term_lst;
 int		main(int argc, char **argv, char **env)
 {
 	t_init			init;
-	//t_vars		vars;
 
 	(void)(argc);
 	(void)(argv);
 	(void)(env);
+
 	sh21_init(&init, env);
 	while (1)
 	{
 		perror("start cycle");   /////////////////////!
 		errno = 0;   /////////////////////////////!
 		input_begin(&init.inp);
-									/*** test ***/	// необходимо реализовать заполнение интерфейса для exec
-									// init.inp.str_for_parse = ft_strdup("ls > newfile");
-									// ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
-									/*** test ***/
 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
 			(init.inp.str_for_parse &&
 				!ft_strcmp(init.inp.str_for_parse, "exit")))

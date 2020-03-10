@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:37:20 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:40:23 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:39:54 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,18 @@ void	clean_env(void)
 void	init_env(char **env)
 {
 	if (env && *env)
+	{
 		g_sh_environ = ft_linedup(env);
+		// char **p_env = g_sh_environ;
+		// while (*p_env)
+		// {
+		// 	printf("%s\n", *p_env);
+		// 	++p_env;
+		// }
+		// exit(EXIT_FAILURE);
+		// printf("here\n");
+		// exit(EXIT_FAILURE);
+	}
 	else
 	{
 		g_sh_environ = (char **)ft_memalloc(sizeof(char *) * 1);

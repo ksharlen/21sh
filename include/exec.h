@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:48:39 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/05 15:48:42 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:03:46 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void 					free_befor_exec(t_info_parser *prs);
 ** comands
 */
 int						check_cmd(char *name_func);
-int						run_cmd(t_pars_list *list);
+int						run_cmd(t_exec_lst execlist, t_pars_list *list);
 int						cmd_true(void);
 int						cmd_false(void);
 void 					cmd_check_var(t_pars_list *list);

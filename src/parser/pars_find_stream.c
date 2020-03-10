@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   pars_find_stream.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 22:35:05 by mdelphia          #+#    #+#             */
 /*   Updated: 2020/02/29 15:56:37 by tjonella         ###   ########.fr       */
@@ -304,5 +304,3 @@ char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 	}
 	return (str);
 }
-
-// нужно дописать функцию которая ставит флаги

@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/02/29 20:45:04 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/03/08 20:33:19 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,11 @@ SRC_IU						:=	iu_cd_home_dir.c\
 									iu_pwd.c\
 									iu_setenv.c\
 									iu_unsetenv.c\
-									iu_init_var_env.c
+									iu_init_var_env.c\
+									env_tools.c\
+									operation_env.c\
+									sh21_env.c\
+									work_env.c
 
 SRC_HIST					:=	history_init.c\
 									history_fill_flist.c\
@@ -122,6 +126,8 @@ DIRS_INPUT					:=	$(DIR_INPUT)\
 									$(DIR_INPUT)termcap/\
 
 DIR_IU						:=	$(DIR_SRC)internal_utilities/
+
+DIR_ENV						:=	$(DIR_IU)iu_env/
 #env_dirs
 DIR_HIST					:=	$(DIR_SRC)history/
 DIR_PARSER					:=	$(DIR_SRC)parser/
@@ -135,9 +141,10 @@ DIRS_SRC					:=	$(DIR_SRC)\
 									$(DIR_INIT)\
 									$(DIRS_INPUT)\
 									$(DIR_IU)\
+									$(DIR_ENV)\
 									$(DIR_HIST)\
 									$(DIR_PARSER)\
-									$(DIRS_EXEC)
+									$(DIRS_EXEC)\
 
 #!HEADERS
 MAIN_HEADERS				:=	sh.h\

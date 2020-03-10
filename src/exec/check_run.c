@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_run.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:41:46 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/02/29 20:50:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:03:01 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int			check_run(t_exec_lst execlist, t_pars_list **list)
 	{
 		stream_save_std((*list)->stream_list);
 		stream_and_file(*list);									// перенаправляет потоки
-		status = run_cmd(*list);
+		status = run_cmd(execlist, *list);
 		close_and_open_std((*list)->stream_list);				// возвращает обратно стандартные потоки и закрывает дескрипторы файлов
 	}
 	else

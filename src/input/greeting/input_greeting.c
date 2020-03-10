@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 21:34:15 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 23:39:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		input_dflt_greeting(t_greet *greet)
 {
-	int	ret_num_sym;
+	int		ret_num_sym;
 
 	ret_num_sym = 0;
 	ft_putstr(COLOR_TIME);
@@ -39,6 +39,11 @@ static int		input_additional_greet(t_greet *greet, const char *print_greet)
 
 void			input_greeting(t_greet *greet)
 {
+	struct s_user_info s_user_info;
+
+	ft_bzero(s_user_info.user, SH21_MAX_NAME);
+	ft_strcpy(s_user_info.user, greet->user);
+	input_greeting_init(greet, &s_user_info);
 	if (greet->mode == MODE_DFLT)
 		greet->len = input_dflt_greeting(greet);
 	else if (greet->mode == MODE_QUOTE || greet->mode == '\'')

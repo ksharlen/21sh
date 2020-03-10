@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_pipe.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:43:00 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/02/29 21:00:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:35:56 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist, t_pars_list 
 	{
 		stream_and_file(list);
 		dup_fd_and_close(buf_pipelist->pfd[0], STDIN_FILENO);
-		run_cmd(list);
+		run_cmd(execlist, list);
 		exit(list->status);
 	}
 	else

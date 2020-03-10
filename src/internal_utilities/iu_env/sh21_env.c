@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 15:16:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/09 22:47:58 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/08 22:50:16 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ static size_t	len_opt(char *const argv[])
 			++argv;
 		}
 	}
-	return (++len);
+// printf("len_opt: %zd\n", len);
+// exit(EXIT_FAILURE);
+	return (len);
 }
 
 static void		env_init(t_env *env)
@@ -67,18 +69,18 @@ static int		get_opt(int argc, char **opts, t_env *env)
 int				sh21_env(int argc, char **argv, char **env)
 {
 	t_env			m_env;
-	size_t			l_opt;
+	// size_t			l_opt;
 	enum e_err		err;
 
-	P_UNUSED(env);
+	(void)env;
 	err = FAILURE;
 	env_init(&m_env);
 	if (argc == 1)
-		ft_print_lines(environ);
+		ft_print_lines(g_sh_environ);
 	else
 	{
-		l_opt = len_opt(argv);
-		err = get_opt(l_opt, argv, &m_env);
+		// l_opt = len_opt(argv);
+		err = get_opt(argc, argv, &m_env);
 		if (err == SUCCESS)
 		{
 			++argv;
