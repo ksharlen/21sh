@@ -69,10 +69,10 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("echo > namefile");
-// 	ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
+// 	init.inp.str_for_parse = ft_strdup("echo > namefile 2>&1");
+// 	// ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
 // 	if (!parser(init.inp.str_for_parse, &init.prs))
-// 		check_choice(execlist, init.prs.beg);
+// 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
 // 	input_finish(&init.inp);
 // 	return (0);

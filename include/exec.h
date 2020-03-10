@@ -49,6 +49,7 @@ void					stream_save_std(t_red_stream *stream_list);
 void					close_and_open_std(t_red_stream *stream_list);
 int						write_this_dir(t_pars_list *list);
 void 					free_befor_exec(t_info_parser *prs);
+int                     exec_dup_stream(int oldfd, int newfd);
 
 /*
 ** comands

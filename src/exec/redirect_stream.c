@@ -53,10 +53,10 @@ static int	dup_stream(t_red_stream *buf_list)
 	if (buf_list->stream_name[0])
 	{
 		if (create_file(buf_list) > -1)
-			if (dup_fd_and_close(buf_list->stream_a, buf_list->fd_file))
+			if (exec_dup_stream(buf_list->stream_a, buf_list->fd_file))
 				return (error_fd(buf_list->stream_a, buf_list->fd_file));
 	}
-	else if (dup_fd_and_close(buf_list->stream_a, find_redirect_fd(buf_list)))
+	else if (exec_dup_stream(buf_list->stream_a, find_redirect_fd(buf_list)))
 		return (error_fd(buf_list->stream_a, buf_list->stream_in));
 	return(0);
 }

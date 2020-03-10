@@ -102,7 +102,8 @@ SRC_EXEC					:=	check_choice.c\
 									cmd_false.c\
 									cmd_true.c\
 									run_cmd.c\
-									free_befor_exec.c
+									free_befor_exec.c\
+									exec_dup_stream.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
