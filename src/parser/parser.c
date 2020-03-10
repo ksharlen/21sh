@@ -51,7 +51,7 @@ static int	fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 		if (check_pos == str)
 			str = skip_args(str, splitter);
 	}
-	qty_args = parser_count_args(str_start, splitter); //!счетчик работает для пустой строки, он считает разделитель
+	qty_args = parser_count_args(str_start, splitter); //*счетчик работает для пустой строки, он считает разделитель
 	prs->end->pars_args = parser_fill_args(str_start, splitter, qty_args); // qty_args + 1 для NULL
 	return (0);
 }
@@ -64,9 +64,8 @@ static int		parse_str(char *str_for_parse, t_info_parser *prs)
 	str = str_for_parse;
 	while (str && *str)
 	{
-//!	Посмотреть исключительные случаи разделителя
+//*	Посмотреть исключительные случаи разделителя
 		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
-		// parser_add_list(prs);
 		str = parser_skip_quotes(str, splitter);
 		if ((check_str(str, splitter)) == TRUE)
 			parser_add_list(prs);// создаём новый экземпляр листа и возвращаем на него указатель
@@ -78,7 +77,7 @@ static int		parse_str(char *str_for_parse, t_info_parser *prs)
 	if (fill_struct(str, prs, splitter))
 		return (1);
 	str = skip_splitter(splitter, &prs->end->f_delimiter);//Тут флаг разделителя и пропуск splitter
-//!			need validation
+//*			need validation
 	}
 	return ((str) ? 0 : 1);
 }

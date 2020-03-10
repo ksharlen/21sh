@@ -79,11 +79,11 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 	else if (!ft_strcmp("false", list->name_func))
 		list->status = cmd_false();
 	else if (!ft_strcmp("cd", list->name_func))
-		list->status = sh21_cd(argc, list->pars_args, NULL);	//////// замена
+		list->status = sh21_cd(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("echo", list->name_func))
-		list->status = sh21_echo(argc, list->pars_args, NULL);	//////// замена
+		list->status = sh21_echo(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("pwd", list->name_func))
-		list->status = sh21_pwd(argc, list->pars_args, NULL);	//////// замена
+		list->status = sh21_pwd(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("setenv", list->name_func))//TODO: need think
 		list->status = sh21_setenv(NULL, NULL, 0);	//////// замена
 	else if (!ft_strcmp("unsetenv", list->name_func))//TODO: this too

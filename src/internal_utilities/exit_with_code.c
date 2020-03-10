@@ -31,12 +31,12 @@ void	exit_with_code(t_pars_list *list)
 		if (ft_strcmp(*(list->pars_args + 1), ft_itoa(ft_atoi(*(list->pars_args + 1)))))
 		{
 			ft_putstr_fd("exit: ", 2);
-			ft_putstr_fd(*(list->pars_args), 2);
+			ft_putstr_fd(*(list->pars_args + 1), 2);
 			ft_putstr_fd(": numeric argument required\n", 2);
 			exit(255);
 		}
 		else
-			exit((unsigned char)ft_atoi(*(list->pars_args)));
+			exit((unsigned char)ft_atoi(*(list->pars_args + 1)));
 	}
 	exit(0);
 }

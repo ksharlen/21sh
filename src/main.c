@@ -39,13 +39,19 @@ int		main(int argc, char **argv, char **env)
 	return (0);
 }
 
+/*** not to do ***/
+// (-) "$> cat -e << EOF >> /tmp/test.txt"
+// (-) quote с кавычками должен делать перенос строк, где требуется
+// (-) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл
+
+/*** complit ***/
 // (+) добавить '\n' в echo
 // (+) "$> ls;;" - ломает шелл
 // (+) "$> ls ; exit " - не завершается шелл
-// (+/-) quote с кавычками должен делать перенос строк, где требуется
 // (+) cd не работает 
 // (+) не заполнен интерфейс execlist.exec_envlist.path
-// (+) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл
+// (+) не работают перенаправления потоков
+
 
 //* (-) Ctrl+C или Ctrl+D при работающих командах, например "ls -lR /", - не работают
 //* (-) "$> cat " - не работет обработка сигналов
@@ -53,12 +59,11 @@ int		main(int argc, char **argv, char **env)
 // (-) при вставке новой строки появляется БАГ
 // (-) env go-go-go
 
-// (-) не работают перенаправления потоков
+
 
 // (-) " ~ " - не подставляет домашнюю директорию
 // (-) exit - не возвращает число завершения
 // (-) (довести до работоспособности все внутренние команды)
-// (-) "$> cat -e << EOF >> /tmp/test.txt"
 
 /*** for tests ***/
 
@@ -71,7 +76,6 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(env);
 // 	sh21_init(&init, env);
 // 	init.inp.str_for_parse = ft_strdup("exit 123");
-// 	// ft_strcpy(execlist.exec_envlist.path, "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Library/TeX/texbin");
 // 	if (!parser(init.inp.str_for_parse, &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
