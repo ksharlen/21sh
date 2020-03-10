@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   internal_utilities.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 15:20:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 22:51:29 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/10 20:04:20 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <dirent.h>
 
 # include "libft.h"
+# include "sh_struct.h"
 
 /*
 **ERRORS
@@ -103,6 +104,7 @@ int						sh21_env(int argc, char **argv, char **env);
 void					work_home_dir(const char *old_path, char *new_path);
 size_t					find_var_env(const char *name);
 void					work_opt(char *const *p_argv, t_env *env);
+void					exit_with_code(t_pars_list *list);
 
 /*
 **WORK_FLAGS

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
+#    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/08 20:33:19 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/03/10 20:01:58 by tjonella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SRC_IU						:=	iu_cd_home_dir.c\
 									env_tools.c\
 									operation_env.c\
 									sh21_env.c\
-									work_env.c
+									work_env.c\
+									exit_with_code.c
 
 SRC_HIST					:=	history_init.c\
 									history_fill_flist.c\
