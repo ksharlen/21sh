@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:55:30 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/29 16:01:56 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/10 22:45:41 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ static int	fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	return (0);
 }
 
-static int		parse_str(char *str_for_parse, t_info_parser *prs)
+static int		parse_str(char **str_for_parse, t_info_parser *prs)
 {
 	char		*splitter;
 	char 		*str;
 
-	str = str_for_parse;
+	str = pars_insert_tilda(str_for_parse);
 	while (str && *str)
 	{
 //*	Посмотреть исключительные случаи разделителя
@@ -83,7 +83,7 @@ static int		parse_str(char *str_for_parse, t_info_parser *prs)
 }
 
 
-int		parser(char *str_for_parse, t_info_parser *prs)
+int		parser(char **str_for_parse, t_info_parser *prs)
 {
 	if (parse_str(str_for_parse, prs))
 		return (1);

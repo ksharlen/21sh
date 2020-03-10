@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/25 00:36:34 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/10 22:48:09 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # include "libft.h"
 # include "sh_limits.h"
 # include "sh_struct.h"
+# include "internal_utilities.h"
 
-int	    		parser(char *str_for_parse, t_info_parser *prs);
+int	    		parser(char **str_for_parse, t_info_parser *prs);
 void			parser_add_list(t_info_parser *prs);
 char			*parser_skip_quotes(char *str, char *splitter);
 char			*find_delimiter(char *str);
@@ -39,5 +40,8 @@ char	        *put_error_parse(char *str, int fd);
 int		        check_valid_char_name(char sym);
 void            parser_fill_point_args(t_pars_list *list);
 char			*parser_skipminus(char *str);
+int				parse_is_quote(char c);
+char			*parse_next_quote(char *str);
+char			*pars_insert_tilda(char **str);
 
 #endif

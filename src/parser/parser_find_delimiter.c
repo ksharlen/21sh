@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_find_delimiter.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:49:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/23 17:42:27 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/10 21:50:15 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static void	parse_skip_spaces(char *ptr)
 		ptr++;
 }
 
-static int	parse_is_quote(char c)
+int			parse_is_quote(char c)
 {
 	if (c == '\'' || c == '"' || c == '`')
 		return (1);
 	return (0);
 }
 
-static char	*parse_next_quote(char *str)
+char		*parse_next_quote(char *str)
 {
 	char	*ptr;
 

@@ -8,7 +8,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/Users/mdelphia/CLionProjects/21sh/test",
+            "program": "${workspaceFolder}/test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

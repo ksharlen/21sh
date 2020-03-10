@@ -6,7 +6,7 @@
 #    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/10 20:01:58 by tjonella         ###   ########.fr        #
+#    Updated: 2020/03/10 22:20:51 by tjonella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,8 @@ SRC_PARSER					:=	parser.c\
 									pars_add_lst_stream.c\
 									parser_find_flags_stream.c\
 									parser_fill_point_args.c\
-									parser_skipminus.c
+									parser_skipminus.c\
+									pars_insert_tilda.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\

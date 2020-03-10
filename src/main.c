@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 23:23:06 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/10 23:09:00 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(int argc, char **argv, char **env)
 				!ft_strcmp(init.inp.str_for_parse, "exit")))
 			break ;
 		else if (init.inp.str_for_parse)
-			if (!parser(init.inp.str_for_parse, &init.prs))
+			if (!parser(&(init.inp.str_for_parse), &init.prs))
 				check_choice(init.execlist, init.prs.beg);
 		free_befor_exec(&init.prs);
 	}
@@ -75,8 +75,8 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("exit 123");
-// 	if (!parser(init.inp.str_for_parse, &init.prs))
+// 	init.inp.str_for_parse = ft_strdup("~~");
+// 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
 // 	input_finish(&init.inp);
