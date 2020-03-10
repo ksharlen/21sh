@@ -89,7 +89,7 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 	else if (!ft_strcmp("unsetenv", list->name_func))//TODO: this too
 		list->status = sh21_unsetenv(NULL);	//////// замена
 	else if (!ft_strcmp("exit", list->name_func))
-		exit(EXIT_SUCCESS);
+		exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))//TODO: need add
 		exec_env(execlist, list);
 	//else if (sh21_getenv());

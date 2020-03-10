@@ -15,20 +15,20 @@
 void	exit_with_code(t_pars_list *list)
 {
 	int		count_args;
-	char	*ptr;
+	char	**ptr;
 
-	if (list->pars_args && *(list->pars_args))
+	if (list->pars_args && list->pars_args + 1)
 	{
-		ptr = *(list->pars_args);
+		ptr = list->pars_args + 1;
 		count_args = 1;
-		while (*ptr && ptr++)
+		while (*ptr && ++ptr)
 			count_args++;
-		if (count_args > 1)
+		if (count_args > 2)
 		{
 			ft_putstr_fd("exit: too many arguments\n", 2);
 			return ;
 		}
-		if (ft_strcmp(*(list->pars_args), ft_atoi(*(list->pars_args))))
+		if (ft_strcmp(*(list->pars_args + 1), ft_itoa(ft_atoi(*(list->pars_args + 1)))))
 		{
 			ft_putstr_fd("exit: ", 2);
 			ft_putstr_fd(*(list->pars_args), 2);
@@ -36,7 +36,7 @@ void	exit_with_code(t_pars_list *list)
 			exit(255);
 		}
 		else
-			exit(ft_atoi(*(list->pars_args)));
+			exit((unsigned char)ft_atoi(*(list->pars_args)));
 	}
 	exit(0);
 }
