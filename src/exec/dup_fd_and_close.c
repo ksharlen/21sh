@@ -15,15 +15,10 @@
 int		dup_fd_and_close(int fd, int dup_fd)
 {
 	int num;
-	num = isatty(fd);
-	perror("line0:");
-	printf("fd = %d >> num = %d\n", fd, num);
-	printf("dup_fd = %d >> num = %d\n", dup_fd, num);
 	if (fd != dup_fd)
 	{
 		if (dup2(fd, dup_fd) < 0)
 			return (1);
-		perror("line1:");
 		close(fd);
 	}
 	return (0);

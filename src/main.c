@@ -25,19 +25,14 @@ int		main(int argc, char **argv, char **env)
 	sh21_init(&init, env);
 	while (1)
 	{
-		perror("start cycle");   /////////////////////!
-		errno = 0;   /////////////////////////////!
 		input_begin(&init.inp);
 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
-			(init.inp.str_for_parse &&
+				(init.inp.str_for_parse &&
 				!ft_strcmp(init.inp.str_for_parse, "exit")))
 			break ;
 		else if (init.inp.str_for_parse)
-		{
-			//paste_vars(&init.inp.str_for_parse, &vars);		// $$ и $? не парсятся
 			if (!parser(init.inp.str_for_parse, &init.prs))
 				check_choice(init.execlist, init.prs.beg);
-		}
 		free_befor_exec(&init.prs);
 	}
 	input_finish(&init.inp);
