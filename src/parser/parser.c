@@ -43,6 +43,7 @@ static int	fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	while (*str && str != splitter)
 	{
 		str = ft_skiptabs(str);
+		str = parser_skipminus(str);
 		check_pos = str;
 		if (!(str = pars_find_stream(str, splitter, prs->end)))	// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
 			return (1);

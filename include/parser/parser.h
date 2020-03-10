@@ -38,5 +38,6 @@ int				find_flag_stream(char *pos_stream, t_red_stream *stream_list);
 char	        *put_error_parse(char *str, int fd);
 int		        check_valid_char_name(char sym);
 void            parser_fill_point_args(t_pars_list *list);
+char			*parser_skipminus(char *str);
 
 #endif

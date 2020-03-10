@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_dup_stream.c                                  :+:      :+:    :+:   */
+/*   parser_skipminus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/10 18:39:59 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/10 18:40:04 by mdelphia         ###   ########.fr       */
+/*   Created: 2020/03/10 19:43:16 by mdelphia          #+#    #+#             */
+/*   Updated: 2020/03/10 19:43:19 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exec.h"
-
-int	exec_dup_stream(int newfd, int oldfd)
+char	*parser_skipminus(char *str)
 {
-	if (dup2(oldfd, newfd) == -1)
-		return (1);
-	return (0);
+	while (str && *str == -1)
+		++str;
+	return (str);
 }

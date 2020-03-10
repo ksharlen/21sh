@@ -77,7 +77,8 @@ SRC_PARSER					:=	parser.c\
 									pars_find_stream.c\
 									pars_add_lst_stream.c\
 									parser_find_flags_stream.c\
-									parser_fill_point_args.c
+									parser_fill_point_args.c\
+									parser_skipminus.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\
