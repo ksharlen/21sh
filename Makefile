@@ -80,7 +80,11 @@ SRC_PARSER					:=	parser.c\
 									parser_find_flags_stream.c\
 									parser_fill_point_args.c\
 									parser_skipminus.c\
-									pars_insert_tilda.c
+									pars_insert_tilda.c\
+									pars_stream_in_lis.c\
+									parse_write_prev.c\
+									pars_write_next_stream.c\
+									pars_write_amper_args_after_stream.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\

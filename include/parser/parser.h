@@ -28,9 +28,11 @@ char			*find_delimiter(char *str);
 size_t			parser_count_args(const char *str, char *splitter);
 size_t			parser_get_len_arg(char *str, char *splitter);
 const char		*parser_skip_word(const char *str, char *splitter);
-char			**parser_fill_args(char *start_str, char *splitter, size_t qty_args);
+char			**parser_fill_args(char *start_str, char *splitter,
+					size_t qty_args);
 char			*parser_quote_arg(char **str, char *splitter);
-char		    *fill_split_flag(char *splitter, int size, unsigned int *flags_splt);
+char		    *fill_split_flag(char *splitter, int size, unsigned int
+					*flags_splt);
 char			*skip_splitter(char *splitter, unsigned int *flags_splt);
 int				parse_not_srvc_symb(char *c);
 char			*pars_find_stream(char *str, char *splitter, t_pars_list *list);
@@ -43,5 +45,13 @@ char			*parser_skipminus(char *str);
 int				parse_is_quote(char c);
 char			*parse_next_quote(char *str);
 char			*pars_insert_tilda(char **str);
+char			*pars_stream_in_list(char *str, char *splitter,
+					t_red_stream *stream_list);
+char			*write_prev(char *str, char *pos_stream,
+					t_red_stream *stream_list);
+char			*write_next_stream(char *pos_stream, char *splitter,
+					t_red_stream *stream_list);
+char			*write_amper_args_after_stream(char *pos_stream, char *splitter,
+					t_red_stream *stream_list);
 
 #endif
