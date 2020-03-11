@@ -164,6 +164,15 @@ static char	*write_next_stream(char *pos_stream, char *splitter, t_red_stream *s
 */
 /***один лист***/
 // 3.3
+
+static void	write_nbr_prev_stream_in_list(t_red_stream *stream_list, int std_fd)
+{
+	if (stream_list->flag_file > 0)
+		stream_list->stream_a = std_fd;
+	else
+		stream_list->stream_in = std_fd;
+}
+
 static void	write_nbr_fd_prev_stream(char *str, char *pos_stream, t_red_stream *stream_list)
 {
 	char	buf[BUFSIZ];
@@ -177,10 +186,7 @@ static void	write_nbr_fd_prev_stream(char *str, char *pos_stream, t_red_stream *
 		++str;
 	}
 	buf[i] = '\0';
-	if (stream_list->flag_file > 0)
-		stream_list->stream_a = ft_atoi(buf);
-	else
-		stream_list->stream_in = ft_atoi(buf);
+	write_nbr_prev_stream_in_list(stream_list, ft_atoi(buf));
 }
 // если старт строки совпадает с перенаправлением // 3.2
 static char	*write_point_one_in_str(char *str, t_red_stream *stream_list)
@@ -204,7 +210,10 @@ static char	*write_prev(char *str, char *pos_stream, t_red_stream *stream_list)
 		write_nbr_fd_prev_stream(str, pos_stream, stream_list);
 	}
 	else
+	{
+		write_nbr_prev_stream_in_list(stream_list, 1);
 		save_point = pos_stream;
+	}
 	return (save_point);
 }
 /***один лист***/

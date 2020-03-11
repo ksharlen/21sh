@@ -54,6 +54,8 @@ int		main(int argc, char **argv, char **env)
 // (+) exit - не возвращает число завершения
 // (+) env go-go-go
 // (+) " ~ " - не подставляет домашнюю директорию
+// (+) исправлена записи аргументов после которых есть "-1"
+
 
 /*** ned to do ***/
 //* (-) Ctrl+C или Ctrl+D при работающих командах, например "ls -lR /", - не работают
@@ -73,7 +75,7 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("~~");
+// 	init.inp.str_for_parse = ft_strdup("echo weewfwef> namefile >&1");
 // 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);

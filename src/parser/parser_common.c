@@ -18,7 +18,7 @@ size_t				parser_get_len_arg(char *str, char *splitter)
 
 	len_arg = 0;
 	while (str != splitter && !ft_isspace(*str) &&
-		*str != '\'' && *str != '\"' && *str != '`')
+		*str != '\'' && *str != '\"' && *str != '`' && *str != -1)
 	{
 		++len_arg;
 		++str;
