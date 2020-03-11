@@ -42,7 +42,7 @@ int		main(int argc, char **argv, char **env)
 /*** not to do ***/
 // (-) "$> cat -e << EOF >> /tmp/test.txt"
 // (-) quote с кавычками должен делать перенос строк, где требуется
-// (-) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл
+// (-) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл (удалили)
 
 /*** complite ***/
 // (+) добавить '\n' в echo
@@ -65,16 +65,19 @@ int		main(int argc, char **argv, char **env)
 //* (-) "$> cat " - не работет обработка сигналов
 //* (-) - Run the command "$> cat" then press ctrl+C.
 //		  The shell must kill cat's proccess and give back the prompt.
-// (-) при вставке новой строки появляется БАГ
+// (-) при вставке строки содержащей символ "\n" появляется БАГ
 // (-) (довести до работоспособности все внутренние команды)
 // (-) выводится history_fill_history: file_write_error
-// (-) "&" записывается в аргументы при парсинге
+
+// (-/?) "&" записывается в аргументы при парсинге
 
 // (-) из чеклиста
 // Environment management
 // PATH management
 // Signal
 // ctrl+D and ctrl+C
+// A lil bit of everything // heredoc
+// Redirections // heredoc
 
 // (?)
 // Quotes management
@@ -91,7 +94,7 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("echo < namefile");
+// 	init.inp.str_for_parse = ft_strdup("ls -l &");
 // 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
@@ -100,5 +103,4 @@ int		main(int argc, char **argv, char **env)
 // }
 
 // (+)		(-)		(?)
-// 11		4		1
-
+// 9		6		1
