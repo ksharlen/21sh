@@ -16,6 +16,6 @@ int		ft_checkspase(char sym)
 {
 	if (sym == '\t' || sym == '\n' || sym == '\v' || sym == '\f' ||
 		sym == '\r' || sym == ' ')
-		return (TRUE);
-	return (FOLSE);
+		return (1);
+	return (0);
 }
