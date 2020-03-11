@@ -79,7 +79,7 @@ int		main(int argc, char **argv, char **env)
 // A lil bit of everything // heredoc
 // Redirections // heredoc
 
-// (?)
+// (?) из чеклиста
 // Quotes management
 
 
@@ -102,5 +102,6 @@ int		main(int argc, char **argv, char **env)
 // 	return (0);
 // }
 
+// результаты проверки по чеклисту
 // (+)		(-)		(?)
 // 9		6		1
