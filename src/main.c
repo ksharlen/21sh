@@ -70,6 +70,15 @@ int		main(int argc, char **argv, char **env)
 // (-) выводится history_fill_history: file_write_error
 // (-) "&" записывается в аргументы при парсинге
 
+// (-) из чеклиста
+// Environment management
+// PATH management
+// Signal
+// ctrl+D and ctrl+C
+
+// (?)
+// Quotes management
+
 
 
 /*** for tests ***/
@@ -93,11 +102,3 @@ int		main(int argc, char **argv, char **env)
 // (+)		(-)		(?)
 // 11		4		1
 
-// (-)
-// Environment management
-// PATH management
-// Signal
-// ctrl+D and ctrl+C
-
-// (?)
-// Quotes management
