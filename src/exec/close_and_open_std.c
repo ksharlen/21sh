@@ -29,7 +29,8 @@ static void	check_std(t_red_stream *stream_list, int find_std)
 	buflist = stream_list;
 	while (buflist)
 	{
-		if (buflist->stream_a == find_std)
+		if (buflist->stream_a == find_std ||
+			(buflist->stream_in == find_std && buflist->stream_a == -1))
 		{
 			open_std(buflist, find_std);
 			break ;

@@ -26,7 +26,10 @@ static void	find_save(t_red_stream *stream_list)
 	{
 		if ((buflist->stream_a == STDIN_FILENO) ||
 			(buflist->stream_a == STDOUT_FILENO) ||
-			(buflist->stream_a == STDERR_FILENO))
+			(buflist->stream_a == STDERR_FILENO) ||
+			(buflist->stream_in == STDIN_FILENO) ||
+			(buflist->stream_in == STDOUT_FILENO) ||
+			(buflist->stream_in == STDERR_FILENO))
 			save_dup_std(buflist);
 		buflist = buflist->next;
 	}

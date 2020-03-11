@@ -55,6 +55,9 @@ int		main(int argc, char **argv, char **env)
 // (+) env go-go-go
 // (+) " ~ " - не подставляет домашнюю директорию
 // (+) исправлена записи аргументов после которых есть "-1"
+// (+) Redirections // $>wc -c < namefile // 42sh: -1: invalid descriptor
+		
+		
 
 
 /*** ned to do ***/
@@ -64,6 +67,10 @@ int		main(int argc, char **argv, char **env)
 //		  The shell must kill cat's proccess and give back the prompt.
 // (-) при вставке новой строки появляется БАГ
 // (-) (довести до работоспособности все внутренние команды)
+// (-) выводится history_fill_history: file_write_error
+// (-) "&" записывается в аргументы при парсинге
+
+
 
 /*** for tests ***/
 
@@ -75,10 +82,22 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("echo weewfwef> namefile >&1");
+// 	init.inp.str_for_parse = ft_strdup("echo < namefile");
 // 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
 // 	input_finish(&init.inp);
 // 	return (0);
 // }
+
+// (+)		(-)		(?)
+// 11		4		1
+
+// (-)
+// Environment management
+// PATH management
+// Signal
+// ctrl+D and ctrl+C
+
+// (?)
+// Quotes management

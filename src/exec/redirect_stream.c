@@ -50,11 +50,15 @@ static int	find_redirect_fd(t_red_stream *list)
 // перенаправляет потоки из листов
 static int	dup_stream(t_red_stream *buf_list)
 {
+	int oldfd;
+
 	if (buf_list->stream_name[0])
 	{
+		oldfd = (buf_list->flag_file > 0) ? buf_list->stream_a :
+		buf_list->stream_in;
 		if (create_file(buf_list) > -1)
-			if (exec_dup_stream(buf_list->stream_a, buf_list->fd_file))
-				return (error_fd(buf_list->stream_a, buf_list->fd_file));
+			if (exec_dup_stream(oldfd, buf_list->fd_file))
+				return (error_fd(oldfd, buf_list->fd_file));
 	}
 	else if (exec_dup_stream(buf_list->stream_a, find_redirect_fd(buf_list)))
 		return (error_fd(buf_list->stream_a, buf_list->stream_in));
