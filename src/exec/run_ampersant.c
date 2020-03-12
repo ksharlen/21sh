@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_ampersant.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:42:36 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/12 21:04:21 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/12 21:04:21 by mdelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // вывод номера запускаемого фонового режима
 static void	put_nbr_ampersant(char *str_nbr_ampersant)
 {
-	ft_putchar('[');
+	ft_putstr("\n[");
 	ft_putstr(str_nbr_ampersant);
 	ft_putstr("]\t");
 	ft_putstr(ft_itoa(getpid()));
