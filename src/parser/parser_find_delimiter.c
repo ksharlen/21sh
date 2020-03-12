@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:49:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/12 20:10:11 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/12 21:36:07 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		parse_not_srvc_symb(char *c)
 {
 	if (*c == '&' && *(c + 1) == '&')
 		return (0);
-	else if (*c == '&')
+	else if (*c == '&' && (*(c + 1) > '9' || *(c + 1) < '0'))
 		return (0);
 	else if (*c == '|')
 		return (0);
