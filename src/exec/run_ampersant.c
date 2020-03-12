@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_ampersant.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:42:36 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/02/29 20:59:52 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/03/12 21:04:21 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	put_name_func(t_pars_list *buf_list, int check_nbr_ampersand)
 			ft_putchar('\t');
 			ft_putstr(buf_list->name_func);
 		}
+		ft_putchar('\n');                //! добавил для "pwd &" и для "ls &" (пропадала последняя строка done)
 		buf_list = buf_list->next;
 		if (buf_list->nbr_ampersant == check_nbr_ampersand)
 			ft_putstr(" | ");
