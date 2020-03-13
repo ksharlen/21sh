@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "sh.h": "c"
+        "sh.h": "c",
+        "internal_utilities.h": "c"
     }
 }

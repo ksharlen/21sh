@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 21:00:26 by tjonella          #+#    #+#             */
-/*   Updated: 2020/03/12 21:14:50 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/13 19:03:37 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	exit_put_error(t_pars_list *list, char **tmp_str)
 	exit(255);
 }
 
-void		exit_with_code(t_pars_list *list)
+int			exit_with_code(t_pars_list *list)
 {
 	char	*tmp_str;
 
@@ -48,7 +48,7 @@ void		exit_with_code(t_pars_list *list)
 		if (found_count_args(list) > 2)
 		{
 			ft_putstr_fd("exit: too many arguments\n", 2);
-			return ;
+			return (1);
 		}
 		tmp_str = ft_itoa(ft_atoi(*(list->pars_args + 1)));
 		if (ft_strcmp(*(list->pars_args + 1), tmp_str))

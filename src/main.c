@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/12 21:36:20 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/12 22:19:34 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,37 @@
 
 t_term_var	g_term_lst;
 
-int		main(int argc, char **argv, char **env)
-{
-	t_init			init;
+// int		main(int argc, char **argv, char **env)
+// {
+// 	t_init			init;
 
-	(void)(argc);
-	(void)(argv);
-	(void)(env);
+// 	(void)(argc);
+// 	(void)(argv);
+// 	(void)(env);
 
-	sh21_init(&init, env);
-	while (1)
-	{
-		input_begin(&init.inp);
-		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
-				(init.inp.str_for_parse &&
-				!ft_strcmp(init.inp.str_for_parse, "exit")))
-			break ;
-		else if (init.inp.str_for_parse)
-			if (!parser(&(init.inp.str_for_parse), &init.prs))
-				check_choice(init.execlist, init.prs.beg);
-		free_befor_exec(&init.prs);
-	}
-	input_finish(&init.inp);
-	return (0);
-}
+// 	sh21_init(&init, env);
+// 	while (1)
+// 	{
+// 		input_begin(&init.inp);
+// 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
+// 				(init.inp.str_for_parse &&
+// 				!ft_strcmp(init.inp.str_for_parse, "exit")))
+// 			break ;
+// 		else if (init.inp.str_for_parse)
+// 			if (!parser(&(init.inp.str_for_parse), &init.prs))
+// 				check_choice(init.execlist, init.prs.beg);
+// 		free_befor_exec(&init.prs);
+// 	}
+// 	input_finish(&init.inp);
+// 	return (0);
+// }
 
 /*** not to do ***/
 // (-) "$> cat -e << EOF >> /tmp/test.txt"
 // (-) quote с кавычками должен делать перенос строк, где требуется
 // (-) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл (удалили)
 
-/*** complite ***/
+/*** complete ***/
 // (+) добавить '\n' в echo
 // (+) "$> ls;;" - ломает шелл
 // (+) "$> ls ; exit " - не завершается шелл
@@ -60,7 +60,7 @@ int		main(int argc, char **argv, char **env)
 		
 
 
-/*** ned to do ***/
+/*** need to do ***/
 //* (-) Ctrl+C или Ctrl+D при работающих командах, например "ls -lR /", - не работают
 //* (-) "$> cat " - не работет обработка сигналов
 //* (-) - Run the command "$> cat" then press ctrl+C.
@@ -86,21 +86,21 @@ int		main(int argc, char **argv, char **env)
 
 /*** for tests ***/
 
-// int		main(int argc, char **argv, char **env)
-// {
-// 	t_init			init;
+int		main(int argc, char **argv, char **env)
+{
+	t_init			init;
 
-// 	(void)(argc);
-// 	(void)(argv);
-// 	(void)(env);
-// 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("ls &");
-// 	if (!parser(&(init.inp.str_for_parse), &init.prs))
-// 		check_choice(init.execlist, init.prs.beg);
-// 	free_befor_exec(&init.prs);
-// 	input_finish(&init.inp);
-// 	return (0);
-// }
+	(void)(argc);
+	(void)(argv);
+	(void)(env);
+	sh21_init(&init, env);
+	init.inp.str_for_parse = ft_strdup("ls -lR /");
+	if (!parser(&(init.inp.str_for_parse), &init.prs))
+		check_choice(init.execlist, init.prs.beg);
+	free_befor_exec(&init.prs);
+	input_finish(&init.inp);
+	return (0);
+}
 
 // результаты проверки по чеклисту
 // (+)		(-)		(?)
