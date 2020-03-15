@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:01:56 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/16 18:20:50 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 19:39:52 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_history	*fill_21sh_story(t_history *hist, char *line)
 {
 	char			*tmp;
 
-	hist->beg->comand = ft_strdup(ft_strrchrback(line, ';'));
+	hist->beg->comand = ft_strdup(ft_strrchrback(line, ':'));
 	ft_strdel(&line);
 	hist->size += 1;
 	while (get_next_line(hist->fd, &line, FLAG_OFF) == 1)

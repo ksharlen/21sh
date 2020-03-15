@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:55:57 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/02/16 18:18:23 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 19:39:45 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_history	*history_add_new_elem(t_history *hist, char *str)
 	tmp->prev = hist->h_list;
 	tmp->location = hist->h_list->location + 1;
 	if (str)
-		hist->h_list->comand = ft_strdup(ft_strrchrback(str, ';'));
+		hist->h_list->comand = ft_strdup(ft_strrchrback(str, ':'));
 	tmp->comand = NULL;
 	hist->h_list = tmp;
 	hist->end = tmp;
@@ -42,14 +42,14 @@ t_history	*history_fill_history(t_history *hist, char *str)
 		if (!hist->end->prev->comand || ft_strcmp(hist->end->prev->comand, str))
 		{
 			hist = history_add_new_elem(hist, str);
-			ft_printf("%v%zd;", hist->fd, time(NULL));
+			ft_printf("%v%zd:", hist->fd, time(NULL));
 			qt_print_char = ft_printf("%v%s\n",
 				hist->fd, hist->h_list->prev->comand);
-			if (len_str != qt_print_char - 1)
-			{
-				ft_printf("%vhistory_fill_history: file_write_error\n",
-					STDERR_FILENO);
-			}
+			// if (len_str != qt_print_char - 1)
+			// {
+				// ft_printf("%vhistory_fill_history: file_write_error\n",
+					// STDERR_FILENO);
+			// }
 		}
 	}
 	hist->h_list = hist->end;
