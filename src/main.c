@@ -56,6 +56,12 @@ int		main(int argc, char **argv, char **env)
 // (+) " ~ " - не подставляет домашнюю директорию
 // (+) исправлена записи аргументов после которых есть "-1"
 // (+) Redirections // $>wc -c < namefile // 42sh: -1: invalid descriptor
+<<<<<<< HEAD
+// (+) "&" записывается в аргументы при парсинге
+		
+
+=======
+>>>>>>> 43e5c78d19033a43c46c984cd5ffabb15bba040f
 
 /*** need to do ***/
 //* (-) Ctrl+C или Ctrl+D при работающих командах, например "ls -lR /", - не работают
@@ -63,10 +69,9 @@ int		main(int argc, char **argv, char **env)
 //* (-) - Run the command "$> cat" then press ctrl+C.
 //		  The shell must kill cat's proccess and give back the prompt.
 // (-) при вставке строки содержащей символ "\n" появляется БАГ
-// (-) (довести до работоспособности все внутренние команды)
+// (-) setenv
+// (-) unsetenv
 // (-) выводится history_fill_history: file_write_error
-
-// (-/?) "&" записывается в аргументы при парсинге
 
 // (-) из чеклиста
 // Environment management

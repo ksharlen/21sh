@@ -6,12 +6,12 @@
 /*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:42:36 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/12 21:04:21 by mdelphias         ###   ########.fr       */
+/*   Updated: 2020/03/12 21:04:21 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
-// вывод номера запускаемого фонового режима
+
 static void	put_nbr_ampersant(char *str_nbr_ampersant)
 {
 	ft_putstr("\n[");
@@ -20,7 +20,7 @@ static void	put_nbr_ampersant(char *str_nbr_ampersant)
 	ft_putstr(ft_itoa(getpid()));
 	ft_putchar('\n');
 }
-// вывод названия команд
+
 static void	put_name_func(t_pars_list *buf_list, int check_nbr_ampersand)
 {
 	while (buf_list->nbr_ampersant == check_nbr_ampersand)
@@ -34,14 +34,14 @@ static void	put_name_func(t_pars_list *buf_list, int check_nbr_ampersand)
 			ft_putchar('\t');
 			ft_putstr(buf_list->name_func);
 		}
-		ft_putchar('\n');                //! добавил для "pwd &" и для "ls &" (пропадала последняя строка done)
+		ft_putchar('\n');
 		buf_list = buf_list->next;
 		if (buf_list->nbr_ampersant == check_nbr_ampersand)
 			ft_putstr(" | ");
 	}
 	ft_putchar('\n');
 }
-// вывод завершения выполнения команд в фоновом режиме
+
 static void	put_end_ampersant(t_pars_list *buf_list, char *str_nbr_ampersant)
 {
 	ft_putchar('[');
@@ -49,7 +49,7 @@ static void	put_end_ampersant(t_pars_list *buf_list, char *str_nbr_ampersant)
 	ft_putstr("] done\t");
 	put_name_func(buf_list, buf_list->nbr_ampersant);
 }
-// запуск фонового режима
+
 int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
 {
 	pid_t		pid;
@@ -61,7 +61,6 @@ int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
 		error_system(EXEC_ERROR_NUM);
 	if (!pid)
 	{
-		// setsid();				// чтобы сделать полного демона
 		if (!(pid = fork()))
 		{
 			ft_strcat(str_nbr_ampersant, ft_itoa((*list)->nbr_ampersant));

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// проверка существования файла
+
 static int	exec_check_valid_file(t_pars_list *list)
 {
 	if (!access(list->name_run_func, 0))
@@ -19,7 +19,7 @@ static int	exec_check_valid_file(t_pars_list *list)
 			return (1);
 	return (0);
 }
-// проверяет запускаемую команду в текущей директории
+
 int			write_this_dir(t_pars_list *list)
 {
 	ft_strcpy(list->name_run_func, list->name_func);
