@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 02:21:11 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 18:30:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:44:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 **not working
 */
+
 void	input_ctr_t(struct s_input *inp)
 {
 	if (inp->gap.len_string > 1)

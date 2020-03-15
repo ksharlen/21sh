@@ -6,7 +6,7 @@
 #    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/15 20:05:22 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/03/15 20:44:45 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -194,7 +194,7 @@ DIR_LIBFT					:=	./lib/libft/
 DIR_LIBFT_INCLUDE			:=	$(DIR_LIBFT)include/
 
 #!OTHER
-CFLAGS						:=	-g #-Wall -Wextra -Werror
+CFLAGS						:=	-g -Wall -Wextra -Werror
 DIR_OBJ						:=	./obj/
 OBJS_WITH_PATH				:=	$(addprefix $(DIR_OBJ), $(OBJS))
 PATH_HEADERS				:=	$(addprefix -I , $(DIRS_INCLUDE) $(DIR_LIBFT_INCLUDE))

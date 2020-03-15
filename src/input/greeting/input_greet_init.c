@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 19:22:12 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:44:07 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void	get_curr_dir(char *curr_dir)
 {
 	char	*pwd;
 	char	*p_dir;
-	// char	*home_dir;
 
 	if (curr_dir)
 	{
