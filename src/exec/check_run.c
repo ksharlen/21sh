@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:41:46 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 20:45:54 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 21:04:40 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 
 	stat_child = 0;
 	sh21_signals(ignore_signals);
-	write_name_run(execlist, *list);
 	if ((pid = fork()) < 0)
 		error_system(EXEC_ERROR_NUM);
 	if (!pid)
 	{
+		write_name_run(execlist, *list);
 		sh21_signals(ignore_signals);
 		cod_child(execlist, list);
 	}
