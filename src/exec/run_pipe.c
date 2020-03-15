@@ -59,7 +59,10 @@ static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist,
 		exit(list->status);
 	}
 	else
+	{
+		write_name_run(execlist, list);
 		run_exec(execlist, buf_pipelist->pfd[0], list);
+	}
 }
 
 static void		cod_parent(t_exec_lst execlist, pid_t pid,

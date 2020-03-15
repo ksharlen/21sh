@@ -12,25 +12,6 @@
 
 #include "internal_utilities.h"
 
-static size_t	len_opt(char *const argv[])
-{
-	size_t		len;
-
-	len = 1;
-	if (argv && *argv)
-	{
-		++argv;
-		while (*argv && *argv[0] == '-')
-		{
-			++len;
-			++argv;
-		}
-	}
-// printf("len_opt: %zd\n", len);
-// exit(EXIT_FAILURE);
-	return (len);
-}
-
 static void		env_init(t_env *env)
 {
 	env->cmd = NULL;

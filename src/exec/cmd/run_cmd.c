@@ -24,7 +24,7 @@ static char	**skip_env_argv(char **pars_list, int *argc)
 	cpy_prs = pars_list;
 	++pars_list;
 	--(*argc);
-	while (i < *argc)
+	while ((int)i < *argc)
 	{
 		if (**pars_list == '-')
 		{
