@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// для дублирования дескрипторов
+
 int		dup_fd_and_close(int fd, int dup_fd)
 {
-	int num;
 	if (fd != dup_fd)
 	{
 		if (dup2(fd, dup_fd) < 0)

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_check_var.c                                  :+:      :+:    :+:   */
+/*   cmd_check_var.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "exec.h"
 
-static void	write_str_lastpid(char	**str_var)
+static void	write_str_lastpid(char **str_var)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ static void	write_str_lastpid(char	**str_var)
 	}
 }
 
-static void	write_str_status(char	**str_var)
+static void	write_str_status(char **str_var)
 {
 	size_t	i;
 
