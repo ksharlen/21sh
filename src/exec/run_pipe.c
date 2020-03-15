@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// закрывает все дескрипторы трубы от заданного листа включительно
-static void		close_all_fd(t_pipe_list *pipeList)
+
+static void		close_all_fd(t_pipe_list *pipelist)
 {
 	t_pipe_list *buf_pipelist;
 
-	buf_pipelist = pipeList;
+	buf_pipelist = pipelist;
 	while (buf_pipelist)
 	{
 		close(buf_pipelist->pfd[0]);
@@ -24,7 +24,7 @@ static void		close_all_fd(t_pipe_list *pipeList)
 		buf_pipelist = buf_pipelist->prev;
 	}
 }
-// закрывает ненужные дескрипторы трубы
+
 static void		close_pipe_fd(t_pipe_list *pipelist)
 {
 	t_pipe_list	*buf_pipelist;
@@ -37,8 +37,9 @@ static void		close_pipe_fd(t_pipe_list *pipelist)
 	buf_pipelist = buf_pipelist->prev;
 	close_all_fd(buf_pipelist);
 }
-// код потомка
-static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist, t_pars_list *list)
+
+static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist,
+					t_pars_list *list)
 {
 	t_pipe_list *buf_pipelist;
 
@@ -60,8 +61,9 @@ static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist, t_pars_list 
 	else
 		run_exec(execlist, buf_pipelist->pfd[0], list);
 }
-// код родителя
-static void		cod_parent(t_exec_lst execlist, pid_t pid, t_pipe_list **pipelist, t_pars_list **list)
+
+static void		cod_parent(t_exec_lst execlist, pid_t pid,
+					t_pipe_list **pipelist, t_pars_list **list)
 {
 	t_pars_list *buf_list;
 
@@ -76,14 +78,15 @@ static void		cod_parent(t_exec_lst execlist, pid_t pid, t_pipe_list **pipelist, 
 	error_system(buf_list->status);
 	buf_list->pid = pid;
 }
-// рекурсивно запускает трубы
-void			run_pipe(t_exec_lst execlist, t_pipe_list **pipelist, t_pars_list **list)
+
+void			run_pipe(t_exec_lst execlist, t_pipe_list **pipelist,
+					t_pars_list **list)
 {
 	pid_t		pid;
 
 	(*pipelist) = new_pipe_list(*pipelist);
 	pipe((*pipelist)->pfd);
-	if((pid = fork()) < 0)
+	if ((pid = fork()) < 0)
 		error_system(EXEC_ERROR_NUM);
 	if (!pid)
 		cod_child(execlist, pipelist, (*list));

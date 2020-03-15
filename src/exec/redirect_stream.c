@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// вывод об ошибке неисправного дескриптора
-static void put_error_fd(int error_fd)
+
+static void	put_error_fd(int error_fd)
 {
 	ft_putstr_fd("42sh: ", 2);
 	ft_putnbr_fd(error_fd, 2);
 	ft_putstr_fd(": invalid descriptor\n", 2);
 }
-// поиск неисправного дескриптора
+
 static int	error_fd(int fd_a, int fd_in)
 {
 	if (dup2(fd_a, fd_a) < 0)
@@ -27,7 +27,7 @@ static int	error_fd(int fd_a, int fd_in)
 		put_error_fd(fd_in);
 	return (1);
 }
-// поиск перенаправленного дескриптора
+
 static int	find_redirect_fd(t_red_stream *list)
 {
 	t_red_stream *buflist;
@@ -47,7 +47,7 @@ static int	find_redirect_fd(t_red_stream *list)
 	}
 	return (list->stream_in);
 }
-// перенаправляет потоки из листов
+
 static int	dup_stream(t_red_stream *buf_list)
 {
 	int oldfd;
@@ -62,9 +62,9 @@ static int	dup_stream(t_red_stream *buf_list)
 	}
 	else if (exec_dup_stream(buf_list->stream_a, find_redirect_fd(buf_list)))
 		return (error_fd(buf_list->stream_a, buf_list->stream_in));
-	return(0);
+	return (0);
 }
-// листает список с дескрипторами для перенаправления
+
 int			redirect_stream(t_red_stream *stream_list)
 {
 	t_red_stream	*buf_list;

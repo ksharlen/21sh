@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// ошибка дескриптора
+
 static int	error_fd(int fd)
 {
 	ft_putstr_fd("42sh: ", 2);
@@ -19,7 +19,7 @@ static int	error_fd(int fd)
 	ft_putstr_fd(": invalid descriptor\n", 2);
 	return (1);
 }
-// ошибка каталога или файлач
+
 static int	error_name(char *stream_name)
 {
 	ft_putstr_fd("42sh: '", 2);
@@ -27,7 +27,7 @@ static int	error_name(char *stream_name)
 	ft_putstr_fd("': No such file or directory\n", 2);
 	return (1);
 }
-// занимается факрытием дескриптора файла
+
 static int	find_file(t_red_stream *stream_list)
 {
 	t_red_stream *buflist;
@@ -45,7 +45,7 @@ static int	find_file(t_red_stream *stream_list)
 	}
 	return (error_name(stream_list->stream_name));
 }
-// закрывает дескриптор
+
 int			stream_close_fd(t_red_stream *stream_list)
 {
 	if (stream_list->stream_name[0])

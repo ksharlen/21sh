@@ -34,7 +34,7 @@ static void	find_save(t_red_stream *stream_list)
 		buflist = buflist->next;
 	}
 }
-// сохраняет дублированные дескрипторы стандартных потоков
+
 void		stream_save_std(t_red_stream *stream_list)
 {
 	if (stream_list)

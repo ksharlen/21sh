@@ -37,16 +37,16 @@ static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 // код запуска труб
 static int	code_pipe(t_exec_lst execlist, t_pars_list **list)
 {
-	t_pipe_list	**pipeList;
+	t_pipe_list	**pipelist;
 	t_pipe_list	*bufpipelist;
 
 	bufpipelist = NULL;
-	pipeList = &bufpipelist;
-	run_pipe(execlist, pipeList, list);
+	pipelist = &bufpipelist;
+	run_pipe(execlist, pipelist, list);
 	error_system((*list)->status);
 	g_term_lst.exec_status = (*list)->status;
 	g_term_lst.pid_last = (*list)->pid;
-	free_pipe_list(*pipeList);
+	free_pipe_list(*pipelist);
 	return (g_term_lst.exec_status);
 }
 // определяет характер выполнения кода
