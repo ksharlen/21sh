@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:16:21 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/22 20:52:54 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 19:58:00 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,19 @@
 # define V_WRITE_VAR	128		// флаг того, что нужно заполнять переменные
 
 # define EXEC_ERROR_NUM 254
+
+/*
+**FOR SIGNALS
+*/
+# define SHLVL "SHLVL"
+# define FORMAT "%v[%s]    %d %s  %s\n"
+# define PRINT_S(l, p, e, f) ft_printf(FORMAT, STDERR, l, p, e, f)
+# define PRINT_SIG_ERR(lvl, pid, err, file) PRINT_S(lvl, pid, err, file)
+# define ESIG	"Segmentation fault"
+# define EBUS	"Bus error"
+# define QUIT	"Quit"
+# define EABR	"Abort trap"
+# define FPOT	"Floating point exception"
 
 /*
 **STR_ERRORS

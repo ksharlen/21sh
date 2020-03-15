@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:48:39 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/08 20:03:46 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 19:56:36 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "sh_limits.h"
 # include "sh_struct.h"
 # include "internal_utilities.h"
+# include "input_error.h"
 
 /*
 ** exec function
