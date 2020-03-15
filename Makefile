@@ -111,7 +111,8 @@ SRC_EXEC					:=	check_choice.c\
 									run_cmd.c\
 									free_befor_exec.c\
 									exec_dup_stream.c\
-									signal_handler.c
+									signal_handler.c\
+									exec_next_list.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\

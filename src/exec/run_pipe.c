@@ -61,7 +61,7 @@ static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist,
 	else
 	{
 		write_name_run(execlist, list);
-		run_exec(execlist, buf_pipelist->pfd[0], list);
+		run_exec(buf_pipelist->pfd[0], list);
 	}
 }
 

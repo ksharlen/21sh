@@ -70,9 +70,8 @@ void		write_name_run(t_exec_lst execlist, t_pars_list *list)
 	error_run_exec(list);
 }
 
-void		run_exec(t_exec_lst execlist, int fd, t_pars_list *list)
+void		run_exec(int fd, t_pars_list *list)
 {
-	(void)execlist;	
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
 	cmd_check_var(list);

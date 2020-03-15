@@ -38,7 +38,7 @@ int						create_file(t_red_stream *stream_list);
 int						redirect_stream(t_red_stream *stream_list);
 int						dup_fd_and_close(int fd, int dup_fd);
 int						run_ampersant(t_exec_lst execlist, t_pars_list **list);
-void					run_exec(t_exec_lst execlist, int fd, t_pars_list *list);
+void					run_exec(int fd, t_pars_list *list);
 void					run_pipe(t_exec_lst execlist, t_pipe_list **pipelist, t_pars_list **list);
 int						new_or_open_file(char *file_name, int flag_open);
 t_pars_list				*free_pars_list(t_pars_list **list);
@@ -51,6 +51,7 @@ void					close_and_open_std(t_red_stream *stream_list);
 int						write_this_dir(t_pars_list *list);
 void 					free_befor_exec(t_info_parser *prs);
 int                     exec_dup_stream(int oldfd, int newfd);
+void					exec_next_list(int status, t_pars_list **list);
 
 /*
 ** comands

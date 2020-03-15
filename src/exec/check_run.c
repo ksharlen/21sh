@@ -17,10 +17,10 @@ void		ignore_signals(int sig)
 	(void)sig;
 }
 
-static void	cod_child(t_exec_lst execlist, t_pars_list **list)
+static void	cod_child(t_pars_list **list)
 {
 	if (!stream_and_file(*list))
-		run_exec(execlist, -1, (*list));
+		run_exec(-1, (*list));
 	else
 		exit(1);
 }
@@ -38,9 +38,9 @@ static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 	{
 		write_name_run(execlist, *list);
 		sh21_signals(ignore_signals);
-		cod_child(execlist, list);
+		cod_child(list);
 	}
-	else if(wait(&stat_child) == EXEC_ERROR_NUM)
+	else if (wait(&stat_child) == EXEC_ERROR_NUM)
 		ft_err_exit(E_WAIT, P_N);
 	status_child(stat_child, pid, (*list)->name_run_func);
 	(*list)->status = stat_child;

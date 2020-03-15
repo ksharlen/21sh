@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "exec.h"
-// открывает нужный поток
+
 static void	open_std(t_red_stream *buflist, int find_std)
 {
 	int open_fd;
@@ -21,7 +21,7 @@ static void	open_std(t_red_stream *buflist, int find_std)
 	dup2(buflist->save_std, open_fd);
 	close(buflist->save_std);
 }
-// ищет нужный поток
+
 static void	check_std(t_red_stream *stream_list, int find_std)
 {
 	t_red_stream *buflist;
@@ -45,7 +45,7 @@ static void	find_close_std(t_red_stream *stream_list)
 	check_std(stream_list, STDOUT_FILENO);
 	check_std(stream_list, STDERR_FILENO);
 }
-// закрывает открытые дескрипторы
+
 static void	close_jobs_fd(t_red_stream *stream_list)
 {
 	t_red_stream *buflist;
