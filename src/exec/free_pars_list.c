@@ -12,7 +12,7 @@
 
 #include "exec.h"
 
-void		free_stream_list(t_red_stream *stream_list)
+void			free_stream_list(t_red_stream *stream_list)
 {
 	t_red_stream *buf_list;
 
@@ -24,7 +24,7 @@ void		free_stream_list(t_red_stream *stream_list)
 	}
 }
 
-void		free_args(t_pars_list *list)
+void			free_args(t_pars_list *list)
 {
 	size_t i;
 

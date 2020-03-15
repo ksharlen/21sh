@@ -71,17 +71,10 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 		list->status = sh21_echo(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("pwd", list->name_func))
 		list->status = sh21_pwd(argc, list->pars_args, NULL);
-<<<<<<< HEAD
 	else if (!ft_strcmp("setenv", list->name_func))
-		list->status = sh21_setenv(NULL, NULL, 0);
+		list->status = sh21_setenv(list->pars_args[1], list->pars_args[2], 0);
 	else if (!ft_strcmp("unsetenv", list->name_func))
-		list->status = sh21_unsetenv(NULL);
-=======
-	else if (!ft_strcmp("setenv", list->name_func))//TODO: need think
-		list->status = sh21_setenv(list->pars_args[1], list->pars_args[2], 0);	//////// замена
-	else if (!ft_strcmp("unsetenv", list->name_func))//TODO: this too
-		list->status = sh21_unsetenv(list->pars_args[1]);	//////// замена
->>>>>>> 43e5c78d19033a43c46c984cd5ffabb15bba040f
+		list->status = sh21_unsetenv(list->pars_args[1]);
 	else if (!ft_strcmp("exit", list->name_func))
 		exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))
