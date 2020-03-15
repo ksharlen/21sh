@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
+#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/10 22:20:51 by tjonella         ###   ########.fr        #
+#    Updated: 2020/03/15 20:05:22 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,8 @@ SRC_EXEC					:=	check_choice.c\
 									cmd_true.c\
 									run_cmd.c\
 									free_befor_exec.c\
-									exec_dup_stream.c
+									exec_dup_stream.c\
+									signal_handler.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\

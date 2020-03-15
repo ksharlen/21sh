@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 19:33:59 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:03:29 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct				s_term_var
 	char 					*tty_name;							// храниет адрес терминала //Раньше было path_name
 	int 					exec_status;						// хранит статус последней запущеной команды
 	pid_t					pid_last;							// хранит pid последней запущеной команды
+	int						ret_child;
 }							t_term_var;
 
 /*

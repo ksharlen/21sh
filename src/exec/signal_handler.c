@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 19:42:09 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 19:57:20 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:09:28 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static void		get_ret_child(const int stat_child)
 {
 	if (WIFEXITED(stat_child))
-		g_path.ret_child = WEXITSTATUS(stat_child);
+		g_term_lst.ret_child = WEXITSTATUS(stat_child);
 	else
-		g_path.ret_child = WIFSIGNALED(stat_child);
+		g_term_lst.ret_child = WIFSIGNALED(stat_child);
 }
 
 void			status_child(int stat_child,
-	pid_t pid_child, const char *path_cmd)
+	pid_t pid_child, char *path_cmd)
 {
 	char	*lvl_proccess;
 
@@ -44,15 +44,6 @@ void			status_child(int stat_child,
 		print_sig_error(lvl_proccess, pid_child, QUIT, path_cmd);
 	}
 	get_ret_child(stat_child);
-}
-
-void			handler_parrent(int sig)
-{
-	if (sig == SIGINT || sig == SIGQUIT)
-	{
-		ft_printf("\n");
-		minishell_greeting();
-	}
 }
 
 void			handler_child(int sig)

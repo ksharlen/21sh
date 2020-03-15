@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:48:39 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 19:56:36 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:10:06 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,13 @@ int						run_cmd(t_exec_lst execlist, t_pars_list *list);
 int						cmd_true(void);
 int						cmd_false(void);
 void 					cmd_check_var(t_pars_list *list);
+
+/*
+**signals
+*/
+void			status_child(int stat_child,
+	pid_t pid_child, char *path_cmd);
+void			handler_child(int sig);
+void			minishell_signals(void (*handler)(int));
 
 #endif
