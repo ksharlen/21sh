@@ -18,7 +18,7 @@ size_t				parser_get_len_arg(char *str, char *splitter)
 
 	len_arg = 0;
 	while (str != splitter && !ft_isspace(*str) &&
-		*str != '\'' && *str != '\"' && *str != '`' && *str != -1)	// добавил "*str != -1"
+		*str != '\'' && *str != '\"' && *str != '`' && *str != -1)
 	{
 		++len_arg;
 		++str;
@@ -52,7 +52,6 @@ size_t				parser_count_args(const char *str, char *splitter)
 			{
 				++qty_args;
 				str = parser_skip_quotes((char *)str, splitter);
-				// str = parser_skip_word(str, splitter);
 			}
 			else
 			{

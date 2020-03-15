@@ -33,7 +33,7 @@ static t_pars_list	*new_elem(void)
 	return (new);
 }
 
-void	parser_add_list(t_info_parser *prs)
+void				parser_add_list(t_info_parser *prs)
 {
 	t_pars_list	*new;
 

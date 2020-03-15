@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <parser.h> // 4
-/*** при парсинге имени файла ***/
-// добавляет из буфера имя файла в ёкземпляр листа
+#include <parser.h>
+
 static void	write_name_in_stream_list(char *buf, t_red_stream *stream_list)
 {
 	ft_strcpy(stream_list->stream_name, buf);
 	if (stream_list->next)
 		ft_strcpy(stream_list->next->stream_name, buf);
 }
-// записывает в буфер имя файла
-static char	*write_name_file_args(char *pos_stream, char *splitter, t_red_stream *stream_list)
+
+static char	*write_name_file_args(char *pos_stream, char *splitter,
+				t_red_stream *stream_list)
 {
 	char	buf[BUFSIZ];
 	size_t	i;
@@ -38,8 +38,7 @@ static char	*write_name_file_args(char *pos_stream, char *splitter, t_red_stream
 	write_name_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
-/*** при парсинге имени файла ***/
-// определяет положение указателя для начала парсинга аргументов после перенаправления // 4.2
+
 static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 {
 	while (pos_stream != splitter && (*pos_stream == '<' || *pos_stream == '>'))
@@ -56,12 +55,14 @@ static char	*find_pos_args_next_stream(char *pos_stream, char *splitter)
 	}
 	return (pos_stream);
 }
-// парсит после перенаправления // 4.1
-char		*write_next_stream(char *pos_stream, char *splitter, t_red_stream *stream_list)
+
+char		*write_next_stream(char *pos_stream, char *splitter,
+				t_red_stream *stream_list)
 {
 	pos_stream = find_pos_args_next_stream(pos_stream, splitter);
 	if (*pos_stream == '&')
-		pos_stream = write_amper_args_after_stream(pos_stream, splitter, stream_list);
+		pos_stream = write_amper_args_after_stream(
+					pos_stream, splitter, stream_list);
 	else if (pos_stream)
 		pos_stream = write_name_file_args(pos_stream, splitter, stream_list);
 	return (pos_stream);

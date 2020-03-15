@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <parser.h> // 2
+#include <parser.h>
 
-// записывает '-1' в заданном диапазоне // 2.5
 static void	write_minus_sym(char *start, char *end)
 {
 	while (start <= end)
@@ -22,8 +21,7 @@ static void	write_minus_sym(char *start, char *end)
 		++start;
 	}
 }
-/***два листа***/
-// парсид для двух листов то, что до перенаправления // 2.4
+
 static char	*write_two_prev(char *pos_stream, t_red_stream *stream_list)
 {
 	if (stream_list->flag_file > 0)
@@ -40,10 +38,9 @@ static char	*write_two_prev(char *pos_stream, t_red_stream *stream_list)
 		--pos_stream;
 	return (pos_stream);
 }
-/***два листа***/
 
-// парсит то, что до перенаправления // 2.3
-static char	*write_prev_to_stream(char *str, char *pos_stream, t_red_stream *stream_list)
+static char	*write_prev_to_stream(char *str, char *pos_stream,
+				t_red_stream *stream_list)
 {
 	if (stream_list->next)
 		str = write_two_prev(pos_stream, stream_list);
@@ -52,7 +49,6 @@ static char	*write_prev_to_stream(char *str, char *pos_stream, t_red_stream *str
 	return (str);
 }
 
-// находит первый знак перенаправления // 2.2
 static char	*find_pos_stream(char *str, char *splitter)
 {
 	while (str != splitter && !ft_isspace(*str))
@@ -64,8 +60,8 @@ static char	*find_pos_stream(char *str, char *splitter)
 	return (str);
 }
 
-// основной парсинг перенаправления // 2.1
-char *pars_stream_in_list(char *str, char *splitter, t_red_stream *stream_list)
+char		*pars_stream_in_list(char *str, char *splitter,
+				t_red_stream *stream_list)
 {
 	char	*pos_stream;
 	char	*start;

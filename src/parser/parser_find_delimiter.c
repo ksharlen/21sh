@@ -12,7 +12,7 @@
 
 #include "parser.h"
 
-int		parse_not_srvc_symb(char *c)
+int			parse_not_srvc_symb(char *c)
 {
 	if (*c == '&' && *(c + 1) == '&')
 		return (0);

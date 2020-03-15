@@ -19,7 +19,7 @@ static char	*push_args(char **str, char *splitter)
 
 	arg = NULL;
 	if (**str == '\'' || **str == '\"' || **str == '`')
-		arg = parser_quote_arg(str, splitter);//TODO: quote
+		arg = parser_quote_arg(str, splitter);
 	else
 	{
 		len_arg = parser_get_len_arg(*str, splitter);
@@ -31,7 +31,7 @@ static char	*push_args(char **str, char *splitter)
 	return (arg);
 }
 
-char	**parser_fill_args(char *start_str, char *splitter, size_t qty_args)
+char		**parser_fill_args(char *start_str, char *splitter, size_t qty_args)
 {
 	char	*str;
 	char	**args;
@@ -40,7 +40,7 @@ char	**parser_fill_args(char *start_str, char *splitter, size_t qty_args)
 	str = start_str;
 	i = 0;
 	str = ft_skiptabs(str);
-	args = (char **)ft_memalloc(sizeof(char *) * (qty_args + 1));// TODO: +1 for NULL
+	args = (char **)ft_memalloc(sizeof(char *) * (qty_args + 1));
 	ft_chk_null_ptr(args, E_MALLOC);
 	while (str && str != splitter && i < qty_args)
 	{

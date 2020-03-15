@@ -12,12 +12,12 @@
 
 #include "parser.h"
 
-static t_red_stream		*create_newlist(void)
+static t_red_stream	*create_newlist(void)
 {
 	t_red_stream	*newlist;
 
 	if (!(newlist = (t_red_stream *)malloc(sizeof(t_red_stream))))
-		exit(222); ////////////////////////////////// завершение
+		exit(222);
 	newlist->stream_a = -1;
 	newlist->stream_in = -1;
 	newlist->stream_name[0] = '\0';
@@ -31,7 +31,8 @@ static t_red_stream		*create_newlist(void)
 	return (newlist);
 }
 
-static void				add_newlist(t_red_stream **stream_list, t_red_stream **newlist)
+static void			add_newlist(t_red_stream **stream_list,
+						t_red_stream **newlist)
 {
 	t_red_stream	*buflist;
 
@@ -41,10 +42,9 @@ static void				add_newlist(t_red_stream **stream_list, t_red_stream **newlist)
 	buflist->next = (*newlist);
 	(*stream_list)->end = (*newlist);
 	(*newlist)->prev = buflist;
-
 }
 
-t_red_stream			*pars_add_lst_stream(t_red_stream **stream_list)
+t_red_stream		*pars_add_lst_stream(t_red_stream **stream_list)
 {
 	t_red_stream	*newlist;
 
@@ -56,5 +56,5 @@ t_red_stream			*pars_add_lst_stream(t_red_stream **stream_list)
 		return (*stream_list);
 	}
 	add_newlist(stream_list, &newlist);
-	return(*stream_list);
+	return (*stream_list);
 }

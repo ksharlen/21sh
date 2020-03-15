@@ -36,18 +36,7 @@ void	clean_env(void)
 void	init_env(char **env)
 {
 	if (env && *env)
-	{
 		g_sh_environ = ft_linedup(env);
-		// char **p_env = g_sh_environ;
-		// while (*p_env)
-		// {
-		// 	printf("%s\n", *p_env);
-		// 	++p_env;
-		// }
-		// exit(EXIT_FAILURE);
-		// printf("here\n");
-		// exit(EXIT_FAILURE);
-	}
 	else
 	{
 		g_sh_environ = (char **)ft_memalloc(sizeof(char *) * 1);

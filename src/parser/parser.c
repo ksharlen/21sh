@@ -19,9 +19,9 @@ static char		*skip_args(char *str, char *splitter)
 	return (str);
 }
 
-static int 		check_str(const char *str, char *splitter)
+static int		check_str(const char *str, char *splitter)
 {
-	size_t 	qty_sym;
+	size_t	qty_sym;
 
 	qty_sym = 0;
 	str = ft_skiptabs(str);
@@ -33,10 +33,10 @@ static int 		check_str(const char *str, char *splitter)
 	return (qty_sym ? TRUE : FALSE);
 }
 
-static int	fill_struct(char *str_start, t_info_parser *prs, char *splitter)
+static int		fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 {
 	size_t	qty_args;
-	char 	*str;
+	char	*str;
 	char	*check_pos;
 
 	str = str_start;
@@ -45,45 +45,42 @@ static int	fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 		str = ft_skiptabs(str);
 		str = parser_skipminus(str);
 		check_pos = str;
-		if (!(str = pars_find_stream(str, splitter, prs->end)))	// поиск и заполнение перенаправлений + заполняет всё лишнее '-1'
+		if (!(str = pars_find_stream(str, splitter, prs->end)))
 			return (1);
 		str = parser_skip_quotes(str, splitter);
 		if (check_pos == str)
 			str = skip_args(str, splitter);
 	}
-	qty_args = parser_count_args(str_start, splitter); //*счетчик работает для пустой строки, он считает разделитель
-	prs->end->pars_args = parser_fill_args(str_start, splitter, qty_args); // qty_args + 1 для NULL
+	qty_args = parser_count_args(str_start, splitter);
+	prs->end->pars_args = parser_fill_args(str_start, splitter, qty_args);
 	return (0);
 }
 
 static int		parse_str(char **str_for_parse, t_info_parser *prs)
 {
-	char		*splitter;
-	char 		*str;
+	char	*splitter;
+	char	*str;
 
 	str = pars_insert_tilda(str_for_parse);
 	while (str && *str)
 	{
-//*	Посмотреть исключительные случаи разделителя
-		splitter = find_delimiter(str);			// находим разделитель команд или конец строки
+		splitter = find_delimiter(str);
 		str = parser_skip_quotes(str, splitter);
 		if ((check_str(str, splitter)) == TRUE)
-			parser_add_list(prs);// создаём новый экземпляр листа и возвращаем на него указатель
+			parser_add_list(prs);
 		else
 		{
 			str = (*splitter) ? ++splitter : splitter;
 			continue;
 		}
-	if (fill_struct(str, prs, splitter))
-		return (1);
-	str = skip_splitter(splitter, &prs->end->f_delimiter);//Тут флаг разделителя и пропуск splitter
-//*			need validation
+		if (fill_struct(str, prs, splitter))
+			return (1);
+		str = skip_splitter(splitter, &prs->end->f_delimiter);
 	}
 	return ((str) ? 0 : 1);
 }
 
-
-int		parser(char **str_for_parse, t_info_parser *prs)
+int				parser(char **str_for_parse, t_info_parser *prs)
 {
 	if (parse_str(str_for_parse, prs))
 		return (1);

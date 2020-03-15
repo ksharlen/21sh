@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <parser.h> // 3
+#include <parser.h>
 
 static void	write_nbr_prev_stream_in_list(t_red_stream *stream_list, int std_fd)
 {
@@ -20,7 +20,8 @@ static void	write_nbr_prev_stream_in_list(t_red_stream *stream_list, int std_fd)
 		stream_list->stream_in = std_fd;
 }
 
-static void	write_nbr_fd_prev_stream(char *str, char *pos_stream, t_red_stream *stream_list)
+static void	write_nbr_fd_prev_stream(char *str, char *pos_stream,
+				t_red_stream *stream_list)
 {
 	char	buf[BUFSIZ];
 	size_t	i;
@@ -36,7 +37,6 @@ static void	write_nbr_fd_prev_stream(char *str, char *pos_stream, t_red_stream *
 	write_nbr_prev_stream_in_list(stream_list, ft_atoi(buf));
 }
 
-// если старт строки совпадает с перенаправлением // 3.2
 static char	*write_point_one_in_str(char *str, t_red_stream *stream_list)
 {
 	if (stream_list->flag_file > 0)
@@ -46,7 +46,6 @@ static char	*write_point_one_in_str(char *str, t_red_stream *stream_list)
 	return (str);
 }
 
-// парсит для одного листа то, что до перенаправления // 3.1
 char		*write_prev(char *str, char *pos_stream, t_red_stream *stream_list)
 {
 	char *save_point;

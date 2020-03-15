@@ -50,7 +50,6 @@ static int		get_opt(int argc, char **opts, t_env *env)
 int				sh21_env(int argc, char **argv, char **env)
 {
 	t_env			m_env;
-	// size_t			l_opt;
 	enum e_err		err;
 
 	(void)env;
@@ -60,7 +59,6 @@ int				sh21_env(int argc, char **argv, char **env)
 		ft_print_lines(g_sh_environ);
 	else
 	{
-		// l_opt = len_opt(argv);
 		err = get_opt(argc, argv, &m_env);
 		if (err == SUCCESS)
 		{

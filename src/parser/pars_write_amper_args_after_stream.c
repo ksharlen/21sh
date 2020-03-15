@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <parser.h> // 5
+#include <parser.h>
 
-/*** если был встречен & ***/
-// запись из буфера результата в экземпляр листа
 static void	write_res_buf_in_stream_list(char *buf, t_red_stream *stream_list)
 {
 	if (stream_list->flag_file > 0)
@@ -29,8 +27,9 @@ static void	write_res_buf_in_stream_list(char *buf, t_red_stream *stream_list)
 			stream_list->next->stream_a = stream_list->stream_a;
 	}
 }
-// запись значения до пробела или до spletter
-static char	*write_nbr_args(char *pos_stream, char *splitter, t_red_stream *stream_list)
+
+static char	*write_nbr_args(char *pos_stream, char *splitter,
+				t_red_stream *stream_list)
 {
 	char	buf[BUFSIZ];
 	size_t	i;
@@ -48,8 +47,9 @@ static char	*write_nbr_args(char *pos_stream, char *splitter, t_red_stream *stre
 	write_res_buf_in_stream_list(buf, stream_list);
 	return (pos_stream);
 }
-// если встречается & после перенаправления
-char		*write_amper_args_after_stream(char *pos_stream, char *splitter, t_red_stream *stream_list)
+
+char		*write_amper_args_after_stream(char *pos_stream, char *splitter,
+				t_red_stream *stream_list)
 {
 	++pos_stream;
 	if (*pos_stream == '-')
@@ -59,8 +59,7 @@ char		*write_amper_args_after_stream(char *pos_stream, char *splitter, t_red_str
 			stream_list->next->flag_close = 1;
 		++pos_stream;
 	}
-	else // добавить проверку
+	else
 		pos_stream = write_nbr_args(pos_stream, splitter, stream_list);
 	return (pos_stream);
 }
-/*** если был встречен & ***/

@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "parser.h"
-// выводит ошибку символа в перенаправлении
-char	*put_error_parse(char *str, int fd)
+
+char		*put_error_parse(char *str, int fd)
 {
 	ft_putstr_fd("42sh: parse error near \'", fd);
 	if (str[0] != '\0')
@@ -23,17 +23,16 @@ char	*put_error_parse(char *str, int fd)
 	return (NULL);
 }
 
-// проверяет на валидность имени файла (должны отсутствовать системные символы) // 4.3
-int		check_valid_char_name(char sym)
+int			check_valid_char_name(char sym)
 {
-	if (sym == '&' || sym == '|' || sym == ';' || sym == '\0' || sym == '<' || sym == '>')
+	if (sym == '&' || sym == '|' || sym == ';' ||
+			sym == '\0' || sym == '<' || sym == '>')
 		return (1);
 	return (0);
 }
-// проеряет есть ли перенаправления // 1.3
+
 static int	check_stream(char *str, char *splitter)
 {
-
 	while (str != splitter && !ft_isspace(*str))
 	{
 		if (*str == '>' || *str == '<')
@@ -47,13 +46,13 @@ static int	check_stream(char *str, char *splitter)
 	}
 	return (0);
 }
-// создаёт новые листы // 1.2
+
 static void	add_lst_stream(t_red_stream **stream_list, int nbrlst)
 {
 	while (nbrlst--)
 		pars_add_lst_stream(stream_list);
 }
-// 1.1
+
 char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 {
 	int	nbrlst;
@@ -62,7 +61,8 @@ char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 	{
 		add_lst_stream(&list->stream_list, nbrlst);
 		if (nbrlst == 2)
-			str = pars_stream_in_list(str, splitter, list->stream_list->end->prev);
+			str = pars_stream_in_list(str, splitter,
+				list->stream_list->end->prev);
 		else
 			str = pars_stream_in_list(str, splitter, list->stream_list->end);
 	}

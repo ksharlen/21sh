@@ -40,13 +40,13 @@ char	*skip_splitter(char *splitter, unsigned int *flags_splt)
 	check_err = NULL;
 	if (splitter)
 	{
-		if (!*splitter)			// Если \0
+		if (!*splitter)
 			return (splitter);
-		else if (*(splitter + 1) == *splitter) // Если двойной оператор
+		else if (*(splitter + 1) == *splitter)
 		{
-			if (!parse_not_srvc_symb(splitter + 2)) // Если больше 2 символов - ошибка парсинга
+			if (!parse_not_srvc_symb(splitter + 2))
 				return (put_error_parse(splitter, 2));
-			else if (ft_isspace(*(splitter + 2))) // Пропускаем пробелы, ищем ошибку - сервисные символы, а не новые команды
+			else if (ft_isspace(*(splitter + 2)))
 			{
 				check_err = ft_skiptabs(splitter + 2);
 				if (!parse_not_srvc_symb(check_err))

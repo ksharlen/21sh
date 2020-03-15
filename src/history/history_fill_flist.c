@@ -45,11 +45,6 @@ t_history	*history_fill_history(t_history *hist, char *str)
 			ft_printf("%v%zd:", hist->fd, time(NULL));
 			qt_print_char = ft_printf("%v%s\n",
 				hist->fd, hist->h_list->prev->comand);
-			// if (len_str != qt_print_char - 1)
-			// {
-				// ft_printf("%vhistory_fill_history: file_write_error\n",
-					// STDERR_FILENO);
-			// }
 		}
 	}
 	hist->h_list = hist->end;

@@ -23,7 +23,7 @@
 # include "sh_limits.h"
 
 /*
-**ENUMS
+** ENUMS
 */
 enum						e_greet_mode
 {
@@ -57,7 +57,7 @@ enum						e_key
 };
 
 /*
-**INIT_STRUCT
+** INIT_STRUCT
 */
 struct						s_path
 {
@@ -83,13 +83,13 @@ struct						s_shell
 };
 
 /*
-**GLOBAL
+** GLOBAL
 */
 typedef struct				s_term_var
 {
-	char 					*tty_name;							// храниет адрес терминала //Раньше было path_name
-	int 					exec_status;						// хранит статус последней запущеной команды
-	pid_t					pid_last;							// хранит pid последней запущеной команды
+	char					*tty_name;
+	int						exec_status;
+	pid_t					pid_last;
 	int						ret_child;
 }							t_term_var;
 
@@ -101,29 +101,29 @@ typedef struct				s_red_stream
 	struct s_red_stream		*next;
 	struct s_red_stream		*prev;
 	struct s_red_stream		*end;
-	int						stream_a;						// какой поток будет перенаправлен или закрыт, при соответствующем флаге
-	int						stream_in;						// в какой поток будет перенаправлен
-	char					stream_name[BUFSIZ];			// в какой файл будет направлен поток
-	int						fd_file;						// дескриптор открытого файла (по умолчанию -1, будет заполнено в exec)
-	int						flag_file;						// флаг файла: ">" = "1", ">>" = "2", "<" = "-1" (по умолчанию 0)
-	int						flag_close;						// флаг о закрытии дескриптора (по умолчанию 0)
-	int 					save_std;						// запоминает дублированный дескриптор стандартного вывода (по умолчанию -1)
+	int						stream_a;
+	int						stream_in;
+	char					stream_name[BUFSIZ];
+	int						fd_file;
+	int						flag_file;
+	int						flag_close;
+	int						save_std;
 }							t_red_stream;
 
 typedef struct				s_pars_list
 {
-	t_red_stream			*stream_list;					// структура для перенаправления потоков
+	t_red_stream			*stream_list;
 	struct s_pars_list		*next;
 	struct s_pars_list		*prev;
 	pid_t					pid;
-	int						status;							// статус завершения вызванной программы (заполню)
-	unsigned int 			f_delimiter;					// флаг разделителей команд
+	int						status;
+	unsigned int			f_delimiter;
 	unsigned short			nbr_ampersant;
-	char					*name_func;						// имя запускаемой программы
-	char					name_run_func[BUFSIZ];			// имя запускаемой программы с путём запуска
-	char					**pars_args;					// разбитые аргументы строки
-	char					**str_status;					// строки в которых нужно вставить статус
-	char 					**str_lastpid;
+	char					*name_func;
+	char					name_run_func[BUFSIZ];
+	char					**pars_args;
+	char					**str_status;
+	char					**str_lastpid;
 }							t_pars_list;
 
 /*
@@ -136,7 +136,7 @@ typedef struct				s_exec_lst
 
 typedef struct				s_pipe_list
 {
-	int 					pfd[2];
+	int						pfd[2];
 	struct s_pipe_list		*next;
 	struct s_pipe_list		*prev;
 }							t_pipe_list;

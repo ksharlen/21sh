@@ -23,7 +23,7 @@
 # define SH21_MAX_ARG	1024
 
 /*
-**GREETING
+** GREETING
 */
 # define SIZE_TIME		8
 # define SIZE_NAME		SH21_MAX_NAME
@@ -35,19 +35,19 @@
 # define COLOR_DIR		"\e[36;1m"
 # define COLOR_YELLOW	"\e[33;1m"
 
-# define F_SEMICOLON	1		// флаг ";"
-# define F_AND			2		// флаг "&&"
-# define F_OR			4		// флаг "||"
-# define F_AMPERSANT	8		// флаг "&"
-# define F_PIPE			16		// флаг "|"
-# define V_STATUS		32		// фдаг $?
-# define V_LASTPID		64		// флаг $$
-# define V_WRITE_VAR	128		// флаг того, что нужно заполнять переменные
+# define F_SEMICOLON	1
+# define F_AND			2
+# define F_OR			4
+# define F_AMPERSANT	8
+# define F_PIPE			16
+# define V_STATUS		32
+# define V_LASTPID		64
+# define V_WRITE_VAR	128
 
 # define EXEC_ERROR_NUM 254
 
 /*
-**FOR SIGNALS
+** FOR SIGNALS
 */
 # define SHLVL "SHLVL"
 # define FORMAT "%v[%s]    %d %s  %s\n"
@@ -60,12 +60,12 @@
 # define FPOT	"Floating point exception"
 
 /*
-**STR_ERRORS
+** STR_ERRORS
 */
 # define DELIM_ERR	"parse error near"
 
 /*
-**TMP
+** TMP
 */
 # define P_UNUSED(val) (void)(val)
 

@@ -21,7 +21,6 @@ int		main(int argc, char **argv, char **env)
 	(void)(argc);
 	(void)(argv);
 	(void)(env);
-
 	sh21_init(&init, env);
 	while (1)
 	{
@@ -39,65 +38,4 @@ int		main(int argc, char **argv, char **env)
 	return (0);
 }
 
-/*** not to do ***/
-// (-) "$> cat -e << EOF >> /tmp/test.txt"
-// (-) quote с кавычками должен делать перенос строк, где требуется
-// (-) Ctrl+T при последовательности действий: нажатие->стирание->нажатие - падает шелл (удалили)
-
-/*** complete ***/
-// (+) добавить '\n' в echo
-// (+) "$> ls;;" - ломает шелл
-// (+) "$> ls ; exit " - не завершается шелл
-// (+) cd не работает
-// (+) не заполнен интерфейс execlist.exec_envlist.path
-// (+) не работают перенаправления потоков
-// (+) exit - не возвращает число завершения
-// (+) env go-go-go
-// (+) " ~ " - не подставляет домашнюю директорию
-// (+) исправлена записи аргументов после которых есть "-1"
-// (+) Redirections // $>wc -c < namefile // 42sh: -1: invalid descriptor
-
-/*** need to do ***/
-//* (-) Ctrl+C или Ctrl+D при работающих командах, например "ls -lR /", - не работают
-//* (-) "$> cat " - не работет обработка сигналов
-//* (-) - Run the command "$> cat" then press ctrl+C.
-//		  The shell must kill cat's proccess and give back the prompt.
-// (-) при вставке строки содержащей символ "\n" появляется БАГ
-// (-) setenv
-// (-) unsetenv
-// (-) выводится history_fill_history: file_write_error
-
-// (-) из чеклиста
-// Environment management
-// PATH management
-// Signal
-// ctrl+D and ctrl+C
-// A lil bit of everything // heredoc
-// Redirections // heredoc
-
-// (?) из чеклиста
-// Quotes management
-
-
-
-/*** for tests ***/
-
-// int		main(int argc, char **argv, char **env)
-// {
-// 	t_init			init;
-
-// 	(void)(argc);
-// 	(void)(argv);
-// 	(void)(env);
-// 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("ls -lR /");
-// 	if (!parser(&(init.inp.str_for_parse), &init.prs))
-// 		check_choice(init.execlist, init.prs.beg);
-// 	free_befor_exec(&init.prs);
-// 	input_finish(&init.inp);
-// 	return (0);
-// }
-
-// результаты проверки по чеклисту
-// (+)		(-)		(?)
-// 9		6		1
+// (-) "$> ls 1>&-" - ломается шелл (предположительно, в парсинге )

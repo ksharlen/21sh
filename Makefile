@@ -12,7 +12,6 @@
 
 NAME						:=	test
 
-#!SRCS
 SRC_MAIN					:=	main.c
 
 SRC_INIT					:=	init.c\
@@ -56,7 +55,6 @@ SRC_IU						:=	iu_cd_home_dir.c\
 									iu_setenv.c\
 									iu_unsetenv.c\
 									iu_init_var_env.c\
-									env_tools.c\
 									operation_env.c\
 									sh21_env.c\
 									work_env.c\
@@ -138,7 +136,7 @@ DIRS_INPUT					:=	$(DIR_INPUT)\
 DIR_IU						:=	$(DIR_SRC)internal_utilities/
 
 DIR_ENV						:=	$(DIR_IU)iu_env/
-#env_dirs
+
 DIR_HIST					:=	$(DIR_SRC)history/
 DIR_PARSER					:=	$(DIR_SRC)parser/
 
@@ -156,7 +154,7 @@ DIRS_SRC					:=	$(DIR_SRC)\
 									$(DIR_PARSER)\
 									$(DIRS_EXEC)\
 
-#!HEADERS
+
 MAIN_HEADERS				:=	sh.h\
 									history.h\
 									internal_utilities.h\
@@ -189,19 +187,19 @@ DIRS_INCLUDE				:=	$(DIR_INCLUDE)\
 									$(DIR_INCLUDE_INPUT)\
 									$(DIR_INCLUDE_PARSER)
 
-#!LIBFT
+
 LIBFT						:=	libft.a
 DIR_LIBFT					:=	./lib/libft/
 DIR_LIBFT_INCLUDE			:=	$(DIR_LIBFT)include/
 
-#!OTHER
+
 CFLAGS						:=	-g -Wall -Wextra -Werror
 DIR_OBJ						:=	./obj/
 OBJS_WITH_PATH				:=	$(addprefix $(DIR_OBJ), $(OBJS))
 PATH_HEADERS				:=	$(addprefix -I , $(DIRS_INCLUDE) $(DIR_LIBFT_INCLUDE))
 PATH_LIBFT					:=	$(addprefix $(DIR_LIBFT), $(LIBFT))
 
-#!ACTION
+
 REMOVE						:=	rm -rf
 MAKE_LIBFT					:=	make -C $(DIR_LIBFT)
 MAKE_CLEAN_LIBFT			:=	make -C $(DIR_LIBFT) clean
