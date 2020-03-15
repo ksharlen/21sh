@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 19:42:09 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 20:09:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:21:54 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			handler_child(int sig)
 		;
 }
 
-void			minishell_signals(void (*handler)(int))
+void			sh21_signals(void (*handler)(int))
 {
 	signal(SIGINT, handler);
 	signal(SIGQUIT, handler);

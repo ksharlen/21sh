@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   check_run.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:41:46 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/08 20:03:01 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:42:05 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
+
+void		ignore_signals(int sig)
+{
+	(void)sig;
+}
 
 static void	cod_child(t_exec_lst execlist, t_pars_list **list)
 {
@@ -22,13 +27,22 @@ static void	cod_child(t_exec_lst execlist, t_pars_list **list)
 
 static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 {
-	pid_t pid;
+	pid_t	pid;
+	int		stat_child;
 
+	sh21_signals(ignore_signals);
+	write_name_run(execlist, *list);
 	if ((pid = fork()) < 0)
 		error_system(EXEC_ERROR_NUM);
 	if (!pid)
+	{
+		sh21_signals(ignore_signals);
 		cod_child(execlist, list);
-	waitpid(pid, &(*list)->status, WUNTRACED);
+	}
+	else if(wait(&stat_child) == EXEC_ERROR_NUM)
+		ft_err_exit(E_WAIT, P_N);
+	status_child(stat_child, pid, (*list)->name_run_func);
+	(*list)->status = stat_child;
 	g_term_lst.pid_last = pid;
 	error_system((*list)->status);
 	g_term_lst.exec_status = (*list)->status;

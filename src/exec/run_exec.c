@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:42:49 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 20:11:02 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:27:25 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	find_name_path(char *name_path, size_t *i, t_pars_list *list)
 	ft_strcat(list->name_run_func, list->name_func);
 }
 
-static void	write_name_run(t_exec_lst execlist, t_pars_list *list)
+void		write_name_run(t_exec_lst execlist, t_pars_list *list)
 {
 	size_t	i;
 
@@ -74,7 +74,7 @@ void		run_exec(t_exec_lst execlist, int fd, t_pars_list *list)
 {
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
-	write_name_run(execlist, list);
+	// write_name_run(execlist, list);
 	cmd_check_var(list);
 	if (execve(list->name_run_func, list->pars_args, g_sh_environ))
 		error_run_exec(list);
