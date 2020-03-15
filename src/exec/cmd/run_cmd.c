@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:56:21 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/08 23:29:32 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 19:29:22 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ static char **skip_env_argv(char **pars_list, int *argc)
 
 static void	exec_env(t_exec_lst execlist, t_pars_list *list)
 {
-	//list->pars_args //подвинуть... поменять namefunc
-	//list->name_func = list->pars_args[0];
 	char	**cpy_environ_src;
 	int		argc;
 
@@ -50,25 +48,14 @@ static void	exec_env(t_exec_lst execlist, t_pars_list *list)
 	cpy_environ_src = g_sh_environ;
 	sh21_env(argc, list->pars_args, NULL);//
 	list->pars_args = skip_env_argv(list->pars_args, &argc);
-// printf("argc: %zd\n", argc);
-// exit(EXIT_FAILURE);
-// printf("argc: %zd\n", argc);
-// ft_print_lines(list->pars_args);
-// exit(EXIT_FAILURE);
-	//
-	// check_run(execlist, &list);
 	if (argc > 0)
 	{
 		list->name_func = list->pars_args[0];
-		// check_choice(execlist, list);
 		check_run(execlist, &list);
 	}
-	//free(g_sh_environ);
 	g_sh_environ = cpy_environ_src;
-	//delete env_form_cmd
 }
 
-// поиск и запуск необходимой внутренней команды
 static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 {
 	int		argc;
@@ -85,9 +72,9 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 	else if (!ft_strcmp("pwd", list->name_func))
 		list->status = sh21_pwd(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("setenv", list->name_func))//TODO: need think
-		list->status = sh21_setenv(NULL, NULL, 0);	//////// замена
+		list->status = sh21_setenv(list->pars_args[1], list->pars_args[2], 0);	//////// замена
 	else if (!ft_strcmp("unsetenv", list->name_func))//TODO: this too
-		list->status = sh21_unsetenv(NULL);	//////// замена
+		list->status = sh21_unsetenv(list->pars_args[1]);	//////// замена
 	else if (!ft_strcmp("exit", list->name_func))
 		exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))//TODO: need add

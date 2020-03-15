@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 23:48:30 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 19:22:12 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,6 @@ static void	get_curr_dir(char *curr_dir)
 		}
 	}
 }
-
-// static char		*get_curr_dir(char *curr_dir, const char *home_dir)
-// {
-// 	char	*p_str;
-
-// 	ft_bzero(curr_dir, SH21_MAX_PATH);
-// 	if (!ft_strcmp(home_dir, curr_dir))
-// 		return ("~/");
-// 	else if (*(curr_dir) && *(curr_dir + 1))
-// 	{
-// 		p_str = ft_strrchr(curr_dir, '/');
-// 		p_str++;
-// 	}
-// 	else
-// 		p_str = curr_dir;
-// 	return (p_str);
-// }
 
 static void	get_user(char *curr_user, const char *user)
 {
