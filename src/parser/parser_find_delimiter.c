@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:49:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/17 12:45:31 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/17 12:54:51 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ char		*find_delimiter(char *str)
 		ptr_2 = ptr;
 		parse_skip_spaces(ptr_2);
 		if (!parse_not_srvc_symb(ptr_2) && *ptr_2 != ';')
-			exit(0);
+		{
+			put_error_flags(ptr_2, 1);
+			return (NULL);
+		}
 		else if (*ptr_2 == ';')
 			return (ptr_2);
 	}
