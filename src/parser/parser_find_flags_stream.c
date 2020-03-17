@@ -6,13 +6,13 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:00:42 by tjonella          #+#    #+#             */
-/*   Updated: 2020/03/01 16:17:19 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/17 13:20:39 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-static int		put_error_flags(char *pos_stream, int sz)
+int				put_error_flags(char *pos_stream, int sz)
 {
 	*(pos_stream + sz) = '\0';
 	put_error_parse(pos_stream, sz);

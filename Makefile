@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
+#    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/15 20:44:45 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/03/17 13:17:02 by tjonella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME						:=	test
+NAME						:=	21sh
 
 SRC_MAIN					:=	main.c
 

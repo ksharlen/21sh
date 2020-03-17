@@ -6,7 +6,7 @@
 /*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 00:11:34 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/10 22:48:09 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/17 13:21:00 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ char			*write_next_stream(char *pos_stream, char *splitter,
 					t_red_stream *stream_list);
 char			*write_amper_args_after_stream(char *pos_stream, char *splitter,
 					t_red_stream *stream_list);
+int				put_error_flags(char *pos_stream, int sz);
 
 #endif
