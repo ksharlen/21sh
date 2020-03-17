@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 20:05:32 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/17 12:45:50 by tjonella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,19 @@ int		main(int argc, char **argv, char **env)
 }
 
 // (-) "$> ls 1>&-" - ломается шелл (предположительно, в парсинге )
+
+// int		main(int argc, char **argv, char **env)
+// {
+// 	t_init			init;
+
+// 	(void)(argc);
+// 	(void)(argv);
+// 	(void)(env);
+// 	sh21_init(&init, env);
+// 	init.inp.str_for_parse = "ls 1>&-";
+// 	if (!parser(&(init.inp.str_for_parse), &init.prs))
+// 		check_choice(init.execlist, init.prs.beg);
+// 	free_befor_exec(&init.prs);
+// 	input_finish(&init.inp);
+// 	return (0);
+// }
