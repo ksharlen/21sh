@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal_handler.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ra <ra@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 19:42:09 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 20:21:54 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/18 14:10:07 by ra               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void			handler_child(int sig)
 {
 	if (sig == SIGINT)
 		exit(EXIT_FAILURE);
-	else if (sig == SIGQUIT)
-		;
 }
 
 void			sh21_signals(void (*handler)(int))

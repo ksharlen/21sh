@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   history_fill_flist.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ra <ra@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:55:57 by dsandshr          #+#    #+#             */
-/*   Updated: 2020/03/15 19:39:45 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/18 14:09:03 by ra               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,13 @@ t_history	*history_add_new_elem(t_history *hist, char *str)
 
 t_history	*history_fill_history(t_history *hist, char *str)
 {
-	int len_str;
-	int qt_print_char;
-
 	if (str)
 	{
-		len_str = ft_strlen(str);
 		if (!hist->end->prev->comand || ft_strcmp(hist->end->prev->comand, str))
 		{
 			hist = history_add_new_elem(hist, str);
 			ft_printf("%v%zd:", hist->fd, time(NULL));
-			qt_print_char = ft_printf("%v%s\n",
-				hist->fd, hist->h_list->prev->comand);
+			ft_printf("%v%s\n", hist->fd, hist->h_list->prev->comand);
 		}
 	}
 	hist->h_list = hist->end;
