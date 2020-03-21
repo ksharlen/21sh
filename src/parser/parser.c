@@ -64,7 +64,8 @@ static int		parse_str(char **str_for_parse, t_info_parser *prs)
 	str = pars_insert_tilda(str_for_parse);
 	while (str && *str)
 	{
-		splitter = find_delimiter(str);
+		if (!(splitter = find_delimiter(str)))
+			return (1);
 		str = parser_skip_quotes(str, splitter);
 		if ((check_str(str, splitter)) == TRUE)
 			parser_add_list(prs);

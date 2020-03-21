@@ -28,9 +28,7 @@ static void	cod_child(t_pars_list **list)
 static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 {
 	pid_t	pid;
-	int		stat_child;
 
-	stat_child = 0;
 	sh21_signals(ignore_signals);
 	if ((pid = fork()) < 0)
 		error_system(EXEC_ERROR_NUM);
@@ -40,12 +38,12 @@ static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 		sh21_signals(ignore_signals);
 		cod_child(list);
 	}
-	else if (wait(&stat_child) == EXEC_ERROR_NUM)
-		ft_err_exit(E_WAIT, P_N);
-	status_child(stat_child, pid, (*list)->name_run_func);
-	(*list)->status = stat_child;
-	g_term_lst.pid_last = pid;
+//	else if (wait(&(*list)->status) == EXEC_ERROR_NUM)
+//		ft_err_exit(E_WAIT, P_N);
+	waitpid(pid, &(*list)->status, WUNTRACED);
 	error_system((*list)->status);
+	status_child((*list)->status, pid, (*list)->name_run_func);
+	g_term_lst.pid_last = pid;
 	g_term_lst.exec_status = (*list)->status;
 	return ((*list)->status);
 }
