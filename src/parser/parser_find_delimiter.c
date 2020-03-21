@@ -62,7 +62,7 @@ char		*find_delimiter(char *str)
 		ptr++;
 	}
 	if (*ptr == '&' && (ft_isspace(*(ptr + 1)) ||
-		(ptr != str && (*(ptr - 1) == '>' || *(ptr - 1) == '>'))))
+		(ptr != str && (*(ptr - 1) == '>' || *(ptr - 1) == '<'))))
 	{
 		ptr_2 = ptr;
 		parse_skip_spaces(ptr_2);
