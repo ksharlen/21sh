@@ -82,7 +82,9 @@ SRC_PARSER					:=	parser.c\
 									pars_stream_in_lis.c\
 									parse_write_prev.c\
 									pars_write_next_stream.c\
-									pars_write_amper_args_after_stream.c
+									pars_write_amper_args_after_stream.c\
+									parser_find_ampersand.c\
+									parser_check_ampersand.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\

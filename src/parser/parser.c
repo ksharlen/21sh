@@ -44,13 +44,17 @@ static int		fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	{
 		str = ft_skiptabs(str);
 		str = parser_skipminus(str);
+		if (str == splitter)
+			break ;
 		check_pos = str;
+		str = parser_find_ampersand(str, prs->end);
 		if (!(str = pars_find_stream(str, splitter, prs->end)))
 			return (1);
 		str = parser_skip_quotes(str, splitter);
 		if (check_pos == str)
 			str = skip_args(str, splitter);
 	}
+	parser_check_ampersand(splitter, prs->end);
 	qty_args = parser_count_args(str_start, splitter);
 	prs->end->pars_args = parser_fill_args(str_start, splitter, qty_args);
 	return (0);
