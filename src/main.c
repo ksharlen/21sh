@@ -41,6 +41,9 @@ int		main(int argc, char **argv, char **env)
 //* (+) "$> ls 1>&-" - ломается шелл (предположительно, в парсинге)
 //* (+) "$> ls & pwd" - падает шелл в функции find_delimiter строка 69
 
+//* (-) "$> ls & && pwd" "$> ls & || pwd" "$> ls &| pwd" -работают
+//		если первые варианты ещё допустимы, то третий вариант нет.
+
 // int		main(int argc, char **argv, char **env)
 // {
 // 	t_init			init;
