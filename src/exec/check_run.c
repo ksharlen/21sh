@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_run.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:41:46 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 21:04:40 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/15 21:04:40 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static int	run_fork(t_exec_lst execlist, t_pars_list **list)
 		sh21_signals(ignore_signals);
 		cod_child(list);
 	}
-//	else if (wait(&(*list)->status) == EXEC_ERROR_NUM)
-//		ft_err_exit(E_WAIT, P_N);
 	waitpid(pid, &(*list)->status, WUNTRACED);
 	error_system((*list)->status);
 	status_child((*list)->status, pid, (*list)->name_run_func);

@@ -23,13 +23,18 @@ int			parser_get_nbr_ampersand(t_pars_list *list)
 	return (1);
 }
 
+void		write_flag_and_nbr_ampersand(t_pars_list *list)
+{
+	list->f_delimiter |= F_AMPERSANT;
+	list->nbr_ampersant = parser_get_nbr_ampersand(list);
+}
+
 char		*parser_find_ampersand(char *str, t_pars_list *list)
 {
 	if (*str != '&' ||
 		(*str == '&' && (*(str + 1) == '>' || *(str + 1) == '<')))
 		return (str);
-	list->f_delimiter |= F_AMPERSANT;
-	list->nbr_ampersant = parser_get_nbr_ampersand(list);
+	write_flag_and_nbr_ampersand(list);
 	*str = -1;
 	return (++str);
 }

@@ -12,12 +12,12 @@
 
 #include "exec.h"
 
-static void	put_nbr_ampersant(char *str_nbr_ampersant)
+static void	put_nbr_ampersant(char *str_nbr_ampersant, pid_t pid)
 {
 	ft_putstr("\n[");
 	ft_putstr(str_nbr_ampersant);
 	ft_putstr("]\t");
-	ft_putstr(ft_itoa(getpid()));
+	ft_putstr(ft_itoa(pid));
 	ft_putchar('\n');
 }
 
@@ -63,8 +63,9 @@ int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
 	{
 		if (!(pid = fork()))
 		{
+			g_term_lst.pid_last = pid;
 			ft_strcat(str_nbr_ampersant, ft_itoa((*list)->nbr_ampersant));
-			put_nbr_ampersant(str_nbr_ampersant);
+			put_nbr_ampersant(str_nbr_ampersant, pid);
 			check_run(execlist, list);
 			waitpid(pid, 0, WUNTRACED);
 			put_end_ampersant(buf_list, str_nbr_ampersant);
@@ -73,6 +74,7 @@ int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
 		exit(0);
 	}
 	waitpid(pid, &(*list)->status, WUNTRACED);
+	g_term_lst.exec_status = 0;
 	error_system((*list)->status);
 	return (0);
 }

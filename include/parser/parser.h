@@ -57,5 +57,6 @@ int				put_error_flags(char *pos_stream, int sz);
 char			*parser_find_ampersand(char *str, t_pars_list *list);
 int				parser_get_nbr_ampersand(t_pars_list *list);
 void			parser_check_ampersand(char *splitter, t_pars_list *list);
+void			write_flag_and_nbr_ampersand(t_pars_list *list);
 
 #endif
