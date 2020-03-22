@@ -39,8 +39,7 @@ int		main(int argc, char **argv, char **env)
 }
 
 //* (+) "$> ls 1>&-" - ломается шелл (предположительно, в парсинге)
-
-//* (-) "$> ls & pwd" - падает шелл в функции find_delimiter строка 69
+//* (+) "$> ls & pwd" - падает шелл в функции find_delimiter строка 69
 
 // int		main(int argc, char **argv, char **env)
 // {

@@ -62,7 +62,8 @@ static void	status_ok(t_pars_list **list)
 	{
 		buf_list = (*list);
 		if ((buf_list->f_delimiter & F_SEMICOLON) ||
-				(buf_list->f_delimiter & F_AND))
+				(buf_list->f_delimiter & F_AND) ||
+				(buf_list->f_delimiter & F_AMPERSANT))
 		{
 			(*list) = (*list)->next;
 			break ;
