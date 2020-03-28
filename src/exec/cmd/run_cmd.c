@@ -72,7 +72,7 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 	else if (!ft_strcmp("pwd", list->name_func))
 		list->status = sh21_pwd(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("setenv", list->name_func))
-		list->status = sh21_setenv(list->pars_args[1], list->pars_args[2], 0);
+		list->status = sh21_setenv(list->pars_args[1], list->pars_args[2], 1);
 	else if (!ft_strcmp("unsetenv", list->name_func))
 		list->status = sh21_unsetenv(list->pars_args[1]);
 	else if (!ft_strcmp("exit", list->name_func))
