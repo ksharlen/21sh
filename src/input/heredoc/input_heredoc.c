@@ -33,7 +33,9 @@ char	*input_heredoc(char *delimeter)
 {
 	char			*line;
 	char			buf[SH21_MAX_ARG];
+	struct termios	cpy;
 
+	entry_not_canon(&cpy);
 	ft_bzero(buf, SH21_MAX_ARG);
 	while (1)
 	{
@@ -45,5 +47,6 @@ char	*input_heredoc(char *delimeter)
 		}
 		ft_strcat(buf, line);
 	}
+	entry_canon(&cpy);
 	return (ft_strdup(buf));
 }
