@@ -3,16 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/20 19:18:40 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/03/29 16:33:13 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
 t_term_var	g_term_lst;
+
+static void sh21_finish()
+{
+	ft_strdel_split(g_sh_environ);
+}
 
 int		main(int argc, char **argv, char **env)
 {
@@ -35,6 +40,7 @@ int		main(int argc, char **argv, char **env)
 		free_befor_exec(&init.prs);
 	}
 	input_finish(&init.inp);
+	sh21_finish();
 	return (0);
 }
 

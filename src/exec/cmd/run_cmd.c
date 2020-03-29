@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:56:21 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/29 16:30:08 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 16:39:19 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ static char	**skip_env_args(char **parse_list, int *argc)
 		++parse_list;
 		--(*argc);
 	}
-	// exit(EXIT_FAILURE);
 	new_args = ft_linedup(parse_list);
 	ft_strdel_split(cpy_prs);
+	free(cpy_prs);
 	return (new_args);
 }
 
@@ -77,6 +77,7 @@ static char	**skip_env_flags(char **pars_list, int *argc)
 	}
 	new_args = ft_linedup(pars_list);
 	ft_strdel_split(cpy_prs);
+	free(cpy_prs);
 	*argc -= skip_args;
 	return (new_args);
 }
@@ -95,11 +96,14 @@ static void	exec_env(t_exec_lst execlist, t_pars_list *list)
 	{
 		list->name_func = list->pars_args[0];
 		check_run(execlist, &list);
+		ft_strdel_split(g_sh_environ);
+		free(g_sh_environ);
 		g_sh_environ = ft_linedup(cpy_environ_src);
 	}
 	else
 		print_env();
 	ft_strdel_split(cpy_environ_src);
+	free(cpy_environ_src);
 }
 
 static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
