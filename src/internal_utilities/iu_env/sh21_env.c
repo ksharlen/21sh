@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 15:16:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 22:50:16 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 16:43:37 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,11 @@ int				sh21_env(int argc, char **argv, char **env)
 	(void)env;
 	err = FAILURE;
 	env_init(&m_env);
-	if (argc == 1)
-		ft_print_lines(g_sh_environ);
-	else
+	err = get_opt(argc, argv, &m_env);
+	if (err == SUCCESS)
 	{
-		err = get_opt(argc, argv, &m_env);
-		if (err == SUCCESS)
-		{
-			++argv;
-			work_opt(argv, &m_env);
-		}
+		++argv;
+		work_opt(argv, &m_env);
 	}
 	return (err);
 }
