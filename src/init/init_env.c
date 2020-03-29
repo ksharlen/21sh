@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 19:24:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 17:02:05 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,6 @@ static void	clean_garbage(struct s_start_env *env)
 	ft_bzero(env->path, SH21_MAX_PATH);
 	ft_bzero(env->home, SH21_MAX_PATH);
 	ft_bzero(env->user, SH21_MAX_PATH);
-}
-
-static void	get_path_env(char *path_env, const char *curr_dir)
-{
-	char	*path;
-
-	if (!(path = getenv("PATH")))
-	{
-		if (!(path = getenv("path")))
-		{
-			ft_strcpy(path_env, "/bin:/sbin:");
-			ft_strcat(path_env, curr_dir);
-		}
-	}
-	else
-		ft_strcpy(path_env, path);
 }
 
 static void	set_shlvl(char *shlvl)
@@ -83,8 +67,6 @@ void		sh21_init_start_env(struct s_start_env *env,
 	ft_strcpy(env->pwd, buf);
 	ft_strcpy(env->old_pwd, buf);
 	sh21_setenv("OLD_PWD", buf, FLAG_ON);
-	get_path_env(env->path, buf);
-	sh21_setenv("PATH", env->path, FLAG_OFF);
 	ft_strcpy(env->home, user->home_d);
 	sh21_setenv("HOME", env->home, FLAG_ON);
 }
