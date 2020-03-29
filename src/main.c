@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/29 16:33:13 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 19:36:33 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,36 @@ static void sh21_finish()
 int		main(int argc, char **argv, char **env)
 {
 	t_init			init;
+	char			*tmp;
 
 	(void)(argc);
 	(void)(argv);
 	(void)(env);
 	sh21_init(&init, env);
-	while (1)
-	{
-		input_begin(&init.inp);
-		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
-				(init.inp.str_for_parse &&
-				!ft_strcmp(init.inp.str_for_parse, "exit")))
-			break ;
-		else if (init.inp.str_for_parse)
-			if (!parser(&(init.inp.str_for_parse), &init.prs))
-				check_choice(init.execlist, init.prs.beg);
-		free_befor_exec(&init.prs);
-	}
+//! TEST_PART_BEGIN
+	tmp = input_heredoc("EOF");
+	write(STDOUT_FILENO, tmp, ft_strlen(tmp));
+//! TEST_PART_END
+
+//! MAIN_PART: need will uncomment after testing heredoc
+	// printf("here\n");
+	// printf("%p\n", tmp);
+	// ft_printf("%d", *tmp);
+	// printf("tmp: %s", tmp);
+	// printf("tmp: %s", tmp);
+	// while (1)
+	// {
+	// 	input_begin(&init.inp);
+	// 	if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
+	// 			(init.inp.str_for_parse &&
+	// 			!ft_strcmp(init.inp.str_for_parse, "exit")))
+	// 		break ;
+	// 	else if (init.inp.str_for_parse)
+	// 		if (!parser(&(init.inp.str_for_parse), &init.prs))
+	// 			check_choice(init.execlist, init.prs.beg);
+	// 	free_befor_exec(&init.prs);
+	// }
+//! MAIN_PART
 	input_finish(&init.inp);
 	sh21_finish();
 	return (0);
