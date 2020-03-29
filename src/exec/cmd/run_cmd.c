@@ -6,13 +6,37 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:56:21 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 20:12:35 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 16:01:30 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
 
-static char	**skip_env_argv(char **pars_list, int *argc)
+static char	**skip_env_args(char **parse_list, int *argc)
+{
+	int		i;
+	char	**new_args;
+	size_t	skip_args;
+	char	**cpy_prs;
+
+	i = 0;
+	skip_args = 0;
+	cpy_prs = parse_list;
+	while ((i < *argc) && parse_list[i] && (ft_strchr(parse_list[i], '=')))
+	{
+		++skip_args;
+		++parse_list;
+		++i;
+	}
+	// printf("argc: %d\n", *argc);
+	// exit(EXIT_FAILURE);
+	new_args = ft_linedup(parse_list);
+	ft_strdel_split(cpy_prs);
+	*argc -= skip_args;
+	return (new_args);
+}
+
+static char	**skip_env_flags(char **pars_list, int *argc)
 {
 	size_t	i;
 	char	**cpy_prs;
@@ -45,15 +69,17 @@ static void	exec_env(t_exec_lst execlist, t_pars_list *list)
 	int		argc;
 
 	argc = ft_lineslen(list->pars_args);
-	cpy_environ_src = g_sh_environ;
+	cpy_environ_src = ft_linedup(g_sh_environ);
 	sh21_env(argc, list->pars_args, NULL);
-	list->pars_args = skip_env_argv(list->pars_args, &argc);
+	list->pars_args = skip_env_flags(list->pars_args, &argc);
+	list->pars_args = skip_env_args(list->pars_args, &argc);
 	if (argc > 0)
 	{
 		list->name_func = list->pars_args[0];
 		check_run(execlist, &list);
+		g_sh_environ = ft_linedup(cpy_environ_src);
 	}
-	g_sh_environ = cpy_environ_src;
+	ft_strdel_split(cpy_environ_src);
 }
 
 static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
