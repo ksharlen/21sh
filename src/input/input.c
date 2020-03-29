@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:09:25 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 18:48:03 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ static int	check_ext_key(struct s_input *inp)
 	return (ext_key);
 }
 
-static void	input_preparation(struct s_input *inp)
+void		input_preparation(struct s_input *inp)
 {
-	inp->greet.mode = MODE_DFLT;
-	input_greeting(&inp->greet);
 	input_tgetent();
 	ft_strdel(&inp->str_for_parse);
 	gap_clean_buf(&inp->gap);
@@ -79,6 +77,8 @@ void		input_begin(struct s_input *inp)
 {
 	int	ext_key;
 
+	inp->greet.mode = MODE_DFLT;
+	input_greeting(&inp->greet);
 	input_preparation(inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
