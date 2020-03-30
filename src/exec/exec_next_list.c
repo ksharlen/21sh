@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_next_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 21:48:45 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/29 15:28:55 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 15:28:55 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ static void	status_ok(t_pars_list **list)
 		buf_list = (*list);
 		if ((buf_list->f_delimiter & F_SEMICOLON) ||
 				(buf_list->f_delimiter & F_AND) ||
-				(buf_list->f_delimiter & F_AMPERSANT))
+				(buf_list->f_delimiter & F_AMPERSANT &&
+				!(buf_list->f_delimiter & F_OR)))
 		{
 			(*list) = (*list)->next;
 			break ;
@@ -87,7 +88,9 @@ static void	status_dontok(t_pars_list **list)
 		buf_list = (*list);
 		(*list) = (*list)->next;
 		if ((buf_list->f_delimiter & F_SEMICOLON) ||
-				(buf_list->f_delimiter & F_OR))
+			(buf_list->f_delimiter & F_OR) ||
+			(buf_list->f_delimiter & F_AMPERSANT &&
+			!(buf_list->f_delimiter & F_AND)))
 			break ;
 		if (buf_list->f_delimiter & F_AND)
 			list_no_go_and(list);

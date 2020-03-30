@@ -19,7 +19,7 @@ static void sh21_finish()
 	ft_strdel_split(g_sh_environ);
 }
 
-int		main(int argc, char **argv, char **env)
+int			main(int argc, char **argv, char **env)
 {
 	t_init			init;
 
@@ -30,9 +30,7 @@ int		main(int argc, char **argv, char **env)
 	while (1)
 	{
 		input_begin(&init.inp);
-		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)) ||
-				(init.inp.str_for_parse &&
-				!ft_strcmp(init.inp.str_for_parse, "exit")))
+		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)))
 			break ;
 		else if (init.inp.str_for_parse)
 			if (!parser(&(init.inp.str_for_parse), &init.prs))
@@ -58,10 +56,11 @@ int		main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("ls & pwd");
+// 	init.inp.str_for_parse = ft_strdup("ls");
 // 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
 // 	input_finish(&init.inp);
+// 	sh21_finish();
 // 	return (0);
 // }

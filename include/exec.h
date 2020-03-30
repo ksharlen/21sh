@@ -54,6 +54,7 @@ void			free_befor_exec(t_info_parser *prs);
 int				exec_dup_stream(int oldfd, int newfd);
 void			exec_next_list(int status, t_pars_list **list);
 void			write_name_run(t_exec_lst execlist, t_pars_list *list);
+int				exec_fill_way_for_path(char *str_path, t_pars_list *list);
 /*
 ** comands
 */

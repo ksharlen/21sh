@@ -126,7 +126,7 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 	else if (!ft_strcmp("unsetenv", list->name_func))
 		list->status = sh21_unsetenv(list->pars_args[1]);
 	else if (!ft_strcmp("exit", list->name_func))
-		exit_with_code(list);
+		list->status = exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))
 		exec_env(execlist, list);
 	return (g_term_lst.exec_status = list->status);
