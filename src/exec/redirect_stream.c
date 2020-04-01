@@ -52,7 +52,7 @@ static int	dup_stream(t_red_stream *buf_list)
 {
 	int oldfd;
 
-	if (buf_list->stream_name[0])
+	if (buf_list->stream_name[0] && buf_list->flag_file != -2)
 	{
 		oldfd = (buf_list->flag_file > 0) ? buf_list->stream_a :
 		buf_list->stream_in;
@@ -60,7 +60,8 @@ static int	dup_stream(t_red_stream *buf_list)
 			if (exec_dup_stream(oldfd, buf_list->fd_file))
 				return (error_fd(oldfd, buf_list->fd_file));
 	}
-	else if (exec_dup_stream(buf_list->stream_a, find_redirect_fd(buf_list)))
+	else if (exec_dup_stream(buf_list->stream_a, find_redirect_fd(buf_list)) &&
+			(buf_list->flag_file != -2))
 		return (error_fd(buf_list->stream_a, buf_list->stream_in));
 	return (0);
 }
