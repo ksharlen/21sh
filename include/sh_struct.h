@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 03:13:25 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 20:03:29 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 18:40:14 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ enum						e_greet_mode
 	MODE_QUOTE,
 	MODE_DQUOTE,
 	MODE_BQUOTE,
+	MODE_HEREDOC
 };
 
 enum						e_key

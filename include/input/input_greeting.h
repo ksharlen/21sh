@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:57 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 23:48:45 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 18:44:33 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@
 # include "input_macros.h"
 # include "internal_utilities.h"
 
-# define QUOTE	"quote> "
-# define DQUOTE	"dquote> "
-# define BQUOTE	"bquote> "
+# define QUOTE		"quote> "
+# define DQUOTE		"dquote> "
+# define BQUOTE		"bquote> "
+# define HEREDOC	"heredoc> "
 
 void	input_greeting(t_greet *greet);
 void	input_greeting_init(t_greet *greet, const struct s_user_info *u_info);
+int		input_additional_greet(t_greet *greet, const char *print_greet);
 
 #endif

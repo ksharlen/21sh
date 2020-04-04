@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 02:55:39 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/08 23:39:28 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/03/29 18:44:17 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		input_dflt_greeting(t_greet *greet)
 	return (ret_num_sym);
 }
 
-static int		input_additional_greet(t_greet *greet, const char *print_greet)
+int				input_additional_greet(t_greet *greet, const char *print_greet)
 {
 	int		len_greet;
 
@@ -52,4 +52,6 @@ void			input_greeting(t_greet *greet)
 		greet->len = input_additional_greet(greet, DQUOTE);
 	else if (greet->mode == MODE_BQUOTE || greet->mode == '`')
 		greet->len = input_additional_greet(greet, BQUOTE);
+	else if (greet->mode == MODE_HEREDOC)
+		greet->len = input_additional_greet(greet, HEREDOC);
 }

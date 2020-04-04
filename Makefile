@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+         #
+#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/17 13:17:02 by tjonella         ###   ########.fr        #
+#    Updated: 2020/03/29 18:08:22 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRC_INPUT					:=	input.c\
 									input_set_of_instr_for_getch.c\
 									input_history.c\
 									input_bonus_instr.c\
-									input_wrapper_func.c
+									input_wrapper_func.c\
+									input_heredoc.c
 
 SRC_IU						:=	iu_cd_home_dir.c\
 									iu_cd.c\
@@ -135,6 +136,7 @@ DIRS_INPUT					:=	$(DIR_INPUT)\
 									$(DIR_INPUT)greeting/\
 									$(DIR_INPUT)screen/\
 									$(DIR_INPUT)termcap/\
+									$(DIR_INPUT)heredoc\
 
 DIR_IU						:=	$(DIR_SRC)internal_utilities/
 
