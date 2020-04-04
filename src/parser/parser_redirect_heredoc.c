@@ -52,5 +52,10 @@ void				parser_redirect_heredoc(t_pars_list *list)
 	t_red_stream *buf_list;
 
 	if ((buf_list = check_heredoc(list->stream_list)))
-		go_heredoc(list, buf_list);
+		while (buf_list)
+		{
+			go_heredoc(list, buf_list);
+			buf_list = buf_list->next;
+			buf_list = check_heredoc(buf_list);
+		}
 }

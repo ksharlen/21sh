@@ -86,7 +86,8 @@ SRC_PARSER					:=	parser.c\
 									pars_write_amper_args_after_stream.c\
 									parser_find_ampersand.c\
 									parser_check_ampersand.c\
-									parser_redirect_heredoc.c
+									parser_redirect_heredoc.c\
+									parser_get_count_args_heredoc.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\
