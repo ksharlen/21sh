@@ -27,6 +27,7 @@
 # include "sh_struct.h"
 # include "internal_utilities.h"
 # include "input_error.h"
+# include "input_parse_key.h"
 
 /*
 ** exec function
