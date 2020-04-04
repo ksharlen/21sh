@@ -61,7 +61,7 @@ size_t				parser_count_args(const char *str, char *splitter)
 			str = ft_skiptabs(str);
 		}
 	}
-	return (qty_args);
+	return (++qty_args);
 }
 
 char				*parser_skip_quotes(char *str, char *splitter)
