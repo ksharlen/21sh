@@ -25,6 +25,12 @@
 /*
 ** ENUMS
 */
+enum						e_heredoc
+{
+	IS_FOUND_DELIMITER,
+	IS_NOT_FOUND_DELIMITER
+};
+
 enum						e_greet_mode
 {
 	MODE_DFLT,

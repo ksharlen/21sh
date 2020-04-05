@@ -6,19 +6,34 @@ static void gap_clean(t_gapbuf *gap)
 	free(gap->buf);
 }
 
-static char	*new_line_for_heredoc(t_gapbuf *gap)
+static char	*new_line_for_heredoc(char *gap_str)
 {
 	char	*line;
-	char	*gap_str;
 
-	gap_str = gap_get_buf(gap);
 	line = gap_str ? ft_strjoin(gap_str, "\n") : ft_strdup("\n");
 	ft_strdel(&gap_str);
-	gap_clean(gap);
 	return (line);
 }
 
-static char	*get_line(void)
+static int	fill_line(const char *delimiter, t_gapbuf *gap, char **line)
+{
+	char	*read_line;
+
+	read_line = gap_get_buf(gap);
+	gap_clean(gap);
+	if (read_line && !ft_strcmp(delimiter, read_line))
+	{
+		(*line) = NULL;
+		return (IS_FOUND_DELIMITER);
+	}
+	else
+	{
+		(*line) = new_line_for_heredoc(read_line);
+		return (IS_NOT_FOUND_DELIMITER);
+	}
+}
+
+static int get_line(const char *delimiter, char **line)
 {
 	struct s_input	inp;
 
@@ -36,24 +51,23 @@ static char	*get_line(void)
 			break ;
 		}
 	}
-	return (new_line_for_heredoc(&inp.gap));
+	return (fill_line(delimiter, &inp.gap, line));
 }
 
 char	*input_heredoc(char *delimeter)
 {
-	char			*line;
-	char			buf[SH21_MAX_ARG];
 	struct termios	cpy;
-	size_t			size_delimeter;
+	char			buf[SH21_MAX_ARG];
+	int				st_heredoc;
+	char			*line;
 
 	line = NULL;
 	entry_not_canon(&cpy);
 	ft_bzero(buf, SH21_MAX_ARG);
-	size_delimeter = ft_strlen(delimeter);
 	while (1)
 	{
-		line = get_line();
-		if (!ft_strncmp(line, delimeter, size_delimeter))
+		st_heredoc = get_line(delimeter, &line);
+		if (st_heredoc == IS_FOUND_DELIMITER)
 		{
 			ft_strdel(&line);
 			break ;
