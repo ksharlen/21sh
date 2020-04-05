@@ -12,7 +12,7 @@ static char	*new_line_for_heredoc(t_gapbuf *gap)
 	char	*gap_str;
 
 	gap_str = gap_get_buf(gap);
-	line = ft_strjoin(gap_str, "\n");
+	line = gap_str ? ft_strjoin(gap_str, "\n") : ft_strdup("\n");
 	ft_strdel(&gap_str);
 	gap_clean(gap);
 	return (line);
@@ -44,14 +44,16 @@ char	*input_heredoc(char *delimeter)
 	char			*line;
 	char			buf[SH21_MAX_ARG];
 	struct termios	cpy;
+	size_t			size_delimeter;
 
 	line = NULL;
 	entry_not_canon(&cpy);
 	ft_bzero(buf, SH21_MAX_ARG);
+	size_delimeter = ft_strlen(delimeter);
 	while (1)
 	{
 		line = get_line();
-		if (!ft_memcmp(delimeter, line, ft_strlen(line) - 1))
+		if (!ft_strncmp(line, delimeter, size_delimeter))
 		{
 			ft_strdel(&line);
 			break ;
