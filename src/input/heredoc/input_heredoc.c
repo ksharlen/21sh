@@ -53,6 +53,7 @@ static int get_line(const char *delimiter, char **line)
 		}
 		else if (inp.key == ('c' & 0x1f))
 		{
+			write(STDOUT_FILENO, "\n", 1);
 			gap_clean(&inp.gap);
 			return (BREAK_SIGNAL);
 		}

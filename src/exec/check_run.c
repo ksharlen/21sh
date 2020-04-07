@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_run.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:41:46 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/29 15:24:58 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/04/07 14:28:31 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,20 @@ int			check_run(t_exec_lst execlist, t_pars_list **list)
 {
 	int			status;
 
-	if ((*list)->f_delimiter & F_PIPE)
-		status = code_pipe(execlist, list);
-	else if (check_cmd((*list)->name_func))
+	status = 0;
+	if ((*list)->name_func)
 	{
-		stream_save_std((*list)->stream_list);
-		stream_and_file(*list);
-		status = run_cmd(execlist, *list);
-		close_and_open_std((*list)->stream_list);
+		if ((*list)->f_delimiter & F_PIPE)
+			status = code_pipe(execlist, list);
+		else if (check_cmd((*list)->name_func))
+		{
+			stream_save_std((*list)->stream_list);
+			stream_and_file(*list);
+			status = run_cmd(execlist, *list);
+			close_and_open_std((*list)->stream_list);
+		}
+		else
+			status = run_fork(execlist, list);
 	}
-	else
-		status = run_fork(execlist, list);
 	return (status);
 }
