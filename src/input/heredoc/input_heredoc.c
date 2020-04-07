@@ -61,6 +61,9 @@ char	*input_heredoc(char *delimeter)
 	int				st_heredoc;
 	char			*line;
 
+printf("delimiter:%s\n", delimeter);
+exit(EXIT_FAILURE);
+
 	line = NULL;
 	entry_not_canon(&cpy);
 	ft_bzero(buf, SH21_MAX_ARG);
