@@ -78,5 +78,5 @@ char	*input_heredoc(char *delimeter)
 		ft_strdel(&line);
 	}
 	entry_canon(&cpy);
-	return (ft_strdup(buf));
+	return (st_heredoc == BREAK_SIGNAL ? NULL : ft_strdup(buf));
 }
