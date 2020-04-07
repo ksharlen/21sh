@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_redirect_heredoc.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 16:30:50 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/04/24 16:30:50 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/04/07 10:59:42 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static t_red_stream	*check_heredoc(t_red_stream *stream_list)
 			return (stream_list);
 		stream_list = stream_list->next;
 	}
-	return (NULL);	
+	return (NULL);
 }
 
 void				parser_redirect_heredoc(t_pars_list *list)

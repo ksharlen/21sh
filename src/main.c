@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/29 19:36:33 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/07 10:50:43 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int			main(int argc, char **argv, char **env)
 		input_begin(&init.inp);
 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)))
 			break ;
-		else if (init.inp.str_for_parse)
-			if (!parser(&(init.inp.str_for_parse), &init.prs))
+		else if (init.inp.str_for_parse &&
+			!parser(&(init.inp.str_for_parse), &init.prs))
 				check_choice(init.execlist, init.prs.beg);
 		free_befor_exec(&init.prs);
 	}

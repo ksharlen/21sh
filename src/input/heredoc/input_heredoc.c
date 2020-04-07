@@ -50,6 +50,8 @@ static int get_line(const char *delimiter, char **line)
 			write(STDOUT_FILENO, "\n", 1);
 			break ;
 		}
+		else if (inp.key == ('c' & 0x1f))
+			return (BREAK_SIGNAL);
 	}
 	return (fill_line(delimiter, &inp.gap, line));
 }
@@ -67,7 +69,7 @@ char	*input_heredoc(char *delimeter)
 	while (1)
 	{
 		st_heredoc = get_line(delimeter, &line);
-		if (st_heredoc == IS_FOUND_DELIMITER)
+		if (st_heredoc == IS_FOUND_DELIMITER || st_heredoc == BREAK_SIGNAL)
 		{
 			ft_strdel(&line);
 			break ;
