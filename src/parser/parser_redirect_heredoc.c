@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_redirect_heredoc.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 16:30:50 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/04/07 10:59:42 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/07 13:17:15 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ static void			add_param_for_heredoc(t_pars_list *list, char *line)
 
 static void			go_heredoc(t_pars_list *list, t_red_stream *buf_list)
 {
-	add_param_for_heredoc(list, input_heredoc(buf_list->stream_name));
+	char *line;
+
+	if ((line = input_heredoc(buf_list->stream_name)))
+		add_param_for_heredoc(list, line);
 }
 
 static t_red_stream	*check_heredoc(t_red_stream *stream_list)
