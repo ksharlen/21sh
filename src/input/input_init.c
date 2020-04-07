@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 20:41:03 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/08 22:58:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/07 14:07:57 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ void	input_init(struct s_input *inp)
 		gap_init(&inp->gap, INP_SIZE_BUF, INP_SIZE_GAP);
 		inp->buf = NULL;
 		inp->str_for_parse = NULL;
-		input_greeting_init(&inp->greet, &inp->u_info);
 	}
 }

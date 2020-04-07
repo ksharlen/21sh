@@ -23,6 +23,7 @@ static int	fill_line(const char *delimiter, t_gapbuf *gap, char **line)
 	gap_clean(gap);
 	if (read_line && !ft_strcmp(delimiter, read_line))
 	{
+		ft_strdel(&read_line);
 		(*line) = NULL;
 		return (IS_FOUND_DELIMITER);
 	}
@@ -51,7 +52,10 @@ static int get_line(const char *delimiter, char **line)
 			break ;
 		}
 		else if (inp.key == ('c' & 0x1f))
+		{
+			gap_clean(&inp.gap);
 			return (BREAK_SIGNAL);
+		}
 	}
 	return (fill_line(delimiter, &inp.gap, line));
 }
