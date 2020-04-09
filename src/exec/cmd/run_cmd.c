@@ -134,6 +134,7 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 
 int			run_cmd(t_exec_lst execlist, t_pars_list *list)
 {
-
+	if (list->f_delimiter & V_DOLLAR)
+		ft_putstr("TODO $");
 	return (find_and_run_cmd(execlist, list));
 }
