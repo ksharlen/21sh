@@ -40,9 +40,7 @@
 # define F_OR			4
 # define F_AMPERSANT	8
 # define F_PIPE			16
-# define V_STATUS		32
-# define V_LASTPID		64
-# define V_WRITE_VAR	128
+# define V_DOLLAR		32
 
 # define EXEC_ERROR_NUM 254
 
