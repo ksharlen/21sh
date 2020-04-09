@@ -22,3 +22,9 @@
 	heredoc> EOF
 	test1
 	 test2
+
+В лимитах нужно удалить (65 строка):
+/*
+** TMP
+*/
+# define P_UNUSED(val) (void)(val)
