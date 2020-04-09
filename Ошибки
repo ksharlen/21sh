@@ -22,20 +22,3 @@
 	heredoc> EOF
 	test1
 	 test2
-
-
-Завершает работу heredoc при вводе EO:
-	$>echo << EOF
-	heredoc> test
-	heredoc> EO
-	test
-Или:
-	$>echo << EOFEOF
-	heredoc> test
-	heredoc> EO
-	test
-Или:
-	$>echo << DELIMITER
-	heredoc> test
-	heredoc> DE
-	test

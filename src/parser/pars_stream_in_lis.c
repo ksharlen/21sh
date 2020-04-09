@@ -14,7 +14,7 @@
 
 static void	write_minus_sym(char *start, char *end)
 {
-	while (start <= end)
+	while (start < end)
 	{
 		if (*start)
 			*start = -1;
