@@ -107,7 +107,6 @@ SRC_EXEC					:=	check_choice.c\
 									stream_save_std.c\
 									write_this_dir.c\
 									check_cmd.c\
-									cmd_check_var.c\
 									cmd_false.c\
 									cmd_true.c\
 									run_cmd.c\

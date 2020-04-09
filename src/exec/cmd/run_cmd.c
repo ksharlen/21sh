@@ -134,6 +134,6 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 
 int			run_cmd(t_exec_lst execlist, t_pars_list *list)
 {
-	cmd_check_var(list);
+
 	return (find_and_run_cmd(execlist, list));
 }

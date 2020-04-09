@@ -67,7 +67,6 @@ void		run_exec(int fd, t_pars_list *list)
 {
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
-	cmd_check_var(list);
 	if (execve(list->name_run_func, list->pars_args, g_sh_environ))
 		error_run_exec(list);
 }

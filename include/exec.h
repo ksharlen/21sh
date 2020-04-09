@@ -64,8 +64,6 @@ int				check_cmd(char *name_func);
 int				run_cmd(t_exec_lst execlist, t_pars_list *list);
 int				cmd_true(void);
 int				cmd_false(void);
-void			cmd_check_var(t_pars_list *list);
-
 /*
 ** signals
 */
