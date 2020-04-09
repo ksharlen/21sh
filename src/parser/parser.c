@@ -40,6 +40,7 @@ static int		fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	char	*check_pos;
 
 	str = str_start;
+	parser_check_dollar(str, prs->end, splitter);
 	while (*str && str != splitter)
 	{
 		str = ft_skiptabs(str);
