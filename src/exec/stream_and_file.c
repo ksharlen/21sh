@@ -15,7 +15,10 @@
 int			stream_and_file(t_pars_list *list)
 {
 	if (list->stream_list)
+	{
+		exec_redirect_heredoc(list);
 		if (redirect_stream(list->stream_list))
 			return (-1);
+	}
 	return (0);
 }

@@ -58,7 +58,6 @@ static int		fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	qty_args = parser_count_args(str_start, splitter);
 	qty_args = parser_get_count_args_heredoc(prs->end, qty_args);
 	prs->end->pars_args = parser_fill_args(str_start, splitter, qty_args);
-	parser_redirect_heredoc(prs->end);
 	return (0);
 }
 

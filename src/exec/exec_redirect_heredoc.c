@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_redirect_heredoc.c                          :+:      :+:    :+:   */
+/*   exec_redirect_heredoc.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -53,7 +53,7 @@ static t_red_stream	*check_heredoc(t_red_stream *stream_list)
 	return (NULL);
 }
 
-void				parser_redirect_heredoc(t_pars_list *list)
+void				exec_redirect_heredoc(t_pars_list *list)
 {
 	t_red_stream *buf_list;
 

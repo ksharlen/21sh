@@ -86,7 +86,6 @@ SRC_PARSER					:=	parser.c\
 									pars_write_amper_args_after_stream.c\
 									parser_find_ampersand.c\
 									parser_check_ampersand.c\
-									parser_redirect_heredoc.c\
 									parser_get_count_args_heredoc.c
 
 SRC_EXEC					:=	check_choice.c\
@@ -117,6 +116,7 @@ SRC_EXEC					:=	check_choice.c\
 									signal_handler.c\
 									exec_next_list.c\
 									exec_fill_way_for_path.c\
+									exec_redirect_heredoc.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\

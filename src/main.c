@@ -56,7 +56,7 @@ int			main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env);
-// 	init.inp.str_for_parse = ft_strdup("ls");
+// 	init.inp.str_for_parse = ft_strdup("echo << EOF");
 // 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);

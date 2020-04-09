@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:48:39 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 20:27:36 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/09 16:11:35 by mdelphia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int				exec_dup_stream(int oldfd, int newfd);
 void			exec_next_list(int status, t_pars_list **list);
 void			write_name_run(t_exec_lst execlist, t_pars_list *list);
 int				exec_fill_way_for_path(char *str_path, t_pars_list *list);
+void			exec_redirect_heredoc(t_pars_list *list);
 /*
 ** comands
 */
