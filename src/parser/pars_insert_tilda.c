@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_insert_tilda.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 21:39:19 by tjonella          #+#    #+#             */
-/*   Updated: 2020/03/10 23:08:07 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/04/10 20:57:20 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ static char		*tilda_realloc(char **str, char *ptr)
 {
 	int		len;
 	char	*new_str;
+	char	*env;
 
-	len = ft_strlen(sh21_getenv("HOME"));
+	env = sh21_getenv("HOME");
+	len = ft_strlen(env);
 	new_str = ft_memalloc(ft_strlen(*str) + len + 1);
 	ft_strncpy(new_str, *str, ptr - *str);
-	ft_strcat(new_str, sh21_getenv("HOME"));
+	ft_strcat(new_str, env);
 	ft_strcat(new_str, ptr + 1);
+	free(env);
 	free(*str);
 	*str = new_str;
 	new_str = NULL;

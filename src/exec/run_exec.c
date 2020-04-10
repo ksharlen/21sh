@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_exec.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:42:49 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/15 20:27:25 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/04/10 21:11:35 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void		write_name_run(t_exec_lst execlist, t_pars_list *list)
 
 void		run_exec(int fd, t_pars_list *list)
 {
+	if (list->f_delimiter & V_DOLLAR)
+		insert_dollar_args(list);
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
 	if (execve(list->name_run_func, list->pars_args, g_sh_environ))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:56:21 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/29 16:42:43 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/10 21:10:32 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,6 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 int			run_cmd(t_exec_lst execlist, t_pars_list *list)
 {
 	if (list->f_delimiter & V_DOLLAR)
-		ft_putstr("TODO $");
+		insert_dollar_args(list);
 	return (find_and_run_cmd(execlist, list));
 }

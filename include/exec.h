@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:48:39 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/04/09 16:11:35 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/04/10 21:21:30 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void			exec_next_list(int status, t_pars_list **list);
 void			write_name_run(t_exec_lst execlist, t_pars_list *list);
 int				exec_fill_way_for_path(char *str_path, t_pars_list *list);
 void			exec_redirect_heredoc(t_pars_list *list);
+void			insert_dollar_args(t_pars_list *list); // work with env "$" insertion
 /*
 ** comands
 */

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
+#    By: student <student@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by ksharlen          #+#    #+#              #
-#    Updated: 2020/03/29 18:08:22 by ksharlen         ###   ########.fr        #
+#    Updated: 2020/04/10 21:13:54 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,8 @@ SRC_PARSER					:=	parser.c\
 									parser_find_ampersand.c\
 									parser_check_ampersand.c\
 									parser_get_count_args_heredoc.c\
-									parser_check_dollar.c
+									parser_check_dollar.c\
+									pars_dollar_env.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\
