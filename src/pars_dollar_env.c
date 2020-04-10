@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 03:51:19 by student           #+#    #+#             */
-/*   Updated: 2020/04/10 22:11:13 by student          ###   ########.fr       */
+/*   Updated: 2020/04/10 22:17:49 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static char		*search_first_space(char *ptr)
 {
-	while (*ptr && !ft_isspace(*ptr))
+	while (*ptr && (ft_isalpha(*ptr) || ft_isdigit(*ptr)))
 		ptr++;
 	return (ptr);
 }

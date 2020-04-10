@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 21:39:19 by tjonella          #+#    #+#             */
-/*   Updated: 2020/04/10 22:11:53 by student          ###   ########.fr       */
+/*   Updated: 2020/04/10 22:15:00 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char		*tilda_realloc(char **str, char *ptr)
 	int		len;
 	char	*new_str;
 
-	len = ft_strlen(sh21_getenv("HOME");
+	len = ft_strlen(sh21_getenv("HOME"));
 	new_str = ft_memalloc(ft_strlen(*str) + len + 1);
 	ft_strncpy(new_str, *str, ptr - *str);
 	ft_strcat(new_str, sh21_getenv("HOME"));
