@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 03:51:19 by student           #+#    #+#             */
-/*   Updated: 2020/04/10 21:54:18 by student          ###   ########.fr       */
+/*   Updated: 2020/04/10 22:11:13 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,17 @@ static char		*dollar_realloc(char **str, char *ptr)
 	int		len;
 	char	*new_str;
 	char	*end_env;
-	char	*env_val;
 	char	*env_name;
 
 	end_env = search_first_space(ptr) - 1;
 	env_name = ft_memalloc(end_env - ptr + 1);
 	ft_strncpy(env_name, ptr + 1, end_env - ptr);
-	env_val = sh21_getenv(env_name);
-	len = ft_strlen(env_val) + (end_env - ptr);
+	len = ft_strlen(sh21_getenv(env_name)) + (end_env - ptr);
 	new_str = ft_memalloc(ft_strlen(*str) + len + 1);
 	ft_strncpy(new_str, *str, ptr - *str);
-	ft_strcat(new_str, env_val);
+	ft_strcat(new_str, sh21_getenv(env_name));
 	ft_strcat(new_str, end_env);
 	free(env_name);
-	free(env_val);
 	free(*str);
 	*str = new_str;
 	new_str = NULL;
