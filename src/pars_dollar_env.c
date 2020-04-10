@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 03:51:19 by student           #+#    #+#             */
-/*   Updated: 2020/04/10 23:21:53 by student          ###   ########.fr       */
+/*   Updated: 2020/04/10 23:28:30 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*pars_insert_env_value(char **str)
 	{
 		if (parse_is_quote(*ptr))
 			ptr = parse_next_quote(ptr);
-		if (*ptr == '$' && *(ptr + 1) && !ft_isspace(*(ptr + 1)))
+		if (*ptr == '$' && *(ptr + 1) && (ft_isalpha(*(ptr + 1)) || ft_isdigit(*(ptr + 1))))
 		{
 			*str = dollar_realloc(str, ptr);
 			ptr = *str;
