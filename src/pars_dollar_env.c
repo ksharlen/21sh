@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 03:51:19 by student           #+#    #+#             */
-/*   Updated: 2020/04/10 22:42:48 by student          ###   ########.fr       */
+/*   Updated: 2020/04/10 23:21:53 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static char		*dollar_realloc(char **str, char *ptr)
 	end_env = search_first_space(ptr);
 	env_name = ft_memalloc(end_env - ptr + 1);
 	ft_strncpy(env_name, ptr + 1, end_env - ptr);
-	len = ft_strlen(sh21_getenv(env_name));
+	len = sh21_getenv(env_name) ? ft_strlen(sh21_getenv(env_name)) : 0;
 	new_str = ft_memalloc(ft_strlen(*str) + len + 1);
 	ft_strncpy(new_str, *str, ptr - *str);
-	ft_strcat(new_str, sh21_getenv(env_name));
+	ft_strcat(new_str, sh21_getenv(env_name) ? sh21_getenv(env_name) : "");
 	ft_strcat(new_str, end_env + 1);
 	free(env_name);
 	free(*str);
@@ -63,7 +63,7 @@ char	*pars_insert_env_value(char **str)
 	{
 		if (parse_is_quote(*ptr))
 			ptr = parse_next_quote(ptr);
-		if (*ptr == '$')
+		if (*ptr == '$' && *(ptr + 1) && !ft_isspace(*(ptr + 1)))
 		{
 			*str = dollar_realloc(str, ptr);
 			ptr = *str;
