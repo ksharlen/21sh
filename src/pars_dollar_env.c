@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/07 03:51:19 by student           #+#    #+#             */
-/*   Updated: 2020/04/10 22:17:49 by student          ###   ########.fr       */
+/*   Updated: 2020/04/10 22:42:48 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 static char		*search_first_space(char *ptr)
 {
+	ptr++;
 	while (*ptr && (ft_isalpha(*ptr) || ft_isdigit(*ptr)))
 		ptr++;
-	return (ptr);
+	return (ptr - 1);
 }
 
 static char		*dollar_realloc(char **str, char *ptr)
@@ -27,14 +28,14 @@ static char		*dollar_realloc(char **str, char *ptr)
 	char	*end_env;
 	char	*env_name;
 
-	end_env = search_first_space(ptr) - 1;
+	end_env = search_first_space(ptr);
 	env_name = ft_memalloc(end_env - ptr + 1);
 	ft_strncpy(env_name, ptr + 1, end_env - ptr);
-	len = ft_strlen(sh21_getenv(env_name)) + (end_env - ptr);
+	len = ft_strlen(sh21_getenv(env_name));
 	new_str = ft_memalloc(ft_strlen(*str) + len + 1);
 	ft_strncpy(new_str, *str, ptr - *str);
 	ft_strcat(new_str, sh21_getenv(env_name));
-	ft_strcat(new_str, end_env);
+	ft_strcat(new_str, end_env + 1);
 	free(env_name);
 	free(*str);
 	*str = new_str;
