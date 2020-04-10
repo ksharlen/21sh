@@ -29,10 +29,18 @@ void		write_flag_and_nbr_ampersand(t_pars_list *list)
 	list->nbr_ampersant = parser_get_nbr_ampersand(list);
 }
 
-char		*parser_find_ampersand(char *str, t_pars_list *list)
+static int	check_troo_ampersand(char *str)
 {
 	if (*str != '&' ||
-		(*str == '&' && (*(str + 1) == '>' || *(str + 1) == '<')))
+		(*str == '&' && (*(str + 1) == '>' || *(str + 1) == '<' ||
+		*(str + 1) == '&')))
+		return (1);
+	return (0);
+}
+
+char		*parser_find_ampersand(char *str, t_pars_list *list)
+{
+	if (check_troo_ampersand(str))
 		return (str);
 	write_flag_and_nbr_ampersand(list);
 	*str = -1;
