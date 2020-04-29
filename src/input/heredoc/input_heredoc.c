@@ -48,12 +48,12 @@ static int get_line(const char *delimiter, char **line)
 		input_process_key_press(&inp);
 		if (inp.key == KEY_NEW_LINE)
 		{
-			write(STDOUT_FILENO, "\n", 1);
+			write(STDOUT_FILENO, "\n", 1);		//! куда происходит вывод?
 			break ;
 		}
 		else if (inp.key == ('c' & 0x1f))
 		{
-			write(STDOUT_FILENO, "\n", 1);
+			write(STDOUT_FILENO, "\n", 1);		//! куда происходит вывод?
 			gap_clean(&inp.gap);
 			return (BREAK_SIGNAL);
 		}
