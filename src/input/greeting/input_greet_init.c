@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_greet_init.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 22:06:58 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/15 20:44:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/30 02:12:20 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	get_curr_dir(char *curr_dir)
 	{
 		pwd = (char[SIZE_DIR]){0};
 		getcwd(pwd, SIZE_DIR);
-		if (!strcmp(pwd, sh21_getenv("HOME")))
+		if (!ft_strcmp(pwd, sh21_getenv("HOME")))
 		{
 			ft_strcpy(curr_dir, "~");
 		}

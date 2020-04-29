@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/04/07 14:04:09 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/04/29 23:33:56 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ void		input_begin(struct s_input *inp)
 	if (inp->gap.len_string)
 		inp->str_for_parse = gap_get_buf(&inp->gap);
 	input_additional_modes(inp);
-	history_fill_history(inp->hist, inp->str_for_parse);
+	//history_fill_history(inp->hist, inp->str_for_parse);
 	entry_canon(&inp->cfg_cpy);
 }
