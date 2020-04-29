@@ -58,7 +58,7 @@ void		write_name_run(t_exec_lst execlist, t_pars_list *list)
 		return ;
 	if (exec_fill_way_for_path(find_path_param(), list))
 		return ;
-	if (exec_fill_way_for_path(execlist.exec_envlist.path, list))
+	if (exec_fill_way_for_path(execlist.exec_envlist.path, list))	//TODO можно убрать
 		return ;
 	error_run_exec(list);
 }
