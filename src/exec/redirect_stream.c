@@ -14,9 +14,9 @@
 
 static void	put_error_fd(int error_fd)
 {
-	ft_putstr_fd("42sh: ", 2);
-	ft_putnbr_fd(error_fd, 2);
-	ft_putstr_fd(": invalid descriptor\n", 2);
+	ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
+	ft_putnbr_fd(error_fd, STDERR_FILENO);
+	ft_putstr_fd(": invalid descriptor\n", STDERR_FILENO);
 }
 
 static int	error_fd(int fd_a, int fd_in)

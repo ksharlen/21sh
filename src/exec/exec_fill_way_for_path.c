@@ -14,9 +14,10 @@
 
 static void	error_access_exec(t_pars_list *list)
 {
-	ft_putstr_fd("42sh: command not access: ", 2);
-	ft_putstr_fd(list->name_func, 2);
-	ft_putchar_fd('\n', 2);
+	ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
+	ft_putstr_fd("command not access: ", STDERR_FILENO);
+	ft_putstr_fd(list->name_func, STDERR_FILENO);
+	ft_putchar_fd('\n', STDERR_FILENO);
 	g_term_lst.exec_status = 126;
 	exit(126);
 }

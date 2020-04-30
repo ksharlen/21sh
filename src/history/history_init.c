@@ -30,7 +30,7 @@ char				*ft_strrchrback(const char *s, int c)
 	return (NULL);
 }
 
-static t_history	*fill_21sh_story(t_history *hist, char *line)
+static t_history	*fill_sh_story(t_history *hist, char *line)
 {
 	char			*tmp;
 
@@ -82,5 +82,5 @@ t_history			*history_init(void)
 		return (history);
 	}
 	else
-		return (fill_21sh_story(history, line));
+		return (fill_sh_story(history, line));
 }

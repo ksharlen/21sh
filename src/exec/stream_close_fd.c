@@ -14,17 +14,18 @@
 
 static int	error_fd(int fd)
 {
-	ft_putstr_fd("42sh: ", 2);
-	ft_putnbr_fd(fd, 2);
-	ft_putstr_fd(": invalid descriptor\n", 2);
+	ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
+	ft_putnbr_fd(fd, STDERR_FILENO);
+	ft_putstr_fd(": invalid descriptor\n", STDERR_FILENO);
 	return (1);
 }
 
 static int	error_name(char *stream_name)
 {
-	ft_putstr_fd("42sh: '", 2);
-	ft_putstr_fd(stream_name, 2);
-	ft_putstr_fd("': No such file or directory\n", 2);
+	ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
+	ft_putchar_fd('\'', STDERR_FILENO);
+	ft_putstr_fd(stream_name, STDERR_FILENO);
+	ft_putstr_fd("': No such file or directory\n", STDERR_FILENO);
 	return (1);
 }
 

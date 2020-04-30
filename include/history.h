@@ -17,7 +17,7 @@
 # include "time.h"
 # include "sh_struct.h"
 
-# define PTH_21SH_HIST ".21sh_history"
+# define PTH_21SH_HIST ".sh_history"
 
 t_history			*history_init(void);
 char				*history_get_bottom_cmd(t_history *hist);

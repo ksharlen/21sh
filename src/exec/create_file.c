@@ -16,9 +16,10 @@ static int	read_file(t_red_stream *stream_list)
 {
 	if ((stream_list->fd_file = open(stream_list->stream_name, O_RDWR)) < 0)
 	{
-		ft_putstr_fd("42sh: no such file or directory: ", 2);
-		ft_putstr_fd(stream_list->stream_name, 2);
-		ft_putchar_fd('\n', 2);
+		ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
+		ft_putstr_fd("no such file or directory: ", STDERR_FILENO);
+		ft_putstr_fd(stream_list->stream_name, STDERR_FILENO);
+		ft_putchar_fd('\n', STDERR_FILENO);
 		return (-1);
 	}
 	return (stream_list->fd_file);

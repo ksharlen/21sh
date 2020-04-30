@@ -14,7 +14,8 @@
 
 char		*put_error_parse(char *str, int fd)
 {
-	ft_putstr_fd("42sh: parse error near \'", fd);
+	ft_putstr_fd(STR_ERR_SHELL, fd);
+	ft_putstr_fd("parse error near \'", fd);
 	if (str[0] != '\0')
 		ft_putstr_fd(str, fd);
 	else

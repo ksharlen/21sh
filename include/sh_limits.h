@@ -16,7 +16,8 @@
 # include <sys/types.h>
 # include <limits.h>
 
-# define P_N	"21sh"
+# define STR_ERR_SHELL	"21sh: "
+# define P_N			"21sh"
 
 # define SH21_MAX_PATH	256
 # define SH21_MAX_NAME	256
