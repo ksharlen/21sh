@@ -3,6 +3,6 @@ bin
 21sh
 .dSYM
 bin
-.21sh_history
+.sh_history
 *.dSYM
 .vscode
