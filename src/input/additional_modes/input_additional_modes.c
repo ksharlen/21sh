@@ -12,10 +12,10 @@
 
 #include "input_parse_key.h"
 
-void	input_additional_modes(struct s_input *inp)
+void	input_additional_modes(t_exec_lst *execlist, struct s_input *inp)
 {
 	if (inp->str_for_parse)
 	{
-		input_quote_mode(inp);
+		input_quote_mode(execlist, inp);
 	}
 }

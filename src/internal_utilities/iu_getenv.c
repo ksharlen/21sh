@@ -12,7 +12,7 @@
 
 #include "internal_utilities.h"
 
-char		*sh21_getenv(const char *name)
+char		*sh21_getenv(t_exec_lst *execlist, const char *name)
 {
 	char	**p_env;
 	char	*p_ret;
@@ -23,7 +23,7 @@ char		*sh21_getenv(const char *name)
 	if (name && *name)
 	{
 		len_name = ft_strnlen(name, '=');
-		p_env = (char **)g_sh_environ;
+		p_env = execlist->g_sh_environ;
 		while (*p_env)
 		{
 			if (!ft_memcmp(name, *p_env, len_name) &&

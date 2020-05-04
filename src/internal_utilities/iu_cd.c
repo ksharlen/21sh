@@ -83,7 +83,7 @@ static int	valid_path(const char *path)
 	return (SUCCESS);
 }
 
-static int	work_cd(const char *path)
+static int	work_cd(t_exec_lst *execlist, const char *path)
 {
 	enum e_err		err;
 	char			*buf_path;
@@ -101,7 +101,7 @@ static int	work_cd(const char *path)
 				err = goto_path(buf_path);
 			}
 			else if (!ft_strcmp(path, "-"))
-				err = goto_path(sh21_getenv("OLDPWD"));
+				err = goto_path(sh21_getenv(execlist, "OLDPWD"));
 			else
 				err = goto_path(path);
 		}
@@ -109,7 +109,7 @@ static int	work_cd(const char *path)
 	return (err);
 }
 
-int			sh21_cd(int argc, char **argv, char **env)
+int			sh21_cd(t_exec_lst *execlist, int argc, char **argv, char **env)
 {
 	enum e_err		err;
 	char			*cwd;
@@ -119,17 +119,18 @@ int			sh21_cd(int argc, char **argv, char **env)
 	if (argv[0] && argc > 0)
 	{
 		if (argc == 1)
-			err = work_cd("");
+			err = work_cd(execlist, "");
 		else if (argc > 2)
 			CD_ERR(CD_TOO_MANY, EMPTY_STR);
 		else
-			err = work_cd(argv[1]);
+			err = work_cd(execlist, argv[1]);
 		if (err == SUCCESS)
 		{
 			cwd = (char[MAX_SIZE_PATH + 1]){0};
 			getcwd(cwd, MAX_SIZE_PATH);
-			sh21_setenv("OLDPWD", sh21_getenv("PWD"), FLAG_ON);
-			sh21_setenv("PWD", cwd, FLAG_ON);
+			sh21_setenv(execlist, "OLDPWD", sh21_getenv(execlist, "PWD"),
+				FLAG_ON);
+			sh21_setenv(execlist, "PWD", cwd, FLAG_ON);
 		}
 	}
 	return (0);

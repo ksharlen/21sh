@@ -64,7 +64,7 @@ struct s_win		get_win_size(void);
 /*
 **INTERNAL
 */
-void				input_tgetent(void);
+void				input_tgetent(t_exec_lst *execlist);
 char				*input_tgetstr(char *cb);
 char				*input_tgoto(char *cb, int one, int two);
 void				input_tputs(const char *str, int affcnt, int (*putc)(int));

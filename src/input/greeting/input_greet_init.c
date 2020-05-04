@@ -12,7 +12,7 @@
 
 #include "input_greeting.h"
 
-static void	get_curr_dir(char *curr_dir)
+static void	get_curr_dir(t_exec_lst *execlist, char *curr_dir)
 {
 	char	*pwd;
 	char	*p_dir;
@@ -21,7 +21,7 @@ static void	get_curr_dir(char *curr_dir)
 	{
 		pwd = (char[SIZE_DIR]){0};
 		getcwd(pwd, SIZE_DIR);
-		if (!ft_strcmp(pwd, sh21_getenv("HOME")))
+		if (!ft_strcmp(pwd, sh21_getenv(execlist, "HOME")))
 		{
 			ft_strcpy(curr_dir, "~");
 		}
@@ -66,11 +66,11 @@ static void	init_greet(t_greet *greet)
 	ft_bzero(greet->curr_d, SIZE_DIR + 1);
 }
 
-void		input_greeting_init(t_greet *greet,
-	const struct s_user_info *u_info)
+void		input_greeting_init(t_exec_lst *execlist, t_greet *greet,
+				const struct s_user_info *u_info)
 {
 	init_greet(greet);
 	get_time(greet->time);
 	get_user(greet->user, u_info->user);
-	get_curr_dir(greet->curr_d);
+	get_curr_dir(execlist, greet->curr_d);
 }

@@ -52,7 +52,7 @@ static char	line_form(struct s_input *inp, char search_qt, char *src_str)
 	return (close_qt);
 }
 
-static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
+static void	quote_mode(t_exec_lst *execlist, struct s_input *inp, char search_qt, char *src_str)
 {
 	char	close_qt;
 
@@ -61,7 +61,7 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	quote_init(inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
-		inp->key = input_getch(inp);
+		inp->key = input_getch(execlist, inp);
 		if (inp->key == ('c' & 0x1f))
 		{
 			input_put_new_line(inp);
@@ -73,10 +73,10 @@ static void	quote_mode(struct s_input *inp, char search_qt, char *src_str)
 	input_put_new_line(inp);
 	close_qt = line_form(inp, search_qt, src_str);
 	if (close_qt != TRUE)
-		quote_mode(inp, close_qt, inp->str_for_parse);
+		quote_mode(execlist, inp, close_qt, inp->str_for_parse);
 }
 
-void		input_quote_mode(struct s_input *inp)
+void		input_quote_mode(t_exec_lst *execlist, struct s_input *inp)
 {
 	t_queue	qu;
 	int		quote_close;
@@ -87,6 +87,6 @@ void		input_quote_mode(struct s_input *inp)
 	if (quote_close != TRUE)
 	{
 		inp->greet.mode = quote_close;
-		quote_mode(inp, quote_close, inp->str_for_parse);
+		quote_mode(execlist, inp, quote_close, inp->str_for_parse);
 	}
 }

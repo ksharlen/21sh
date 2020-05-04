@@ -21,7 +21,7 @@ static char		*search_first_space(char *ptr)
 	return (ptr - 1);
 }
 
-static char		*dollar_realloc(char **str, char *ptr)
+static char		*dollar_realloc(t_exec_lst *execlist, char **str, char *ptr)
 {
 	int		len;
 	char	*new_str;
@@ -31,10 +31,10 @@ static char		*dollar_realloc(char **str, char *ptr)
 	end_env = search_first_space(ptr);
 	env_name = ft_memalloc(end_env - ptr + 1);
 	ft_strncpy(env_name, ptr + 1, end_env - ptr);
-	len = sh21_getenv(env_name) ? ft_strlen(sh21_getenv(env_name)) : 0;
+	len = sh21_getenv(execlist, env_name) ? ft_strlen(sh21_getenv(execlist, env_name)) : 0;
 	new_str = ft_memalloc(ft_strlen(*str) + len + 1);
 	ft_strncpy(new_str, *str, ptr - *str);
-	ft_strcat(new_str, sh21_getenv(env_name) ? sh21_getenv(env_name) : "");
+	ft_strcat(new_str, sh21_getenv(execlist, env_name) ? sh21_getenv(execlist, env_name) : "");
 	ft_strcat(new_str, end_env + 1);
 	free(env_name);
 	free(*str);
@@ -54,7 +54,7 @@ static int		search_dollar (char *str)
 	return (0);
 }
 
-char	*pars_insert_env_value(char **str)
+char	*pars_insert_env_value(t_exec_lst *execlist, char **str)
 {
     char	*ptr;
 
@@ -65,7 +65,7 @@ char	*pars_insert_env_value(char **str)
 			ptr = parse_next_quote(ptr);
 		if (*ptr == '$' && *(ptr + 1) && (ft_isalpha(*(ptr + 1)) || ft_isdigit(*(ptr + 1))))
 		{
-			*str = dollar_realloc(str, ptr);
+			*str = dollar_realloc(execlist, str, ptr);
 			ptr = *str;
 		}
 		else
@@ -74,7 +74,7 @@ char	*pars_insert_env_value(char **str)
 	return (*str);
 }
 
-void	insert_dollar_args(t_pars_list *list)
+void	insert_dollar_args(t_exec_lst *execlist, t_pars_list *list)
 {
 	char	**ptr;
 	int		i;
@@ -83,7 +83,7 @@ void	insert_dollar_args(t_pars_list *list)
 	ptr = list->pars_args;
 	while (*ptr)
 	{
-		list->pars_args[i] = pars_insert_env_value(ptr);
+		list->pars_args[i] = pars_insert_env_value(execlist, ptr);
 		ptr++;
 		i++;
 	}

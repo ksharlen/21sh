@@ -28,12 +28,12 @@ struct s_nameval	split_name_val(const char *nameval)
 	return (nval);
 }
 
-void				work_opt(char *const *p_argv, t_env *env)
+void				work_opt(t_exec_lst *execlist, char *const *p_argv, t_env *env)
 {
 	if (*p_argv && !ft_strcmp(*p_argv, "-i"))
 	{
-		g_sh_environ = (char **)ft_memalloc(sizeof(char *));
-		g_sh_environ[0] = NULL;
+		execlist->g_sh_environ = (char **)ft_memalloc(sizeof(char *));
+		execlist->g_sh_environ[0] = NULL;
 		++p_argv;
 	}
 	if (p_argv && *p_argv && !ft_strcmp(*p_argv, "-P"))
@@ -45,7 +45,7 @@ void				work_opt(char *const *p_argv, t_env *env)
 			p_argv++;
 	}
 	if (p_argv && *p_argv)
-		p_argv = change_value_name(p_argv);
+		p_argv = change_value_name(execlist, p_argv);
 	if (p_argv && *p_argv && !ft_strcmp(*p_argv, "-u"))
-		p_argv = u_flag(++p_argv);
+		p_argv = u_flag(execlist, ++p_argv);
 }

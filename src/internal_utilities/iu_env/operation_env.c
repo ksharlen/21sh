@@ -12,14 +12,14 @@
 
 #include "internal_utilities.h"
 
-static void		delete_name(char *const *need_delete)
+static void		delete_name(t_exec_lst *execlist, char *const *need_delete)
 {
 	if (need_delete)
 		while (*need_delete)
-			sh21_unsetenv(*need_delete++);
+			sh21_unsetenv(execlist, *need_delete++);
 }
 
-char *const		*u_flag(char *const argv[])
+char *const		*u_flag(t_exec_lst *execlist, char *const argv[])
 {
 	char	**split;
 
@@ -29,19 +29,19 @@ char *const		*u_flag(char *const argv[])
 		{
 			++argv;
 			split = s_flag((char *)*argv);
-			delete_name(split);
+			delete_name(execlist, split);
 			ft_strdel_split(split);
 			free(split);
 			split = NULL;
 		}
 		else
-			sh21_unsetenv(*argv);
+			sh21_unsetenv(execlist, *argv);
 		++argv;
 	}
 	return (argv);
 }
 
-static void		change_value(char *const *need_add)
+static void		change_value(t_exec_lst *execlist, char *const *need_add)
 {
 	struct s_nameval nval;
 
@@ -50,7 +50,7 @@ static void		change_value(char *const *need_add)
 		while (*need_add)
 		{
 			nval = split_name_val(*need_add);
-			sh21_setenv(nval.name, nval.value, FLAG_ON);
+			sh21_setenv(execlist, nval.name, nval.value, FLAG_ON);
 			ft_strdel(&nval.name);
 			ft_strdel(&nval.value);
 			++need_add;
@@ -58,7 +58,7 @@ static void		change_value(char *const *need_add)
 	}
 }
 
-char	*const	*change_value_name(char *const argv[])
+char	*const	*change_value_name(t_exec_lst *execlist, char *const argv[])
 {
 	char	**split;
 
@@ -69,7 +69,7 @@ char	*const	*change_value_name(char *const argv[])
 		if (*argv && ft_strtabchr((char *)*argv, '='))
 		{
 			split = s_flag(*argv);
-			change_value(split);
+			change_value(execlist, split);
 			ft_strdel_split(split);
 			free(split);
 			split = NULL;
@@ -79,7 +79,7 @@ char	*const	*change_value_name(char *const argv[])
 	{
 		if (*argv && ft_strtabchr(*argv, '='))
 		{
-			change_value((char *const *)*&argv);
+			change_value(execlist, (char *const *)*&argv);
 			++argv;
 		}
 	}

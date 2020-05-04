@@ -66,7 +66,7 @@ void		write_name_run(t_exec_lst *execlist, t_pars_list *list)
 void		run_exec(int fd, t_pars_list *list, t_exec_lst *execlist)
 {
 	if (list->f_delimiter & V_DOLLAR)
-		insert_dollar_args(list);
+		insert_dollar_args(execlist, list);
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
 	if (execve(list->name_run_func, list->pars_args, execlist->g_sh_environ))

@@ -59,8 +59,6 @@
 # define MAX_UNAME		256
 # define MAX_SIZE_PATH	256
 
-extern char		**g_sh_environ;
-
 enum			e_find
 {
 	NOT_FOUND = -1,
@@ -93,25 +91,27 @@ void					init_env(char **env);
 **UTILITIES
 */
 int						sh21_pwd(int argc, char **argv, char **env);
-int						sh21_setenv(const char *name,
-	const char *value, const int replace);
-char					*sh21_getenv(const char *name);
-int						sh21_unsetenv(const char *name);
+int						sh21_setenv(t_exec_lst *execlist, const char *name,
+							const char *value, const int replace);
+char					*sh21_getenv(t_exec_lst *execlist, const char *name);
+int						sh21_unsetenv(t_exec_lst *execlist, const char *name);
 int						sh21_echo(int argc, char **argv, char **env);
-int						sh21_cd(int argc, char **argv, char **env);
-int						sh21_env(int argc, char **argv, char **env);
-
+int						sh21_cd(t_exec_lst *execlist, int argc, char **argv,
+							char **env);
+int						sh21_env(t_exec_lst *execlist, int argc, char **argv,
+							char **env);
 void					work_home_dir(const char *old_path, char *new_path);
-size_t					find_var_env(const char *name);
-void					work_opt(char *const *p_argv, t_env *env);
+size_t					find_var_env(t_exec_lst *execlist, const char *name);
+void					work_opt(t_exec_lst *execlist, char *const *p_argv,
+							t_env *env);
 int						exit_with_code(t_pars_list *list);
 
 /*
 **WORK_FLAGS
 */
-char *const				*u_flag(char *const argv[]);
+char *const				*u_flag(t_exec_lst *execlist, char *const argv[]);
 char					**s_flag(const char *str);
-char *const				*change_value_name(char *const argv[]);
+char *const				*change_value_name(t_exec_lst *execlist, char *const argv[]);
 struct s_nameval		split_name_val(const char *nameval);
 char					**split_s_key(const char *str);
 void					cd_error(const char *error, const char *filename);

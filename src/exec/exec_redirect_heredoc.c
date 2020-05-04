@@ -31,11 +31,12 @@ static void			add_param_for_heredoc(t_pars_list *list, char *line)
 	list->pars_args[i] = NULL;
 }
 
-static int			go_heredoc(t_pars_list *list, t_red_stream *buf_list)
+static int			go_heredoc(t_exec_lst *execlist, t_pars_list *list,
+						t_red_stream *buf_list)
 {
 	char *line;
 
-	if ((line = input_heredoc(buf_list->stream_name)))
+	if ((line = input_heredoc(execlist, buf_list->stream_name)))
 		add_param_for_heredoc(list, line);
 	else
 		return (1);
@@ -53,14 +54,15 @@ static t_red_stream	*check_heredoc(t_red_stream *stream_list)
 	return (NULL);
 }
 
-void				exec_redirect_heredoc(t_pars_list *list)
+void				exec_redirect_heredoc(t_exec_lst *execlist,
+						t_pars_list *list)
 {
 	t_red_stream *buf_list;
 
 	if ((buf_list = check_heredoc(list->stream_list)))
 		while (buf_list)
 		{
-			if (go_heredoc(list, buf_list))
+			if (go_heredoc(execlist, list, buf_list))
 				break ;
 			buf_list = buf_list->next;
 			buf_list = check_heredoc(buf_list);

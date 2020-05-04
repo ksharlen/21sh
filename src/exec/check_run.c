@@ -19,7 +19,7 @@ void		ignore_signals(int sig)
 
 static void	cod_child(t_exec_lst *execlist, t_pars_list **list)
 {
-	if (!stream_and_file(*list))
+	if (!stream_and_file(execlist, *list))
 		run_exec(-1, (*list), execlist);
 	else
 		exit(1);
@@ -73,7 +73,7 @@ int			check_run(t_exec_lst *execlist, t_pars_list **list)
 		else if (check_cmd((*list)->name_func))
 		{
 			stream_save_std((*list)->stream_list);
-			stream_and_file(*list);
+			stream_and_file(execlist, *list);
 			status = run_cmd(execlist, *list);
 			close_and_open_std(execlist, (*list)->stream_list);
 		}

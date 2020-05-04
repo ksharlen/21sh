@@ -34,17 +34,17 @@ static int	fill_line(const char *delimiter, t_gapbuf *gap, char **line)
 	}
 }
 
-static int get_line(const char *delimiter, char **line)
+static int get_line(t_exec_lst *execlist, const char *delimiter, char **line)
 {
 	struct s_input	inp;
 
 	input_init(&inp);
 	inp.greet.mode = MODE_HEREDOC;
 	input_greeting(&inp.greet);
-	input_preparation(&inp);
+	input_preparation(execlist, &inp);
 	while (1)
 	{
-		inp.key = input_getch(&inp);
+		inp.key = input_getch(execlist, &inp);
 		input_process_key_press(&inp);
 		if (inp.key == KEY_NEW_LINE)
 		{
@@ -61,7 +61,7 @@ static int get_line(const char *delimiter, char **line)
 	return (fill_line(delimiter, &inp.gap, line));
 }
 
-char	*input_heredoc(char *delimeter)
+char	*input_heredoc(t_exec_lst *execlist, char *delimeter)
 {
 	struct termios	cpy;
 	char			buf[SH21_MAX_ARG];
@@ -73,7 +73,7 @@ char	*input_heredoc(char *delimeter)
 	ft_bzero(buf, SH21_MAX_ARG);
 	while (1)
 	{
-		st_heredoc = get_line(delimeter, &line);
+		st_heredoc = get_line(execlist, delimeter, &line);
 		if (st_heredoc == IS_FOUND_DELIMITER || st_heredoc == BREAK_SIGNAL)
 		{
 			ft_strdel(&line);

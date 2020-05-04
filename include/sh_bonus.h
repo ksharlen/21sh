@@ -28,7 +28,7 @@
 /*
 **INPUT
 */
-void	check_change_winsize(struct s_input *inp);
+void	check_change_winsize(t_exec_lst *execlist, struct s_input *inp);
 void	input_ctr_t(struct s_input *inp);
 
 #endif

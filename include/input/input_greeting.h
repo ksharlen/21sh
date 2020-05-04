@@ -29,7 +29,8 @@
 # define HEREDOC	"heredoc> "
 
 void	input_greeting(t_greet *greet);
-void	input_greeting_init(t_greet *greet, const struct s_user_info *u_info);
+void	input_greeting_init(t_exec_lst *execlist, t_greet *greet,
+			const struct s_user_info *u_info);
 int		input_additional_greet(t_greet *greet, const char *print_greet);
 
 #endif

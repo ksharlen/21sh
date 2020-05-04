@@ -12,11 +12,11 @@
 
 #include "input_termcap.h"
 
-void	input_tgetent(void)
+void	input_tgetent(t_exec_lst *execlist)
 {
 	int	ok;
 
-	ok = tgetent(T_BUFFER, sh21_getenv("TERM"));
+	ok = tgetent(T_BUFFER, sh21_getenv(execlist, "TERM"));
 	if (ok != 1)
 		input_error_ext("termcap for current terminal not found");
 }

@@ -89,7 +89,7 @@ static void	exec_env(t_exec_lst *execlist, t_pars_list *list)
 
 	argc = ft_lineslen(list->pars_args);
 	cpy_environ_src = ft_linedup(execlist->g_sh_environ);
-	sh21_env(argc, list->pars_args, NULL);
+	sh21_env(execlist, argc, list->pars_args, NULL);
 	list->pars_args = skip_env_flags(list->pars_args, &argc);
 	list->pars_args = skip_env_args(list->pars_args, &argc);
 	if (argc > 0)
@@ -116,15 +116,16 @@ static int	find_and_run_cmd(t_exec_lst *execlist, t_pars_list *list)
 	else if (!ft_strcmp("false", list->name_func))
 		list->status = cmd_false();
 	else if (!ft_strcmp("cd", list->name_func))
-		list->status = sh21_cd(argc, list->pars_args, NULL);
+		list->status = sh21_cd(execlist, argc, list->pars_args, NULL);
 	else if (!ft_strcmp("echo", list->name_func))
 		list->status = sh21_echo(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("pwd", list->name_func))
 		list->status = sh21_pwd(argc, list->pars_args, NULL);
 	else if (!ft_strcmp("setenv", list->name_func))
-		list->status = sh21_setenv(list->pars_args[1], list->pars_args[2], 1);
+		list->status = sh21_setenv(execlist, list->pars_args[1],
+		list->pars_args[2], 1);
 	else if (!ft_strcmp("unsetenv", list->name_func))
-		list->status = sh21_unsetenv(list->pars_args[1]);
+		list->status = sh21_unsetenv(execlist, list->pars_args[1]);
 	else if (!ft_strcmp("exit", list->name_func))
 		list->status = exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))
@@ -135,6 +136,6 @@ static int	find_and_run_cmd(t_exec_lst *execlist, t_pars_list *list)
 int			run_cmd(t_exec_lst *execlist, t_pars_list *list)
 {
 	if (list->f_delimiter & V_DOLLAR)
-		insert_dollar_args(list);
+		insert_dollar_args(execlist, list);
 	return (find_and_run_cmd(execlist, list));
 }

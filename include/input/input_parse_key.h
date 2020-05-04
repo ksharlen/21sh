@@ -30,14 +30,14 @@
 /*
 **START_WORK_INPUT
 */
-void			input_begin(struct s_input *inp);
+void			input_begin(t_exec_lst *execlist, struct s_input *inp);
 
 /*
 **KEY_PRESS_WORK
 */
 ssize_t			input_read(const int fd, void *buf, const size_t nbyte);
 ssize_t			input_write(int filedes, const void *buf, size_t nbyte);
-t_key			input_getch(struct s_input *inp);
+t_key			input_getch(t_exec_lst *execlist, struct s_input *inp);
 void			input_process_key_press(struct s_input *inp);
 void			input_ctr_keys(struct s_input *inp);
 t_key			input_get_key_shift_arrow(void);
@@ -72,10 +72,10 @@ void			input_update_rows(struct s_input *inp, struct s_win *wn);
 */
 void			input_history(struct s_input *inp);
 int				search_double_quotes(t_queue *qu);
-void			input_additional_modes(struct s_input *inp);
-void			input_quote_mode(struct s_input *inp);
+void			input_additional_modes(t_exec_lst *execlist, struct s_input *inp);
+void			input_quote_mode(t_exec_lst *execlist, struct s_input *inp);
 void			clean_struct_input(struct s_input *inp);
-void			input_preparation(struct s_input *inp);
-char			*input_heredoc(char *delimeter);
+void			input_preparation(t_exec_lst *execlist, struct s_input *inp);
+char			*input_heredoc(t_exec_lst *execlist, char *delimeter);
 
 #endif

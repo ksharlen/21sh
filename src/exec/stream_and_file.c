@@ -12,11 +12,11 @@
 
 #include "exec.h"
 
-int			stream_and_file(t_pars_list *list)
+int			stream_and_file(t_exec_lst *execlist, t_pars_list *list)
 {
 	if (list->stream_list)
 	{
-		exec_redirect_heredoc(list);
+		exec_redirect_heredoc(execlist, list);
 		if (redirect_stream(list->stream_list))
 			return (-1);
 	}

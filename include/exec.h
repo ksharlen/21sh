@@ -34,7 +34,7 @@
 */
 void			check_choice(t_exec_lst *execlist, t_pars_list *list);
 int				check_run(t_exec_lst *execlist, t_pars_list **list);
-int				stream_and_file(t_pars_list *list);
+int				stream_and_file(t_exec_lst *execlist, t_pars_list *list);
 int				create_file(t_red_stream *stream_list);
 int				redirect_stream(t_red_stream *stream_list);
 int				dup_fd_and_close(int fd, int dup_fd);
@@ -56,8 +56,8 @@ int				exec_dup_stream(int oldfd, int newfd);
 void			exec_next_list(int status, t_pars_list **list);
 void			write_name_run(t_exec_lst *execlist, t_pars_list *list);
 int				exec_fill_way_for_path(t_exec_lst *execlist, char *str_path, t_pars_list *list);
-void			exec_redirect_heredoc(t_pars_list *list);
-void			insert_dollar_args(t_pars_list *list); // work with env "$" insertion
+void			exec_redirect_heredoc(t_exec_lst *execlist, t_pars_list *list);
+void			insert_dollar_args(t_exec_lst *execlist, t_pars_list *list); // work with env "$" insertion
 /*
 ** comands
 */

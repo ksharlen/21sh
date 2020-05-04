@@ -53,7 +53,7 @@ void		sh21_init(t_init *init, char **env)
 	{
 		init_env(env);
 		init_user(&init->u_inf);
-		sh21_init_start_env(&init->env, &init->u_inf);
+		sh21_init_start_env(&init->execlist, &init->env, &init->u_inf);
 		init_path(&init->path, init->u_inf.home_d);
 		init->inp.hist = history_init();
 		init->inp.u_info = init->u_inf;

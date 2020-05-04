@@ -12,7 +12,7 @@
 
 #include "sh.h"
 
-static void sh21_finish()
+static void sh21_finish(char **g_sh_environ)
 {
 	ft_strdel_split(g_sh_environ);
 }
@@ -27,16 +27,16 @@ int			main(int argc, char **argv, char **env)
 	sh21_init(&init, env);
 	while (1)
 	{
-		input_begin(&init.inp);
+		input_begin(&init.execlist, &init.inp);
 		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)))
 			break ;
 		else if (init.inp.str_for_parse &&
-			!parser(&(init.inp.str_for_parse), &init.prs))
+			!parser(&init.execlist, &(init.inp.str_for_parse), &init.prs))
 				check_choice(&init.execlist, init.prs.beg);
 		free_befor_exec(&init.prs);
 	}
 	input_finish(&init.inp);
-	sh21_finish();
+	sh21_finish(init.execlist.g_sh_environ);
 	return (0);
 }
 

@@ -50,10 +50,10 @@ static void		cod_child(t_exec_lst *execlist, t_pipe_list **pipelist,
 		close((*pipelist)->pfd[1]);
 	close((*pipelist)->pfd[0]);
 	close_pipe_fd(*pipelist);
-	stream_and_file(list);
+	stream_and_file(execlist, list);
 	if (check_cmd(list->name_func))
 	{
-		stream_and_file(list);
+		stream_and_file(execlist, list);
 		dup_fd_and_close(buf_pipelist->pfd[0], STDIN_FILENO);
 		run_cmd(execlist, list);
 		exit(list->status);

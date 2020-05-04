@@ -47,7 +47,8 @@ static int		get_opt(int argc, char **opts, t_env *env)
 	return (err);
 }
 
-int				sh21_env(int argc, char **argv, char **env)
+int				sh21_env(t_exec_lst *execlist, int argc,
+					char **argv, char **env)
 {
 	t_env			m_env;
 	enum e_err		err;
@@ -59,7 +60,7 @@ int				sh21_env(int argc, char **argv, char **env)
 	if (err == SUCCESS)
 	{
 		++argv;
-		work_opt(argv, &m_env);
+		work_opt(execlist, argv, &m_env);
 	}
 	return (err);
 }

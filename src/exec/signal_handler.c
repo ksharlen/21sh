@@ -25,7 +25,7 @@ void			status_child(t_exec_lst *execlist, int stat_child,
 {
 	char	*lvl_proccess;
 
-	lvl_proccess = sh21_getenv(SHLVL);
+	lvl_proccess = sh21_getenv(execlist, SHLVL);
 	if (!lvl_proccess)
 		lvl_proccess = "1";
 	if (stat_child == SIGINT)

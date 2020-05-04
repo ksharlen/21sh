@@ -59,9 +59,9 @@ static int	check_ext_key(struct s_input *inp)
 	return (ext_key);
 }
 
-void		input_preparation(struct s_input *inp)
+void		input_preparation(t_exec_lst *execlist, struct s_input *inp)
 {
-	input_tgetent();
+	input_tgetent(execlist);
 	ft_strdel(&inp->str_for_parse);
 	gap_clean_buf(&inp->gap);
 	entry_not_canon(&inp->cfg_cpy);
@@ -73,17 +73,17 @@ void		input_preparation(struct s_input *inp)
 	inp->key = 0;
 }
 
-void		input_begin(struct s_input *inp)
+void		input_begin(t_exec_lst *execlist, struct s_input *inp)
 {
 	int	ext_key;
 
 	inp->greet.mode = MODE_DFLT;
-	input_greeting_init(&inp->greet, &inp->u_info);
+	input_greeting_init(execlist, &inp->greet, &inp->u_info);
 	input_greeting(&inp->greet);
-	input_preparation(inp);
+	input_preparation(execlist, inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
-		inp->key = input_getch(inp);
+		inp->key = input_getch(execlist, inp);
 		ext_key = check_ext_key(inp);
 		if (ext_key == IS_CTR_D || ext_key == IS_CTR_C)
 			return ;
@@ -92,7 +92,7 @@ void		input_begin(struct s_input *inp)
 	input_put_new_line(inp);
 	if (inp->gap.len_string)
 		inp->str_for_parse = gap_get_buf(&inp->gap);
-	input_additional_modes(inp);
-	//history_fill_history(inp->hist, inp->str_for_parse);
+	input_additional_modes(execlist, inp);
+	history_fill_history(inp->hist, inp->str_for_parse);
 	entry_canon(&inp->cfg_cpy);
 }

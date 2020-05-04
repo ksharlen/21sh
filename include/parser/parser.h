@@ -21,7 +21,7 @@
 # include "sh_struct.h"
 # include "internal_utilities.h"
 
-int				parser(char **str_for_parse, t_info_parser *prs);
+int				parser(t_exec_lst *execlist, char **str_for_parse, t_info_parser *prs);
 void			parser_add_list(t_info_parser *prs);
 char			*parser_skip_quotes(char *str, char *splitter);
 char			*find_delimiter(char *str);
@@ -44,7 +44,7 @@ void			parser_fill_point_args(t_pars_list *list);
 char			*parser_skipminus(char *str);
 int				parse_is_quote(char c);
 char			*parse_next_quote(char *str);
-char			*pars_insert_tilda(char **str);
+char			*pars_insert_tilda(t_exec_lst *execlist, char **str);
 char			*pars_stream_in_list(char *str, char *splitter,
 					t_red_stream *stream_list);
 char			*write_prev(char *str, char *pos_stream,

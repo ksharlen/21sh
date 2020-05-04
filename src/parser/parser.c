@@ -62,12 +62,13 @@ static int		fill_struct(char *str_start, t_info_parser *prs, char *splitter)
 	return (0);
 }
 
-static int		parse_str(char **str_for_parse, t_info_parser *prs)
+static int		parse_str(t_exec_lst *execlist, char **str_for_parse,
+					t_info_parser *prs)
 {
 	char	*splitter;
 	char	*str;
 
-	str = pars_insert_tilda(str_for_parse);
+	str = pars_insert_tilda(execlist, str_for_parse);
 	while (str && *str)
 	{
 		if (!(splitter = find_delimiter(str)))
@@ -87,9 +88,10 @@ static int		parse_str(char **str_for_parse, t_info_parser *prs)
 	return ((str) ? 0 : 1);
 }
 
-int				parser(char **str_for_parse, t_info_parser *prs)
+int				parser(t_exec_lst *execlist, char **str_for_parse,
+					t_info_parser *prs)
 {
-	if (parse_str(str_for_parse, prs))
+	if (parse_str(execlist, str_for_parse, prs))
 		return (1);
 	parser_fill_point_args(prs->beg);
 	return (0);

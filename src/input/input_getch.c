@@ -51,7 +51,7 @@ static int		get_func_key(void)
 	return (key);
 }
 
-static	t_key	waiting_event(struct s_input *inp)
+static	t_key	waiting_event(t_exec_lst *execlist, struct s_input *inp)
 {
 	ssize_t	nbyte;
 	t_byte	sym;
@@ -60,16 +60,16 @@ static	t_key	waiting_event(struct s_input *inp)
 	while (!nbyte)
 	{
 		nbyte = input_read(STDIN_FILENO, &sym, sizeof(t_byte));
-		check_change_winsize(inp);
+		check_change_winsize(execlist, inp);
 	}
 	return (sym);
 }
 
-t_key			input_getch(struct s_input *inp)
+t_key			input_getch(t_exec_lst *execlist, struct s_input *inp)
 {
 	t_byte	sym;
 
-	sym = waiting_event(inp);
+	sym = waiting_event(execlist, inp);
 	if (sym == ESC)
 	{
 		input_read(STDIN_FILENO, &sym, sizeof(t_byte));

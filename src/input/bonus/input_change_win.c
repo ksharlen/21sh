@@ -73,11 +73,11 @@ static void		input_update_stat_win(struct s_input *inp, struct s_win *wn)
 	set_cursor_inside_new_win(inp);
 }
 
-void			check_change_winsize(struct s_input *inp)
+void			check_change_winsize(t_exec_lst *execlist, struct s_input *inp)
 {
 	struct s_win	wn;
 
-	input_tgetent();
+	input_tgetent(execlist);
 	wn = get_win_size();
 	if (ft_memcmp(&wn, &inp->win, sizeof(struct s_win)))
 		input_update_stat_win(inp, &wn);
