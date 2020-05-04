@@ -12,8 +12,8 @@
 
 #include "exec.h"
 
-void		error_system(int status)
+void		error_system(t_exec_lst *execlist, int status)
 {
 	if (status == EXEC_ERROR_NUM)
-		exit((g_term_lst.exec_status = EXEC_ERROR_NUM));
+		exit((execlist->g_term_lst.exec_status = EXEC_ERROR_NUM));
 }

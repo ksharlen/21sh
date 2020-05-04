@@ -82,13 +82,13 @@ static char	**skip_env_flags(char **pars_list, int *argc)
 	return (new_args);
 }
 
-static void	exec_env(t_exec_lst execlist, t_pars_list *list)
+static void	exec_env(t_exec_lst *execlist, t_pars_list *list)
 {
 	char	**cpy_environ_src;
 	int		argc;
 
 	argc = ft_lineslen(list->pars_args);
-	cpy_environ_src = ft_linedup(g_sh_environ);
+	cpy_environ_src = ft_linedup(execlist->g_sh_environ);
 	sh21_env(argc, list->pars_args, NULL);
 	list->pars_args = skip_env_flags(list->pars_args, &argc);
 	list->pars_args = skip_env_args(list->pars_args, &argc);
@@ -96,9 +96,9 @@ static void	exec_env(t_exec_lst execlist, t_pars_list *list)
 	{
 		list->name_func = list->pars_args[0];
 		check_run(execlist, &list);
-		ft_strdel_split(g_sh_environ);
-		free(g_sh_environ);
-		g_sh_environ = ft_linedup(cpy_environ_src);
+		ft_strdel_split(execlist->g_sh_environ);
+		free(execlist->g_sh_environ);
+		execlist->g_sh_environ = ft_linedup(cpy_environ_src);
 	}
 	else
 		print_env();
@@ -106,7 +106,7 @@ static void	exec_env(t_exec_lst execlist, t_pars_list *list)
 	free(cpy_environ_src);
 }
 
-static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
+static int	find_and_run_cmd(t_exec_lst *execlist, t_pars_list *list)
 {
 	int		argc;
 
@@ -129,10 +129,10 @@ static int	find_and_run_cmd(t_exec_lst execlist, t_pars_list *list)
 		list->status = exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))
 		exec_env(execlist, list);
-	return (g_term_lst.exec_status = list->status);
+	return (execlist->g_term_lst.exec_status = list->status);
 }
 
-int			run_cmd(t_exec_lst execlist, t_pars_list *list)
+int			run_cmd(t_exec_lst *execlist, t_pars_list *list)
 {
 	if (list->f_delimiter & V_DOLLAR)
 		insert_dollar_args(list);

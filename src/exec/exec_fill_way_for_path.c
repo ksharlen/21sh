@@ -12,13 +12,13 @@
 
 #include <exec.h>
 
-static void	error_access_exec(t_pars_list *list)
+static void	error_access_exec(t_exec_lst *execlist, t_pars_list *list)
 {
 	ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
 	ft_putstr_fd("command not access: ", STDERR_FILENO);
 	ft_putstr_fd(list->name_func, STDERR_FILENO);
 	ft_putchar_fd('\n', STDERR_FILENO);
-	g_term_lst.exec_status = 126;
+	execlist->g_term_lst.exec_status = 126;
 	exit(126);
 }
 
@@ -41,7 +41,8 @@ static void	find_name_path(char *name_path, size_t *i, t_pars_list *list)
 	ft_strcat(list->name_run_func, list->name_func);
 }
 
-int			exec_fill_way_for_path(char *str_path, t_pars_list *list)
+int			exec_fill_way_for_path(t_exec_lst *execlist, char *str_path,
+				t_pars_list *list)
 {
 	size_t i;
 
@@ -55,7 +56,7 @@ int			exec_fill_way_for_path(char *str_path, t_pars_list *list)
 				if (!access(list->name_run_func, 1))
 					return (1);
 				else
-					error_access_exec(list);
+					error_access_exec(execlist, list);
 			}
 		}
 	return (0);

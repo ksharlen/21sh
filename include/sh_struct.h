@@ -139,7 +139,8 @@ typedef struct				s_pars_list
 */
 typedef struct				s_exec_lst
 {
-	t_start_env				exec_envlist;
+	t_term_var				g_term_lst;
+	char					**g_sh_environ;
 }							t_exec_lst;
 
 typedef struct				s_pipe_list
@@ -231,7 +232,5 @@ typedef struct				s_init
 	t_info_parser			prs;
 	t_exec_lst				execlist;
 }							t_init;
-
-extern t_term_var			g_term_lst;
 
 #endif

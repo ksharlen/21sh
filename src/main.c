@@ -12,8 +12,6 @@
 
 #include "sh.h"
 
-t_term_var	g_term_lst;
-
 static void sh21_finish()
 {
 	ft_strdel_split(g_sh_environ);
@@ -34,7 +32,7 @@ int			main(int argc, char **argv, char **env)
 			break ;
 		else if (init.inp.str_for_parse &&
 			!parser(&(init.inp.str_for_parse), &init.prs))
-				check_choice(init.execlist, init.prs.beg);
+				check_choice(&init.execlist, init.prs.beg);
 		free_befor_exec(&init.prs);
 	}
 	input_finish(&init.inp);

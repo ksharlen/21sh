@@ -12,12 +12,12 @@
 
 #include "exec.h"
 
-t_pipe_list		*new_pipe_list(t_pipe_list *pipelist)
+t_pipe_list		*new_pipe_list(t_exec_lst *execlist, t_pipe_list *pipelist)
 {
 	t_pipe_list	*new_list;
 
 	if (!(new_list = (t_pipe_list *)malloc(sizeof(t_pipe_list))))
-		error_system(EXEC_ERROR_NUM);
+		error_system(execlist, EXEC_ERROR_NUM);
 	new_list->next = NULL;
 	new_list->prev = NULL;
 	new_list->pfd[0] = -1;

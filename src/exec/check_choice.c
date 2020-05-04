@@ -12,7 +12,7 @@
 
 #include "exec.h"
 
-void		check_choice(t_exec_lst execlist, t_pars_list *list)
+void		check_choice(t_exec_lst *execlist, t_pars_list *list)
 {
 	int status;
 

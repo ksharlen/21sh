@@ -12,13 +12,13 @@
 
 #include "exec.h"
 
-static void	error_run_exec(t_pars_list *list)
+static void	error_run_exec(int *exec_status, t_pars_list *list)
 {
 	ft_putstr_fd(STR_ERR_SHELL, STDERR_FILENO);
 	ft_putstr_fd("command not found: ", STDERR_FILENO);
 	ft_putstr_fd(list->name_func, STDERR_FILENO);
 	ft_putchar_fd('\n', STDERR_FILENO);
-	g_term_lst.exec_status = 127;
+	*exec_status = 127;
 	exit(127);
 }
 
@@ -36,7 +36,7 @@ static int	write_name_environ(char *str, char *buf)
 	return (1);
 }
 
-static char	*find_path_param(void)
+static char	*find_path_param(char **g_sh_environ)
 {
 	size_t	i;
 	char	buf[BUFSIZ];
@@ -53,23 +53,22 @@ static char	*find_path_param(void)
 	return (NULL);
 }
 
-void		write_name_run(t_exec_lst execlist, t_pars_list *list)
+void		write_name_run(t_exec_lst *execlist, t_pars_list *list)
 {
 	if (write_this_dir(list))
 		return ;
-	if (exec_fill_way_for_path(find_path_param(), list))
+	if (exec_fill_way_for_path(execlist,
+		find_path_param(execlist->g_sh_environ), list))
 		return ;
-	if (exec_fill_way_for_path(execlist.exec_envlist.path, list))	//TODO можно убрать
-		return ;
-	error_run_exec(list);
+	error_run_exec(&execlist->g_term_lst.exec_status, list);
 }
 
-void		run_exec(int fd, t_pars_list *list)
+void		run_exec(int fd, t_pars_list *list, t_exec_lst *execlist)
 {
 	if (list->f_delimiter & V_DOLLAR)
 		insert_dollar_args(list);
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
-	if (execve(list->name_run_func, list->pars_args, g_sh_environ))
-		error_run_exec(list);
+	if (execve(list->name_run_func, list->pars_args, execlist->g_sh_environ))
+		error_run_exec(&execlist->g_term_lst.exec_status, list);
 }

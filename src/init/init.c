@@ -61,7 +61,6 @@ void		sh21_init(t_init *init, char **env)
 		input_init(&init->inp);
 		init->prs.beg = NULL;
 		init->prs.end = NULL;
-		g_term_lst.tty_name = ttyname(STDOUT_FILENO);
-		init->execlist.exec_envlist = init->env;
+		init->execlist.g_term_lst.tty_name = ttyname(STDOUT_FILENO);
 	}
 }

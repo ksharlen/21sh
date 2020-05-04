@@ -50,7 +50,7 @@ static void	put_end_ampersant(t_pars_list *buf_list, char *str_nbr_ampersant)
 	put_name_func(buf_list, buf_list->nbr_ampersant);
 }
 
-int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
+int			run_ampersant(t_exec_lst *execlist, t_pars_list **list)
 {
 	pid_t		pid;
 	char		str_nbr_ampersant[BUFSIZ];
@@ -58,12 +58,12 @@ int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
 
 	buf_list = *list;
 	if ((pid = fork()) < 0)
-		error_system(EXEC_ERROR_NUM);
+		error_system(execlist, EXEC_ERROR_NUM);
 	if (!pid)
 	{
 		if (!(pid = fork()))
 		{
-			g_term_lst.pid_last = pid;
+			execlist->g_term_lst.pid_last = pid;
 			ft_strcat(str_nbr_ampersant, ft_itoa((*list)->nbr_ampersant));
 			put_nbr_ampersant(str_nbr_ampersant, pid);
 			check_run(execlist, list);
@@ -74,7 +74,7 @@ int			run_ampersant(t_exec_lst execlist, t_pars_list **list)
 		exit(0);
 	}
 	waitpid(pid, &(*list)->status, WUNTRACED);
-	g_term_lst.exec_status = 0;
-	error_system((*list)->status);
+	execlist->g_term_lst.exec_status = 0;
+	error_system(execlist, (*list)->status);
 	return (0);
 }

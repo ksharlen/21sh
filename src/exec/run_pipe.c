@@ -38,7 +38,7 @@ static void		close_pipe_fd(t_pipe_list *pipelist)
 	close_all_fd(buf_pipelist);
 }
 
-static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist,
+static void		cod_child(t_exec_lst *execlist, t_pipe_list **pipelist,
 					t_pars_list *list)
 {
 	t_pipe_list *buf_pipelist;
@@ -61,11 +61,11 @@ static void		cod_child(t_exec_lst execlist, t_pipe_list **pipelist,
 	else
 	{
 		write_name_run(execlist, list);
-		run_exec(buf_pipelist->pfd[0], list);
+		run_exec(buf_pipelist->pfd[0], list, execlist);
 	}
 }
 
-static void		cod_parent(t_exec_lst execlist, pid_t pid,
+static void		cod_parent(t_exec_lst *execlist, pid_t pid,
 					t_pipe_list **pipelist, t_pars_list **list)
 {
 	t_pars_list *buf_list;
@@ -78,19 +78,19 @@ static void		cod_parent(t_exec_lst execlist, pid_t pid,
 	}
 	close_all_fd(*pipelist);
 	waitpid(pid, &buf_list->status, WUNTRACED);
-	error_system(buf_list->status);
+	error_system(execlist, buf_list->status);
 	buf_list->pid = pid;
 }
 
-void			run_pipe(t_exec_lst execlist, t_pipe_list **pipelist,
+void			run_pipe(t_exec_lst *execlist, t_pipe_list **pipelist,
 					t_pars_list **list)
 {
 	pid_t		pid;
 
-	(*pipelist) = new_pipe_list(*pipelist);
+	(*pipelist) = new_pipe_list(execlist, *pipelist);
 	pipe((*pipelist)->pfd);
 	if ((pid = fork()) < 0)
-		error_system(EXEC_ERROR_NUM);
+		error_system(execlist, EXEC_ERROR_NUM);
 	if (!pid)
 		cod_child(execlist, pipelist, (*list));
 	cod_parent(execlist, pid, pipelist, list);

@@ -12,16 +12,16 @@
 
 #include "exec.h"
 
-static void		get_ret_child(const int stat_child)
+static void		get_ret_child(t_exec_lst *execlist, const int stat_child)
 {
 	if (WIFEXITED(stat_child))
-		g_term_lst.ret_child = WEXITSTATUS(stat_child);
+		execlist->g_term_lst.ret_child = WEXITSTATUS(stat_child);
 	else
-		g_term_lst.ret_child = WIFSIGNALED(stat_child);
+		execlist->g_term_lst.ret_child = WIFSIGNALED(stat_child);
 }
 
-void			status_child(int stat_child,
-	pid_t pid_child, char *path_cmd)
+void			status_child(t_exec_lst *execlist, int stat_child,
+					pid_t pid_child, char *path_cmd)
 {
 	char	*lvl_proccess;
 
@@ -43,7 +43,7 @@ void			status_child(int stat_child,
 		ft_printf("\n");
 		print_sig_error(lvl_proccess, pid_child, QUIT, path_cmd);
 	}
-	get_ret_child(stat_child);
+	get_ret_child(execlist, stat_child);
 }
 
 void			handler_child(int sig)
