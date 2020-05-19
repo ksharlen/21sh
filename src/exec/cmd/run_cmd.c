@@ -101,7 +101,7 @@ static void	exec_env(t_exec_lst *execlist, t_pars_list *list)
 		execlist->g_sh_environ = ft_linedup(cpy_environ_src);
 	}
 	else
-		print_env();
+		print_env(execlist);
 	ft_strdel_split(cpy_environ_src);
 	free(cpy_environ_src);
 }

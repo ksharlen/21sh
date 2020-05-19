@@ -47,11 +47,11 @@ static void	init_path(struct s_path *path, char *home_dir)
 	ft_strcpy(path->home_d, home_dir);
 }
 
-void		sh21_init(t_init *init, char **env)
+void		sh21_init(t_init *init, char **env, t_exec_lst *execlist)
 {
 	if (init)
 	{
-		init_env(env);
+		init_env(execlist, env);
 		init_user(&init->u_inf);
 		sh21_init_start_env(&init->execlist, &init->env, &init->u_inf);
 		init_path(&init->path, init->u_inf.home_d);

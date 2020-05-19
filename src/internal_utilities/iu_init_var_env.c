@@ -12,14 +12,12 @@
 
 #include "internal_utilities.h"
 
-char	**g_sh_environ;
-
-void	print_env(void)
+void	print_env(t_exec_lst *execlist)
 {
 	char	**p_environ;
 	char	*str;
 
-	p_environ = g_sh_environ;
+	p_environ = execlist->g_sh_environ;
 	while (p_environ && *p_environ)
 	{
 		str = (*p_environ);
@@ -28,18 +26,18 @@ void	print_env(void)
 	}
 }
 
-void	clean_env(void)
+void	clean_env(t_exec_lst *execlist)
 {
-	ft_strdel_split(g_sh_environ);
+	ft_strdel_split(execlist->g_sh_environ);
 }
 
-void	init_env(char **env)
+void	init_env(t_exec_lst *execlist, char **env)
 {
 	if (env && *env)
-		g_sh_environ = ft_linedup(env);
+		execlist->g_sh_environ = ft_linedup(env);
 	else
 	{
-		g_sh_environ = (char **)ft_memalloc(sizeof(char *) * 1);
-		g_sh_environ[0] = NULL;
+		execlist->g_sh_environ = (char **)ft_memalloc(sizeof(char *) * 1);
+		execlist->g_sh_environ[0] = NULL;
 	}
 }

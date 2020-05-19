@@ -86,7 +86,7 @@ typedef struct			s_env
 	char		**cmd_argv;
 }						t_env;
 
-void					init_env(char **env);
+void					init_env(t_exec_lst *execlist, char **env);
 /*
 **UTILITIES
 */
@@ -116,10 +116,9 @@ struct s_nameval		split_name_val(const char *nameval);
 char					**split_s_key(const char *str);
 void					cd_error(const char *error, const char *filename);
 
-/*
-**TMP
-*/
-void					print_env(void);
-void					clean_env(void);
+
+
+void					print_env(t_exec_lst *execlist);
+void					clean_env(t_exec_lst *execlist);
 
 #endif

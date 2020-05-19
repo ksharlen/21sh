@@ -24,7 +24,7 @@ int			main(int argc, char **argv, char **env)
 	(void)(argc);
 	(void)(argv);
 	(void)(env);
-	sh21_init(&init, env);
+	sh21_init(&init, env, &init.execlist);
 	while (1)
 	{
 		input_begin(&init.execlist, &init.inp);
@@ -53,7 +53,7 @@ int			main(int argc, char **argv, char **env)
 // 	(void)(argc);
 // 	(void)(argv);
 // 	(void)(env);
-// 	sh21_init(&init, env);
+// 	sh21_init(&init, env, &init.execlist);
 // 	init.inp.str_for_parse = ft_strdup("echo $SHLVL$");
 // 	if (!parser(&(init.inp.str_for_parse), &init.prs))
 // 		check_choice(init.execlist, init.prs.beg);

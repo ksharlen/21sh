@@ -26,7 +26,7 @@
 # include "input_init.h"
 # include "history.h"
 
-void			sh21_init(t_init *initi, char **enb);
+void			sh21_init(t_init *initi, char **env, t_exec_lst *execlist);
 void			sh21_init_start_env(t_exec_lst *execlist, struct s_start_env *env,
 					const struct s_user_info *user);
 void			get_struct_for_input(struct s_input *inp, t_init *init);
