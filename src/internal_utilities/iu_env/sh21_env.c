@@ -28,7 +28,7 @@ static int		get_opt(int argc, char **opts, t_env *env)
 	optarg = NULL;
 	optopt = 0;
 	optind = 1;
-	while ((ch = ft_getopt(argc, opts, ENV_OPT)) != -1)
+	while ((ch = getopt(argc, opts, ENV_OPT)) != -1)
 	{
 		if (ch == 'P')
 			env->opt |= F_P;
