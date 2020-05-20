@@ -18,31 +18,71 @@ static void		env_init(t_env *env)
 	env->opt = 0;
 }
 
+static int		fill_env_opt(char *opts, t_env *env)
+{
+	size_t	i;
+
+	i = 0;
+	if (opts[i] == '-')
+		while (opts[++i])
+		{
+			if (opts[i] == 'P')
+				env->opt |= F_P;
+			else if (opts[i] == 'S')
+				env->opt |= F_S;
+			else if (opts[i] == 'i')
+				env->opt |= F_I;
+			else if (opts[i] == 'u')
+				env->opt |= F_U;
+			else
+				return (1);
+		}
+	return (0);
+}
+
+static int		sh_env_getopt(int argc, char **opts, t_env *env)
+{
+	int		i;
+	int		status;
+
+	i = 1;
+	status = 0;
+	if (argc > 1)
+		while (opts[i] && !status)
+			status = fill_env_opt(opts[i++], env);
+	return (status);
+}
+
 static int		get_opt(int argc, char **opts, t_env *env)
 {
-	int				ch;
+	// int				ch;
 	enum e_err		err;
 
-	ch = 0;
+	// ch = 0;
 	err = SUCCESS;
-	optarg = NULL;
-	optopt = 0;
-	optind = 1;
-	while ((ch = getopt(argc, opts, ENV_OPT)) != -1)
+// optarg = NULL;	// левые переменные?
+// optopt = 0;
+// optind = 1;
+	// while ((ch = getopt(argc, opts, ENV_OPT)) != -1)
+	// {
+	// 	if (ch == 'P')
+	// 		env->opt |= F_P;
+	// 	else if (ch == 'S')
+	// 		env->opt |= F_S;
+	// 	else if (ch == 'i')
+	// 		env->opt |= F_I;
+	// 	else if (ch == 'u')
+	// 		env->opt |= F_U;
+	// 	else if (ch == '?')
+	// 	{
+	// 		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
+	// 		return (FAILURE);
+	// 	}
+	// }
+	if (sh_env_getopt(argc, opts, env))
 	{
-		if (ch == 'P')
-			env->opt |= F_P;
-		else if (ch == 'S')
-			env->opt |= F_S;
-		else if (ch == 'i')
-			env->opt |= F_I;
-		else if (ch == 'u')
-			env->opt |= F_U;
-		else if (ch == '?')
-		{
-			ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
-			return (FAILURE);
-		}
+		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
+		return (FAILURE);
 	}
 	return (err);
 }

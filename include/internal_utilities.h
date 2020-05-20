@@ -26,20 +26,20 @@
 /*
 **ERRORS
 */
-# define S_NO_SUCH "no such file or directory:"
-# define S_TOO_MANY "too many arguments"
+# define S_NO_SUCH 		"no such file or directory:"
+# define S_TOO_MANY 	"too many arguments"
 
 /*
 **ENV
 */
-# define NO_SUCH "no such file or directory"
-# define ENV_OPT "P:iu:S:"
-# define USG	"usage: env [-iv] [-P utilpath] [-S string] [-u name]"
-# define USG_1	"[name=value ...] [utility [argument ...]]"
-# define F_P 1
-# define F_I 2
-# define F_U 4
-# define F_S 8
+# define NO_SUCH 		"no such file or directory"
+# define ENV_OPT 		"P:iu:S:"
+# define USG			"usage: env [-iv] [-P utilpath] [-S string] [-u name]"
+# define USG_1			"[name=value ...] [utility [argument ...]]"
+# define F_P			1
+# define F_I			2
+# define F_U 			4
+# define F_S 			8
 
 /*
 **ECHO
