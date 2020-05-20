@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:55:32 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/04/30 02:29:27 by student          ###   ########.fr       */
+/*   Updated: 2020/05/20 22:48:43 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,12 @@ int			main(int argc, char **argv, char **env)
 // 	(void)(argv);
 // 	(void)(env);
 // 	sh21_init(&init, env, &init.execlist);
-// 	init.inp.str_for_parse = ft_strdup("echo $SHLVL$");
-// 	if (!parser(&(init.inp.str_for_parse), &init.prs))
-// 		check_choice(init.execlist, init.prs.beg);
+// 	init.inp.str_for_parse = ft_strdup("env -i; env -S rgrewg");
+// 	if (!parser(&init.execlist, &(init.inp.str_for_parse), &init.prs))
+// 		check_choice(&init.execlist, init.prs.beg);
 // 	free_befor_exec(&init.prs);
+// 	input_begin(&init.execlist, &init.inp);
 // 	input_finish(&init.inp);
-// 	sh21_finish();
+// 	sh21_finish(init.execlist.g_sh_environ);
 // 	return (0);
 // }

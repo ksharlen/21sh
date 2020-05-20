@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 15:16:22 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/29 16:43:37 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/20 22:06:39 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		env_init(t_env *env)
 	env->cmd = NULL;
 	env->opt = 0;
 }
-
+/*
 static int		fill_env_opt(char *opts, t_env *env)
 {
 	size_t	i;
@@ -52,38 +52,38 @@ static int		sh_env_getopt(int argc, char **opts, t_env *env)
 			status = fill_env_opt(opts[i++], env);
 	return (status);
 }
-
+*/
 static int		get_opt(int argc, char **opts, t_env *env)
 {
-	// int				ch;
+	int				ch;
 	enum e_err		err;
 
-	// ch = 0;
+	 ch = 0;
 	err = SUCCESS;
-// optarg = NULL;	// левые переменные?
-// optopt = 0;
-// optind = 1;
-	// while ((ch = getopt(argc, opts, ENV_OPT)) != -1)
-	// {
-	// 	if (ch == 'P')
-	// 		env->opt |= F_P;
-	// 	else if (ch == 'S')
-	// 		env->opt |= F_S;
-	// 	else if (ch == 'i')
-	// 		env->opt |= F_I;
-	// 	else if (ch == 'u')
-	// 		env->opt |= F_U;
-	// 	else if (ch == '?')
-	// 	{
-	// 		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
-	// 		return (FAILURE);
-	// 	}
-	// }
-	if (sh_env_getopt(argc, opts, env))
-	{
-		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
-		return (FAILURE);
-	}
+	optarg = NULL;	// левые переменные?
+	optopt = 0;
+	optind = 1;
+	 while ((ch = getopt(argc, opts, ENV_OPT)) != -1)
+	 {
+	 	if (ch == 'P')
+	 		env->opt |= F_P;
+	 	else if (ch == 'S')
+	 		env->opt |= F_S;
+	 	else if (ch == 'i')
+	 		env->opt |= F_I;
+	 	else if (ch == 'u')
+	 		env->opt |= F_U;
+	 	else if (ch == '?')
+	 	{
+	 		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
+	 		return (FAILURE);
+	 	}
+	 }
+	//if (sh_env_getopt(argc, opts, env))
+	//{
+	//	ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
+	//	return (FAILURE);
+	//}
 	return (err);
 }
 
