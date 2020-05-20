@@ -55,30 +55,9 @@ static int		sh_env_getopt(int argc, char **opts, t_env *env)
 
 static int		get_opt(int argc, char **opts, t_env *env)
 {
-	// int				ch;
 	enum e_err		err;
 
-	//  ch = 0;
 	err = SUCCESS;
-	// optarg = NULL;	// левые переменные?
-	// optopt = 0;
-	// optind = 1;
-	//  while ((ch = getopt(argc, opts, ENV_OPT)) != -1)
-	//  {
-	//  	if (ch == 'P')
-	//  		env->opt |= F_P;
-	//  	else if (ch == 'S')
-	//  		env->opt |= F_S;
-	//  	else if (ch == 'i')
-	//  		env->opt |= F_I;
-	//  	else if (ch == 'u')
-	//  		env->opt |= F_U;
-	//  	else if (ch == '?')
-	//  	{
-	//  		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);
-	//  		return (FAILURE);
-	//  	}
-	//  }
 	if (sh_env_getopt(argc, opts, env))
 	{
 		ft_printf("%v%s\n	   %s\n", STDERR_FILENO, USG, USG_1);

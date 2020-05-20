@@ -45,5 +45,5 @@ void			work_home_dir(const char *old_path, char *new_path)
 
 void			cd_error(const char *error, const char *filename)
 {
-	ft_printf("cd: %s %s\n", error, filename);
+	ft_printf("%vcd: %s %s\n", STDERR_FILENO, error, filename);
 }
