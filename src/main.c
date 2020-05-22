@@ -12,9 +12,9 @@
 
 #include "sh.h"
 
-static void sh21_finish(char **g_sh_environ)
+static void sh21_finish(char **sh_environ)
 {
-	ft_strdel_split(g_sh_environ);
+	ft_strdel_split(sh_environ);
 }
 
 int			main(int argc, char **argv, char **env)
@@ -36,7 +36,7 @@ int			main(int argc, char **argv, char **env)
 		free_befor_exec(&init.prs);
 	}
 	input_finish(&init.inp);
-	sh21_finish(init.execlist.g_sh_environ);
+	sh21_finish(init.execlist.sh_environ);
 	return (0);
 }
 
@@ -60,6 +60,6 @@ int			main(int argc, char **argv, char **env)
 // 	free_befor_exec(&init.prs);
 // 	input_begin(&init.execlist, &init.inp);
 // 	input_finish(&init.inp);
-// 	sh21_finish(init.execlist.g_sh_environ);
+// 	sh21_finish(init.execlist.sh_environ);
 // 	return (0);
 // }

@@ -36,18 +36,18 @@ static int	write_name_environ(char *str, char *buf)
 	return (1);
 }
 
-static char	*find_path_param(char **g_sh_environ)
+static char	*find_path_param(char **sh_environ)
 {
 	size_t	i;
 	char	buf[BUFSIZ];
 	
 	i = 0;
-	while (g_sh_environ && g_sh_environ[i])
+	while (sh_environ && sh_environ[i])
 	{
-		if (g_sh_environ[i][0] == 'P' &&
-			write_name_environ(g_sh_environ[i], buf) &&
+		if (sh_environ[i][0] == 'P' &&
+			write_name_environ(sh_environ[i], buf) &&
 			!ft_strcmp(buf, "PATH"))
-			return (g_sh_environ[i] + 5);
+			return (sh_environ[i] + 5);
 		++i;
 	}
 	return (NULL);
@@ -58,7 +58,7 @@ void		write_name_run(t_exec_lst *execlist, t_pars_list *list)
 	if (write_this_dir(list))
 		return ;
 	if (exec_fill_way_for_path(execlist,
-		find_path_param(execlist->g_sh_environ), list))
+		find_path_param(execlist->sh_environ), list))
 		return ;
 	error_run_exec(&execlist->sh_term_lst.exec_status, list);
 }
@@ -69,6 +69,6 @@ void		run_exec(int fd, t_pars_list *list, t_exec_lst *execlist)
 		insert_dollar_args(execlist, list);
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
-	if (execve(list->name_run_func, list->pars_args, execlist->g_sh_environ))
+	if (execve(list->name_run_func, list->pars_args, execlist->sh_environ))
 		error_run_exec(&execlist->sh_term_lst.exec_status, list);
 }

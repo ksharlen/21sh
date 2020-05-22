@@ -32,8 +32,8 @@ void				work_opt(t_exec_lst *execlist, char *const *p_argv, t_env *env)
 {
 	if (*p_argv && !ft_strcmp(*p_argv, "-i"))
 	{
-		execlist->g_sh_environ = (char **)ft_memalloc(sizeof(char *));
-		execlist->g_sh_environ[0] = NULL;
+		execlist->sh_environ = (char **)ft_memalloc(sizeof(char *));
+		execlist->sh_environ[0] = NULL;
 		++p_argv;
 	}
 	if (p_argv && *p_argv && !ft_strcmp(*p_argv, "-P"))

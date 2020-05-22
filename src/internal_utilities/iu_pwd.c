@@ -19,7 +19,7 @@ int		sh21_pwd(int argc, char *argv[], char *env[])
 	(void)(argv);
 	(void)(env);
 	if (argc > 1)
-		ft_printf("pwd: %v%s\n", STDERR_FILENO, S_TOO_MANY);		// TODO
+		ft_printf("pwd: %v%s\n", STDERR_FILENO, S_TOO_MANY);
 	else
 	{
 		pwd = (char[MAX_SIZE_PATH + 1]){0};

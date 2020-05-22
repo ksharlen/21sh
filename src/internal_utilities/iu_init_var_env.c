@@ -17,7 +17,7 @@ void	print_env(t_exec_lst *execlist)
 	char	**p_environ;
 	char	*str;
 
-	p_environ = execlist->g_sh_environ;
+	p_environ = execlist->sh_environ;
 	while (p_environ && *p_environ)
 	{
 		str = (*p_environ);
@@ -28,16 +28,16 @@ void	print_env(t_exec_lst *execlist)
 
 void	clean_env(t_exec_lst *execlist)
 {
-	ft_strdel_split(execlist->g_sh_environ);
+	ft_strdel_split(execlist->sh_environ);
 }
 
 void	init_env(t_exec_lst *execlist, char **env)
 {
 	if (env && *env)
-		execlist->g_sh_environ = ft_linedup(env);
+		execlist->sh_environ = ft_linedup(env);
 	else
 	{
-		execlist->g_sh_environ = (char **)ft_memalloc(sizeof(char *) * 1);
-		execlist->g_sh_environ[0] = NULL;
+		execlist->sh_environ = (char **)ft_memalloc(sizeof(char *) * 1);
+		execlist->sh_environ[0] = NULL;
 	}
 }

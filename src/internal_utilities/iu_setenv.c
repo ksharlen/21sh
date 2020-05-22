@@ -18,12 +18,12 @@ size_t			find_var_env(t_exec_lst *execlist, const char *name)
 	size_t		len_name;
 
 	i = 0;
-	if (execlist->g_sh_environ && *execlist->g_sh_environ)
-		while (execlist->g_sh_environ[i] && execlist->g_sh_environ[i][0])
+	if (execlist->sh_environ && *execlist->sh_environ)
+		while (execlist->sh_environ[i] && execlist->sh_environ[i][0])
 		{
-			if ((!ft_memcmp(execlist->g_sh_environ[i], name,
+			if ((!ft_memcmp(execlist->sh_environ[i], name,
 				len_name = ft_strnlen(name, '='))) &&
-					execlist->g_sh_environ[i][len_name] == '=')
+					execlist->sh_environ[i][len_name] == '=')
 				return (i);
 			++i;
 		}
@@ -36,13 +36,13 @@ static int		new_val_name(t_exec_lst *execlist, int index, const char *value,
 	char	*buf;
 
 	buf = (char[MAX_SIZE_PATH]){0};
-	ft_strncpy(buf, execlist->g_sh_environ[index], len_name);
+	ft_strncpy(buf, execlist->sh_environ[index], len_name);
 	buf[len_name] = '=';
 	if (index != -1)
 	{
-		ft_strdel(&execlist->g_sh_environ[index]);
-		execlist->g_sh_environ[index] = ft_strjoin(buf, value);
-		if (execlist->g_sh_environ[index])
+		ft_strdel(&execlist->sh_environ[index]);
+		execlist->sh_environ[index] = ft_strjoin(buf, value);
+		if (execlist->sh_environ[index])
 			return (SUCCESS);
 	}
 	return (FAILURE);
@@ -60,7 +60,7 @@ static int		push_new_environ(t_exec_lst *execlist, char **new_environ,
 	ft_strcat(buf, "=");
 	while (i < size_new_env - 1)
 	{
-		new_environ[i] = ft_strdup(execlist->g_sh_environ[i]);
+		new_environ[i] = ft_strdup(execlist->sh_environ[i]);
 		if (!new_environ[i])
 			return (FAILURE);
 		++i;
@@ -78,14 +78,14 @@ static int		create_new_name_val(t_exec_lst *execlist, const char *name,
 	size_t			len_env;
 	char			**new_environ;
 
-	len_env = ft_lineslen(execlist->g_sh_environ) + 1;
+	len_env = ft_lineslen(execlist->sh_environ) + 1;
 	new_environ = (char **)ft_memalloc(sizeof(char *) * (len_env + 1));
 	if (!new_environ)
 		return (FAILURE);
 	push_new_environ(execlist, new_environ, len_env, name, value);
-	ft_strdel_split(execlist->g_sh_environ);
-	free(execlist->g_sh_environ);
-	execlist->g_sh_environ = new_environ;
+	ft_strdel_split(execlist->sh_environ);
+	free(execlist->sh_environ);
+	execlist->sh_environ = new_environ;
 	new_environ = NULL;
 	return (SUCCESS);
 }

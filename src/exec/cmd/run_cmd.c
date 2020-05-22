@@ -88,7 +88,7 @@ static void	exec_env(t_exec_lst *execlist, t_pars_list *list)
 	int		argc;
 
 	argc = ft_lineslen(list->pars_args);
-	cpy_environ_src = ft_linedup(execlist->g_sh_environ);
+	cpy_environ_src = ft_linedup(execlist->sh_environ);
 	sh21_env(execlist, argc, list->pars_args, NULL);
 	list->pars_args = skip_env_flags(list->pars_args, &argc);
 	list->pars_args = skip_env_args(list->pars_args, &argc);
@@ -96,9 +96,9 @@ static void	exec_env(t_exec_lst *execlist, t_pars_list *list)
 	{
 		list->name_func = list->pars_args[0];
 		check_run(execlist, &list);
-		ft_strdel_split(execlist->g_sh_environ);
-		free(execlist->g_sh_environ);
-		execlist->g_sh_environ = ft_linedup(cpy_environ_src);
+		ft_strdel_split(execlist->sh_environ);
+		free(execlist->sh_environ);
+		execlist->sh_environ = ft_linedup(cpy_environ_src);
 	}
 	else
 		print_env(execlist);

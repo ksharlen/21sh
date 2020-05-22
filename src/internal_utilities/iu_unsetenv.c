@@ -22,16 +22,16 @@ static int	push_new_env_without_name(t_exec_lst *execlist, char **new_env,
 	i = 0;
 	j = 0;
 	len_name = ft_strnlen(name, '=');
-	while (i < (len_env - 1) && (execlist->g_sh_environ[j]))
+	while (i < (len_env - 1) && (execlist->sh_environ[j]))
 	{
-		if (!ft_memcmp(execlist->g_sh_environ[j], name, len_name) &&
-			execlist->g_sh_environ[j][len_name] == '=')
+		if (!ft_memcmp(execlist->sh_environ[j], name, len_name) &&
+			execlist->sh_environ[j][len_name] == '=')
 		{
 			j++;
 		}
 		else
 		{
-			new_env[i] = ft_strdup(execlist->g_sh_environ[j]);
+			new_env[i] = ft_strdup(execlist->sh_environ[j]);
 			if (!new_env[i])
 				return (FAILURE);
 			++i;
@@ -48,15 +48,15 @@ static int	delete_var_env(t_exec_lst *execlist, const char *name)
 	char			**new_env;
 	enum e_err		err;
 
-	len_env = ft_lineslen(execlist->g_sh_environ);
+	len_env = ft_lineslen(execlist->sh_environ);
 	new_env = (char **)ft_memalloc(sizeof(char *) * (len_env));
 	if (!new_env)
 		err = FAILURE;
 	err = push_new_env_without_name(execlist, new_env, len_env, name);
-	ft_strdel_split(execlist->g_sh_environ);
-	free(execlist->g_sh_environ);
+	ft_strdel_split(execlist->sh_environ);
+	free(execlist->sh_environ);
 	if (err != FAILURE)
-		execlist->g_sh_environ = new_env;
+		execlist->sh_environ = new_env;
 	return (err);
 }
 
