@@ -15,9 +15,9 @@
 static void		get_ret_child(t_exec_lst *execlist, const int stat_child)
 {
 	if (WIFEXITED(stat_child))
-		execlist->g_term_lst.ret_child = WEXITSTATUS(stat_child);
+		execlist->sh_term_lst.ret_child = WEXITSTATUS(stat_child);
 	else
-		execlist->g_term_lst.ret_child = WIFSIGNALED(stat_child);
+		execlist->sh_term_lst.ret_child = WIFSIGNALED(stat_child);
 }
 
 void			status_child(t_exec_lst *execlist, int stat_child,

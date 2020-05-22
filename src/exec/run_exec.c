@@ -60,7 +60,7 @@ void		write_name_run(t_exec_lst *execlist, t_pars_list *list)
 	if (exec_fill_way_for_path(execlist,
 		find_path_param(execlist->g_sh_environ), list))
 		return ;
-	error_run_exec(&execlist->g_term_lst.exec_status, list);
+	error_run_exec(&execlist->sh_term_lst.exec_status, list);
 }
 
 void		run_exec(int fd, t_pars_list *list, t_exec_lst *execlist)
@@ -70,5 +70,5 @@ void		run_exec(int fd, t_pars_list *list, t_exec_lst *execlist)
 	if (fd > -1)
 		dup_fd_and_close(fd, STDIN_FILENO);
 	if (execve(list->name_run_func, list->pars_args, execlist->g_sh_environ))
-		error_run_exec(&execlist->g_term_lst.exec_status, list);
+		error_run_exec(&execlist->sh_term_lst.exec_status, list);
 }

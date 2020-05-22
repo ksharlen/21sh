@@ -17,7 +17,7 @@ static void	open_std(t_exec_lst *execlist, t_red_stream *buflist, int find_std)
 	int open_fd;
 
 	close(find_std);
-	open_fd = open(execlist->g_term_lst.tty_name, O_RDWR);
+	open_fd = open(execlist->sh_term_lst.tty_name, O_RDWR);
 	dup2(buflist->save_std, open_fd);
 	close(buflist->save_std);
 }

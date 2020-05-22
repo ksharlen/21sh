@@ -130,7 +130,7 @@ static int	find_and_run_cmd(t_exec_lst *execlist, t_pars_list *list)
 		list->status = exit_with_code(list);
 	else if (!ft_strcmp("env", list->name_func))
 		exec_env(execlist, list);
-	return (execlist->g_term_lst.exec_status = list->status);
+	return (execlist->sh_term_lst.exec_status = list->status);
 }
 
 int			run_cmd(t_exec_lst *execlist, t_pars_list *list)

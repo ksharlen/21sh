@@ -41,8 +41,8 @@ static int	run_fork(t_exec_lst *execlist, t_pars_list **list)
 	waitpid(pid, &(*list)->status, WUNTRACED);
 	error_system(execlist, (*list)->status);
 	status_child(execlist, (*list)->status, pid, (*list)->name_run_func);
-	execlist->g_term_lst.pid_last = pid;
-	execlist->g_term_lst.exec_status = (*list)->status;
+	execlist->sh_term_lst.pid_last = pid;
+	execlist->sh_term_lst.exec_status = (*list)->status;
 	return ((*list)->status);
 }
 
@@ -55,10 +55,10 @@ static int	code_pipe(t_exec_lst *execlist, t_pars_list **list)
 	pipelist = &bufpipelist;
 	run_pipe(execlist, pipelist, list);
 	error_system(execlist, (*list)->status);
-	execlist->g_term_lst.exec_status = (*list)->status;
-	execlist->g_term_lst.pid_last = (*list)->pid;
+	execlist->sh_term_lst.exec_status = (*list)->status;
+	execlist->sh_term_lst.pid_last = (*list)->pid;
 	free_pipe_list(*pipelist);
-	return (execlist->g_term_lst.exec_status);
+	return (execlist->sh_term_lst.exec_status);
 }
 
 int			check_run(t_exec_lst *execlist, t_pars_list **list)

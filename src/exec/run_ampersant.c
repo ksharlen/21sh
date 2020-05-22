@@ -63,7 +63,7 @@ int			run_ampersant(t_exec_lst *execlist, t_pars_list **list)
 	{
 		if (!(pid = fork()))
 		{
-			execlist->g_term_lst.pid_last = pid;
+			execlist->sh_term_lst.pid_last = pid;
 			ft_strcat(str_nbr_ampersant, ft_itoa((*list)->nbr_ampersant));
 			put_nbr_ampersant(str_nbr_ampersant, pid);
 			check_run(execlist, list);
@@ -74,7 +74,7 @@ int			run_ampersant(t_exec_lst *execlist, t_pars_list **list)
 		exit(0);
 	}
 	waitpid(pid, &(*list)->status, WUNTRACED);
-	execlist->g_term_lst.exec_status = 0;
+	execlist->sh_term_lst.exec_status = 0;
 	error_system(execlist, (*list)->status);
 	return (0);
 }

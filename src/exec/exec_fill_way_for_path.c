@@ -18,7 +18,7 @@ static void	error_access_exec(t_exec_lst *execlist, t_pars_list *list)
 	ft_putstr_fd("command not access: ", STDERR_FILENO);
 	ft_putstr_fd(list->name_func, STDERR_FILENO);
 	ft_putchar_fd('\n', STDERR_FILENO);
-	execlist->g_term_lst.exec_status = 126;
+	execlist->sh_term_lst.exec_status = 126;
 	exit(126);
 }
 

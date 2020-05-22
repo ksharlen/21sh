@@ -139,7 +139,7 @@ typedef struct				s_pars_list
 */
 typedef struct				s_exec_lst
 {
-	t_term_var				g_term_lst;
+	t_term_var				sh_term_lst;
 	char					**g_sh_environ;
 }							t_exec_lst;
 
