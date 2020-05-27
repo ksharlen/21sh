@@ -44,17 +44,18 @@ char			*pars_insert_tilda(t_exec_lst *execlist, char **str)
 	char	*ptr;
 
 	ptr = *str;
-	while (search_tilda(*str) && *ptr)
-	{
-		if (parse_is_quote(*ptr))
-			ptr = parse_next_quote(ptr);
-		if (*ptr == '~')
+	if (sh21_getenv(execlist, "HOME"))
+		while (search_tilda(*str) && *ptr)
 		{
-			*str = tilda_realloc(execlist, str, ptr);
-			ptr = *str;
+			if (parse_is_quote(*ptr))
+				ptr = parse_next_quote(ptr);
+			if (*ptr == '~')
+			{
+				*str = tilda_realloc(execlist, str, ptr);
+				ptr = *str;
+			}
+			else
+				ptr++;
 		}
-		else
-			ptr++;
-	}
 	return (*str);
 }
