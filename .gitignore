@@ -6,4 +6,5 @@ bin
 .sh_history
 *.dSYM
 .vscode
-.gitignore
+lib/libft/bin
+lib/libft/libft.a

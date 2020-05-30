@@ -64,11 +64,6 @@
 # define DELIM_ERR	"parse error near"
 
 /*
-** TMP
-*/
-# define P_UNUSED(val) (void)(val)
-
-/*
 ** OTHER
 */
 # define NAME_HEREDOC	"/.minishell_heredoc"

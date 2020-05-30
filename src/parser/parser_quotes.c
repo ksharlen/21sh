@@ -45,7 +45,7 @@ char		*parser_quote_arg(char **str, char *splitter)
 	char	*arg;
 
 	arg = NULL;
-	P_UNUSED(splitter);
+	(void)(splitter);
 	if (**str == '\'')
 		arg = get_quote_arg(str);
 	else if (**str == '\"')
