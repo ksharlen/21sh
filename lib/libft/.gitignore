@@ -1,0 +1,5 @@
+bin/
+temp/
+*.a
+a.out
+main.c
