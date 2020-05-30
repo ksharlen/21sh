@@ -88,7 +88,6 @@ SRC_PARSER					:=	parser.c\
 									parser_check_ampersand.c\
 									parser_get_count_args_heredoc.c\
 									parser_check_dollar.c\
-									pars_dollar_env.c
 
 SRC_EXEC					:=	check_choice.c\
 									check_run.c\
@@ -117,7 +116,9 @@ SRC_EXEC					:=	check_choice.c\
 									signal_handler.c\
 									exec_next_list.c\
 									exec_fill_way_for_path.c\
-									exec_redirect_heredoc.c
+									exec_redirect_heredoc.c\
+									pars_dollar_env.c\
+									pars_dollar_shift_args.c
 
 SRCS						:=	$(SRC_MAIN)\
 									$(SRC_INIT)\
