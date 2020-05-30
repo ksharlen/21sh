@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:28:46 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/29 17:02:05 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/30 22:36:02 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		sh21_init_start_env(t_exec_lst *execlist, struct s_start_env *env,
 	sh21_setenv(execlist, "TERM", "xterm-256color", FLAG_OFF);
 	ft_strcpy(env->term, sh21_getenv(execlist, "TERM"));
 	ft_strcpy(env->user, user->user);
-	sh21_setenv(execlist, "USER", user->user, FLAG_ON);
+	sh21_setenv(execlist, "USER", ((struct s_user_info *)user)->user, FLAG_ON);
 	sh21_setenv(execlist, "SHELL", P_N, FLAG_ON);
 	set_shlvl(execlist, env->shlvl);
 	ft_strcpy(env->shell, P_N);

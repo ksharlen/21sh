@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: student <student@student.42.fr>            +#+  +:+       +#+         #
+#    By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 21:51:15 by student           #+#    #+#              #
-#    Updated: 2020/04/30 02:02:55 by student          ###   ########.fr        #
+#    Updated: 2020/05/30 22:31:40 by ksharlen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC_IU						:=	iu_cd_home_dir.c\
 									iu_getenv.c\
 									iu_pwd.c\
 									iu_setenv.c\
+									iu_parser_setenv.c\
 									iu_unsetenv.c\
 									iu_init_var_env.c\
 									operation_env.c\

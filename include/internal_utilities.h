@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 15:20:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/13 19:03:35 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/30 22:34:13 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void					init_env(t_exec_lst *execlist, char **env);
 **UTILITIES
 */
 int						sh21_pwd(int argc, char **argv, char **env);
-int						sh21_setenv(t_exec_lst *execlist, const char *name,
-							const char *value, const int replace);
+int						sh21_setenv(t_exec_lst *execlist, char *name,
+							char *value, const int replace);
 char					*sh21_getenv(t_exec_lst *execlist, const char *name);
 int						sh21_unsetenv(t_exec_lst *execlist, const char *name);
 int						sh21_echo(int argc, char **argv, char **env);
@@ -117,5 +117,6 @@ char					**split_s_key(const char *str);
 void					cd_error(const char *error, const char *filename);
 void					print_env(t_exec_lst *execlist);
 void					clean_env(t_exec_lst *execlist);
+char					*get_value_from_name(char *name);
 
 #endif

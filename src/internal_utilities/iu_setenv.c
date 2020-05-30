@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 18:37:33 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/16 18:42:34 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/30 22:41:08 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,15 @@ static int		create_new_name_val(t_exec_lst *execlist, const char *name,
 	return (SUCCESS);
 }
 
-int				sh21_setenv(t_exec_lst *execlist, const char *name,
-					const char *value, const int replace)
+int				sh21_setenv(t_exec_lst *execlist, char *name,
+					char *value, const int replace)
 {
 	int				index;
 	enum e_err		err;
 
 	err = FAILURE;
+	if ((!value || !(*value)) && name)
+		value = get_value_from_name(name);
 	if (name && value && *name)
 	{
 		index = find_var_env(execlist, name);
