@@ -12,7 +12,7 @@
 
 #include "internal_utilities.h"
 
-static void change_equally_to_zero(char *str)
+static void	change_equally_to_zero(char *str)
 {
 	char *equally;
 
@@ -20,7 +20,7 @@ static void change_equally_to_zero(char *str)
 		*equally = '\0';
 }
 
-char *get_value_from_name(char *name)
+char		*get_value_from_name(char *name)
 {
 	char *value;
 
