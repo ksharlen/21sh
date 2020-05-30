@@ -66,7 +66,7 @@
 /*
 ** OTHER
 */
-# define NAME_HEREDOC	"/.minishell_heredoc"
+# define NAME_HEREDOC	"/.sh_heredoc"
 
 typedef int32_t			t_key;
 
