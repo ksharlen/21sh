@@ -141,6 +141,7 @@ typedef struct				s_exec_lst
 {
 	t_term_var				sh_term_lst;
 	char					**sh_environ;
+	char					path_heredoc[BUFSIZ];
 }							t_exec_lst;
 
 typedef struct				s_pipe_list
