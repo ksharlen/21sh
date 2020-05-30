@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_find_flags_stream.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjonella <tjonella@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 21:00:42 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/03/17 13:20:39 by tjonella         ###   ########.fr       */
+/*   Updated: 2020/03/17 13:20:39 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
