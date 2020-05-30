@@ -19,6 +19,7 @@ static int			add_param_for_heredoc(t_exec_lst *execlist, char *line)
 	fd = new_or_open_file(execlist->path_heredoc, 1);
 	ft_putstr_fd(line, fd);
 	free(line);
+	exec_dup_stream(STDIN_FILENO, fd);
 	return (fd);
 }
 
