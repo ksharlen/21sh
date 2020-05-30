@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_heredoc.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/06 16:03:00 by ksharlen          #+#    #+#             */
+/*   Updated: 2020/02/06 20:42:44 by ksharlen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "input_parse_key.h"
 
-static void gap_clean(t_gapbuf *gap)
+static void	gap_clean(t_gapbuf *gap)
 {
 	gap_clean_buf(gap);
 	free(gap->buf);
@@ -34,7 +46,7 @@ static int	fill_line(const char *delimiter, t_gapbuf *gap, char **line)
 	}
 }
 
-static int get_line(t_exec_lst *execlist, const char *delimiter, char **line)
+static int	get_line(t_exec_lst *execlist, const char *delimiter, char **line)
 {
 	struct s_input	inp;
 
@@ -48,12 +60,12 @@ static int get_line(t_exec_lst *execlist, const char *delimiter, char **line)
 		input_process_key_press(&inp);
 		if (inp.key == KEY_NEW_LINE)
 		{
-			write(STDOUT_FILENO, "\n", 1);		//! куда происходит вывод?
+			write(STDOUT_FILENO, "\n", 1);
 			break ;
 		}
 		else if (inp.key == ('c' & 0x1f))
 		{
-			write(STDOUT_FILENO, "\n", 1);		//! куда происходит вывод?
+			write(STDOUT_FILENO, "\n", 1);
 			gap_clean(&inp.gap);
 			return (BREAK_SIGNAL);
 		}
@@ -61,7 +73,7 @@ static int get_line(t_exec_lst *execlist, const char *delimiter, char **line)
 	return (fill_line(delimiter, &inp.gap, line));
 }
 
-char	*input_heredoc(t_exec_lst *execlist, char *delimeter)
+char		*input_heredoc(t_exec_lst *execlist, char *delimeter)
 {
 	struct termios	cpy;
 	char			buf[SH21_MAX_ARG];

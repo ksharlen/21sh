@@ -72,7 +72,8 @@ void			input_update_rows(struct s_input *inp, struct s_win *wn);
 */
 void			input_history(struct s_input *inp);
 int				search_double_quotes(t_queue *qu);
-void			input_additional_modes(t_exec_lst *execlist, struct s_input *inp);
+void			input_additional_modes(t_exec_lst *execlist,
+					struct s_input *inp);
 void			input_quote_mode(t_exec_lst *execlist, struct s_input *inp);
 void			clean_struct_input(struct s_input *inp);
 void			input_preparation(t_exec_lst *execlist, struct s_input *inp);

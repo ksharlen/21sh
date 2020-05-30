@@ -22,7 +22,8 @@ static void	open_std(t_exec_lst *execlist, t_red_stream *buflist, int find_std)
 	close(buflist->save_std);
 }
 
-static void	check_std(t_exec_lst *execlist, t_red_stream *stream_list, int find_std)
+static void	check_std(t_exec_lst *execlist, t_red_stream *stream_list,
+				int find_std)
 {
 	t_red_stream *buflist;
 

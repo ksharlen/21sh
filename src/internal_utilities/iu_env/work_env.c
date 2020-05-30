@@ -28,7 +28,8 @@ struct s_nameval	split_name_val(const char *nameval)
 	return (nval);
 }
 
-void				work_opt(t_exec_lst *execlist, char *const *p_argv, t_env *env)
+void				work_opt(t_exec_lst *execlist, char *const *p_argv,
+						t_env *env)
 {
 	if (*p_argv && !ft_strcmp(*p_argv, "-i"))
 	{

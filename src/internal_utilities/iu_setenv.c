@@ -49,12 +49,14 @@ static int		new_val_name(t_exec_lst *execlist, int index, const char *value,
 }
 
 static int		push_new_environ(t_exec_lst *execlist, char **new_environ,
-					size_t size_new_env, const char *name, const char *value)
+					const char *name, const char *value)
 {
 	size_t		i;
 	char		*buf;
+	size_t		size_new_env;
 
 	i = 0;
+	size_new_env = ft_lineslen(execlist->sh_environ) + 1;
 	buf = (char[MAX_SIZE_PATH]){0};
 	ft_strcpy(buf, name);
 	ft_strcat(buf, "=");
@@ -82,7 +84,7 @@ static int		create_new_name_val(t_exec_lst *execlist, const char *name,
 	new_environ = (char **)ft_memalloc(sizeof(char *) * (len_env + 1));
 	if (!new_environ)
 		return (FAILURE);
-	push_new_environ(execlist, new_environ, len_env, name, value);
+	push_new_environ(execlist, new_environ, name, value);
 	ft_strdel_split(execlist->sh_environ);
 	free(execlist->sh_environ);
 	execlist->sh_environ = new_environ;

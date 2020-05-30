@@ -110,13 +110,11 @@ int						exit_with_code(t_pars_list *list);
 */
 char *const				*u_flag(t_exec_lst *execlist, char *const argv[]);
 char					**s_flag(const char *str);
-char *const				*change_value_name(t_exec_lst *execlist, char *const argv[]);
+char *const				*change_value_name(t_exec_lst *execlist,
+							char *const argv[]);
 struct s_nameval		split_name_val(const char *nameval);
 char					**split_s_key(const char *str);
 void					cd_error(const char *error, const char *filename);
-
-
-
 void					print_env(t_exec_lst *execlist);
 void					clean_env(t_exec_lst *execlist);
 

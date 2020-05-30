@@ -49,13 +49,15 @@ void			free_pipe_list(t_pipe_list *pipelist);
 int				stream_close_fd(t_red_stream *stream_list);
 void			error_system(t_exec_lst *execlist, int status);
 void			stream_save_std(t_red_stream *stream_list);
-void			close_and_open_std(t_exec_lst *execlist, t_red_stream *stream_list);
+void			close_and_open_std(t_exec_lst *execlist,
+					t_red_stream *stream_list);
 int				write_this_dir(t_pars_list *list);
 void			free_befor_exec(t_info_parser *prs);
 int				exec_dup_stream(int oldfd, int newfd);
 void			exec_next_list(int status, t_pars_list **list);
 void			write_name_run(t_exec_lst *execlist, t_pars_list *list);
-int				exec_fill_way_for_path(t_exec_lst *execlist, char *str_path, t_pars_list *list);
+int				exec_fill_way_for_path(t_exec_lst *execlist, char *str_path,
+					t_pars_list *list);
 void			exec_redirect_heredoc(t_exec_lst *execlist, t_pars_list *list);
 void			insert_dollar_args(t_exec_lst *execlist, t_pars_list *list);
 char			**pars_dollar_shift_args(char **pars_args, int i);

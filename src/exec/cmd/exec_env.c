@@ -12,29 +12,6 @@
 
 #include "exec.h"
 
-//TODO: need remake
-// static char	**skip_env_args(char **parse_list, int *argc)
-// {
-// 	int		i;
-// 	char	**new_args;
-// 	size_t	skip_args;
-// 	char	**cpy_prs;
-
-// 	i = 0;
-// 	skip_args = 0;
-// 	cpy_prs = parse_list;
-// 	while ((i < *argc) && parse_list[i] && (ft_strchr(parse_list[i], '=')))
-// 	{
-// 		++skip_args;
-// 		++parse_list;
-// 		++i;
-// 	}
-// 	new_args = ft_linedup(parse_list);
-// 	ft_strdel_split(cpy_prs);
-// 	*argc -= skip_args;
-// 	return (new_args);
-// }
-
 static char	**skip_env_args(char **parse_list, int *argc)
 {
 	char	**new_args;

@@ -37,5 +37,5 @@ static char		**pars_get_point_args(char **pars_args, int i)
 char			**pars_dollar_shift_args(char **pars_args, int i)
 {
 	pars_shift_args(pars_args, i);
-	return(pars_get_point_args(pars_args, i));
+	return (pars_get_point_args(pars_args, i));
 }

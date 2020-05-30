@@ -40,7 +40,7 @@ static char	*find_path_param(char **sh_environ)
 {
 	size_t	i;
 	char	buf[BUFSIZ];
-	
+
 	i = 0;
 	while (sh_environ && sh_environ[i])
 	{

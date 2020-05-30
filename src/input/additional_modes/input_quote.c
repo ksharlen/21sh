@@ -52,7 +52,8 @@ static char	line_form(struct s_input *inp, char search_qt, char *src_str)
 	return (close_qt);
 }
 
-static void	quote_mode(t_exec_lst *execlist, struct s_input *inp, char search_qt, char *src_str)
+static void	quote_mode(t_exec_lst *execlist, struct s_input *inp,
+				char search_qt, char *src_str)
 {
 	char	close_qt;
 

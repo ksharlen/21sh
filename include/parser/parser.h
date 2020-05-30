@@ -21,7 +21,8 @@
 # include "sh_struct.h"
 # include "internal_utilities.h"
 
-int				parser(t_exec_lst *execlist, char **str_for_parse, t_info_parser *prs);
+int				parser(t_exec_lst *execlist, char **str_for_parse,
+					t_info_parser *prs);
 void			parser_add_list(t_info_parser *prs);
 char			*parser_skip_quotes(char *str, char *splitter);
 char			*find_delimiter(char *str);
