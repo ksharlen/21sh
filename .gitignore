@@ -6,3 +6,5 @@ bin
 .sh_history
 *.dSYM
 .vscode
+lib/libft/bin
+lib/libft/libft.a

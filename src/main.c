@@ -28,7 +28,7 @@ int			main(int argc, char **argv, char **env)
 	while (1)
 	{
 		input_begin(&init.execlist, &init.inp);
-		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)))
+		if ((!init.inp.str_for_parse && init.inp.key == ('d' & 0x1f)))		// для сдачи проекта нужно удалить
 			break ;
 		else if (init.inp.str_for_parse &&
 			!parser(&init.execlist, &(init.inp.str_for_parse), &init.prs))
@@ -39,12 +39,6 @@ int			main(int argc, char **argv, char **env)
 	sh21_finish(init.execlist.sh_environ);
 	return (0);
 }
-
-//* (+) "$> ls 1>&-" - ломается шелл (предположительно, в парсинге)
-//* (+) "$> ls & pwd" - падает шелл в функции find_delimiter строка 69
-
-//* (-) "$> ls & && pwd" "$> ls & || pwd" "$> ls &| pwd" -работают
-//		если первые варианты ещё допустимы, то третий вариант нет.
 
 // int		main(int argc, char **argv, char **env)
 // {
