@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/04/29 23:33:56 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/30 23:29:07 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static int	check_ext_key(struct s_input *inp)
 	{
 		input_put_new_line(inp);
 		clean_struct_input(inp);
+		entry_canon(&inp->cfg_cpy);
 		ext_key = IS_CTR_C;
 	}
 	return (ext_key);
