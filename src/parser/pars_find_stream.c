@@ -70,7 +70,8 @@ char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 				str = pars_stream_in_list(str, splitter,
 					list->stream_list->end->prev);
 			else
-				str = pars_stream_in_list(str, splitter, list->stream_list->end);
+				str = pars_stream_in_list(str, splitter,
+					list->stream_list->end);
 		}
 	}
 	return (str);
