@@ -71,7 +71,6 @@ static void		cod_parent(t_exec_lst *execlist, pid_t pid,
 	t_pars_list *buf_list;
 
 	buf_list = (*list);
-	stream_and_file(execlist, buf_list);
 	if ((buf_list->next) && (buf_list->f_delimiter & F_PIPE))
 	{
 		(*list) = (*list)->next;
@@ -90,6 +89,7 @@ void			run_pipe(t_exec_lst *execlist, t_pipe_list **pipelist,
 
 	(*pipelist) = new_pipe_list(execlist, *pipelist);
 	pipe((*pipelist)->pfd);
+	stream_and_file(execlist, *list);
 	if ((pid = fork()) < 0)
 		error_system(execlist, EXEC_ERROR_NUM);
 	if (!pid)
