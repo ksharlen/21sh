@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 22:10:43 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/05/30 23:29:07 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/31 15:29:23 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ void		input_preparation(t_exec_lst *execlist, struct s_input *inp)
 	ft_strdel(&inp->str_for_parse);
 	gap_clean_buf(&inp->gap);
 	entry_not_canon(&inp->cfg_cpy);
+	if (get_pos_cursor().x > 1)
+		write(STDOUT_FILENO, "\n", 1);
+	input_greeting(&inp->greet);
 	inp->win = get_win_size();
 	inp->cr = get_pos_cursor();
 	--inp->cr.x;
@@ -80,7 +83,6 @@ void		input_begin(t_exec_lst *execlist, struct s_input *inp)
 
 	inp->greet.mode = MODE_DFLT;
 	input_greeting_init(execlist, &inp->greet, &inp->u_info);
-	input_greeting(&inp->greet);
 	input_preparation(execlist, inp);
 	while (inp->key != KEY_NEW_LINE)
 	{
