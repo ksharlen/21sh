@@ -71,12 +71,12 @@ static void		cod_parent(t_exec_lst *execlist, pid_t pid,
 	t_pars_list *buf_list;
 
 	buf_list = (*list);
+	stream_and_file(execlist, buf_list);
 	if ((buf_list->next) && (buf_list->f_delimiter & F_PIPE))
 	{
 		(*list) = (*list)->next;
 		run_pipe(execlist, pipelist, list);
 	}
-	stream_and_file(execlist, buf_list);
 	close_all_fd(*pipelist);
 	waitpid(pid, &buf_list->status, WUNTRACED);
 	error_system(execlist, buf_list->status);
