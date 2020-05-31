@@ -47,15 +47,6 @@ static void	init_path(struct s_path *path, char *home_dir)
 	ft_strcpy(path->home_d, home_dir);
 }
 
-static void	fill_path_heredoc(char *path_heredoc)
-{
-	char	this_dir[BUFSIZ];
-
-	getcwd(this_dir, BUFSIZ);
-	ft_strcpy(path_heredoc, this_dir);
-	ft_strcat(path_heredoc, NAME_HEREDOC);
-}
-
 void		sh21_init(t_init *init, char **env, t_exec_lst *execlist)
 {
 	if (init)
@@ -71,6 +62,5 @@ void		sh21_init(t_init *init, char **env, t_exec_lst *execlist)
 		init->prs.beg = NULL;
 		init->prs.end = NULL;
 		init->execlist.sh_term_lst.tty_name = ttyname(STDOUT_FILENO);
-		fill_path_heredoc(init->execlist.path_heredoc);
 	}
 }
