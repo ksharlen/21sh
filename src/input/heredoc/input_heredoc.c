@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:03:00 by ksharlen          #+#    #+#             */
-/*   Updated: 2020/02/06 20:42:44 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/31 17:51:20 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,23 @@ static int	get_line(t_exec_lst *execlist, const char *delimiter, char **line)
 		{
 			write(STDOUT_FILENO, "\n", 1);
 			gap_clean(&inp.gap);
+			entry_canon(&inp.cfg_cpy);
 			return (BREAK_SIGNAL);
 		}
 	}
+	entry_canon(&inp.cfg_cpy);
 	return (fill_line(delimiter, &inp.gap, line));
 }
 
 char		*input_heredoc(t_exec_lst *execlist, char *delimeter)
 {
-	struct termios	cpy;
+	// struct termios	cpy;
 	char			buf[SH21_MAX_ARG];
 	int				st_heredoc;
 	char			*line;
 
 	line = NULL;
-	entry_not_canon(&cpy);
+	// entry_not_canon(&cpy);
 	ft_bzero(buf, SH21_MAX_ARG);
 	while (1)
 	{
@@ -89,11 +91,12 @@ char		*input_heredoc(t_exec_lst *execlist, char *delimeter)
 		if (st_heredoc == IS_FOUND_DELIMITER || st_heredoc == BREAK_SIGNAL)
 		{
 			ft_strdel(&line);
+			// entry_canon(&cpy);
 			break ;
 		}
 		ft_strcat(buf, line);
 		ft_strdel(&line);
+		// entry_canon(&cpy);
 	}
-	entry_canon(&cpy);
 	return (st_heredoc == BREAK_SIGNAL ? NULL : ft_strdup(buf));
 }
