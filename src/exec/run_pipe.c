@@ -76,6 +76,7 @@ static void		cod_parent(t_exec_lst *execlist, pid_t pid,
 		(*list) = (*list)->next;
 		run_pipe(execlist, pipelist, list);
 	}
+	stream_and_file(execlist, buf_list);
 	close_all_fd(*pipelist);
 	waitpid(pid, &buf_list->status, WUNTRACED);
 	error_system(execlist, buf_list->status);
