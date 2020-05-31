@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_find_stream.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdelphia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 22:35:05 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/03/20 19:26:09 by mdelphia         ###   ########.fr       */
+/*   Updated: 2020/05/31 15:07:15 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ int			check_valid_char_name(char sym)
 
 static int	check_stream(char *str, char *splitter)
 {
+	char *p_str;
+
+	p_str = str;
 	while (str != splitter && !ft_isspace(*str))
 	{
-		if (*str == '>' || *str == '<')
+		if (p_str != str && (*str == '>' || *str == '<'))
 		{
 			if (*(str - 1) == '&')
 				return (2);
@@ -58,14 +61,17 @@ char		*pars_find_stream(char *str, char *splitter, t_pars_list *list)
 {
 	int	nbrlst;
 
-	if ((nbrlst = check_stream(str, splitter)))
+	if (str && *str)
 	{
-		add_lst_stream(&list->stream_list, nbrlst);
-		if (nbrlst == 2)
-			str = pars_stream_in_list(str, splitter,
-				list->stream_list->end->prev);
-		else
-			str = pars_stream_in_list(str, splitter, list->stream_list->end);
+		if ((nbrlst = check_stream(str, splitter)))
+		{
+			add_lst_stream(&list->stream_list, nbrlst);
+			if (nbrlst == 2)
+				str = pars_stream_in_list(str, splitter,
+					list->stream_list->end->prev);
+			else
+				str = pars_stream_in_list(str, splitter, list->stream_list->end);
+		}
 	}
 	return (str);
 }
