@@ -17,10 +17,8 @@ static void					parse_str_cursor(char *buf)
 	size_t	i;
 
 	i = 0;
-	while (i < 32) //&& input_read(STDIN_FILENO, &buf[i], 1) > 0)
+	while (i < 32)
 	{
-	// write(STDOUT_FILENO, "hello wrold", 11);
-		// if (input_read(STDIN_FILENO, &buf[i], 1) > 0)
 		input_read(STDIN_FILENO, &buf[i], 1);
 		if (buf[i] == 'R')
 		{
