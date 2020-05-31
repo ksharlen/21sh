@@ -6,7 +6,7 @@
 /*   By: ksharlen <ksharlen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 22:35:05 by mdelphia          #+#    #+#             */
-/*   Updated: 2020/05/31 15:07:15 by ksharlen         ###   ########.fr       */
+/*   Updated: 2020/05/31 15:11:25 by ksharlen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int	check_stream(char *str, char *splitter)
 	p_str = str;
 	while (str != splitter && !ft_isspace(*str))
 	{
-		if (p_str != str && (*str == '>' || *str == '<'))
+		if (*str == '>' || *str == '<')
 		{
-			if (*(str - 1) == '&')
+			if (p_str != str && *(str - 1) == '&')
 				return (2);
 			else
 				return (1);
