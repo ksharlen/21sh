@@ -51,7 +51,7 @@ void			error_system(t_exec_lst *execlist, int status);
 void			stream_save_std(t_red_stream *stream_list);
 void			close_and_open_std(t_exec_lst *execlist,
 					t_red_stream *stream_list);
-int				write_this_dir(t_pars_list *list);
+int				write_this_dir(t_pars_list *list, char *name_func);
 void			free_befor_exec(t_info_parser *prs);
 int				exec_dup_stream(int oldfd, int newfd);
 void			exec_next_list(int status, t_pars_list **list);

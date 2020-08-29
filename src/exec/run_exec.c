@@ -55,7 +55,7 @@ static char	*find_path_param(char **sh_environ)
 
 void		write_name_run(t_exec_lst *execlist, t_pars_list *list)
 {
-	if (write_this_dir(list))
+	if (write_this_dir(list, list->name_func))
 		return ;
 	if (exec_fill_way_for_path(execlist,
 		find_path_param(execlist->sh_environ), list))

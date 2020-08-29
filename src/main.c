@@ -12,6 +12,8 @@
 
 #include "sh.h"
 
+// TODO восстановить флаги в мейке
+
 static void	sh21_finish(char **sh_environ)
 {
 	ft_strdel_split(sh_environ);

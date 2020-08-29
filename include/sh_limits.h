@@ -44,6 +44,8 @@
 # define V_DOLLAR		32
 
 # define EXEC_ERROR_NUM 254
+# define ERROR_RUN_CMD  1
+# define GOOD_RUN_CMD   0
 
 /*
 ** FOR SIGNALS

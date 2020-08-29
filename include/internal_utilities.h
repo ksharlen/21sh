@@ -22,6 +22,7 @@
 
 # include "libft.h"
 # include "sh_struct.h"
+# include "exec.h"
 
 /*
 **ERRORS
@@ -104,6 +105,7 @@ size_t					find_var_env(t_exec_lst *execlist, const char *name);
 void					work_opt(t_exec_lst *execlist, char *const *p_argv,
 							t_env *env);
 int						exit_with_code(t_pars_list *list);
+int						iu_type(t_exec_lst *execlist, t_pars_list *list);
 
 /*
 **WORK_FLAGS

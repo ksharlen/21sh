@@ -59,7 +59,8 @@ SRC_IU						:=	iu_cd_home_dir.c\
 									operation_env.c\
 									sh21_env.c\
 									work_env.c\
-									exit_with_code.c
+									exit_with_code.c\
+									iu_type.c
 
 SRC_HIST					:=	history_init.c\
 									history_fill_flist.c\
@@ -203,7 +204,7 @@ DIR_LIBFT					:=	./lib/libft/
 DIR_LIBFT_INCLUDE			:=	$(DIR_LIBFT)include/
 
 
-CFLAGS						:=	-g -Wall -Wextra -Werror
+CFLAGS						:=	#-g -Wall -Wextra -Werror
 DIR_OBJ						:=	./obj/
 OBJS_WITH_PATH				:=	$(addprefix $(DIR_OBJ), $(OBJS))
 PATH_HEADERS				:=	$(addprefix -I , $(DIRS_INCLUDE) $(DIR_LIBFT_INCLUDE))

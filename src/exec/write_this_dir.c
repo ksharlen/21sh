@@ -20,13 +20,13 @@ static int	exec_check_valid_file(t_pars_list *list)
 	return (0);
 }
 
-int			write_this_dir(t_pars_list *list)
+int			write_this_dir(t_pars_list *list, char *name_func)
 {
-	ft_strcpy(list->name_run_func, list->name_func);
+	ft_strcpy(list->name_run_func, name_func);
 	if (exec_check_valid_file(list))
 		return (1);
 	ft_strcpy(list->name_run_func, "./");
-	ft_strcat(list->name_run_func, list->name_func);
+	ft_strcat(list->name_run_func, name_func);
 	if (exec_check_valid_file(list))
 		return (1);
 	return (0);
