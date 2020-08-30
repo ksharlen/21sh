@@ -204,7 +204,7 @@ DIR_LIBFT					:=	./lib/libft/
 DIR_LIBFT_INCLUDE			:=	$(DIR_LIBFT)include/
 
 
-CFLAGS						:=	#-g -Wall -Wextra -Werror
+CFLAGS						:=	-g -Wall -Wextra -Werror
 DIR_OBJ						:=	./obj/
 OBJS_WITH_PATH				:=	$(addprefix $(DIR_OBJ), $(OBJS))
 PATH_HEADERS				:=	$(addprefix -I , $(DIRS_INCLUDE) $(DIR_LIBFT_INCLUDE))

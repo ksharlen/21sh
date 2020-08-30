@@ -22,7 +22,8 @@ static void	error_access_exec(t_exec_lst *execlist, t_pars_list *list)
 	exit(126);
 }
 
-static void	find_name_path(char *name_path, size_t *i, t_pars_list *list)
+void		find_name_path(char *name_path, size_t *i, t_pars_list *list,
+				char *name_func)
 {
 	size_t j;
 
@@ -38,7 +39,7 @@ static void	find_name_path(char *name_path, size_t *i, t_pars_list *list)
 	}
 	list->name_run_func[j] = '\0';
 	ft_strcat(list->name_run_func, "/");
-	ft_strcat(list->name_run_func, list->name_func);
+	ft_strcat(list->name_run_func, name_func);
 }
 
 int			exec_fill_way_for_path(t_exec_lst *execlist, char *str_path,
@@ -50,7 +51,7 @@ int			exec_fill_way_for_path(t_exec_lst *execlist, char *str_path,
 	if (str_path)
 		while (str_path[i])
 		{
-			find_name_path(str_path, &i, list);
+			find_name_path(str_path, &i, list, list->name_func);
 			if (!access(list->name_run_func, 0))
 			{
 				if (!access(list->name_run_func, 1))

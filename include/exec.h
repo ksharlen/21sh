@@ -61,6 +61,9 @@ int				exec_fill_way_for_path(t_exec_lst *execlist, char *str_path,
 void			exec_redirect_heredoc(t_exec_lst *execlist, t_pars_list *list);
 void			insert_dollar_args(t_exec_lst *execlist, t_pars_list *list);
 char			**pars_dollar_shift_args(char **pars_args, int i);
+char			*find_path_param(char **sh_environ);
+void			find_name_path(char *name_path, size_t *i, t_pars_list *list,
+					char *name_func);
 /*
 ** comands
 */

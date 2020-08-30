@@ -34,20 +34,22 @@ static int	write_name_environ(char *str, char *buf)
 	}
 	buf[i] = '\0';
 	return (1);
-}
+}	 
 
-static char	*find_path_param(char **sh_environ)
+char		*find_path_param(char **sh_environ)
 {
 	size_t	i;
+	short	shift_to_start_path;
 	char	buf[BUFSIZ];
 
 	i = 0;
+	shift_to_start_path = 5;
 	while (sh_environ && sh_environ[i])
 	{
 		if (sh_environ[i][0] == 'P' &&
 			write_name_environ(sh_environ[i], buf) &&
 			!ft_strcmp(buf, "PATH"))
-			return (sh_environ[i] + 5);
+			return (sh_environ[i] + shift_to_start_path);
 		++i;
 	}
 	return (NULL);
