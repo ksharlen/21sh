@@ -19,6 +19,13 @@ static int	valid_cmd(t_pars_list *list, char *args)
 	return (0);
 }
 
+static int	check_option_type(char opt)
+{
+	if (!ft_isalpha(opt) && opt != '.')
+		return (1);
+	return (0);
+}
+
 int			iu_type(t_exec_lst *execlist, t_pars_list *list)
 {
 	int status;
@@ -29,21 +36,17 @@ int			iu_type(t_exec_lst *execlist, t_pars_list *list)
 	while (*(++args))
 	{
 		if (check_cmd(*args))
-		{
-			ft_putstr(*args);
-			ft_putstr(" is a shell builtin\n");
-		}
+			ft_printf("%s is a shell builtin\n", *args);
 		else if (valid_cmd(list, *args))
+			ft_printf("%s is %s\n", *args, list->name_run_func);
+		else if (check_option_type(**args))
 		{
-			ft_putstr(*args);
-			ft_putstr(" is ");
-			ft_putstr(list->name_run_func);
-			ft_putchar('\n');
+			ft_printf("type: bad option: %s\n", *args);
+			status = ERROR_RUN_CMD;
 		}
 		else
 		{
-			ft_putstr(*args);
-			ft_putstr(" not found\n");
+			ft_printf("%s not found\n", *args);
 			status = ERROR_RUN_CMD;
 		}
 	}
