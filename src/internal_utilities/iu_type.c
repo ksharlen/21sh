@@ -37,11 +37,6 @@ static int	valid_cmd(t_exec_lst *execlist, t_pars_list *list, char *args)
 	return (0);
 }
 
-static int	check_opt_type(char opt)
-{
-	return (!ft_isalpha(opt) && opt != '.');
-}
-
 static void	put_res_type_args(t_exec_lst *execlist, t_pars_list *list,
 				char *args, int *status)
 {
@@ -49,7 +44,7 @@ static void	put_res_type_args(t_exec_lst *execlist, t_pars_list *list,
 		ft_printf("%s is a shell builtin\n", args);
 	else if (valid_cmd(execlist, list, args))
 		ft_printf("%s is %s\n", args, list->name_run_func);
-	else if (check_opt_type(*args))
+	else if (*args == '-')
 	{
 		ft_printf("type: bad option: %s\n", args);
 		*status = ERROR_RUN_CMD;
